@@ -20,3 +20,17 @@ Processing by ApplicationController#hello as HTML
 Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for ::1 at 2016-06-28 12:48:46 -0500
+Processing by ApplicationController#hello as HTML
+  Rendering html template
+  Rendered html template (0.0ms)
+Completed 200 OK in 17ms (Views: 8.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-06-28 12:49:13 -0500
+Processing by ApplicationController#hello as HTML
+  Rendering html template
+  Rendered html template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms)
+
+
