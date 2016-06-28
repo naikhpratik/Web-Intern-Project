@@ -1,0 +1,22 @@
+Started GET "/" for ::1 at 2016-06-28 00:35:41 -0500
+  
+SyntaxError (/Users/Naik/workspace/C3Suite/app/controllers/application_controller.rb:5: syntax error, unexpected ':', expecting keyword_end
+    render html : "Hello, World!"
+                 ^):
+  
+app/controllers/application_controller.rb:5: syntax error, unexpected ':', expecting keyword_end
+  Rendering /Users/Naik/.rvm/gems/ruby-2.3.1@global/gems/actionpack-5.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/Naik/.rvm/gems/ruby-2.3.1@global/gems/actionpack-5.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/Naik/.rvm/gems/ruby-2.3.1@global/gems/actionpack-5.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.0ms)
+  Rendering /Users/Naik/.rvm/gems/ruby-2.3.1@global/gems/actionpack-5.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/Naik/.rvm/gems/ruby-2.3.1@global/gems/actionpack-5.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendering /Users/Naik/.rvm/gems/ruby-2.3.1@global/gems/actionpack-5.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/Naik/.rvm/gems/ruby-2.3.1@global/gems/actionpack-5.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (8.8ms)
+  Rendered /Users/Naik/.rvm/gems/ruby-2.3.1@global/gems/actionpack-5.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (85.5ms)
+Started GET "/" for ::1 at 2016-06-28 00:36:50 -0500
+Processing by ApplicationController#hello as HTML
+  Rendering html template
+  Rendered html template (0.0ms)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+
+
