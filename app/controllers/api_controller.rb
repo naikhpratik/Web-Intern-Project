@@ -1,6 +1,6 @@
 class ApiController < ApplicationController
 
-  layout false
+  #layout false
 
   def index
   end
