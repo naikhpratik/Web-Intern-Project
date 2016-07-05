@@ -14,7 +14,7 @@ application up and running.
 ## Install GPG
 
 * Run the following commands:
-    $ brew install gpg
+    $ brew install gpg  
     $ command curl -sSL https://rvm.io/mpapis.asc | gpg --import -
 
 ## Install RVM
