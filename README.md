@@ -39,10 +39,13 @@ application up and running.
 
 * Run  
     $ gem -v (Should be 2.5.1 or higher)
+
 * update  
     $ gem update --system
+
 * Display a list of gemsets   
     $ rvm gemset list
+
 * RVM’s Global Gemset  
     $ rvm gemset use global  
     $ gem list
@@ -51,6 +54,7 @@ application up and running.
 
 * Run  
     $ gem install bundler
+
 * Install dependency for the gem  
     $ gem install nokogiri
 
@@ -58,6 +62,7 @@ application up and running.
 
 * Run  
     $ gem install rails
+
 * Verify that the correct version of Rails is installed:  
     $ rails -v
 
@@ -68,6 +73,7 @@ application up and running.
 * Run  
     $ mkdir Workspace   
     $ cd Workspace
+    
 * Clone the project from the repository to this Workspace
 
 ## Examine the code or run the application:
