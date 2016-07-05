@@ -13,7 +13,7 @@ application up and running.
 
 ## Install GPG
 
-* Run the following commands:
+* Run the following commands:  
     $ brew install gpg  
     $ command curl -sSL https://rvm.io/mpapis.asc | gpg --import -
 
