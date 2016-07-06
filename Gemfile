@@ -1,19 +1,10 @@
 source 'https://rubygems.org'
 
-<<<<<<< HEAD
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '>= 5.0.0.rc2', '< 5.1'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.3.18', '< 0.5'
-=======
-gem 'bcrypt-ruby'
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '>= 5.0.0.rc2', '< 5.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
-#gem 'mongoid'
->>>>>>> 79f79d920b758f11a8723e345a9db67daadeb68f
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -24,11 +15,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-<<<<<<< HEAD
 gem 'bcrypt-ruby'
-=======
-gem 'grape'
->>>>>>> 79f79d920b758f11a8723e345a9db67daadeb68f
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

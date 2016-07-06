@@ -73,11 +73,7 @@ application up and running.
 * Run  
     $ mkdir Workspace   
     $ cd Workspace
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> 79f79d920b758f11a8723e345a9db67daadeb68f
 * Clone the project from the repository to this Workspace
 
 ## Examine the code or run the application:
