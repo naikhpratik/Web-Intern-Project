@@ -3,18 +3,28 @@ Rails.application.routes.draw do
   #get 'sessions/new'
   get 'sessions/create'
   get 'sessions/destroy'
+<<<<<<< HEAD
   #get 'users/new'
+=======
+>>>>>>> 79f79d920b758f11a8723e345a9db67daadeb68f
 
   resources :users
 
   #get 'api/index'
 
+<<<<<<< HEAD
 
   #get 'sessions' => 'sessions#new'
   #get 'users' => 'users#new'
   #get 'search' => 'search#index'
   #get 'logout' => 'sessions#destroy'
   get 'admin' => 'admin#index'
+=======
+  get 'admin' => 'admin#index'
+  #get 'search' => 'search#index'
+  #get 'logout' => 'sessions#destroy'
+
+>>>>>>> 79f79d920b758f11a8723e345a9db67daadeb68f
   controller :sessions do
     get  'login' => :new
     post 'login' => :create

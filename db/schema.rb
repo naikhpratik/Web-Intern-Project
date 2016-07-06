@@ -10,9 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160706173135) do
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+=======
+ActiveRecord::Schema.define(version: 20160630045325) do
+
+  create_table "users", force: :cascade do |t|
+>>>>>>> 79f79d920b758f11a8723e345a9db67daadeb68f
     t.string   "name"
     t.string   "password_digest"
     t.datetime "created_at",      null: false

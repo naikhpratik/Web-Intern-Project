@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # MySQL. Versions 5.0 and up are supported.
 #
 # Install the MySQL driver
@@ -20,12 +21,29 @@ default: &default
 development:
   <<: *default
   database: C3Suite_development
+=======
+# SQLite version 3.x
+#   gem install sqlite3
+#
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem 'sqlite3'
+#
+default: &default
+  adapter: sqlite3
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: db/development.sqlite3
+>>>>>>> 79f79d920b758f11a8723e345a9db67daadeb68f
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
+<<<<<<< HEAD
   database: C3Suite_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
@@ -52,3 +70,10 @@ production:
   database: C3Suite_production
   username: C3Suite
   password: <%= ENV['PASSWORD'] %>
+=======
+  database: db/test.sqlite3
+
+production:
+  <<: *default
+  database: db/production.sqlite3
+>>>>>>> 79f79d920b758f11a8723e345a9db67daadeb68f
