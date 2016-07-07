@@ -83,7 +83,3 @@ application up and running.
     $ rails server
 
 * Use your web browser to visit the application at http://localhost:3000
-=======
-* ...
-* 
->>>>>>> upstream/master
