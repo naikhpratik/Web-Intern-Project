@@ -27,7 +27,6 @@ application up and running.
 
 * Close and re-open the terminal for RVM to get installed completely.
 
-<<<<<<< HEAD
 ## Install Ruby
 
 * Run the following command to install ruby :  
