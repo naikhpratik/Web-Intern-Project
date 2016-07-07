@@ -1,2 +1,13 @@
 <h1>Admin#index</h1>
+<fieldset>
 <p>Find me in app/views/admin/index.html.erb</p>
+</fieldset>
+<p id="notice"><%= notice %></p>
+
+<h1>Users</h1>
+<p>
+  <strong>Name:</strong>
+  <%= session[:user_name] %>
+</p>
+<%= link_to "logout", :controller=> "sessions", :action=> "destroy", data: { confirm: 'Are you sure?' } %>
+<%#link_to 'Logout', @user, controller: :destroy, data: { confirm: 'Are you sure?' } %>

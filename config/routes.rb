@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   #get 'users/new'
 
   resources :users
-
+  #resources :admin
   #get 'api/index'
 
 
@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     post 'login' => :create
     delete 'logout' => :destroy
   end
+  
 root 'admin#index'
   #get "sessions/create"
   #get "sessions/destroy"
