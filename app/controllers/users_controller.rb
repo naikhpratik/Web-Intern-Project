@@ -62,6 +62,7 @@ class UsersController < ApplicationController
   end
 
   def makeadmin
+    
     @user = User.find(params[:id])
     @user.Isadmin=1
     @user.save

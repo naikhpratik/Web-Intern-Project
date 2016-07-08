@@ -9609,3 +9609,137 @@ Completed 200 OK in 24ms (Views: 22.2ms | ActiveRecord: 0.0ms)
 
 DEPRECATION WARNING: Using a dynamic :controller segment in a route is deprecated and will be removed in Rails 5.1. (called from block in <top (required)> at /Users/Naik/workspace/C3Suite/config/routes.rb:26)
 DEPRECATION WARNING: Using a dynamic :action segment in a route is deprecated and will be removed in Rails 5.1. (called from block in <top (required)> at /Users/Naik/workspace/C3Suite/config/routes.rb:26)
+Started GET "/login" for ::1 at 2016-07-08 17:10:00 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 186ms (Views: 183.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2016-07-08 17:10:03 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MVo+XIeg488s/DAUKu3f54dJwh4OqutrFvW/JdoTPSC00cMxfQhn3OFcpG7Opo9aZ8tfPVC8Qmcal7ExJSadNw==", "name"=>"admin", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`name` = 'admin' LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+Redirected to http://localhost:3000/login
+Completed 302 Found in 131ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/login" for ::1 at 2016-07-08 17:10:03 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 23ms (Views: 21.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2016-07-08 17:10:08 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nhbpUj5H5wneh7FznQWRz2aiag3Dv50o23IlmMZIjgcbnRQ/xO9jGhMnJQl5TsFyhiD3Lp2pNCTXECuMOX0uEA==", "name"=>"admin", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`name` = 'admin' LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 67ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/admin" for ::1 at 2016-07-08 17:10:08 -0500
+Processing by AdminController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered admin/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 24ms (Views: 21.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users" for ::1 at 2016-07-08 17:10:10 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered users/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 81ms (Views: 77.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/makeadmin/5" for ::1 at 2016-07-08 17:10:17 -0500
+Processing by UsersController#makeadmin as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 9ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/users/5" for ::1 at 2016-07-08 17:10:17 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 61ms (Views: 55.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users" for ::1 at 2016-07-08 17:10:19 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered users/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 76ms (Views: 73.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/5" for ::1 at 2016-07-08 17:10:22 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 59ms (Views: 53.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for ::1 at 2016-07-08 17:10:24 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered users/index.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 114ms (Views: 108.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/login" for ::1 at 2016-07-08 17:10:32 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 23ms (Views: 21.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2016-07-08 17:10:40 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ik6vvQWtuFYG43NGiJMqe4Z4Y0VbbgRNtlAgK8aW9AcPxVLQ/wU8RctD5zxs2HrGZvr+ZgV4rUG6Mi4/OaNUEA==", "name"=>"harami", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`name` = 'harami' LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Redirected to http://localhost:3000/userpage
+Completed 302 Found in 135ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/userpage" for ::1 at 2016-07-08 17:10:40 -0500
+Processing by UsersController#userpage as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  Rendering users/userpage.html.erb within layouts/application
+  Rendered users/userpage.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 23ms (Views: 20.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/sessions/destroy" for ::1 at 2016-07-08 17:10:42 -0500
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2016-07-08 17:10:42 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 51ms (Views: 48.8ms | ActiveRecord: 0.0ms)
+
+
