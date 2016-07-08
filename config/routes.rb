@@ -3,25 +3,27 @@ Rails.application.routes.draw do
   #get 'sessions/new'
   get 'sessions/create'
   get 'sessions/destroy'
-  #get 'users/new'
-
+  #get 'users/userpage'
   resources :users
   #resources :admin
   #get 'api/index'
 
-
+ get '/userpage' => 'users#userpage'
   #get 'sessions' => 'sessions#new'
   #get 'users' => 'users#new'
   #get 'search' => 'search#index'
   #get 'logout' => 'sessions#destroy'
+  #get 'users' => 'users#userpage'
   get 'admin' => 'admin#index'
   controller :sessions do
     get  'login' => :new
     post 'login' => :create
     delete 'logout' => :destroy
+    post 'Make admin' => :makeadmin
   end
-  
-root 'admin#index'
+
+root 'sessions#new'
+match ':controller(/:action(/:id))', :via => :get
   #get "sessions/create"
   #get "sessions/destroy"
 

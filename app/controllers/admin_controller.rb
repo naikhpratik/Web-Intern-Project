@@ -1,14 +1,13 @@
 class AdminController < ApplicationController
-  before_action :set_user, only: [:logout]
-  skip_before_action :authorize, only: [:logout]
+  #before_action :set_user, only: [:logout]
+  #skip_before_action :authorize, only: [:logout]
 
   def index
-    @user = User.new
+  flash[:notice] = "hello"
   end
 
   #logout
   def logout
-
   	session[:user_id] = nil
   	redirect_to login_url, alert: "User logged out :D"
   end

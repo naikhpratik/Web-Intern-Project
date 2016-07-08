@@ -2,12 +2,27 @@
 <fieldset>
 <p>Find me in app/views/admin/index.html.erb</p>
 </fieldset>
-<p id="notice"><%= notice %></p>
 
 <h1>Users</h1>
+<pre>
+  <%=
+  @Comp = User.find_by(id: session[:user_id])
+  if @Comp.Isadmin
+        #@Comp = User.find_by(id: session[:user_id])
+        flash[:notice] = "User is #{@Comp.Isadmin} admin"
+      else
+        flash[:notice] = "User is #{@Comp.Isadmin} admin"
+      end
+   %>
+</pre>
 <p>
   <strong>Name:</strong>
   <%= session[:user_name] %>
+  <%= session[:user_id] %>
+  <%= @Comp.Isadmin %>
+
 </p>
-<%= link_to "logout", :controller=> "sessions", :action=> "destroy", data: { confirm: 'Are you sure?' } %>
+<%= link_to "logout", :controller=> "sessions", :action=> "destroy" %>
+<%= link_to 'Make admin', User %>
+
 <%#link_to 'Logout', @user, controller: :destroy, data: { confirm: 'Are you sure?' } %>
