@@ -10218,3 +10218,76 @@ Processing by UsersController#userpage as HTML
 Completed 200 OK in 21ms (Views: 19.2ms | ActiveRecord: 0.3ms)
 
 
+DEPRECATION WARNING: Using a dynamic :controller segment in a route is deprecated and will be removed in Rails 5.1. (called from block in <top (required)> at /Users/Naik/workspace/C3Suite/config/routes.rb:26)
+DEPRECATION WARNING: Using a dynamic :action segment in a route is deprecated and will be removed in Rails 5.1. (called from block in <top (required)> at /Users/Naik/workspace/C3Suite/config/routes.rb:26)
+Started GET "/" for ::1 at 2016-07-08 19:32:08 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (21.1ms)
+Completed 200 OK in 645ms (Views: 634.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2016-07-08 19:32:14 -0500
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (27.3ms)
+  Rendered users/new.html.erb within layouts/application (36.1ms)
+Completed 200 OK in 114ms (Views: 89.3ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/users" for ::1 at 2016-07-08 19:32:25 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xrDynCER8EaJqu80D76UCfYaU7pQByrhC1FgKzM3ttVDOw/x27l0VUQKe07r9cS0FpjOmQ4Rg+0HM24/zAIWwg==", "user"=>{"name"=>"Naik123", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (4.5ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik123', '$2a$10$/KzI3Kdex3xaBWOpqr9aUur99VoCyBDwJ5pX3R/uYbQ2RfocpVuhu', '2016-07-09 00:32:25', '2016-07-09 00:32:25')[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users
+Completed 302 Found in 81ms (ActiveRecord: 5.3ms)
+
+
+Started GET "/users" for ::1 at 2016-07-08 19:32:25 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered users/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 44ms (Views: 41.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for ::1 at 2016-07-08 19:32:32 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 66ms (Views: 62.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2016-07-08 19:32:43 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rdf2N5UdRHtNa4EBgo/msOJDG1QJ2N3oBRgEPdCaMywoXAtab7XAaIDLFXtmxLYNAsGGd1fOdOQJegopL6+TOw==", "name"=>"Naik123", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`name` = 'Naik123' LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/userpage
+Completed 302 Found in 140ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/userpage" for ::1 at 2016-07-08 19:32:43 -0500
+Processing by UsersController#userpage as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  Rendering users/userpage.html.erb within layouts/application
+  Rendered users/userpage.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 31ms (Views: 28.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/sessions/destroy" for ::1 at 2016-07-08 19:32:45 -0500
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2016-07-08 19:32:45 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 87ms (Views: 85.1ms | ActiveRecord: 0.0ms)
+
+
