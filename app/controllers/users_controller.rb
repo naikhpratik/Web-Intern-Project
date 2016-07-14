@@ -62,12 +62,23 @@ class UsersController < ApplicationController
   end
 
   def makeadmin
-    
+
     @user = User.find(params[:id])
     @user.Isadmin=1
     @user.save
     respond_to do |format|
       format.html { redirect_to @user, notice: 'User is admin now' }
+      format.json { head :no_content }
+    end
+  end
+
+  def removeadmin
+
+    @user = User.find(params[:id])
+    @user.Isadmin=0
+    @user.save
+    respond_to do |format|
+      format.html { redirect_to @user, notice: 'User is not an admin now' }
       format.json { head :no_content }
     end
   end
