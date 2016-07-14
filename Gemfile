@@ -28,7 +28,6 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
 group :test do
   gem "codeclimate-test-reporter", require: nil
 end
@@ -50,14 +49,16 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+gem 'capistrano', '~> 3.4.0'
+gem 'capistrano-bundler'
+gem 'capistrano-rails', '~> 1.1.0'
+gem 'capistrano-rails-console'
+gem 'capistrano-rvm'
+
+
 gem 'airbrake'
 group :development do
   gem 'better_errors'
-  gem 'capistrano', '~> 3.4.0'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails', '~> 1.1.0'
-  gem 'capistrano-rails-console'
-  gem 'capistrano-rvm'
   gem 'guard-bundler'
   gem 'guard-rails'
   gem 'guard-rspec'

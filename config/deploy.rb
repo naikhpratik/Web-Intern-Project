@@ -28,7 +28,7 @@ set :keep_releases, 5
 
 set :rvm_path, '~/.rvm'
 set :rvm_type, :user
-set :rvm_ruby_version, '2.3.0'
+set :rvm_ruby_version, '2.3.1'
 
 namespace :deploy do
 
