@@ -49,3 +49,39 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'airbrake'
+group :development do
+  gem 'better_errors'
+  gem 'capistrano', '~> 3.4.0'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails', '~> 1.1.0'
+  gem 'capistrano-rails-console'
+  gem 'capistrano-rvm'
+  gem 'guard-bundler'
+  gem 'guard-rails'
+  gem 'guard-rspec'
+  gem 'html2haml'
+  gem 'hub', :require=>nil
+  gem 'quiet_assets'
+  gem 'rails_layout'
+  gem 'rb-fchange', :require=>false
+  gem 'rb-fsevent', :require=>false
+  gem 'rb-inotify', :require=>false
+  gem 'spring-commands-rspec'
+end
+group :development, :test do
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'rspec-rails'
+end
+group :production, :staging do
+  gem 'unicorn'
+end
+group :test do
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'selenium-webdriver'
+  gem "codeclimate-test-reporter",  require: nil
+end
