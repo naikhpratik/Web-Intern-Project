@@ -1,4 +1,4 @@
-set :application, 'C3server_suite'
+set :application, 'C3suite_server'
 set :repo_url, 'git@github.com:Code3Apps/C3suite_server.git'
 
 set :user, 'deploy'
