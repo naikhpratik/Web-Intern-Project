@@ -1,4 +1,4 @@
-set :application, 'C3server_suite'
+set :application, 'C3suite_server'
 set :repo_url, 'git@github.com:Code3Apps/C3suite_server.git'
 
 set :user, 'deploy'
@@ -28,7 +28,7 @@ set :keep_releases, 5
 
 set :rvm_path, '~/.rvm'
 set :rvm_type, :user
-set :rvm_ruby_version, '2.3.1'
+set :rvm_ruby_version, '2.3.0'
 
 namespace :deploy do
 

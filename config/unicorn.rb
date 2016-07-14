@@ -1,5 +1,6 @@
 root_path = "/home/deploy/C3suite_server/current"
 
+
 worker_processes 4
 
 working_directory root_path # available in 0.94.0+
@@ -9,6 +10,11 @@ timeout 30
 pid "#{root_path}/tmp/pids/unicorn.pid"
 stderr_path "#{root_path}/log/unicorn.stderr.log"
 stdout_path "#{root_path}/log/unicorn.stdout.log"
+
+
+before_exec do |server|
+  ENV['BUNDLE_GEMFILE'] = "#{root_path}/Gemfile"
+end
 
 
 preload_app true
