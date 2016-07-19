@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :makeadmin]
   skip_before_action :authorize, only: [:new,:create,:index]
   # GET /users
   # GET /users.json
@@ -57,6 +57,28 @@ class UsersController < ApplicationController
     @user.destroy
     respond_to do |format|
       format.html { redirect_to @user, notice: 'User was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def makeadmin
+
+    @user = User.find(params[:id])
+    @user.Isadmin=1
+    @user.save
+    respond_to do |format|
+      format.html { redirect_to @user, notice: 'User is admin now' }
+      format.json { head :no_content }
+    end
+  end
+
+  def removeadmin
+
+    @user = User.find(params[:id])
+    @user.Isadmin=0
+    @user.save
+    respond_to do |format|
+      format.html { redirect_to @user, notice: 'User is not an admin now' }
       format.json { head :no_content }
     end
   end
