@@ -7,7 +7,6 @@ class SessionsController < ApplicationController
     user = User.find_by(name: params[:name])
     user_id = User.find_by(id: session[:user_id])
     if user and user.authenticate(params[:password]) and user.Isadmin
-      #if user.Isadmin
       session[:user_id] = user.id
       session[:user_name] = user.name
       flash[:notice] = "hello"
