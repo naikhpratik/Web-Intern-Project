@@ -7,11 +7,11 @@
 <pre>
   <%=
   @Comp = User.find_by(id: session[:user_id])
-  if @Comp.Isadmin
+  if @Comp.isadmin
         #@Comp = User.find_by(id: session[:user_id])
-        flash[:notice] = "User is #{@Comp.Isadmin} admin"
+        flash[:notice] = "User is #{@Comp.isadmin} admin"
       else
-        flash[:notice] = "User is #{@Comp.Isadmin} admin"
+        flash[:notice] = "User is #{@Comp.isadmin} admin"
       end
    %>
 </pre>
@@ -19,7 +19,7 @@
   <strong>Name:</strong>
   <%= session[:user_name] %>
   <%= session[:user_id] %>
-  <%= @Comp.Isadmin %>
+  <%= @Comp.isadmin %>
 
 </p>
 <%= link_to "logout", :controller=> "sessions", :action=> "destroy" %>

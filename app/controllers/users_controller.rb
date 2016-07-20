@@ -62,26 +62,24 @@ class UsersController < ApplicationController
   end
 
   def makeadmin
-
     @user = User.find(params[:id])
-    @user.Isadmin=1
-    @user.save
-    respond_to do |format|
+    if !@user.isadmin
+      @user.isadmin=1
+      @user.save
+      respond_to do |format|
       format.html { redirect_to @user, notice: 'User is admin now' }
       format.json { head :no_content }
-    end
-  end
-
-  def removeadmin
-
-    @user = User.find(params[:id])
-    @user.Isadmin=0
-    @user.save
-    respond_to do |format|
+      end
+    else
+      @user.isadmin=0
+      @user.save
+      respond_to do |format|
       format.html { redirect_to @user, notice: 'User is not an admin now' }
       format.json { head :no_content }
+      end
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -93,4 +91,4 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :password, :password_confirmation)
     end
-end
+  end

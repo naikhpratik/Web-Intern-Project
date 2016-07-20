@@ -16,8 +16,11 @@
         <td><%= user.name %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Make admin', {:action => 'makeadmin', :id => user.id} %></td>
-        <td><%= link_to 'Remove admin', {:action => 'removeadmin', :id => user.id} %></td>
+        <% if !user.isadmin %>
+          <td><%= link_to 'Make admin', {:action => 'makeadmin', :id => user.id} %></td>
+        <% else %>
+          <td><%= link_to 'Remove admin', {:action => 'makeadmin', :id => user.id} %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
