@@ -75,6 +75,8 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rspec-rails'
+  gem 'capybara'
+  gem 'launchy'
 end
 group :production, :staging do
   gem 'unicorn'

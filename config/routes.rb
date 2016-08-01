@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   resources :users
   #resources :admin
   #get 'api/index'
-
+  get '/product'=>'users#product'
+ get '/users' => 'users#index'
  get '/userpage' => 'users#userpage'
   #get 'sessions' => 'sessions#new'
   #get 'users' => 'users#new'
