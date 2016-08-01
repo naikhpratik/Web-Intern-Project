@@ -23,8 +23,8 @@
 
 </p>
 <%= link_to "logout", :controller=> "sessions", :action=> "destroy" %>
-<%= link_to 'Make admin', User %>
-<%= link_to 'Create New Product', User %>
-<%= link_to 'Assign Product', User %>
+<%= link_to 'Add an Administrator', User %>
+<%= link_to 'Create New Product', product_path %>
+<%= link_to 'Assign Product', users_path %>
 
 <%#link_to 'Logout', @user, controller: :destroy, data: { confirm: 'Are you sure?' } %>

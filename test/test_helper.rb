@@ -1,3 +1,4 @@
+ActiveRecord::Migration.maintain_test_schema!
 require "codeclimate-test-reporter"
 CodeClimate::TestReporter.start
 
