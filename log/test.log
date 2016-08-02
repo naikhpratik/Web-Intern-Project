@@ -6088,3 +6088,83 @@ Processing by UsersController#update as HTML
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
 Redirected to http://test.host/users
 Completed 302 Found in 8ms (ActiveRecord: 1.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 24ms (Views: 8.9ms | ActiveRecord: 0.0ms)
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 10ms (Views: 0.7ms | ActiveRecord: 2.3ms)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$xV4dY0koILhYBag3H8uURe.3wEe98Idxfs2v.S2NHQ4j4sQv5aG.G', '2016-08-02 00:10:55', '2016-08-02 00:10:55')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"Naik", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Redirected to http://test.host/users
+Completed 302 Found in 6ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$8j59dyA/mXgjQwIUcLepfeJ5zpXoqdX9fXMoNvrYLhqfRF8wZbM8i', '2016-08-02 00:10:55', '2016-08-02 00:10:55')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users.262" for 127.0.0.1 at 2016-08-01 19:10:55 -0500
+Processing by UsersController#index as 
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 47ms (Views: 3.5ms | ActiveRecord: 0.0ms)
+Started GET "/users" for 127.0.0.1 at 2016-08-01 19:10:55 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 9ms (Views: 6.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$f10YQpXJcT3y.8P4yNpswuVbrzpqJavGbO3Qvg6YIWQvfjnkmljBu', '2016-08-02 00:10:55', '2016-08-02 00:10:55')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Processing by UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"Naik", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "id"=>"263"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 263 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `users` SET `password_digest` = '$2a$04$ZQKgXuBi2T2bXvJL/J9YAuJlBRbI2eMwNDzmd6wTaVhRXoT44gm/C' WHERE `users`.`id` = 263[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://test.host/users
+Completed 302 Found in 10ms (ActiveRecord: 1.5ms)
+  [1m[36mActiveRecord::SchemaMigration Load (3.1ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 22ms (Views: 8.4ms | ActiveRecord: 0.0ms)
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 8ms (Views: 0.6ms | ActiveRecord: 1.6ms)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$Ersb8LtOF5KRvjo7XBP3..Pl6FCJdQeV1v8qtA8T/zoJfl2a9tZGy', '2016-08-02 00:11:20', '2016-08-02 00:11:20')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"Naik", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Redirected to http://test.host/users
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (3.1ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$cykooV/5Xa7D2cg016IcguOd67ZZi2qi/r3hxcV0/jLtlmqzoJISO', '2016-08-02 00:11:20', '2016-08-02 00:11:20')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users.265" for 127.0.0.1 at 2016-08-01 19:11:20 -0500
+Processing by UsersController#index as 
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 35ms (Views: 3.7ms | ActiveRecord: 0.0ms)
+Started GET "/users" for 127.0.0.1 at 2016-08-01 19:11:20 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$Bz8Rf/TZvoZgMKdjYEIzVeuKOfTsiZj.BggIDMjdywQd7jfbCn.zK', '2016-08-02 00:11:20', '2016-08-02 00:11:20')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Processing by UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"Naik", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "id"=>"266"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 266 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `users` SET `password_digest` = '$2a$04$1md7W/2W62SVYoP0GAoc0ePJm7aWUfT3LP8sCkIw4ftY6AT4rHtdG' WHERE `users`.`id` = 266[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://test.host/users
+Completed 302 Found in 13ms (ActiveRecord: 2.9ms)
