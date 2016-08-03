@@ -37,7 +37,7 @@ RSpec.describe UsersController, type: :controller do
 
       visit users_url
       expect(response).to have_http_status(200)
-      post :update,  user: {name: user.name, password: 'admin1', password_confirmation: 'admin1'}, id: 201
+      post :update,  user: {name: user.name, password: 'admin1', password_confirmation: 'admin1'}, id: user.id
       expect(flash[:notice]).to match(/^User was successfully updated./)
 
     end
