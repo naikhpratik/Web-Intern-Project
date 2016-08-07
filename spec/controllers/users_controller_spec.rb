@@ -1,21 +1,26 @@
 require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
-
+let(:user){create(:user)}
   describe "GET /users" do
     it "works! (now lets do some real specs)" do
       get :index
       expect(response).to have_http_status(200)
     end
 
-    it "Should get index" do
+    it "Should get new" do
     get :new
     assert_response :success
+    end
+
+    it "Should get Edit" do
+      visit user_url(user)
+      assert_response :success
     end
  end
 
   describe "Post /create" do
-    let(:user){create(:user)}
+    #let(:user){create(:user)}
     it "should create user" do
 
       expect(User).to receive(:new).with(ActionController::Parameters.new( name: 'Naik', password: 'secret',password_confirmation: 'secret').permit(:name, :password, :password_confirmation)).and_return(user)

@@ -6168,3 +6168,1098 @@ Processing by UsersController#update as HTML
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
 Redirected to http://test.host/users
 Completed 302 Found in 13ms (ActiveRecord: 2.9ms)
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 25ms (Views: 9.7ms | ActiveRecord: 0.0ms)
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 10ms (Views: 0.6ms | ActiveRecord: 1.8ms)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$ms6GBCVHNbwkd7qhBD4H8.dZ7U7KNJL4R6U8Z/BUfhjZgmbYmNbaq', '2016-08-02 00:28:27', '2016-08-02 00:28:27')[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"Naik", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Redirected to http://test.host/users
+Completed 302 Found in 5ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$7c8Gj4XINSciNgA5ewnQweXOZOYbo86L4IdZCJBKLoWgCV/MJaiou', '2016-08-02 00:28:27', '2016-08-02 00:28:27')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users.268" for 127.0.0.1 at 2016-08-01 19:28:27 -0500
+Processing by UsersController#index as 
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 34ms (Views: 4.2ms | ActiveRecord: 0.0ms)
+Started GET "/users" for 127.0.0.1 at 2016-08-01 19:28:27 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 6ms (Views: 3.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$Ez.E.qK2lmV3YwSMajpEg.GbLEqtDFMmCgIGAjwDr67pIzQJGujjq', '2016-08-02 00:28:27', '2016-08-02 00:28:27')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Processing by UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"Naik", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "id"=>"269"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 269 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE `users` SET `password_digest` = '$2a$04$GK07bU9D1cnxarJifSeAjO9OhqA0eBlDT3d9tY/UGJ1RF9TbLuzVG' WHERE `users`.`id` = 269[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://test.host/users
+Completed 302 Found in 11ms (ActiveRecord: 1.2ms)
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 25ms (Views: 9.5ms | ActiveRecord: 0.0ms)
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 8ms (Views: 0.6ms | ActiveRecord: 1.2ms)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$m6pqimbQKzB5zXbDT3qNxeZKS/luBdMdTRe.CB8raEtXNSYnbOFZO', '2016-08-02 00:28:47', '2016-08-02 00:28:47')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"Naik", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Redirected to http://test.host/users
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$FhHXM7ufOeeZ.zLAaCylReG401ygFa0YQ4WJYDBLi4XeFVyXTQfcC', '2016-08-02 00:28:47', '2016-08-02 00:28:47')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users.271" for 127.0.0.1 at 2016-08-01 19:28:47 -0500
+Processing by UsersController#index as 
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 34ms (Views: 4.1ms | ActiveRecord: 0.0ms)
+Started GET "/users" for 127.0.0.1 at 2016-08-01 19:28:47 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 6ms (Views: 3.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$1HaxiFT9ICV/ePSpJZuJx.jKGcwGBTBjcT3ywHsnt8V7PyFq60Kr2', '2016-08-02 00:28:47', '2016-08-02 00:28:47')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Processing by UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"Naik", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "id"=>"272"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 272 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE `users` SET `password_digest` = '$2a$04$rxVf50GHxsLOa.85zeGXGO.yd3WqtvChBdlc.CpOCXRVbzaxeCjzG' WHERE `users`.`id` = 272[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://test.host/users
+Completed 302 Found in 12ms (ActiveRecord: 2.7ms)
+  [1m[36mActiveRecord::SchemaMigration Load (4.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 33ms (Views: 10.3ms | ActiveRecord: 0.0ms)
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 14ms (Views: 0.8ms | ActiveRecord: 5.8ms)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$FNrf8s0r8BhQTwFtFPC8qOHs9On2vhRGl8SwESJRLlxY4OROULMTa', '2016-08-02 01:35:22', '2016-08-02 01:35:22')[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users/273" for 127.0.0.1 at 2016-08-01 20:35:22 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"273"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 273 LIMIT 1[0m
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 20ms (Views: 3.4ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$vG7j2VY0ZWPB.s3E6TRw2uRlHKLOB1E.h1jSAXMQtXS.wHPGqnCPa', '2016-08-02 01:35:22', '2016-08-02 01:35:22')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"Naik", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Redirected to http://test.host/users
+Completed 302 Found in 5ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$dUwAfUS9sfNL6qMk3ytz2eNu.MFQS3pr4MkcGNFNqb8qCATbhVG2.', '2016-08-02 01:35:22', '2016-08-02 01:35:22')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users.275" for 127.0.0.1 at 2016-08-01 20:35:22 -0500
+Processing by UsersController#index as 
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 32ms (Views: 6.1ms | ActiveRecord: 0.0ms)
+Started GET "/users" for 127.0.0.1 at 2016-08-01 20:35:22 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 6ms (Views: 3.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$pw.zyFqobArW7ghfqVe3yOvUGhDpWrWNuFVvZuffKygO94Di9N1tG', '2016-08-02 01:35:22', '2016-08-02 01:35:22')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Processing by UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"Naik", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "id"=>"276"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 276 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[33mUPDATE `users` SET `password_digest` = '$2a$04$L3TA3/kBLkTCJlR9.kmjb.F7rqJ7aFwCGfMA1ZL3Ip.mGvNzqfPRu' WHERE `users`.`id` = 276[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://test.host/users
+Completed 302 Found in 7ms (ActiveRecord: 2.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (2.5ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 27ms (Views: 10.0ms | ActiveRecord: 0.0ms)
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 11ms (Views: 0.6ms | ActiveRecord: 3.4ms)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$UsigiXo3qbqxDEaT7DGfyeWEelB9YmTXx1JAZUlgafd5pNwGBoPou', '2016-08-02 01:35:56', '2016-08-02 01:35:56')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$CbceuTo2MrmoMZ8nx3FCpu8ta3Vm7JqDCeiXHwfrBPutxHMqJIoR2', '2016-08-02 01:35:56', '2016-08-02 01:35:56')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"Naik", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Redirected to http://test.host/users
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$C9rHPArMOfhtjtzPoW.WFeQPvnOv32zZ1RP1ryhL/nEwwdt54smKa', '2016-08-02 01:35:56', '2016-08-02 01:35:56')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users.279" for 127.0.0.1 at 2016-08-01 20:35:56 -0500
+Processing by UsersController#index as 
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 46ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+Started GET "/users" for 127.0.0.1 at 2016-08-01 20:35:56 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 7ms (Views: 4.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.2ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$fpIbJPUZvTVk5kyDeD6Kt.Zg/Gl.vIBRnpnI1ON6D8aIaERh6NG3q', '2016-08-02 01:35:57', '2016-08-02 01:35:57')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Processing by UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"Naik", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "id"=>"280"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 280 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE `users` SET `password_digest` = '$2a$04$pslBTUsuXSjI3JD5WcN3LO9FRM2MNJ6uhIr/nZWFgE1yf11/vCjiq' WHERE `users`.`id` = 280[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://test.host/users
+Completed 302 Found in 11ms (ActiveRecord: 1.8ms)
+  [1m[36mActiveRecord::SchemaMigration Load (2.2ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 24ms (Views: 8.6ms | ActiveRecord: 0.0ms)
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 16ms (Views: 1.4ms | ActiveRecord: 5.6ms)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$wK13EffcSBztTQe8i4jDReXBdQM8dbpHStgd6xFxvi5Uz37wfM4Fy', '2016-08-02 01:36:08', '2016-08-02 01:36:08')[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users/Naik" for 127.0.0.1 at 2016-08-01 20:36:08 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"Naik"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 0 LIMIT 1[0m
+Completed 404 Not Found in 18ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$uApT6.B4RE4xXvOjcaF5tOD2BMP2wyUWXE5XkJD4Fm6qbMptI1wpu', '2016-08-02 01:36:08', '2016-08-02 01:36:08')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"Naik", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Redirected to http://test.host/users
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$g2UGLzRP8X865Vsvr1e4uezSauINmkzzjrQ7g/rgaxopfKvtRq26K', '2016-08-02 01:36:08', '2016-08-02 01:36:08')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users.283" for 127.0.0.1 at 2016-08-01 20:36:08 -0500
+Processing by UsersController#index as 
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 31ms (Views: 3.5ms | ActiveRecord: 0.0ms)
+Started GET "/users" for 127.0.0.1 at 2016-08-01 20:36:08 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 6ms (Views: 3.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$aB.TevQ7zTSPxPGUczNi0uwZzTfBK2PnHq1qYMNe3dfxJxcL65MLe', '2016-08-02 01:36:08', '2016-08-02 01:36:08')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Processing by UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"Naik", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "id"=>"284"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 284 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE `users` SET `password_digest` = '$2a$04$YKhRZAIBfjFrMv1mrBjgou1zf5zJ9bDtiVvD1KlvfUmTFKJwH/WfG' WHERE `users`.`id` = 284[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://test.host/users
+Completed 302 Found in 9ms (ActiveRecord: 3.2ms)
+  [1m[36mActiveRecord::SchemaMigration Load (3.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 24ms (Views: 8.9ms | ActiveRecord: 0.0ms)
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 12ms (Views: 0.6ms | ActiveRecord: 5.0ms)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.2ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$f0n5trCmRT0tinAckIzLcuKYc66v6CNPLyoHm5OSmv3/K6jCpKW4O', '2016-08-02 01:36:31', '2016-08-02 01:36:31')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users/285" for 127.0.0.1 at 2016-08-01 20:36:31 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"285"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 285 LIMIT 1[0m
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 22ms (Views: 4.6ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$lpoSrvzPtj1Z7acvDfMZGeERMjj3tVeLjmgczOmIkZO4Kqj0adae.', '2016-08-02 01:36:31', '2016-08-02 01:36:31')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"Naik", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Redirected to http://test.host/users
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$S8VnPqFrbUjkt7w7yaWeROwR6c5XCPPUIhAhw4MfrMrSJrrZJjrZy', '2016-08-02 01:36:31', '2016-08-02 01:36:31')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users.287" for 127.0.0.1 at 2016-08-01 20:36:31 -0500
+Processing by UsersController#index as 
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 31ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+Started GET "/users" for 127.0.0.1 at 2016-08-01 20:36:31 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$waZxjpm6Jp5xQ9bEa3ppQOX2wSwKKft2khlssgsnEa7poX/y2vYl6', '2016-08-02 01:36:31', '2016-08-02 01:36:31')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Processing by UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"Naik", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "id"=>"288"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 288 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.6ms)[0m  [1m[33mUPDATE `users` SET `password_digest` = '$2a$04$pym8KnU5mtV7IHMr/je50uGYCsI0qlK2kMxL0T0Up3Okl61wuk6sK' WHERE `users`.`id` = 288[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://test.host/users
+Completed 302 Found in 8ms (ActiveRecord: 3.2ms)
+  [1m[36mActiveRecord::SchemaMigration Load (4.3ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 43ms (Views: 16.5ms | ActiveRecord: 0.0ms)
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 26ms (Views: 1.3ms | ActiveRecord: 13.3ms)
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.8ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$2POAGIak.499AIl4gquru.HAFDtNnCnwRxCgKbn/cHXpQeTZFJndS', '2016-08-02 01:38:00', '2016-08-02 01:38:00')[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users/289" for 127.0.0.1 at 2016-08-01 20:38:00 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"289"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 289 LIMIT 1[0m
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 43ms (Views: 15.0ms | ActiveRecord: 1.5ms)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$52txysusmjObaWhKNZfj6.kyg.Avrxqr4iw2YVQGHBRqV1h2dUY36', '2016-08-02 01:38:00', '2016-08-02 01:38:00')[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"Naik", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Redirected to http://test.host/users
+Completed 302 Found in 16ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$V6E8NDRqS0x4OdSk0/SI3efH2wWC.Hwx/VPbOvaUqO5stbI0ezb0S', '2016-08-02 01:38:00', '2016-08-02 01:38:00')[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users.291" for 127.0.0.1 at 2016-08-01 20:38:00 -0500
+Processing by UsersController#index as 
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 28ms (Views: 4.1ms | ActiveRecord: 0.0ms)
+Started GET "/users" for 127.0.0.1 at 2016-08-01 20:38:00 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 7ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$e5EcjjhW/g1CeuzsdiZObu3yLDuw5aVhsHGoXaL.QzQYuCnY6z4RW', '2016-08-02 01:38:00', '2016-08-02 01:38:00')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Processing by UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"Naik", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "id"=>"292"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 292 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.9ms)[0m  [1m[33mUPDATE `users` SET `password_digest` = '$2a$04$M3XqArUhj8iHuyJmms1wU.xS.RJQZrf9nXhFpYE7ZGeqY7C52qHQy' WHERE `users`.`id` = 292[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://test.host/users
+Completed 302 Found in 9ms (ActiveRecord: 3.5ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by AdminController#index as HTML
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Redirected to http://test.host/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 27ms (ActiveRecord: 3.5ms)
+  [1m[36mActiveRecord::SchemaMigration Load (2.7ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (3.8ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.9ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.9ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (4.3ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by AdminController#index as HTML
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Redirected to http://test.host/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 24ms (ActiveRecord: 2.7ms)
+  [1m[36mActiveRecord::SchemaMigration Load (2.4ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/admin" for 127.0.0.1 at 2016-08-01 20:58:25 -0500
+Processing by AdminController#index as HTML
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Redirected to http://www.example.com/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 31ms (ActiveRecord: 3.9ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-01 20:58:25 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 181ms (Views: 178.3ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (4.5ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/admin" for 127.0.0.1 at 2016-08-01 20:59:56 -0500
+Processing by AdminController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Redirected to http://www.example.com/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 29ms (ActiveRecord: 1.4ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-01 20:59:56 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 177ms (Views: 174.5ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/admin" for 127.0.0.1 at 2016-08-01 21:00:04 -0500
+Processing by AdminController#index as HTML
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Redirected to http://www.example.com/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 32ms (ActiveRecord: 3.5ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-01 21:00:04 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 174ms (Views: 172.4ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (2.1ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/admin" for 127.0.0.1 at 2016-08-01 21:45:14 -0500
+Processing by AdminController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Redirected to http://www.example.com/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 32ms (ActiveRecord: 2.7ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-01 21:45:14 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 185ms (Views: 182.8ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (4.1ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/admin" for 127.0.0.1 at 2016-08-01 21:45:19 -0500
+Processing by AdminController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Redirected to http://www.example.com/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 31ms (ActiveRecord: 3.0ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-01 21:45:19 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 158ms (Views: 156.4ms | ActiveRecord: 0.0ms)
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 7ms (Views: 4.3ms | ActiveRecord: 0.0ms)
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 11ms (Views: 0.6ms | ActiveRecord: 3.8ms)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (3.9ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$sr9CCnUwZPkFKFGngehlwe7hILh6K8zTROqW9pknua3axVeASCfDG', '2016-08-02 02:45:19', '2016-08-02 02:45:19')[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users/293" for 127.0.0.1 at 2016-08-01 21:45:19 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"293"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 293 LIMIT 1[0m
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 10ms (Views: 3.4ms | ActiveRecord: 1.1ms)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$8b6dFmZgj3l1CHxIc3kxiO6YDS62Zh8P1onMY7vWyZEC5ihOGQz5G', '2016-08-02 02:45:19', '2016-08-02 02:45:19')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"Naik", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Redirected to http://test.host/users
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$Rv2ZqDW6yBvH3BeAjt1k6.MCbKLmQpMfvYQbYyGMx7pwwhMb0Rz52', '2016-08-02 02:45:19', '2016-08-02 02:45:19')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users.295" for 127.0.0.1 at 2016-08-01 21:45:19 -0500
+Processing by UsersController#index as 
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 36ms (Views: 5.9ms | ActiveRecord: 0.0ms)
+Started GET "/users" for 127.0.0.1 at 2016-08-01 21:45:19 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.9ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$63vHBDLY/5zHevCk8GmcV.i8iQmLvEwf8pU8mazNDbTM4K8RDdDVe', '2016-08-02 02:45:19', '2016-08-02 02:45:19')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Processing by UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"Naik", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "id"=>"296"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 296 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `users` SET `password_digest` = '$2a$04$/APFEklv1.z6Cr2dJcPLjurK4Q3B7BhLOz8NUkl2/0vBfzVJGNeAK' WHERE `users`.`id` = 296[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://test.host/users
+Completed 302 Found in 6ms (ActiveRecord: 1.1ms)
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-01 21:47:54 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 21ms (Views: 9.5ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-01 21:48:07 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 26ms (Views: 12.6ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (2.6ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-01 21:49:42 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 24ms (Views: 10.2ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-01 21:50:07 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 19ms (Views: 9.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$wD72dXUST//g89gBcZxnG.CTGI2rhmU24bvLm3Z6QmIuAzUYDUwT.', '2016-08-02 02:50:07', '2016-08-02 02:50:07')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"user"=>{"name"=>"Naik", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`name` IS NULL LIMIT 1[0m
+Redirected to http://test.host/login
+Completed 302 Found in 7ms (ActiveRecord: 0.4ms)
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-01 21:50:22 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 22ms (Views: 9.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (5.6ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$5OiCv3D5/Uo2lahfmklxtOimaQ9fB/iQDvDAoqPBzKZTj1slleR2K', '2016-08-02 02:50:22', '2016-08-02 02:50:22')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"user"=>{"name"=>"Naik", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`name` IS NULL LIMIT 1[0m
+Redirected to http://test.host/login
+Completed 302 Found in 7ms (ActiveRecord: 1.4ms)
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-01 21:51:01 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 23ms (Views: 9.3ms | ActiveRecord: 0.0ms)
+Processing by SessionsController#create as HTML
+  Parameters: {"user"=>{"name"=>"Naik", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`name` IS NULL LIMIT 1[0m
+Redirected to http://test.host/login
+Completed 302 Found in 24ms (ActiveRecord: 3.7ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-01 22:16:22 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 23ms (Views: 11.1ms | ActiveRecord: 0.0ms)
+Processing by SessionsController#create as HTML
+  Parameters: {"user"=>{"name"=>"Naik", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`name` IS NULL LIMIT 1[0m
+Redirected to http://test.host/login
+Completed 302 Found in 26ms (ActiveRecord: 6.4ms)
+  [1m[36mActiveRecord::SchemaMigration Load (2.2ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 13:49:46 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 21ms (Views: 10.2ms | ActiveRecord: 0.0ms)
+Processing by SessionsController#create as HTML
+  Parameters: {"user"=>{"name"=>"Naik", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`name` IS NULL LIMIT 1[0m
+Redirected to http://test.host/login
+Completed 302 Found in 26ms (ActiveRecord: 5.5ms)
+  [1m[36mActiveRecord::SchemaMigration Load (1.8ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 13:50:10 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 19ms (Views: 8.0ms | ActiveRecord: 0.0ms)
+Processing by SessionsController#create as HTML
+  Parameters: {"admin"=>{"name"=>"Naik", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`name` IS NULL LIMIT 1[0m
+Redirected to http://test.host/login
+Completed 302 Found in 21ms (ActiveRecord: 3.7ms)
+  [1m[36mActiveRecord::SchemaMigration Load (1.6ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 13:54:46 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 20ms (Views: 9.6ms | ActiveRecord: 0.0ms)
+Processing by SessionsController#create as HTML
+  Parameters: {"admin"=>{"name"=>"admin", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`name` IS NULL LIMIT 1[0m
+Redirected to http://test.host/login
+Completed 302 Found in 24ms (ActiveRecord: 5.3ms)
+  [1m[36mActiveRecord::SchemaMigration Load (2.4ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 13:58:03 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 20ms (Views: 8.9ms | ActiveRecord: 0.0ms)
+Processing by SessionsController#create as HTML
+  Parameters: {"admin"=>{"name"=>"admin", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`name` IS NULL LIMIT 1[0m
+Redirected to http://test.host/login
+Completed 302 Found in 20ms (ActiveRecord: 1.6ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 13:58:03 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 6ms (Views: 4.2ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 13:58:08 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 18ms (Views: 7.6ms | ActiveRecord: 0.0ms)
+Processing by SessionsController#create as HTML
+  Parameters: {"admin"=>{"name"=>"admin", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`name` IS NULL LIMIT 1[0m
+Redirected to http://test.host/login
+Completed 302 Found in 20ms (ActiveRecord: 2.7ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 13:58:08 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 8ms (Views: 5.7ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 13:58:29 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 21ms (Views: 8.2ms | ActiveRecord: 0.0ms)
+Processing by SessionsController#create as HTML
+  Parameters: {"admin"=>{"name"=>"admin", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`name` IS NULL LIMIT 1[0m
+Redirected to http://test.host/login
+Completed 302 Found in 20ms (ActiveRecord: 3.2ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 13:58:30 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 13:59:04 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 22ms (Views: 8.9ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 13:59:04 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.0ms)
+Processing by SessionsController#create as HTML
+  Parameters: {"admin"=>{"name"=>"admin", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`name` IS NULL LIMIT 1[0m
+Redirected to http://test.host/login
+Completed 302 Found in 34ms (ActiveRecord: 2.6ms)
+  [1m[36mActiveRecord::SchemaMigration Load (3.1ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 14:10:03 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 23ms (Views: 11.5ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 14:10:03 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+Processing by SessionsController#create as HTML
+  Parameters: {"admin"=>{"name"=>"admin", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (9.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`name` IS NULL LIMIT 1[0m
+Redirected to http://test.host/login
+Completed 302 Found in 34ms (ActiveRecord: 12.7ms)
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT `users`.`id` FROM `users`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.8ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 14:20:38 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 31ms (Views: 14.0ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 14:20:38 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 8ms (Views: 5.3ms | ActiveRecord: 0.0ms)
+Processing by SessionsController#create as HTML
+  Parameters: {"admin"=>{"name"=>"admin", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`name` IS NULL LIMIT 1[0m
+Redirected to http://test.host/login
+Completed 302 Found in 45ms (ActiveRecord: 4.9ms)
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 14:20:54 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 22ms (Views: 10.2ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 14:20:54 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+Processing by SessionsController#create as HTML
+  Parameters: {"admin"=>{"name"=>"admin", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`name` IS NULL LIMIT 1[0m
+Redirected to http://test.host/login
+Completed 302 Found in 31ms (ActiveRecord: 6.1ms)
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 14:21:10 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 19ms (Views: 8.6ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 14:21:10 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 6ms (Views: 4.1ms | ActiveRecord: 0.0ms)
+Processing by SessionsController#create as HTML
+  Parameters: {"admin"=>{"name"=>"admin", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`name` IS NULL LIMIT 1[0m
+Redirected to http://test.host/login
+Completed 302 Found in 20ms (ActiveRecord: 2.7ms)
+  [1m[36mActiveRecord::SchemaMigration Load (3.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 14:21:20 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 18ms (Views: 7.2ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 14:21:20 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.0ms)
+Processing by SessionsController#create as HTML
+  Parameters: {"admin"=>{"name"=>"admin", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`name` IS NULL LIMIT 1[0m
+Redirected to http://test.host/login
+Completed 302 Found in 29ms (ActiveRecord: 5.4ms)
+  [1m[36mActiveRecord::SchemaMigration Load (2.7ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 14:32:06 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 21ms (Views: 8.9ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 14:32:06 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+Processing by SessionsController#create as HTML
+  Parameters: {"admin"=>{"name"=>"admin", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`name` IS NULL LIMIT 1[0m
+Redirected to http://test.host/login
+Completed 302 Found in 32ms (ActiveRecord: 3.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (1.6ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 14:32:35 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 18ms (Views: 7.8ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 14:32:35 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 14:35:34 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 22ms (Views: 10.4ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 14:35:34 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (7.9ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 14:35:50 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 20ms (Views: 9.0ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 14:35:50 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 6ms (Views: 3.5ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 14:36:14 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 21ms (Views: 9.2ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 14:36:14 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (1.7ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 14:36:25 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 20ms (Views: 9.4ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 14:36:26 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 14:36:39 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 18ms (Views: 7.6ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 14:36:40 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (1.7ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 14:36:53 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 18ms (Views: 7.7ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 14:36:53 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 15:59:02 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 19ms (Views: 8.6ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 15:59:02 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 15:59:20 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 18ms (Views: 7.5ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 15:59:20 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (1.9ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 15:59:37 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 18ms (Views: 8.2ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 15:59:37 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:02:54 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 21ms (Views: 9.5ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:02:54 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (1.9ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:03:10 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 21ms (Views: 10.3ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:03:11 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:24:32 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 28ms (Views: 13.2ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:24:32 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:24:42 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 18ms (Views: 7.8ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:24:42 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:25:53 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 19ms (Views: 7.7ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:25:53 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:27:44 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 23ms (Views: 11.9ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:27:44 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 0.0ms)
+Processing by SessionsController#create as HTML
+  Parameters: {"admin"=>{"name"=>"admin", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`name` IS NULL LIMIT 1[0m
+Redirected to http://test.host/login
+Completed 302 Found in 28ms (ActiveRecord: 2.7ms)
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:28:05 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 21ms (Views: 9.9ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:28:05 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+Processing by SessionsController#create as HTML
+  Parameters: {"admin"=>{"name"=>"admin", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`name` IS NULL LIMIT 1[0m
+Redirected to http://test.host/login
+Completed 302 Found in 21ms (ActiveRecord: 0.8ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:28:13 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 21ms (Views: 9.9ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:28:13 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.0ms)
+Processing by SessionsController#create as HTML
+  Parameters: {"admin"=>{"name"=>"admin", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`name` IS NULL LIMIT 1[0m
+Redirected to http://test.host/login
+Completed 302 Found in 30ms (ActiveRecord: 2.3ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:28:23 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 18ms (Views: 7.9ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:28:23 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.0ms)
+Processing by SessionsController#create as HTML
+  Parameters: {"admin"=>{"name"=>"admin", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`name` IS NULL LIMIT 1[0m
+Redirected to http://test.host/login
+Completed 302 Found in 25ms (ActiveRecord: 3.6ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:28:34 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 19ms (Views: 8.3ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:28:34 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.0ms)
+Processing by SessionsController#create as HTML
+  Parameters: {"admin"=>{"name"=>"admin", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`name` IS NULL LIMIT 1[0m
+Redirected to http://test.host/login
+Completed 302 Found in 26ms (ActiveRecord: 5.1ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:29:13 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 21ms (Views: 10.4ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:29:13 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:29:41 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 22ms (Views: 9.4ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:29:41 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:30:41 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 20ms (Views: 9.2ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:30:41 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (10.2ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$7E/h3HR8SFy6Z9MD46Nf/uCy2fYvHg0KiTKAJ6oClWOzASWde/Dbq', '2016-08-02 21:30:41', '2016-08-02 21:30:41')[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:31:45 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 42ms (Views: 9.9ms | ActiveRecord: 2.9ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:31:45 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$7ZzcuFIM7FOaPTZ.SoZI1uz6RCqwL3xtmBatPU7MGbOMMiIrzoBBi', '2016-08-02 21:31:45', '2016-08-02 21:31:45')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:32:04 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 22ms (Views: 10.4ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:32:04 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$IyBPZacWAVYX8mpUbvWXYuruvJwLgzSl/fxiFBuPPr1BlQPnAh.S2', '2016-08-02 21:32:04', '2016-08-02 21:32:04')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:32:48 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 21ms (Views: 9.2ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:32:48 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.2ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$Fug9UQCHQbQb495.8wdsu.3dduuxa906gE8Mp2obBH/tfOZEpHXQm', '2016-08-02 21:32:48', '2016-08-02 21:32:48')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:32:52 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 28ms (Views: 12.6ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:32:52 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 9ms (Views: 6.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (8.9ms)[0m  [1m[32mINSERT INTO `users` (`name`, `password_digest`, `created_at`, `updated_at`) VALUES ('Naik', '$2a$04$TLLmySCux6YYALx9vDs9lujnhZK/geQMXGccTDrzqS/oNqNpPeMRy', '2016-08-02 21:32:52', '2016-08-02 21:32:52')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:33:27 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 23ms (Views: 10.5ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:33:27 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 6ms (Views: 3.5ms | ActiveRecord: 0.0ms)
+Processing by SessionsController#create as HTML
+  Parameters: {"admin"=>{"name"=>"admin", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`name` IS NULL LIMIT 1[0m
+Redirected to http://test.host/login
+Completed 302 Found in 71ms (ActiveRecord: 0.8ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:33:49 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 21ms (Views: 8.5ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:33:49 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 6ms (Views: 3.8ms | ActiveRecord: 0.0ms)
+Processing by SessionsController#create as HTML
+  Parameters: {"admin"=>{"name"=>"admin", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`name` IS NULL LIMIT 1[0m
+Redirected to http://test.host/login
+Completed 302 Found in 19ms (ActiveRecord: 1.4ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:34:34 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 22ms (Views: 10.0ms | ActiveRecord: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2016-08-02 16:34:34 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.0ms)
+Processing by SessionsController#create as HTML
+  Parameters: {"admin"=>{"name"=>"admin", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`name` IS NULL LIMIT 1[0m
+Redirected to http://test.host/login
+Completed 302 Found in 73ms (ActiveRecord: 5.8ms)
