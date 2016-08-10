@@ -5,7 +5,8 @@ Rails.application.routes.draw do
 
   get 'page/contact'
 
-  devise_for :pusers
+  devise_for :pusers, :controllers => { registrations: 'pusers/registrations' }
+  #devise_for :pusers, :path => '', :path_names => { :sign_in => "login", :sign_out => "logout"}
   #get 'admin/index'
   #get 'sessions/new'
   #get 'sessions/create'

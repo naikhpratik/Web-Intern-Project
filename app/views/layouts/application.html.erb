@@ -8,17 +8,23 @@
   </head>
 
   <body>
+    <div id="container">
+      <div id="user_nav" align="right">
     <% if puser_signed_in? %>
-    <%= link_to "Sign out", destroy_puser_session_path, method: :delete %><br>
-    <% else %>
-    <%= link_to "Sign in", new_puser_session_path %><br>
-    <%= link_to "Sign Up", new_puser_registration_path %><br>
-    <% end %>
+    Logged in as <strong><%= current_puser.email %></strong>
+    <%= link_to "Edit User", edit_puser_registration_path %> |
+    <%= link_to "Sign out", destroy_puser_session_path, method: :delete %> <br>
     <%= link_to "Home", page_home_path %><br>
     <%= link_to "About", page_about_path %><br>
     <%= link_to "Contact", page_contact_path %><br>
-    <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+    <% else %>
+    <%= link_to "Sign in", new_puser_session_path %> |
+    <%= link_to "Sign Up", new_puser_registration_path %>
+    <% end %>
+      </div>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
     <%= yield %>
+  </div>
   </body>
 </html>
