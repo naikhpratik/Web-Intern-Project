@@ -17,6 +17,11 @@
     <%= link_to "Home", page_home_path %><br>
     <%= link_to "About", page_about_path %><br>
     <%= link_to "Contact", page_contact_path %><br>
+      <% if current_puser.isadmin? %>
+      <%= link_to "Admin", admin_index_path %><br>
+    <% else %>
+    He is a user!!!!!
+    <% end %>
     <% else %>
     <%= link_to "Sign in", new_puser_session_path %> |
     <%= link_to "Sign Up", new_puser_registration_path %>
