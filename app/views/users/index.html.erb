@@ -11,15 +11,14 @@
   </thead>
 
   <tbody>
-    <% @users.each do |user| %>
+    <% @users = Puser.all %>
+    <% @users.each do |puser| %>
       <tr>
-        <td><%= user.name %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit',  edit_user_path(user)%></td>
-        <% if !user.isadmin %>
-          <td><%= link_to 'Make admin', {:action => 'makeadmin', :id => user.id} %></td>
+        <td><%= puser.username %></td>
+          <% if !puser.isadmin %>
+          <td><%= link_to 'Make admin', {:action => 'makeadmin', :id => puser.id} %></td>
         <% else %>
-          <td><%= link_to 'Remove admin', {:action => 'makeadmin', :id => user.id} %></td>
+          <td><%= link_to 'Remove admin', {:action => 'makeadmin', :id => puser.id} %></td>
         <% end %>
       </tr>
     <% end %>
@@ -27,6 +26,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New User', new_user_path %>
-<%= link_to "logout", :controller=> "sessions", :action=> "destroy" %>

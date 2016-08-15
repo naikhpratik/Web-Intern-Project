@@ -3,12 +3,33 @@
   <head>
     <title>C3Suite</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <div id="container">
+      <div id="user_nav" align="right">
+    <% if puser_signed_in? %>
+    Logged in as <strong><%= current_puser.email %></strong>
+    <%= link_to "Edit User", edit_puser_registration_path %> |
+    <%= link_to "Sign out", destroy_puser_session_path, method: :delete %> <br>
+    <%= link_to "Home", page_home_path %><br>
+    <%= link_to "About", page_about_path %><br>
+    <%= link_to "Contact", page_contact_path %><br>
+      <% if current_puser.isadmin? %>
+      <%= link_to "Admin", admin_index_path %><br>
+    <% else %>
+    He is a user!!!!!
+    <% end %>
+    <% else %>
+    <%= link_to "Sign in", new_puser_session_path %> |
+    <%= link_to "Sign Up", new_puser_registration_path %>
+    <% end %>
+      </div>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
     <%= yield %>
+  </div>
   </body>
 </html>
