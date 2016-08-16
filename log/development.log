@@ -19048,3 +19048,6 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 49ms (Views: 46.9ms | ActiveRecord: 0.8ms)
 
 
+DEPRECATION WARNING: alias_method_chain is deprecated. Please, use Module#prepend instead. From module, you can access the original method using super. (called from alias_method_chain at /Users/Naik/.rvm/gems/ruby-2.3.1@global/gems/activesupport-5.0.0.rc2/lib/active_support/core_ext/module/aliasing.rb:27)
+DEPRECATION WARNING: Using a dynamic :controller segment in a route is deprecated and will be removed in Rails 5.1. (called from add_route at /Users/Naik/.rvm/gems/ruby-2.3.1@global/gems/actionpack-5.0.0.rc2/lib/action_dispatch/routing/route_set.rb:518)
+DEPRECATION WARNING: Using a dynamic :action segment in a route is deprecated and will be removed in Rails 5.1. (called from add_route at /Users/Naik/.rvm/gems/ruby-2.3.1@global/gems/actionpack-5.0.0.rc2/lib/action_dispatch/routing/route_set.rb:525)
