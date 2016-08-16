@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    #@users = current_puser.all? { |e|  }
+    #@users = current_user.all? { |e|  }
   end
 
   # GET /users/1
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
   end
 
   def makeadmin
-    @users = Puser.find(params[:id])
+    @users = User.find(params[:id])
     if !@users.isadmin
       @users.isadmin=1
       @users.save
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
       format.html { redirect_to users_path, notice: 'User is admin now' }
       format.json { head :no_content }
       end
-    else
+      else
       @users.isadmin=0
       @users.save
       respond_to do |format|
