@@ -10,24 +10,23 @@
   <body>
     <div id="container">
       <div id="user_nav" align="right">
-    <% if puser_signed_in? %>
-    Logged in as <strong><%= current_puser.email %></strong>
-    <%= link_to "Edit User", edit_puser_registration_path %> |
-    <%= link_to "Sign out", destroy_puser_session_path, method: :delete %> <br>
+    <% if user_signed_in? %>
+    Logged in as <strong><%= current_user.email %></strong>
+    <%= link_to "Edit User", edit_user_registration_path %> |
+    <%= link_to "Sign out", destroy_user_session_path, method: :delete %> <br>
     <%= link_to "Home", page_home_path %><br>
     <%= link_to "About", page_about_path %><br>
     <%= link_to "Contact", page_contact_path %><br>
-      <% if current_puser.isadmin? %>
+      <% if current_user.isadmin? %>
       <%= link_to "Admin", admin_index_path %><br>
     <% else %>
-    He is a user!!!!!
+    <%= link_to "My Products", userpage_path %><br>
     <% end %>
     <% else %>
-    <%= link_to "Sign in", new_puser_session_path %> |
-    <%= link_to "Sign Up", new_puser_registration_path %>
+    <%= link_to "Sign in", new_user_session_path %> |
+    <%= link_to "Sign Up", new_user_registration_path %>
     <% end %>
       </div>
-      <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
     <%= yield %>
   </div>

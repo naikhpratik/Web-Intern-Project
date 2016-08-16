@@ -11,14 +11,14 @@
   </thead>
 
   <tbody>
-    <% @users = Puser.all %>
-    <% @users.each do |puser| %>
+    <% @users = User.all %>
+    <% @users.each do |user| %>
       <tr>
-        <td><%= puser.username %></td>
-          <% if !puser.isadmin %>
-          <td><%= link_to 'Make admin', {:action => 'makeadmin', :id => puser.id} %></td>
+        <td><%= user.username %></td>
+          <% if !user.isadmin %>
+          <td><%= link_to 'Make admin', {:action => 'makeadmin', :id => user.id} %></td>
         <% else %>
-          <td><%= link_to 'Remove admin', {:action => 'makeadmin', :id => puser.id} %></td>
+          <td><%= link_to 'Remove admin', {:action => 'makeadmin', :id => user.id} %></td>
         <% end %>
       </tr>
     <% end %>
