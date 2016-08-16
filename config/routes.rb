@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   #get 'sessions/create'
   #get 'sessions/destroy'
   #get 'users/userpage'
+  resources :products
   resources :users
   resources :admin
   #get 'api/index'
