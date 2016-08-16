@@ -11,12 +11,11 @@
   </thead>
 
   <tbody>
+    <% @users = User.all %>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.name %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit',  edit_user_path(user)%></td>
-        <% if !user.isadmin %>
+        <td><%= user.username %></td>
+          <% if !user.isadmin %>
           <td><%= link_to 'Make admin', {:action => 'makeadmin', :id => user.id} %></td>
         <% else %>
           <td><%= link_to 'Remove admin', {:action => 'makeadmin', :id => user.id} %></td>
@@ -27,6 +26,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New User', new_user_path %>
-<%= link_to "logout", :controller=> "sessions", :action=> "destroy" %>

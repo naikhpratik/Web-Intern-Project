@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authorize, only: [:new,:create,:index,:update,:edit,:show]
+  before_action :configure_sign_in_params, only: [:create]
+  #before_action :set_user, only: [:show, :edit, :update, :destroy]
+  # skip_before_action :authorize, only: [:new,:create,:index,:update,:edit,:show]
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    #@users = current_user.all? { |e|  }
   end
 
   # GET /users/1
@@ -14,7 +15,7 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    @user = User.new
+
   end
 
   # GET /users/1/edit
@@ -24,57 +25,35 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
 
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to users_url, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to users_url, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
+
   end
 
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to @user, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+
   end
 
   def makeadmin
-    @user = User.find(params[:id])
-    if !@user.isadmin
-      @user.isadmin=1
-      @user.save
+    @users = User.find(params[:id])
+    if !@users.isadmin
+      @users.isadmin=1
+      @users.save
       respond_to do |format|
-      format.html { redirect_to @user, notice: 'User is admin now' }
+      format.html { redirect_to users_path, notice: 'User is admin now' }
       format.json { head :no_content }
       end
-    else
-      @user.isadmin=0
-      @user.save
+      else
+      @users.isadmin=0
+      @users.save
       respond_to do |format|
-      format.html { redirect_to @user, notice: 'User is not an admin now' }
+      format.html { redirect_to users_path, notice: 'User is not an admin now' }
       format.json { head :no_content }
       end
     end
