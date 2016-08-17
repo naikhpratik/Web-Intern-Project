@@ -1,6 +1,9 @@
 FactoryGirl.define do
+
   factory :product do
-    name "MyString"
+    name { Faker::Name.name }
     icon "MyText"
   end
+
+
 end
