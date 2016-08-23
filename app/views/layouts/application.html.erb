@@ -11,7 +11,11 @@
     <div id="container">
       <div id="user_nav" align="right">
     <% if user_signed_in? %>
-    Logged in as <strong><%= current_user.email %></strong>
+    <% if current_user.username? %>
+    Hi <strong><%= current_user.username %></strong>,
+    <% else %>
+    Logged in as <strong><%= current_user.email %></strong>,
+    <% end %>
     <%= link_to "Edit User", edit_user_registration_path %> |
     <%= link_to "Sign out", destroy_user_session_path, method: :delete %> <br>
     <%= link_to "Home", page_home_path %><br>

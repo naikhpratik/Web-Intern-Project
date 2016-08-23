@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @content.product_id %>
+</p>
+
+<p>
+  <strong>Follows:</strong>
+  <%= @content.follows %>
+</p>
+
+<p>
+  <strong>Parent:</strong>
+  <%= @content.parent %>
+</p>
+
+<p>
+  <strong>Kind:</strong>
+  <%= @content.kind %>
+</p>
+
+<p>
+  <strong>Payload:</strong>
+  <%= @content.payload %>
+</p>
+
+<%= link_to 'Edit', edit_content_path(@content) %> |
+<%= link_to 'Back', contents_path %>
