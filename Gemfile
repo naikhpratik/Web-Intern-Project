@@ -28,6 +28,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 
+gem 'rails-controller-testing'
+
 
 # Use Capistrano for deployment
 group :test do
@@ -79,6 +81,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
+  gem 'database_cleaner'
 end
 group :production, :staging do
   gem 'unicorn'
