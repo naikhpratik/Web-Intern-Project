@@ -4,6 +4,9 @@ class DashboardController < ApplicationController
 
   def dashboard
       @products = Product.all
+      @user = User.all
+      @userproducts = UserProduct.all
+
   end
 
   private
