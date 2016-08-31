@@ -14,6 +14,7 @@
     <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
+<% if current_user.isadmin %>
 <%= fields_for(@userproduct) do |ab| %>
   <div class="field">
    <%= ab.label "All Users : " %>
@@ -25,6 +26,7 @@
    <%= select_tag(:relationship, options_for_select([['Product Manager','product_manager'],['Content Writer','content_writer']])) %>
 </div>
 
+<% end %>
 <% end %>
   <div class="field">
     <%= f.label :icon %>
