@@ -16,11 +16,22 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = Product.new
+
+    @all_user = User.all
+
+    @userproduct = @product.user_products.build
+
   end
 
   # GET /products/1/edit
   def edit
+    @all_user = User.all
+    @userproduct = @product.user_products.build
   end
+  # GET /products/1/edit
+  #def manage_product
+    #@product = Product.find(params[:id])
+  #end
 
   # POST /products
   # POST /products.json
@@ -41,15 +52,26 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
-    respond_to do |format|
-      if @product.update(product_params)
-        format.html { redirect_to @product, notice: 'Product was successfully updated.' }
-        format.json { render :show, status: :ok, location: @product }
-      else
-        format.html { render :edit }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
-      end
+    #render text: params.inspect
+    @relationship = params[:relationship]
+  #  @product = Product.update(product_params)
+  params[:users][:id].each do |user|
+    if !user.empty?
+      @product.user_products.build(:user_id => user,:relationship => @relationship)
     end
+  end
+
+
+
+  respond_to do |format|
+    if @product.update(product_params)
+      format.html { redirect_to @product, notice: 'Product was successfully updated.' }
+      format.json { render :show, status: :ok, location: @product }
+    else
+      format.html { render :edit }
+      format.json { render json: @product.errors, status: :unprocessable_entity }
+    end
+  end
   end
 
   # DELETE /products/1
@@ -70,6 +92,7 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name)
+      params.require(:product).permit(:name,:id,
+      user_product: [:relationship])
     end
 end
