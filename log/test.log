@@ -1,0 +1,580 @@
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (0.7ms)[0m  [1m[34mselect table_name from information_schema.views where table_schema = 'c3suite_test'[0m
+  [1m[35m (3.8ms)[0m  [1m[35mTRUNCATE TABLE `ar_internal_metadata`;[0m
+  [1m[35m (2.9ms)[0m  [1m[35mTRUNCATE TABLE `contents`;[0m
+  [1m[35m (3.6ms)[0m  [1m[35mTRUNCATE TABLE `products`;[0m
+  [1m[35m (3.2ms)[0m  [1m[35mTRUNCATE TABLE `user_products`;[0m
+  [1m[35m (3.4ms)[0m  [1m[35mTRUNCATE TABLE `users`;[0m
+  [1m[35m (1.9ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'Elisa Hartmann Sr.' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `products` (`name`, `icon`, `created_at`, `updated_at`) VALUES ('Elisa Hartmann Sr.', 'MyText', '2016-08-31 19:20:40', '2016-08-31 19:20:40')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by DashboardController#dashboard as HTML
+  Rendering dashboard/dashboard.html.erb within layouts/application
+  Rendered dashboard/dashboard.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 15ms (Views: 13.1ms | ActiveRecord: 0.0ms)
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'Camylle Mayert' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `products` (`name`, `icon`, `created_at`, `updated_at`) VALUES ('Camylle Mayert', 'MyText', '2016-08-31 19:20:40', '2016-08-31 19:20:40')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  Rendered products/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'Miller Vandervort' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `products` (`name`, `icon`, `created_at`, `updated_at`) VALUES ('Miller Vandervort', 'MyText', '2016-08-31 19:20:40', '2016-08-31 19:20:40')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 3 LIMIT 1[0m
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 6ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'Lucious Smitham' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `products` (`name`, `icon`, `created_at`, `updated_at`) VALUES ('Lucious Smitham', 'MyText', '2016-08-31 19:20:40', '2016-08-31 19:20:40')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 4 LIMIT 1[0m
+  Rendering products/edit.html.erb within layouts/application
+  Rendered products/edit.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `products`[0m
+Processing by ProductsController#create as HTML
+  Parameters: {"product"=>{"created_at"=>"", "icon"=>"MyText", "id"=>"", "name"=>"Bartholome Luettgen", "updated_at"=>""}}
+Unpermitted parameters: created_at, icon, id, updated_at
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'Bartholome Luettgen' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `products` (`name`, `created_at`, `updated_at`) VALUES ('Bartholome Luettgen', '2016-08-31 19:20:40', '2016-08-31 19:20:40')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/products/5
+Completed 302 Found in 15ms (ActiveRecord: 0.7ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `products`[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by ProductsController#create as HTML
+  Parameters: {"product"=>{"created_at"=>"", "icon"=>"MyText", "id"=>"", "name"=>"Mrs. Lura Christiansen", "updated_at"=>""}}
+Unpermitted parameters: created_at, icon, id, updated_at
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'Mrs. Lura Christiansen' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `products` (`name`, `created_at`, `updated_at`) VALUES ('Mrs. Lura Christiansen', '2016-08-31 19:20:40', '2016-08-31 19:20:40')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/products/6
+Completed 302 Found in 4ms (ActiveRecord: 0.8ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by ProductsController#create as HTML
+  Parameters: {"product"=>{"created_at"=>"", "icon"=>"MyText", "id"=>"", "name"=>"Emma Schumm", "updated_at"=>""}}
+Unpermitted parameters: created_at, icon, id, updated_at
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'Emma Schumm' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `products` (`name`, `created_at`, `updated_at`) VALUES ('Emma Schumm', '2016-08-31 19:20:40', '2016-08-31 19:20:40')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/products/7
+Completed 302 Found in 3ms (ActiveRecord: 0.7ms)
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  `products`.* FROM `products` ORDER BY `products`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'Jayden Batz II' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `products` (`name`, `icon`, `created_at`, `updated_at`) VALUES ('Jayden Batz II', 'MyText', '2016-08-31 19:20:40', '2016-08-31 19:20:40')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'Kyle Hilpert' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `products` (`name`, `icon`, `created_at`, `updated_at`) VALUES ('Kyle Hilpert', 'MyText', '2016-08-31 19:20:40', '2016-08-31 19:20:40')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by ProductsController#update as HTML
+  Parameters: {"product"=>{"created_at"=>"", "icon"=>"MyText", "id"=>"", "name"=>"Kyle Hilpert", "updated_at"=>""}, "id"=>"9"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 9 LIMIT 1[0m
+Unpermitted parameters: created_at, icon, id, updated_at
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'Kyle Hilpert' AND (`products`.`id` != 9) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/products/9
+Completed 302 Found in 4ms (ActiveRecord: 0.9ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'Kelvin Cremin MD' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `products` (`name`, `icon`, `created_at`, `updated_at`) VALUES ('Kelvin Cremin MD', 'MyText', '2016-08-31 19:20:40', '2016-08-31 19:20:40')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by ProductsController#update as HTML
+  Parameters: {"product"=>{"created_at"=>"", "icon"=>"MyText", "id"=>"", "name"=>"Kelvin Cremin MD", "updated_at"=>""}, "id"=>"10"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 10 LIMIT 1[0m
+Unpermitted parameters: created_at, icon, id, updated_at
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'Kelvin Cremin MD' AND (`products`.`id` != 10) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/products/10
+Completed 302 Found in 3ms (ActiveRecord: 0.8ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'Rosemary Kunze Sr.' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `products` (`name`, `icon`, `created_at`, `updated_at`) VALUES ('Rosemary Kunze Sr.', 'MyText', '2016-08-31 19:20:40', '2016-08-31 19:20:40')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'Carissa Legros V' LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO `products` (`name`, `icon`, `created_at`, `updated_at`) VALUES ('Carissa Legros V', 'MyText', '2016-08-31 19:20:40', '2016-08-31 19:20:40')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'Mrs. Faye Bradtke' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `products` (`name`, `icon`, `created_at`, `updated_at`) VALUES ('Mrs. Faye Bradtke', 'MyText', '2016-08-31 19:20:40', '2016-08-31 19:20:40')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `products`[0m
+Processing by ProductsController#destroy as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 13 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM `products` WHERE `products`.`id` = 13[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/products
+Completed 302 Found in 2ms (ActiveRecord: 0.7ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `products`[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'Tyra Erdman' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `products` (`name`, `icon`, `created_at`, `updated_at`) VALUES ('Tyra Erdman', 'MyText', '2016-08-31 19:20:40', '2016-08-31 19:20:40')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by ProductsController#destroy as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 14 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM `products` WHERE `products`.`id` = 14[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/products
+Completed 302 Found in 2ms (ActiveRecord: 0.7ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/products/new" for 127.0.0.1 at 2016-08-31 14:20:40 -0500
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (12.4ms)
+  Rendered products/new.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 211ms (Views: 201.7ms | ActiveRecord: 0.0ms)
+Started POST "/products" for 127.0.0.1 at 2016-08-31 14:20:40 -0500
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "product"=>{"name"=>"My Widget", "icon"=>""}, "commit"=>"Create Product"}
+Unpermitted parameter: icon
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'My Widget' LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO `products` (`name`, `created_at`, `updated_at`) VALUES ('My Widget', '2016-08-31 19:20:40', '2016-08-31 19:20:40')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/products/15
+Completed 302 Found in 4ms (ActiveRecord: 1.5ms)
+Started GET "/products/15" for 127.0.0.1 at 2016-08-31 14:20:40 -0500
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 15 LIMIT 1[0m
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/products/new" for 127.0.0.1 at 2016-08-31 14:20:40 -0500
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (1.4ms)
+  Rendered products/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 9ms (Views: 7.4ms | ActiveRecord: 0.0ms)
+Started POST "/products" for 127.0.0.1 at 2016-08-31 14:20:40 -0500
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "product"=>{"name"=>"My Widget", "icon"=>""}, "commit"=>"Create Product"}
+Unpermitted parameter: icon
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'My Widget' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `products` (`name`, `created_at`, `updated_at`) VALUES ('My Widget', '2016-08-31 19:20:40', '2016-08-31 19:20:40')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/products/16
+Completed 302 Found in 3ms (ActiveRecord: 0.7ms)
+Started GET "/products/16" for 127.0.0.1 at 2016-08-31 14:20:40 -0500
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 16 LIMIT 1[0m
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/products/new" for 127.0.0.1 at 2016-08-31 14:20:40 -0500
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (1.9ms)
+  Rendered products/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.0ms)
+Started POST "/products" for 127.0.0.1 at 2016-08-31 14:20:40 -0500
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "product"=>{"name"=>"", "icon"=>""}, "commit"=>"Create Product"}
+Unpermitted parameter: icon
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY '' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (1.8ms)
+  Rendered products/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 11ms (Views: 8.3ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (0.5ms)[0m  [1m[34mselect table_name from information_schema.views where table_schema = 'c3suite_test'[0m
+  [1m[35m (4.0ms)[0m  [1m[35mTRUNCATE TABLE `ar_internal_metadata`;[0m
+  [1m[35m (3.2ms)[0m  [1m[35mTRUNCATE TABLE `contents`;[0m
+  [1m[35m (3.0ms)[0m  [1m[35mTRUNCATE TABLE `products`;[0m
+  [1m[35m (3.5ms)[0m  [1m[35mTRUNCATE TABLE `user_products`;[0m
+  [1m[35m (3.2ms)[0m  [1m[35mTRUNCATE TABLE `users`;[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'Maximilian Marquardt' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `products` (`name`, `icon`, `created_at`, `updated_at`) VALUES ('Maximilian Marquardt', 'MyText', '2016-08-31 19:20:45', '2016-08-31 19:20:45')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by DashboardController#dashboard as HTML
+  Rendering dashboard/dashboard.html.erb within layouts/application
+  Rendered dashboard/dashboard.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 18ms (Views: 15.9ms | ActiveRecord: 0.0ms)
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  [1m[35m (1.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'Dr. Melissa Schmeler' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `products` (`name`, `icon`, `created_at`, `updated_at`) VALUES ('Dr. Melissa Schmeler', 'MyText', '2016-08-31 19:20:45', '2016-08-31 19:20:45')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  Rendered products/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 13ms (Views: 10.0ms | ActiveRecord: 0.0ms)
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'Marcelo Rogahn' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `products` (`name`, `icon`, `created_at`, `updated_at`) VALUES ('Marcelo Rogahn', 'MyText', '2016-08-31 19:20:45', '2016-08-31 19:20:45')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 3 LIMIT 1[0m
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 16ms (Views: 7.5ms | ActiveRecord: 0.4ms)
+  [1m[35m (2.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (4.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/new.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 9ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'Janick Bednar DVM' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `products` (`name`, `icon`, `created_at`, `updated_at`) VALUES ('Janick Bednar DVM', 'MyText', '2016-08-31 19:20:45', '2016-08-31 19:20:45')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 4 LIMIT 1[0m
+  Rendering products/edit.html.erb within layouts/application
+  Rendered products/edit.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 6ms (Views: 1.4ms | ActiveRecord: 0.3ms)
+  [1m[35m (1.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `products`[0m
+Processing by ProductsController#create as HTML
+  Parameters: {"product"=>{"created_at"=>"", "icon"=>"MyText", "id"=>"", "name"=>"Jacquelyn Shields", "updated_at"=>""}}
+Unpermitted parameters: created_at, icon, id, updated_at
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'Jacquelyn Shields' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `products` (`name`, `created_at`, `updated_at`) VALUES ('Jacquelyn Shields', '2016-08-31 19:20:45', '2016-08-31 19:20:45')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/products/5
+Completed 302 Found in 92ms (ActiveRecord: 0.9ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `products`[0m
+  [1m[35m (1.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by ProductsController#create as HTML
+  Parameters: {"product"=>{"created_at"=>"", "icon"=>"MyText", "id"=>"", "name"=>"Mallie Lind", "updated_at"=>""}}
+Unpermitted parameters: created_at, icon, id, updated_at
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'Mallie Lind' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `products` (`name`, `created_at`, `updated_at`) VALUES ('Mallie Lind', '2016-08-31 19:20:45', '2016-08-31 19:20:45')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/products/6
+Completed 302 Found in 6ms (ActiveRecord: 1.0ms)
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by ProductsController#create as HTML
+  Parameters: {"product"=>{"created_at"=>"", "icon"=>"MyText", "id"=>"", "name"=>"Fatima Considine", "updated_at"=>""}}
+Unpermitted parameters: created_at, icon, id, updated_at
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'Fatima Considine' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `products` (`name`, `created_at`, `updated_at`) VALUES ('Fatima Considine', '2016-08-31 19:20:45', '2016-08-31 19:20:45')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/products/7
+Completed 302 Found in 5ms (ActiveRecord: 1.1ms)
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  `products`.* FROM `products` ORDER BY `products`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'Dudley Ondricka IV' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `products` (`name`, `icon`, `created_at`, `updated_at`) VALUES ('Dudley Ondricka IV', 'MyText', '2016-08-31 19:20:45', '2016-08-31 19:20:45')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'Carmel Kub V' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `products` (`name`, `icon`, `created_at`, `updated_at`) VALUES ('Carmel Kub V', 'MyText', '2016-08-31 19:20:45', '2016-08-31 19:20:45')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by ProductsController#update as HTML
+  Parameters: {"product"=>{"created_at"=>"", "icon"=>"MyText", "id"=>"", "name"=>"Carmel Kub V", "updated_at"=>""}, "id"=>"9"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 9 LIMIT 1[0m
+Unpermitted parameters: created_at, icon, id, updated_at
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'Carmel Kub V' AND (`products`.`id` != 9) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/products/9
+Completed 302 Found in 5ms (ActiveRecord: 0.9ms)
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'Oleta Kassulke' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `products` (`name`, `icon`, `created_at`, `updated_at`) VALUES ('Oleta Kassulke', 'MyText', '2016-08-31 19:20:45', '2016-08-31 19:20:45')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by ProductsController#update as HTML
+  Parameters: {"product"=>{"created_at"=>"", "icon"=>"MyText", "id"=>"", "name"=>"Oleta Kassulke", "updated_at"=>""}, "id"=>"10"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 10 LIMIT 1[0m
+Unpermitted parameters: created_at, icon, id, updated_at
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'Oleta Kassulke' AND (`products`.`id` != 10) LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/products/10
+Completed 302 Found in 8ms (ActiveRecord: 1.3ms)
+  [1m[35m (1.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'Fidel Blick' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `products` (`name`, `icon`, `created_at`, `updated_at`) VALUES ('Fidel Blick', 'MyText', '2016-08-31 19:20:45', '2016-08-31 19:20:45')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (4.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'Quinton McCullough' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `products` (`name`, `icon`, `created_at`, `updated_at`) VALUES ('Quinton McCullough', 'MyText', '2016-08-31 19:20:45', '2016-08-31 19:20:45')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'Mr. Alvena Runolfsson' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `products` (`name`, `icon`, `created_at`, `updated_at`) VALUES ('Mr. Alvena Runolfsson', 'MyText', '2016-08-31 19:20:45', '2016-08-31 19:20:45')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `products`[0m
+Processing by ProductsController#destroy as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 13 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM `products` WHERE `products`.`id` = 13[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/products
+Completed 302 Found in 6ms (ActiveRecord: 1.5ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `products`[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'Ms. Ken Kiehn' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `products` (`name`, `icon`, `created_at`, `updated_at`) VALUES ('Ms. Ken Kiehn', 'MyText', '2016-08-31 19:20:45', '2016-08-31 19:20:45')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by ProductsController#destroy as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 14 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM `products` WHERE `products`.`id` = 14[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/products
+Completed 302 Found in 3ms (ActiveRecord: 0.7ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/products/new" for 127.0.0.1 at 2016-08-31 14:20:45 -0500
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (12.7ms)
+  Rendered products/new.html.erb within layouts/application (16.8ms)
+Completed 200 OK in 274ms (Views: 255.4ms | ActiveRecord: 0.0ms)
+Started POST "/products" for 127.0.0.1 at 2016-08-31 14:20:46 -0500
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "product"=>{"name"=>"My Widget", "icon"=>""}, "commit"=>"Create Product"}
+Unpermitted parameter: icon
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'My Widget' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `products` (`name`, `created_at`, `updated_at`) VALUES ('My Widget', '2016-08-31 19:20:46', '2016-08-31 19:20:46')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/products/15
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms)
+Started GET "/products/15" for 127.0.0.1 at 2016-08-31 14:20:46 -0500
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 15 LIMIT 1[0m
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 10ms (Views: 6.3ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/products/new" for 127.0.0.1 at 2016-08-31 14:20:46 -0500
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (1.5ms)
+  Rendered products/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 11ms (Views: 9.5ms | ActiveRecord: 0.0ms)
+Started POST "/products" for 127.0.0.1 at 2016-08-31 14:20:46 -0500
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "product"=>{"name"=>"My Widget", "icon"=>""}, "commit"=>"Create Product"}
+Unpermitted parameter: icon
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'My Widget' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `products` (`name`, `created_at`, `updated_at`) VALUES ('My Widget', '2016-08-31 19:20:46', '2016-08-31 19:20:46')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/products/16
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms)
+Started GET "/products/16" for 127.0.0.1 at 2016-08-31 14:20:46 -0500
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 16 LIMIT 1[0m
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 9ms (Views: 5.3ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/products/new" for 127.0.0.1 at 2016-08-31 14:20:46 -0500
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (1.7ms)
+  Rendered products/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.0ms)
+Started POST "/products" for 127.0.0.1 at 2016-08-31 14:20:46 -0500
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "product"=>{"name"=>"", "icon"=>""}, "commit"=>"Create Product"}
+Unpermitted parameter: icon
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY '' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (1.8ms)
+  Rendered products/new.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 15ms (Views: 11.5ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
