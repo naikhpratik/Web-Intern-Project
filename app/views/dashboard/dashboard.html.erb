@@ -1,0 +1,27 @@
+<h1>Dashboard#dashboard</h1>
+<br>
+<h4>List of products to show</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.name %> </td>
+        <% if user_signed_in? %>
+          <% if current_user.isadmin %>
+            <td><%= link_to 'Show', product %></td>
+            <td><%= link_to 'Edit', edit_product_path(product) %></td>
+            <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Manage Product', product %></td>
+          <% end %>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
