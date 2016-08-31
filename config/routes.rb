@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
+root 'dashboard#dashboard'
+#page
   get 'page/home'
-
   get 'page/about'
-
   get 'page/contact'
+
+#products
+
+  get 'products/assign_product'
+
+#dashboard
+  get 'dashboard/dashboard'
 
   devise_for :users, :controllers => { registrations: 'users/registrations' }
   #devise_for :users, :path => '', :path_names => { :sign_in => "login", :sign_out => "logout"}
@@ -13,6 +20,8 @@ Rails.application.routes.draw do
   #get 'sessions/create'
   #get 'sessions/destroy'
   #get 'users/userpage'
+
+  resources :products
   resources :users
   resources :admin
   #get 'api/index'
@@ -31,11 +40,13 @@ Rails.application.routes.draw do
     #post 'Make admin' => :makeadmin
   end
 
+  
+
   controller :users do
     get 'Make admin' => :makeadmin
   end
 
-root 'page#home'
+
 match ':controller(/:action(/:id))', :via => :get
   #get "sessions/create"
   #get "sessions/destroy"

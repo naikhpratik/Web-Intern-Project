@@ -1,3 +1,8 @@
 <h1>Users#user</h1>
 <p>U are a user</p>
-<%= link_to "logout", :controller=> "sessions", :action=> "destroy" %>
+
+<h4>List of Your assigned products to show</h4>
+
+  <% @products.each do |product| %>
+    <td><%= product.name %> </td>
+  <% end %>
