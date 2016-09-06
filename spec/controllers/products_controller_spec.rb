@@ -7,6 +7,8 @@ RSpec.describe ProductsController, type: :controller do
   # adjust the attributes here as well.
   let(:valid_attributes) {
     FactoryGirl.build(:product).attributes
+    #FactoryGirl.build(:User).attributes
+      #FactoryGirl.build(:product).attributes
   }
 
   let(:invalid_attributes) {
@@ -26,6 +28,7 @@ RSpec.describe ProductsController, type: :controller do
       expect(assigns(:products)).to eq([product])
     end
   end
+
 
   describe "GET #show" do
     it "assigns the requested product as @product" do
@@ -98,13 +101,13 @@ RSpec.describe ProductsController, type: :controller do
 
       it "assigns the requested product as @product" do
         product = Product.create! valid_attributes
-        put :update, params: {id: product.to_param, product: valid_attributes}, session: valid_session
+        put :update, params: {id: product.to_param, product: new_attributes}, session: valid_session
         expect(assigns(:product)).to eq(product)
       end
 
       it "redirects to the product" do
         product = Product.create! valid_attributes
-        put :update, params: {id: product.to_param, product: valid_attributes}, session: valid_session
+        put :update, params: {id: product.to_param, product: new_attributes}, session: valid_session
         expect(response).to redirect_to(product)
       end
     end

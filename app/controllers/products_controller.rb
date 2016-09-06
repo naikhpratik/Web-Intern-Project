@@ -61,13 +61,12 @@ class ProductsController < ApplicationController
     #render text: params.inspect
     @relationship = params[:relationship]
   #  @product = Product.update(product_params)
-  params[:users][:id].each do |user|
+      test = params[:users][:id]
+      test.each do |user|
     if !user.empty?
       @product.user_products.build(:user_id => user,:relationship => @relationship)
     end
   end
-
-
 
   respond_to do |format|
     if @product.update(product_params)
