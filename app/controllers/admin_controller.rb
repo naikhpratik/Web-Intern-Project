@@ -3,15 +3,7 @@ class AdminController < ApplicationController
   #skip_before_action :authorize, only: [:logout]
 
   def index
-  flash[:notice] = "hello"
   end
-
-  #logout
-  def logout
-  	session[:user_id] = nil
-  	redirect_to login_url, alert: "User logged out :D"
-  end
-
 
   private
     # Use callbacks to share common setup or constraints between actions.

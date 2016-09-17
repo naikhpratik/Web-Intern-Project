@@ -1,0 +1,33 @@
+<h1>Users</h1>
+
+<% if @user.present? %>
+  <p>No records found.</p>
+<% else %>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Type</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user|%>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.email %></td>
+        <td align="center"><%= user.isadmin ? 'Admin' : '--' %></td>
+        <td align="center">
+          <% if !user.isadmin %>
+            <%= link_to 'Make Admin', admin_user_make_admin_path(user) %>
+          <% else %>
+            <%= link_to 'Remove Admin', admin_user_make_admin_path(user) %>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+
+    </tbody>
+  </table>
+<% end %>

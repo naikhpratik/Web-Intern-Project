@@ -1,29 +1,4 @@
-<h1>Admin#index</h1>
-<fieldset>
-<p>Hi Admin, <%= current_user.username %></p>
-</fieldset>
-
-<h1>Users</h1>
-<pre>
-  <%=
-
-  if current_user.isadmin
-        #@Comp = User.find_by(id: session[:user_id])
-        flash[:notice] = "User is #{current_user.isadmin} admin"
-      else
-        flash[:notice] = "User is #{current_user.isadmin} admin"
-      end
-   %>
-</pre>
-<p>
-  <strong>Name:</strong>
-  <%= current_user.username %>
-  <%= current_user.id %>
-  <%= current_user.isadmin %>
-
-</p>
-<%= link_to 'Add an Administrator', User %>
+<h1>Admin Actions</h1>
+<%= link_to 'Add an Administrator', admin_users_path %>
 <%= link_to 'Create New Product', new_product_path %>
 <%= link_to 'Assign Product', users_path %>
-
-<%#link_to 'Logout', @user, controller: :destroy, data: { confirm: 'Are you sure?' } %>

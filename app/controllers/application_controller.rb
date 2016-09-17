@@ -9,10 +9,4 @@ class ApplicationController < ActionController::Base
 #    redirect_to login_url, alert: "You thought you could gain unauthorised access? LOL"
   #end
   end
-
-  
-
-  def hello
-    render html: "Hello, Master!"
-  end
 end

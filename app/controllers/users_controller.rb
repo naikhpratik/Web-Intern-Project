@@ -40,26 +40,6 @@ class UsersController < ApplicationController
 
   end
 
-  def makeadmin
-    @users = User.find(params[:id])
-    if !@users.isadmin
-      @users.isadmin=1
-      @users.save
-      respond_to do |format|
-      format.html { redirect_to users_path, notice: 'User is admin now' }
-      format.json { head :no_content }
-      end
-      else
-      @users.isadmin=0
-      @users.save
-      respond_to do |format|
-      format.html { redirect_to users_path, notice: 'User is not an admin now' }
-      format.json { head :no_content }
-      end
-    end
-  end
-
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
