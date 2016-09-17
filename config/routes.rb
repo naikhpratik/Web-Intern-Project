@@ -2,11 +2,15 @@ Rails.application.routes.draw do
 root 'dashboard#dashboard'
 
 namespace :admin do
+  get 'index'
+
   resources :users do
     get 'index'
     get 'make_admin'
   end
-  get 'index' 
+  
+  resources :products
+  
 end
 
 #page
@@ -29,7 +33,4 @@ end
   controller :users do
     get 'Make admin' => :makeadmin
   end
-
-
-  match ':controller(/:action(/:id))', :via => :get
 end
