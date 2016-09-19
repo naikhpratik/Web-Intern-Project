@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '>= 5.0.0.rc2', '< 5.1'
 
@@ -32,26 +31,6 @@ gem 'devise'
 
 gem 'rails-controller-testing'
 
-
-# Use Capistrano for deployment
-group :test do
-  gem "codeclimate-test-reporter", require: nil
-end
-
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platform: :mri
-#  gem 'listen'
-end
-
-group :development do
-  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-#  gem 'spring'
-#  gem 'spring-watcher-listen', '~> 2.0.0'
-end
-
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
@@ -61,9 +40,11 @@ gem 'capistrano-rails', '~> 1.1.0'
 gem 'capistrano-rails-console'
 gem 'capistrano-rvm'
 
-
 gem 'airbrake'
+
 group :development do
+  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
+  gem 'web-console'
   gem 'better_errors'
   gem 'guard-bundler'
   gem 'guard-rails'
@@ -77,23 +58,24 @@ group :development do
   gem 'rb-inotify', :require=>false
   gem 'spring-commands-rspec'
 end
+
 group :development, :test do
+  gem 'byebug', platform: :mri
+  gem 'simplecov', :require => false
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
   gem 'database_cleaner'
-  # gem 'simplecov', :require => false
-  gem 'shoulda-matchers', '~> 3.1'
 end
+
 group :production, :staging do
   gem 'unicorn'
 end
+
 group :test do
-  gem 'capybara'
-  gem 'database_cleaner'
-  gem 'launchy'
+  gem 'shoulda-matchers', '~> 3.1'
   gem 'selenium-webdriver'
   gem "codeclimate-test-reporter",  require: nil
 end

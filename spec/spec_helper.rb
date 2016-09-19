@@ -1,8 +1,5 @@
 require "codeclimate-test-reporter"
 require "capybara/rspec"
-# require 'simplecov'
-
-# SimpleCov.start
 
 CodeClimate::TestReporter.start
 
