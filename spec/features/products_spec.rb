@@ -3,7 +3,7 @@ require 'capybara/rspec'
 
 RSpec.feature "Create Product", :type => :feature do
   scenario "User creates a valid product" do
-    visit "/products/new"
+    visit new_product_url
 
     fill_in 'Name', :with => "My Widget"
     click_button "Create"
@@ -11,22 +11,21 @@ RSpec.feature "Create Product", :type => :feature do
   end
 
   scenario "User creates a duplicate product" do
-    visit "/products/new"
-
+    product = FactoryGirl.create(:product, name: "My Widget")
+    
+    visit new_product_url
+    
     fill_in "Name", :with => "My Widget"
-    click_button "Create"
-    #expect(page).to have_content("Name has already been taken")
-    #expect(flash[:notice]).to have_content("Name has already been taken")
-    skip()
+    click_button "Create Product"
+    expect(page).to have_content("Name has already been taken")
   end
 
   scenario "User creates a invalid product" do
-    visit "/products/new"
+    visit new_product_url
 
     fill_in "Name", :with => ""
-    click_button "Create"
-    skip()
-    expect(page).to have_text("Product Name required.")
+    click_button "Create Product"
+    expect(page).to have_content("Name can't be blank")
   end
 
 

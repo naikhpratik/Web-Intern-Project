@@ -14,8 +14,7 @@ RSpec.feature "Products", :type => :feature do
 
   scenario "Expect page to have products related to users" do
     visit "/dashboard/dashboard"
-    skip()
-    expect(page).to have_text("Product was successfully created.")
+    expect(page).to have_css("h1", "Dashboard")
   end
 
 end
