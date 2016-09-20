@@ -6,7 +6,10 @@ class User < ApplicationRecord
 
   has_many :user_products, :dependent => :destroy
   has_many :products, :through=> :user_products
-  
+
+  has_many :user_roles
+  has_many :roles, :through => :user_roles
+
   def self.all_except(user)
     where.not(id: user)
   end

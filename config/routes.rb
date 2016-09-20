@@ -10,7 +10,7 @@ namespace :admin do
   end
   
   resources :products
-  
+  resources :roles
 end
 
 #page
