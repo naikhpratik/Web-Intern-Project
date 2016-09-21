@@ -16,7 +16,7 @@
         <td><%= link_to 'Show', product %></td>
         <td><%= link_to 'Edit', edit_product_path(product) %></td>
         <% if user_signed_in? %>
-          <% if current_user.isadmin %>
+          <% if current_user.is_admin? %>
         <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td><%= link_to 'Manage Product', edit_product_path(product) %></td>
           <% end %>

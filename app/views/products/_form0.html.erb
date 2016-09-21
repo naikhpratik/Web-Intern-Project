@@ -14,7 +14,7 @@
     <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
-<% if current_user.isadmin %>
+<% if current_user.is_admin? %>
 <%= fields_for(@userproduct) do |ab| %>
   <div class="field">
    <%= ab.label "All Users : " %>
