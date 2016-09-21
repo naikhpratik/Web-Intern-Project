@@ -21,10 +21,8 @@ class Admin::RolesController < Admin::BaseController
     respond_to do |format|
       if @role.save
         format.html { redirect_to admin_role_url(@role), notice: 'Role was successfully created.' }
-        format.json { render :show, status: :created, location: @role }
       else
         format.html { render :new }
-        format.json { render json: @role.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -33,10 +31,8 @@ class Admin::RolesController < Admin::BaseController
     respond_to do |format|
       if @role.update(role_params)
         format.html { redirect_to admin_role_url(@role), notice: 'Role was successfully updated.' }
-        format.json { render :show, status: :ok, location: @role }
       else
         format.html { render :edit }
-        format.json { render json: @role.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -45,7 +41,6 @@ class Admin::RolesController < Admin::BaseController
     @role.destroy
     respond_to do |format|
       format.html { redirect_to admin_roles_url, notice: 'Role was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

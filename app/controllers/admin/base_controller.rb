@@ -1,5 +1,5 @@
 class Admin::BaseController < ApplicationController
-	before_filter :authorized?
+	before_action :authorized?
 
 	def authorized?
     if !current_user || !current_user.isadmin
