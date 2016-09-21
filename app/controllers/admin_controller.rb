@@ -1,5 +1,5 @@
 class AdminController < Admin::BaseController
-  before_filter :authorized?
+  before_action :authorized?
 
   #before_action :set_user, only: [:logout]
   #skip_before_action :authorize, only: [:logout]

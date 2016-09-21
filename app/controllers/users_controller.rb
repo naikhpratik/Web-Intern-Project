@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :configure_sign_in_params, only: [:create]
-  #before_action :set_user, only: [:show, :edit, :update, :destroy]
-  # skip_before_action :authorize, only: [:new,:create,:index,:update,:edit,:show]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  
   # GET /users
   # GET /users.json
   def index
