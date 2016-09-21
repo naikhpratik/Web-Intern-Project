@@ -19,7 +19,7 @@ class AdminController < Admin::BaseController
     end
 
     def authorized?
-      if !current_user.isadmin
+      if !current_user || !current_user.is_admin?
         flash[:notice] = "You're not authorized to access an Admin page."
         redirect_to root_path
       end

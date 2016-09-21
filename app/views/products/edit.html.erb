@@ -3,7 +3,7 @@
 <%= render 'form0', product: @product %>
 
 <%= link_to 'Show', @product %> |
-<% if current_user.isadmin? %>
+<% if current_user.is_admin? %>
 <%= link_to 'Back', products_path %>
 <% else %>
 <%= link_to 'Back', dashboard_path %>

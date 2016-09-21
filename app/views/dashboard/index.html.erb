@@ -42,10 +42,4 @@
 
   </tbody>
 </table>
-<br />
-
-<% if user_signed_in? && current_user.isadmin? %>
-<%= link_to 'New Product', new_product_path %>
 <% end %>
-<% end %>
-<!-- Just For dashboard when any user Logs in -->
