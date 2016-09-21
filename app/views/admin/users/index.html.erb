@@ -1,33 +1,35 @@
 <h1>Users</h1>
 
-<% if @user.present? %>
-  <p>No records found.</p>
-<% else %>
+<% if @users.present? %>
   <table>
     <thead>
       <tr>
-        <th>ID</th>
+        <th>Username</th>
         <th>Email</th>
-        <th>Type</th>
-        <th>Actions</th>
+        <th>Role</th>
+        <th colspan=4>Actions</th>
       </tr>
     </thead>
     <tbody>
       <% @users.each do |user|%>
       <tr>
-        <td><%= user.id %></td>
+        <td><%= user.username %></td>
         <td><%= user.email %></td>
-        <td align="center"><%= user.isadmin ? 'Admin' : '--' %></td>
-        <td align="center">
-          <% if !user.isadmin %>
-            <%= link_to 'Make Admin', admin_user_make_admin_path(user) %>
-          <% else %>
-            <%= link_to 'Remove Admin', admin_user_make_admin_path(user) %>
-          <% end %>
+        <td><%= user.roles.map(&:name).join(', ') unless user.roles.blank? %></td>
+        <td><%= link_to 'Show', admin_user_path(user) %></td>
+        <td><%= link_to 'Edit', edit_admin_user_path(user) %></td>
+        <td><%= link_to 'Destroy', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
         </td>
       </tr>
       <% end %>
 
     </tbody>
   </table>
+<% else %>
+    <p>No records found.</p>
 <% end %>
+
+<br/>
+
+<%= link_to 'New User', new_admin_user_path %> | <%= link_to 'Back', admin_path %>

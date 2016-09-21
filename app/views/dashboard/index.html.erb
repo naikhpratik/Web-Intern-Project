@@ -1,0 +1,51 @@
+<h1>Dashboard</h1>
+<br>
+<!-- Just For dashboard Home page with no users Signed in -->
+<% if !user_signed_in? %>
+<h4>List of products</h4>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% @products.each do |product| %>
+    <tr>
+      <td><%= product.name %> </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+<!-- Just For dashboard when admin logs in-->
+<!-- Just For dashboard when any user Logs in -->
+<% if user_signed_in? %>
+<h4>List of Your Products</h4>
+<table>
+  <thead>
+    <tr>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @userproducts.each do |userproduct| %>
+    <% if current_user.id == userproduct.user_id %>
+    <tr>
+      <td><%= @products.find(userproduct.product_id).name %></td>
+      <td><%= link_to 'Show', @products.find(userproduct.product_id) %></td>
+    </tr>
+    <% end %>
+  <% end %>
+
+  </tbody>
+</table>
+<br />
+
+<% if user_signed_in? && current_user.isadmin? %>
+<%= link_to 'New Product', new_product_path %>
+<% end %>
+<% end %>
+<!-- Just For dashboard when any user Logs in -->
