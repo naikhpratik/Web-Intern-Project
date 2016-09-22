@@ -14,9 +14,7 @@ ROLES.each do |role|
 end
 
 # Add "Admin" role for all the existing Admin users
-
 admin_role = Role.find_by_name('Admin')
-puts admin_role.inspect
 User.all.each do |user|
   if user.isadmin?
     user.user_roles = [UserRole.create(user_id: user.id, role_id: admin_role.id)] unless admin_role.blank?
