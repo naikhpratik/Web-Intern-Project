@@ -16,15 +16,13 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-
+    
   end
 
   # GET /products/new
   def new
     @product = Product.new
-
     @all_user = User.all
-
     @userproduct = @product.user_products.build
 
   end
@@ -35,9 +33,6 @@ class ProductsController < ApplicationController
     @userproduct = @product.user_products.build
   end
   # GET /products/1/edit
-  #def manage_product
-    #@product = Product.find(params[:id])
-  #end
 
   # POST /products
   # POST /products.json

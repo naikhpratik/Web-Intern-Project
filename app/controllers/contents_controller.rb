@@ -15,6 +15,7 @@ class ContentsController < ApplicationController
   # GET /contents/new
   def new
     @content = Content.new
+    @product = Product.find(params[:id])
   end
 
   # GET /contents/1/edit
@@ -64,11 +65,14 @@ class ContentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_content
+
       @content = Content.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def content_params
       params.require(:content).permit(:product_id, :follows, :parent, :kind, :payload)
+      params.require(:product).permit(:name,:id)
+      #user_product: [:relationship])
     end
 end
