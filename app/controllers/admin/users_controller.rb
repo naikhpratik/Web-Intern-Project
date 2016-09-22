@@ -56,10 +56,6 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def assign_products
-    # @user_roles = []
-    # @user.user_products.each do |user_product|
-    #   @user_roles.push(@user.roles.find(user_product.role_id).name)
-    # end
   end
 
   def create_products
