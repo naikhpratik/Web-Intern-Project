@@ -1,5 +1,5 @@
 class Admin::UsersController < Admin::BaseController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:assign_products, :create_products, :show, :edit, :update, :destroy]
 
   def index
   	@users = User.all_except(current_user)
@@ -37,6 +37,7 @@ class Admin::UsersController < Admin::BaseController
 
   def update
     @user.user_roles.destroy
+    @user.user_products.destroy_with_roles user_params[:role_ids]
 
     respond_to do |format|
       if (password_upchanged? && @user.update_without_password(user_params)) || @user.update(user_params)
@@ -51,6 +52,30 @@ class Admin::UsersController < Admin::BaseController
     @user.destroy
     respond_to do |format|
       format.html { redirect_to admin_users_url, notice: 'User was successfully destroyed.' }
+    end
+  end
+
+  def assign_products
+  end
+
+  def create_products
+    role_ids = params[:role_ids]
+    product_ids = params[:product_ids]
+
+    user_products = []
+
+    role_ids.each_with_index do |role_id, index|
+      user_products.push(UserProduct.create(user_id: @user.id, product_id: product_ids[index], role_id: Role.find_by_name(role_id).id)) unless role_id.blank?
+    end
+
+    @user.user_products = user_products
+
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_to admin_user_url, notice: 'User Products successfully updated.' }
+      else
+        format.html { redirect_to assign_products_admin_user_path(@user), error: 'Couldn\'t update User Products' }
+      end
     end
   end
 
