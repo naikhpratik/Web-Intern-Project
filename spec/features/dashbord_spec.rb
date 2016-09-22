@@ -7,15 +7,14 @@ RSpec.feature "Products", :type => :feature do
     visit "/products/new"
     fill_in 'Name', :with => "My Widget"
     click_button "Create"
-    visit "/dashboard/dashboard"
+    visit "/dashboard"
     #skip()
     expect(page).to have_text("My Widget")
   end
 
   scenario "Expect page to have products related to users" do
-    visit "/dashboard/dashboard"
-    skip()
-    expect(page).to have_text("Product was successfully created.")
+    visit "/dashboard"
+    expect(page).to have_css("h1", "Dashboard")
   end
 
 end
