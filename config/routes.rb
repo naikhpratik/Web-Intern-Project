@@ -24,6 +24,5 @@ end
 
   devise_for :users, :controllers => { registrations: 'users/registrations' }
 
-  resources :products
-  resources :users
+  resources :products, only: [:index, :show]
 end
