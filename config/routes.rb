@@ -7,7 +7,12 @@ get '/dashboard', to: 'dashboard#index'
 namespace :admin do
   get 'index'
 
-  resources :users  
+  resources :users do
+    member do
+      get 'assign_products'
+      post 'create_products'
+    end
+  end
   resources :products
   resources :roles
 end
