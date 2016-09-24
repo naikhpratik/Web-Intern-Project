@@ -24,7 +24,7 @@
       <% if current_user.is_admin? %>
       <%= link_to "Admin", admin_path %><br>
     <% else %>
-    <%= link_to "My Products", dashboard_path %><br>
+    <%= link_to "My Products", products_path %><br>
     <% end %>
     <% else %>
     <%= link_to "Sign in", new_user_session_path %> |
