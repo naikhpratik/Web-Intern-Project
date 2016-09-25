@@ -9,10 +9,21 @@
   </head>
 
   <body>
-    <div class="container">
+    <div class="container-fluid">
       <%= render 'layouts/navbar' %>
-      <%= render 'layouts/messages' %>
-    <%= yield %>
-  </div>
+      <div class="row">
+        <% if current_user && current_user.is_admin? %>
+          <div class="col-md-2 sidebar">
+            <%= render 'layouts/sidebar' %>
+          </div>
+          <div class="col-md-10 col-md-offset-2 main">
+        <% else %>
+          <div class="col-md-12">
+        <% end %>
+            <%= render 'layouts/messages' %>
+            <%= yield %>
+          </div>
+      </div>
+    </div>
   </body>
 </html>
