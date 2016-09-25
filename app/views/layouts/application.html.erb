@@ -3,34 +3,14 @@
   <head>
     <title>C3Suite</title>
     <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <div id="container">
-      <div id="user_nav" align="right">
-    <% if user_signed_in? %>
-    <% if current_user.username? %>
-    Hi <strong><%= current_user.username %></strong>,
-    <% else %>
-    Logged in as <strong><%= current_user.email %></strong>,
-    <% end %>
-    <%= link_to "Edit User", edit_user_registration_path %> |
-    <%= link_to "Sign out", destroy_user_session_path, method: :delete %> <br>
-    <%= link_to "Home", dashboard_path %><br>
-    <%= link_to "About", page_about_path %><br>
-    <%= link_to "Contact", page_contact_path %><br>
-      <% if current_user.is_admin? %>
-      <%= link_to "Admin", admin_path %><br>
-    <% else %>
-    <%= link_to "My Products", products_path %><br>
-    <% end %>
-    <% else %>
-    <%= link_to "Sign in", new_user_session_path %> |
-    <%= link_to "Sign Up", new_user_registration_path %>
-    <% end %>
-      </div>
+    <div class="container">
+      <%= render 'layouts/navbar' %>
       <%= render 'layouts/messages' %>
     <%= yield %>
   </div>
