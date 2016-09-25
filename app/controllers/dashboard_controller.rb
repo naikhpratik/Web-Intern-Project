@@ -1,8 +1,11 @@
 class DashboardController < ApplicationController
 
   def index
-      @products = Product.all
-      @user = User.all
-      @userproducts = UserProduct.all
+      if current_user
+        @products = Product.where(visibility: ["All", "Registered Users"])
+        @my_products = current_user.products || []
+      else
+        @products = Product.where(visibility: "All")
+      end
   end
 end

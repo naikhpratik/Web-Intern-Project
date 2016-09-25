@@ -7,7 +7,12 @@ get '/dashboard', to: 'dashboard#index'
 namespace :admin do
   get 'index'
 
-  resources :users  
+  resources :users do
+    member do
+      get 'assign_products'
+      post 'create_products'
+    end
+  end
   resources :products
   resources :roles
 end
@@ -19,6 +24,5 @@ end
 
   devise_for :users, :controllers => { registrations: 'users/registrations' }
 
-  resources :products
-  resources :users
+  resources :products, only: [:index, :show]
 end
