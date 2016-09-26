@@ -3,7 +3,7 @@
   <%= f.select :kind, %w[Quiz Flashcard Module Sub-module Html Video Audio] %>
   <%= f.label :Payload %>
   <%= f.text_field :payload, placeholder: "payload" %>
-  <%#= f.hidden_field :_destroy %>
+  <%= f.hidden_field :_destroy %>
   <%= link_to "[remove]", '#', class: "remove_fields"  %>
 </fieldset>
 <div>
