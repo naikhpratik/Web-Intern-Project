@@ -1,5 +1,42 @@
 <p>
 	<strong>Name:</strong> <%= @product.name %>
 </p>
+
+<%= form_for [:admin, @product] do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+	<%= f.fields_for :contents do |builder| %>
+	<%= render 'field_fields', f: builder %>
+	<% end %>
+	<div>
+	</br>
+	</div>
+	<%= link_to_add_fields "Add Module", f, :contents %>
+
+<div>
+</br>
+</div>
+
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>
+
+<!-- <%= link_to '<button type="button">Add module</button>'.html_safe, admin_products_path %> -->
 <%= link_to 'Edit', edit_admin_product_path(@product) %> |
 <%= link_to 'Back', admin_products_path %>
