@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
 root 'dashboard#index'
 
-get '/admin', to: 'admin#index'
+get '/admin', to: 'admin/users#index'
 get '/dashboard', to: 'dashboard#index'
 
 namespace :admin do
-  get 'index'
-
   resources :users do
     member do
       get 'assign_products'
@@ -14,7 +12,7 @@ namespace :admin do
     end
   end
   resources :products
-  resources :roles
+  resources :roles, only: [:show]
 end
 
 #page
@@ -24,6 +22,5 @@ end
 
   devise_for :users, :controllers => { registrations: 'users/registrations' }
 
-  resources :products
-  resources :users
+  resources :products, only: [:index, :show]
 end

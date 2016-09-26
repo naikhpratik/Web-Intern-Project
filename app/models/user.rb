@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :user_roles, :dependent => :destroy
   has_many :roles, :through => :user_roles
 
+  validates :username, presence: true, uniqueness: true
+
   def self.all_except(user)
     where.not(id: user)
   end
