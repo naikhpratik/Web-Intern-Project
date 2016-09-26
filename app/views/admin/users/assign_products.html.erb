@@ -1,0 +1,25 @@
+<br/ >
+
+<h3>Assign Products</h3>
+<%= form_for [:admin, @user], url: create_products_admin_user_path(@user), method: :post, html: { class: 'form' } do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= render 'products', products: Product.all, user: @user, form: true %>
+  <div class="row">
+    <div class="form-group col-md-6">
+      <%= f.submit 'Update User Products', class: 'btn btn-sm btn-success' %>
+      <%= link_to 'Back', :back, class: 'btn btn-sm btn-primary' %>
+    </div>
+  </div>
+<% end %>
+

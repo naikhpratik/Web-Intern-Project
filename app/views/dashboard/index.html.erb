@@ -1,45 +1,27 @@
-<h1>Dashboard</h1>
-<br>
-<!-- Just For dashboard Home page with no users Signed in -->
-<% if !user_signed_in? %>
-<h4>List of products</h4>
-<table>
-  <thead>
-    <tr>
-      <th></th>
-    </tr>
-  </thead>
+<h3>Products Available</h3>
+<div class="row">
+  <!-- Publicly available products -->
+  <% if @products.present? %>
+    <div class="list-group col-md-4">
+      <% @products.each do |product| %>
+        <%= link_to product.name, product, class: 'list-group-item' %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
 
-  <tbody>
-
-    <% @products.each do |product| %>
-    <tr>
-      <td><%= product.name %> </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-<% end %>
-<!-- Just For dashboard when admin logs in-->
-<!-- Just For dashboard when any user Logs in -->
-<% if user_signed_in? %>
-<h4>List of Your Products</h4>
-<table>
-  <thead>
-    <tr>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @userproducts.each do |userproduct| %>
-    <% if current_user.id == userproduct.user_id %>
-    <tr>
-      <td><%= @products.find(userproduct.product_id).name %></td>
-      <td><%= link_to 'Show', @products.find(userproduct.product_id) %></td>
-    </tr>
+<div class="row">
+  <!-- Logged in user's products -->
+  <% if user_signed_in? %>
+    <% if @my_products.present? %>
+      <h3>Your Products</h3>
+      <div class="list-group col-md-4">
+        <% if @my_products.present? %>
+          <% @my_products.each do |product| %>
+            <%= link_to product.name, product, class: 'list-group-item' %>
+          <% end %>
+        <% end %>
+      </div>
     <% end %>
   <% end %>
-
-  </tbody>
-</table>
-<% end %>
+</div>

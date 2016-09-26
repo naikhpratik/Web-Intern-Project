@@ -1,3 +1,4 @@
+<h3>Account Details</h3>
 <p>
 	<strong>Username:</strong> <%= @user.username %>
   <br/><br/>
@@ -9,5 +10,25 @@
   <% end %>
 </p>
 
-<%= link_to 'Edit', edit_admin_user_path(@user) %> |
-<%= link_to 'Back', admin_users_path %>
+<% if @user.products.present? %>
+<h3>Products</h3>
+<div class="row">
+  <div class="col-md-5">
+    <div class="row">
+      <% @user.products.each do |product| %>
+        <div class="col-md-6"><%= product.name %></div>
+        <div class="col-md-6"><%= @user.user_products.role(product.id) %></div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<br/>
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to 'Edit', edit_admin_user_path(@user), class: 'btn btn-sm btn-success' %> 
+    <%= link_to 'Assign Products', assign_products_admin_user_path(@user), class: 'btn btn-sm btn-success' %> 
+    <%= link_to 'Back', admin_users_path, class: 'btn btn-sm btn-primary' %>
+  </div>
+</div>
