@@ -1,23 +1,17 @@
 <% if products.present? %>
-  <table>
-    <thead>
-      <th>Product Name</th>
-      <th>User Roles</th>
-    </thead>
-    <tbody>
-      <% products.each do |product| %>
-        <tr>   
-          <td><%= "#{product.name} <br/>".html_safe %></td>
-          <td>
+  <% products.each do |product| %>
+    <div class="row">
+      <div class="form-group col-md-6">
+        <div class="row">
+          <label class="col-md-6 control-label"><%= "#{product.name}".html_safe %></label>
+          <div class="col-md-6">
             <% if form %>
               <%= hidden_field_tag 'product_ids[]', product.id %>
-              <%= select_tag 'role_ids[]', options_for_select(user.roles.map(&:name), user.user_products.role(product.id)), prompt: 'None' %></td>
-            <% else %>
-              <%= user.user_products.role(product.id) %>
+              <%= select_tag 'role_ids[]', options_for_select(user.roles.map(&:name), user.user_products.role(product.id)), prompt: 'None', class: 'form-control' %>                  
             <% end %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
 <% end %>

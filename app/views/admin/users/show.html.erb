@@ -10,9 +10,25 @@
   <% end %>
 </p>
 
+<% if @user.products.present? %>
 <h3>Products</h3>
-<%= render 'products', products: @user.products, user: @user, form: false %>
+<div class="row">
+  <div class="col-md-5">
+    <div class="row">
+      <% @user.products.each do |product| %>
+        <div class="col-md-6"><%= product.name %></div>
+        <div class="col-md-6"><%= @user.user_products.role(product.id) %></div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<% end %>
 
-<%= link_to 'Edit', edit_admin_user_path(@user) %> |
-<%= link_to 'Assign Products', assign_products_admin_user_path(@user) %> |
-<%= link_to 'Back', admin_users_path %>
+<br/>
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to 'Edit', edit_admin_user_path(@user), class: 'btn btn-sm btn-success' %> 
+    <%= link_to 'Assign Products', assign_products_admin_user_path(@user), class: 'btn btn-sm btn-success' %> 
+    <%= link_to 'Back', admin_users_path, class: 'btn btn-sm btn-primary' %>
+  </div>
+</div>
