@@ -12,7 +12,7 @@ namespace :admin do
     end
   end
   resources :products
-  resources :roles
+  resources :roles, only: [:show]
 end
 
 #page
