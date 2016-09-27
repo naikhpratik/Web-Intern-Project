@@ -1,10 +1,3 @@
 class Admin::BaseController < ApplicationController
-	before_action :authorized?
-
-	def authorized?
-    if !current_user || !current_user.is_admin?
-      flash[:alert] = "You're not authorized to access this page."
-      redirect_to root_path
-    end
-  end
+  load_and_authorize_resource
 end
