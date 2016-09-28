@@ -7,7 +7,7 @@ class Product < ApplicationRecord
   validates :visibility, presence: true
 
   has_many :user_products
-  has_many :contents
   has_many :users, :through => :user_products
+  has_many :contents
   accepts_nested_attributes_for :contents, allow_destroy: true
 end
