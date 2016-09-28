@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show]
 
   def index
-    @products = current_user.products || []
+    @products = user_signed_in? ? current_user.products : []
   end
 
   def show

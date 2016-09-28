@@ -32,6 +32,9 @@ gem 'devise'
 # Bootstrap
 gem 'bootstrap-sass', '~> 3.3.6'
 
+# Cancan
+gem 'cancancan', '~> 1.10'
+
 gem 'rails-controller-testing'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

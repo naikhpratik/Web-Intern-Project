@@ -1,3 +1,4 @@
+
 <p id="notice"><%= notice %></p>
 <p><strong>Name : </strong>
   <%= @product.name %><br></p>
@@ -13,8 +14,13 @@
 <% end %>
 
 <p>
+<br/>
+
+<h5>
   <strong>Name:</strong>
   <%= @product.name %>
-</p>
+</h5>
 
-<%= link_to 'Back', dashboard_path %>
+<br/>
+
+<%= link_to 'Back', dashboard_path, class: 'btn btn-sm btn-primary' %>

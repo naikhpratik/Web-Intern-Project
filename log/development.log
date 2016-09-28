@@ -4009,3 +4009,4 @@ ExecJS::RuntimeError - SyntaxError: [stdin]:10:26: missing ):
   /Users/Naik/.rvm/gems/ruby-2.3.1@C3suite/gems/puma-3.6.0/lib/puma/server.rb:275:in `block in run'
   /Users/Naik/.rvm/gems/ruby-2.3.1@C3suite/gems/puma-3.6.0/lib/puma/thread_pool.rb:116:in `block in spawn_thread'
 
+DEPRECATION WARNING: alias_method_chain is deprecated. Please, use Module#prepend instead. From module, you can access the original method using super. (called from alias_method_chain at /Users/Naik/.rvm/gems/ruby-2.3.1@global/gems/activesupport-5.0.0.rc2/lib/active_support/core_ext/module/aliasing.rb:27)
