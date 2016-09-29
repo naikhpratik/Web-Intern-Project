@@ -15,7 +15,6 @@ class ContentsController < ApplicationController
   # GET /contents/new
   def new
     @content = Content.new
-    @product = Product.find(params[:id])
   end
 
   # GET /contents/1/edit
@@ -25,6 +24,8 @@ class ContentsController < ApplicationController
   # POST /contents
   # POST /contents.json
   def create
+
+    
     @content = Content.new(content_params)
 
     respond_to do |format|
@@ -41,6 +42,12 @@ class ContentsController < ApplicationController
   # PATCH/PUT /contents/1
   # PATCH/PUT /contents/1.json
   def update
+
+  #  @k = params[:kind]
+  #  @p = params[:payload]
+
+
+
     respond_to do |format|
       if @content.update(content_params)
         format.html { redirect_to @content, notice: 'Content was successfully updated.' }
@@ -65,7 +72,6 @@ class ContentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_content
-
       @content = Content.find(params[:id])
     end
 

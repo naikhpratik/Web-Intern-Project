@@ -43,9 +43,8 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
-    #render text: params.inspect
+
     @relationship = params[:relationship]
-  #  @product = Product.update(product_params)
       test = params[:users][:id]
       test.each do |user|
     if !user.empty?
