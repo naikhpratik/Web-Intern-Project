@@ -25,9 +25,7 @@ class ContentsController < ApplicationController
   # POST /contents.json
   def create
 
-    
     @content = Content.new(content_params)
-
     respond_to do |format|
       if @content.save
         format.html { redirect_to @content, notice: 'Content was successfully created.' }
@@ -42,11 +40,6 @@ class ContentsController < ApplicationController
   # PATCH/PUT /contents/1
   # PATCH/PUT /contents/1.json
   def update
-
-  #  @k = params[:kind]
-  #  @p = params[:payload]
-
-
 
     respond_to do |format|
       if @content.update(content_params)

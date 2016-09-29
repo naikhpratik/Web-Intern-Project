@@ -1,4 +1,5 @@
 <fieldset>
+  <%= f.hidden_field :parent, :value => @product.id %>
   <%= f.label :kind %>
   <%= f.select :kind, %w[Quiz Flashcard Module Sub-module Html Video Audio] %>
   <%= f.label :Payload %>

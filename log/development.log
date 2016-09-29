@@ -5432,3 +5432,108 @@ NoMethodError - undefined method `id' for nil:NilClass:
   /Users/Naik/.rvm/gems/ruby-2.3.1@C3suite/gems/puma-3.6.0/lib/puma/server.rb:275:in `block in run'
   /Users/Naik/.rvm/gems/ruby-2.3.1@C3suite/gems/puma-3.6.0/lib/puma/thread_pool.rb:116:in `block in spawn_thread'
 
+DEPRECATION WARNING: alias_method_chain is deprecated. Please, use Module#prepend instead. From module, you can access the original method using super. (called from alias_method_chain at /Users/Naik/.rvm/gems/ruby-2.3.1@global/gems/activesupport-5.0.0.rc2/lib/active_support/core_ext/module/aliasing.rb:27)
+Started GET "/admin/products/4/edit" for ::1 at 2016-09-29 16:06:09 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (26.5ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Admin::ProductsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 4 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 2[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 4 LIMIT 1[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering admin/products/edit.html.erb within layouts/application
+  [1m[36mContent Load (0.3ms)[0m  [1m[34mSELECT `contents`.* FROM `contents` WHERE `contents`.`product_id` = 4[0m
+  Rendered admin/products/_content_fields.html.erb (4.7ms)
+  Rendered admin/products/_content_fields.html.erb (1.1ms)
+  Rendered admin/products/_form.html.erb (503.9ms)
+  Rendered admin/products/edit.html.erb within layouts/application (507.5ms)
+  Rendered layouts/_navbar.html.erb (0.9ms)
+  Rendered layouts/_sidebar.html.erb (0.8ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 1095ms (Views: 933.6ms | ActiveRecord: 9.7ms)
+
+
+Started PATCH "/admin/products/4" for ::1 at 2016-09-29 16:06:14 -0400
+Processing by Admin::ProductsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fOC9kzBzs//UG6IDdAT+qrV+EpT2Ojgbn/UbVLWWLnAaJgRJE8tQXdexQVUptIAnZiGVL4+s+ZI7cZOZZfVp4w==", "product"=>{"name"=>"abc", "visibility"=>"All", "contents_attributes"=>{"0"=>{"parent"=>"4", "kind"=>"Quiz", "payload"=>"eee", "_destroy"=>"false", "id"=>"26"}}}, "commit"=>"Update Product", "id"=>"4"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 4 LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 2[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 4 LIMIT 1[0m  [["id", 4], ["LIMIT", 1]]
+Unpermitted parameters: parent, _destroy, id
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'abc' AND (`products`.`id` != 4) LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO `contents` (`product_id`, `kind`, `payload`, `created_at`, `updated_at`) VALUES (4, 'Quiz', 'eee', '2016-09-29 20:06:14', '2016-09-29 20:06:14')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/admin/products/4
+Completed 302 Found in 30ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/admin/products/4" for ::1 at 2016-09-29 16:06:14 -0400
+Processing by Admin::ProductsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 4 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 2[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 4 LIMIT 1[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering admin/products/show.html.erb within layouts/application
+  Rendered admin/products/show.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_navbar.html.erb (1.5ms)
+  Rendered layouts/_sidebar.html.erb (0.9ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 82ms (Views: 61.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/admin/products/4/edit" for ::1 at 2016-09-29 16:14:45 -0400
+Processing by Admin::ProductsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 4 LIMIT 1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 2[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 4 LIMIT 1[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering admin/products/edit.html.erb within layouts/application
+  [1m[36mContent Load (0.3ms)[0m  [1m[34mSELECT `contents`.* FROM `contents` WHERE `contents`.`product_id` = 4[0m
+  Rendered admin/products/_content_fields.html.erb (7.1ms)
+  Rendered admin/products/_content_fields.html.erb (2.7ms)
+  Rendered admin/products/_content_fields.html.erb (2.1ms)
+  Rendered admin/products/_form.html.erb (107.1ms)
+  Rendered admin/products/edit.html.erb within layouts/application (111.2ms)
+  Rendered layouts/_navbar.html.erb (1.8ms)
+  Rendered layouts/_sidebar.html.erb (3.2ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 484ms (Views: 262.3ms | ActiveRecord: 5.9ms)
+
+
+Started PATCH "/admin/products/4" for ::1 at 2016-09-29 16:14:48 -0400
+Processing by Admin::ProductsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uqiIJRArXBNot2tJDVbVbR/69Lu3l9CDX8hcmKYr0IPcbjH/M5O/sWsdiB9Q5qvgzKVzAM4BEQr7TNRVdkiXEA==", "product"=>{"name"=>"abc", "visibility"=>"All", "contents_attributes"=>{"0"=>{"parent"=>"4", "kind"=>"Quiz", "payload"=>"eee", "_destroy"=>"false", "id"=>"26"}, "1"=>{"parent"=>"4", "kind"=>"Quiz", "payload"=>"eee", "_destroy"=>"false", "id"=>"27"}}}, "commit"=>"Update Product", "id"=>"4"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 4 LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 2[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 4 LIMIT 1[0m  [["id", 4], ["LIMIT", 1]]
+Unpermitted parameters: _destroy, id
+Unpermitted parameters: _destroy, id
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`name` = BINARY 'abc' AND (`products`.`id` != 4) LIMIT 1[0m
+  [1m[35mSQL (3.6ms)[0m  [1m[32mINSERT INTO `contents` (`product_id`, `parent`, `kind`, `payload`, `created_at`, `updated_at`) VALUES (4, 4, 'Quiz', 'eee', '2016-09-29 20:14:49', '2016-09-29 20:14:49')[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `contents` (`product_id`, `parent`, `kind`, `payload`, `created_at`, `updated_at`) VALUES (4, 4, 'Quiz', 'eee', '2016-09-29 20:14:49', '2016-09-29 20:14:49')[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/admin/products/4
+Completed 302 Found in 63ms (ActiveRecord: 6.5ms)
+
+
+Started GET "/admin/products/4" for ::1 at 2016-09-29 16:14:49 -0400
+Processing by Admin::ProductsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 4 LIMIT 1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 2[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 4 LIMIT 1[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering admin/products/show.html.erb within layouts/application
+  Rendered admin/products/show.html.erb within layouts/application (3.9ms)
+  Rendered layouts/_navbar.html.erb (1.5ms)
+  Rendered layouts/_sidebar.html.erb (1.4ms)
+  Rendered layouts/_messages.html.erb (1.0ms)
+Completed 200 OK in 168ms (Views: 131.7ms | ActiveRecord: 1.5ms)
+
+
