@@ -26,6 +26,7 @@ class ContentsController < ApplicationController
   def create
 
     @content = Content.new(content_params)
+    if @content.payload.kind && @content.payload.exists && @content.parent.exists && @content.follow.exists ?
     respond_to do |format|
       if @content.save
         format.html { redirect_to @content, notice: 'Content was successfully created.' }
@@ -36,6 +37,7 @@ class ContentsController < ApplicationController
       end
     end
   end
+end
 
   # PATCH/PUT /contents/1
   # PATCH/PUT /contents/1.json

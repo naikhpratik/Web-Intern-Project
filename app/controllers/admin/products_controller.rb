@@ -28,14 +28,13 @@ class Admin::ProductsController < Admin::BaseController
   # POST /products.json
   def create
     @product = Product.new(product_params)
-
-    respond_to do |format|
-      if @product.save
-        format.html { redirect_to admin_product_url(@product), notice: 'Product was successfully created.' }
-      else
-        format.html { render :new }
+      respond_to do |format|
+        if @product.save
+          format.html { redirect_to admin_product_url(@product), notice: 'Product was successfully created.' }
+        else
+          format.html { render :new }
+        end
       end
-    end
   end
 
   # PATCH/PUT /products/1
