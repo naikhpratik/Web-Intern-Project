@@ -17,4 +17,14 @@ RSpec.describe Role, type: :model do
 
     expect(new_role).to be_invalid
   end
+
+  it "should return all the roles expect the ones passed as parameter" do
+    role = FactoryGirl.create(:role)
+    role_new = Role.create(name: 'Test Role 2')
+
+    result = Role.all_except(role).first
+
+    expect(result).to eq(role_new.id)
+  end
+
 end
