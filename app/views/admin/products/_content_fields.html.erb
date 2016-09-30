@@ -1,0 +1,12 @@
+<fieldset>
+  <%= f.hidden_field :parent, :value => @product.id %>
+  <%= f.label :kind %>
+  <%= f.select :kind, %w[Quiz Flashcard Module Sub-module Html Video Audio] %>
+  <%= f.label :Payload %>
+  <%= f.text_field :payload, placeholder: "payload" %>
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "[remove]", '#', class: "remove_fields", data: { confirm: 'Are you sure?' }  %>
+</fieldset>
+<div>
+</br>
+</div>
