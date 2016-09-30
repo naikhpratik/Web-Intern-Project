@@ -14,6 +14,8 @@ namespace :admin do
   resources :products
   resources :roles, only: [:show]
 end
+  resources :contents
+
 
 #page
   get 'page/home'

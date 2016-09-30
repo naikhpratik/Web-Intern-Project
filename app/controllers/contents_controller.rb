@@ -24,29 +24,28 @@ class ContentsController < ApplicationController
   # POST /contents
   # POST /contents.json
   def create
-    @content = Content.new(content_params)
 
+    @content = Content.new(content_params)
+    if @content.payload.kind && @content.payload.exists && @content.parent.exists && @content.follow.exists ?
     respond_to do |format|
       if @content.save
         format.html { redirect_to @content, notice: 'Content was successfully created.' }
-        format.json { render :show, status: :created, location: @content }
       else
         format.html { render :new }
-        format.json { render json: @content.errors, status: :unprocessable_entity }
       end
     end
   end
+end
 
   # PATCH/PUT /contents/1
   # PATCH/PUT /contents/1.json
   def update
+
     respond_to do |format|
       if @content.update(content_params)
         format.html { redirect_to @content, notice: 'Content was successfully updated.' }
-        format.json { render :show, status: :ok, location: @content }
       else
         format.html { render :edit }
-        format.json { render json: @content.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -57,7 +56,6 @@ class ContentsController < ApplicationController
     @content.destroy
     respond_to do |format|
       format.html { redirect_to contents_url, notice: 'Content was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
@@ -70,5 +68,6 @@ class ContentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def content_params
       params.require(:content).permit(:product_id, :follows, :parent, :kind, :payload)
+      params.require(:product).permit(:name,:id)
     end
 end

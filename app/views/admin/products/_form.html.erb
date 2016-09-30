@@ -22,7 +22,12 @@
     <%= f.select :visibility, options_for_select(["All", "Registered Users", "Privileged Users"], ["All"]), {}, { class: 'form-control' } %>
   </div>
 
+  <%= f.fields_for :contents do |builder| %>
+    <%= render 'content_fields', f: builder %>
+  <% end %>
+
   <div class="form-group">
+    <%= link_to_add_fields "Add Module", f, :contents, 'btn btn-sm btn-warning' %>
     <%= f.submit class: 'btn btn-sm btn-success' %>
   </div>
 <% end %>
