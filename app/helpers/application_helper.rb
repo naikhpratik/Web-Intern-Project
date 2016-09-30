@@ -1,4 +1,5 @@
 module ApplicationHelper
+
   def navbar_link
     content_tag(:ul, class: "nav nav-sidebar") do
       yield

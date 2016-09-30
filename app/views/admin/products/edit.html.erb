@@ -1,6 +1,8 @@
 <h3>Editing Product</h3>
 
-<%= render 'form', product: @product %>
+<%= render 'form', product: @product, content: @contents %>
 
-<%= link_to 'Show', admin_product_path(@product), class: 'btn btn-sm btn-info' %> 
+<%= link_to 'Show', admin_product_path(@product), class: 'btn btn-sm btn-info' %>
 <%= link_to 'Back', admin_products_path, class: 'btn btn-sm btn-primary' %>
+
+<%= @k %>

@@ -5,7 +5,7 @@ class DashboardController < ApplicationController
         @products = Product.where(visibility: [Product::VISIBILITY_ALL, Product::VISIBILITY_REGISTERED_USERS])
         @my_products = current_user.products || []
       else
-        @products = Product.where(visibility: "All")
+        @products = Product.where(visibility: Product::VISIBILITY_ALL)
       end
   end
 end

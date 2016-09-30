@@ -1,0 +1,17 @@
+
+  <%= f.hidden_field :parent, :value => @product.id %>
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :kind, class: 'control-label' %>
+      <%= f.select :kind, %w[Quiz Flashcard Module Sub-module HTML Video Audio], {}, { class: 'form-control input-sm' } %>
+    </div>
+    
+    <div class="form-group col-md-6">
+      <%= f.label :Payload, class: 'control-label' %>
+      <%= f.text_area :payload, placeholder: "payload", class: 'form-control' %>
+    </div>
+
+    <%= f.hidden_field :_destroy %>
+    <%= link_to "<span class='glyphicon glyphicon-remove' aria-hidden='true'></span> Remove".html_safe, '#', class: "remove_fields btn btn-sm btn-danger col-md-2", data: { confirm: 'Are you sure?' }  %>
+  </div>
+
