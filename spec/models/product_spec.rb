@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do  
+  it { should have_many(:contents) }
+  
   it "is valid with valid attributes" do
     product = FactoryGirl.create(:product)
     expect(product).to be_valid
