@@ -2,12 +2,12 @@
 
 <h5>
 	<strong>Name:</strong> <%= @product.name %>
-</p>
-<br/>
-<strong>Visibility:</strong> <%= @product.visibility %>
+  <br/><br/>
+  <strong>Visibility:</strong> <%= @product.visibility %>
 </h5>
 
 <%= @k %>
 
-<%= link_to 'Edit', edit_admin_product_path(@product), class: 'btn btn-sm btn-success' %>
-<%= link_to 'Back', admin_products_path, class: 'btn btn-sm btn-primary' %>
+<br/>
+
+<%= link_to 'Edit', edit_admin_product_path(@product), class: 'btn btn-sm btn-success' %> <%= link_to 'Back', admin_products_path, class: 'btn btn-sm btn-primary' %>

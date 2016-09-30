@@ -10,7 +10,6 @@ class Admin::ProductsController < Admin::BaseController
   # GET /products/1
   # GET /products/1.json
   def show
-
   end
 
   # GET /products/new
@@ -28,19 +27,20 @@ class Admin::ProductsController < Admin::BaseController
   # POST /products.json
   def create
     @product = Product.new(product_params)
-      respond_to do |format|
-        if @product.save
-          format.html { redirect_to admin_product_url(@product), notice: 'Product was successfully created.' }
-        else
-          format.html { render :new }
-        end
+
+    respond_to do |format|
+      if @product.save
+        format.html { redirect_to admin_product_url(@product), notice: 'Product was successfully created.' }
+      else
+        format.html { render :new }
       end
+    end
   end
 
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
-  respond_to do |format|
+    respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to admin_product_url(@product), notice: 'Product was successfully updated.' }
       else
@@ -66,7 +66,6 @@ class Admin::ProductsController < Admin::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.fetch(:product).permit(:name, :visibility, contents_attributes: [:kind,:payload,:parent])
-      #params.fetch(:contents).permit(:kind,:payload)
+      params.fetch(:product).permit(:name, :visibility, contents_attributes: [:id, :kind, :payload, :parent, :_destroy])
     end
 end

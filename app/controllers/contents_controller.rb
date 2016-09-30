@@ -30,10 +30,8 @@ class ContentsController < ApplicationController
     respond_to do |format|
       if @content.save
         format.html { redirect_to @content, notice: 'Content was successfully created.' }
-        format.json { render :show, status: :created, location: @content }
       else
         format.html { render :new }
-        format.json { render json: @content.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -46,10 +44,8 @@ end
     respond_to do |format|
       if @content.update(content_params)
         format.html { redirect_to @content, notice: 'Content was successfully updated.' }
-        format.json { render :show, status: :ok, location: @content }
       else
         format.html { render :edit }
-        format.json { render json: @content.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -60,7 +56,6 @@ end
     @content.destroy
     respond_to do |format|
       format.html { redirect_to contents_url, notice: 'Content was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
@@ -74,6 +69,5 @@ end
     def content_params
       params.require(:content).permit(:product_id, :follows, :parent, :kind, :payload)
       params.require(:product).permit(:name,:id)
-      #user_product: [:relationship])
     end
 end
