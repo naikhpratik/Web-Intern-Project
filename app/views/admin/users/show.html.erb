@@ -16,7 +16,7 @@
   <div class="col-md-5">
     <div class="row">
       <% @user.products.each do |product| %>
-        <div class="col-md-6"><%= product.name %></div>
+        <div class="col-md-6"><%= product.title %></div>
         <div class="col-md-6"><%= @user.user_products.role(product.id) %></div>
       <% end %>
     </div>

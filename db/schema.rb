@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161002100720) do
+ActiveRecord::Schema.define(version: 20161004133451) do
 
   create_table "contents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "product_id"
@@ -26,8 +26,12 @@ ActiveRecord::Schema.define(version: 20161002100720) do
     t.index ["product_id"], name: "fk_rails_6f4dae6b48", using: :btree
   end
 
+  create_table "modulees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+  end
+
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
+    t.string   "title"
     t.string   "icon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -3,7 +3,7 @@ class Product < ApplicationRecord
   VISIBILITY_REGISTERED_USERS = "Registered Users"
   VISIBILITY_PRIVILEGED_USERS = "Privileged Users"
 
-  validates :name, presence: true, uniqueness: true
+  validates :title, presence: true, uniqueness: true
   validates :visibility, presence: true
 
   has_many :user_products, dependent: :destroy

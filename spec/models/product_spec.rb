@@ -10,13 +10,13 @@ RSpec.describe Product, type: :model do
     expect(product).to be_valid
   end
 
-  it "is not valid without a name" do
+  it "is not valid without a title" do
     product = Product.new(visibility: "All")
     expect(product).to be_invalid
   end
 
   it "is not valid without visibility" do
-    product = Product.new(name: "Test Product 1")
+    product = Product.new(title: "Test Product 1")
   	expect(product).to be_invalid
   end
 end
