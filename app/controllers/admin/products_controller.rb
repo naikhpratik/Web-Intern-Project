@@ -66,6 +66,6 @@ class Admin::ProductsController < Admin::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.fetch(:product).permit(:name, :visibility, contents_attributes: [:id, :kind, :payload, :parent, :_destroy])
+      params.fetch(:product).permit(:name, :visibility, contents_attributes: [:id, :name, :parent_id, :_destroy])
     end
 end

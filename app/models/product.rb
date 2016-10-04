@@ -6,9 +6,9 @@ class Product < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :visibility, presence: true
 
-  has_many :user_products
-  has_many :users, :through => :user_products
+  has_many :user_products, dependent: :destroy
+  has_many :users, through: :user_products
 
-  has_many :contents, :dependent => :destroy
+  has_many :contents, dependent: :destroy
   accepts_nested_attributes_for :contents, allow_destroy: true
 end

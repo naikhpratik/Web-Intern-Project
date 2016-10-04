@@ -10,16 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160923150000) do
+ActiveRecord::Schema.define(version: 20161002100720) do
 
   create_table "contents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "product_id"
-    t.integer  "follows"
-    t.integer  "parent"
-    t.string   "kind"
-    t.text     "payload",    limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.integer  "parent_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "ancestry"
+    t.string   "actable_type"
+    t.integer  "actable_id"
+    t.string   "name"
+    t.index ["actable_type", "actable_id"], name: "index_contents_on_actable_type_and_actable_id", using: :btree
+    t.index ["ancestry"], name: "index_contents_on_ancestry", using: :btree
     t.index ["product_id"], name: "fk_rails_6f4dae6b48", using: :btree
   end
 
