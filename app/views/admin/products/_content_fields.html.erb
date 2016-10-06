@@ -1,8 +1,15 @@
-<script type="text/javascript">
-  type = $('#kind').val().toLowerCase();
-
-  if (type == "quiz")
-    $('body').append("<%= j render(partial: 'quiz', locals: { f: f }) %>");
-  else
-    console.log(type);
-</script>
+<% if f.object.instance_of? Quiz %>
+  <%= render 'quiz_fields', f: f %>
+<% elsif f.object.instance_of? Flashcard %>
+  <%= render 'flashcard_fields', f: f %>
+<% elsif f.object.instance_of? Html %>
+  <%= render 'html_fields', f: f %>
+<% elsif f.object.instance_of? Audio %>
+  <%= render 'audio_fields', f: f %>
+<% elsif f.object.instance_of? Video %>
+  <%= render 'video_fields', f: f %>
+<% elsif f.object.instance_of? Modulee %>
+  <%= render 'module_fields', f: f %>
+<% elsif f.object.instance_of? SubModule %>
+  <%= render 'sub_module_fields', f: f %>
+<% end %>

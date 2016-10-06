@@ -23,23 +23,27 @@
   </div>
 
   <hr/>
-  <h5>Add New Content</h5>
+  <h4>Add New Fields</h4>
   <div class="row">
-    <div class="form-group col-md-6">
-      <%= select_tag :kind, options_for_select(%w[Quiz Flashcard Module Sub-module HTML Video Audio]), class: 'form-control input-sm' %>
+    <div class="form-group nested_fields">
+      <%= f.fields_for :contents do |builder| %>
+        <%= render 'content_fields', f: builder %>
+      <% end %>
     </div>
 
-    <%= f.fields_for :contents do |builder| %>
-      <%= render 'content_fields', f: builder %>
-      <%= link_to_add_association 'Add a Quiz', f, :contents, :wrap_object => Proc.new { |content| content = Quiz.new } %>
-    <% end %>
-
-    <div class="form-group">
-      <%= link_to_add_fields "Add Content", f, :contents, 'btn btn-sm btn-warning' %>
+    <div class="btn-group col-md-12">
+      <button type="button" class="btn btn-sm btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Add Field <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <% @content_types.each do |m|  %>
+          <li><%= link_to_add_association m.underscore.humanize.titleize, f, :contents, 'data-association-insertion-node': '.nested_fields', 'data-association-insertion-method': 'append', wrap_object: Proc.new { |content| content = m.constantize.new } %></li>
+        <% end  %>
+      </ul>
     </div>
   </div>
-
   <hr/>
+
   <div class="form-group">
       <%= f.submit class: 'btn btn-sm btn-success' %>
     </div>

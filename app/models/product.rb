@@ -10,5 +10,5 @@ class Product < ApplicationRecord
   has_many :users, through: :user_products
 
   has_many :contents, dependent: :destroy
-  accepts_nested_attributes_for :contents, allow_destroy: true
+  accepts_nested_attributes_for :contents, reject_if: :all_blank, allow_destroy: true
 end

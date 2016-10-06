@@ -11,11 +11,11 @@ namespace :admin do
       post 'create_products'
     end
   end
-  resources :products do
-    resources :modulees, path: "module"
-  end
+
+  resources :products  
   resources :roles, only: [:show]
 end
+  
   resources :contents
 
 

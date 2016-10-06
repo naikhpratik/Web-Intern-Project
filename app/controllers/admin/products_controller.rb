@@ -1,5 +1,6 @@
 class Admin::ProductsController < Admin::BaseController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_content_types, only: [:show, :new, :edit]
 
   # GET /products
   # GET /products.json
@@ -15,7 +16,7 @@ class Admin::ProductsController < Admin::BaseController
   # GET /products/new
   def new
     @product = Product.new
-    @product.contents.new
+    @product.contents.build
   end
 
   # GET /products/1/edit
@@ -64,8 +65,13 @@ class Admin::ProductsController < Admin::BaseController
       @product = Product.find(params[:id])
     end
 
+    def set_content_types
+      @content_types = ['Modulee', 'SubModule', 'Quiz', 'Flashcard', 'Html', 'Audio', 'Video']
+    end
+    
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.fetch(:product).permit(:title, :visibility, contents_attributes: [:id, :name, :parent_id, :_destroy])
+      params.fetch(:product).permit(:title, :visibility, contents_attributes: [:id, :name, :parent_id, :actable_type, :attr_1, :attr_2, :url, :_destroy])
     end
+
 end
