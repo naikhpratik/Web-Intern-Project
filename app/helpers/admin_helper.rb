@@ -1,13 +1,9 @@
 module AdminHelper
-
-  def link_to_add_fields(name, f, association, classes)
-    new_object = f.object.send(association).klass.new
-    id = new_object.object_id
-    fields = f.fields_for(association, new_object, child_index: id) do |builder|
-      render(association.to_s.singularize + "_fields",f: builder)
-      #render("content_fields",f: builder)
+  def user_dashboard_link
+    if current_user.is_admin? || current_user.is_product_manager? || current_user.is_content_manager?
+      link_to current_user.roles.first.name, dashboard_path
+    else
+      link_to 'My Products', dashboard_path
     end
-    link_to(name, '#', class: "add_fields #{classes}", data: {id: id, fields: fields.gsub("\n", "")})
   end
-
 end
