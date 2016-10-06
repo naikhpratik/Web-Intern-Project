@@ -13,8 +13,8 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :name, class: 'control-label' %>
-    <%= f.text_field :name, class: 'form-control' %>
+    <%= f.label :title, class: 'control-label' %>
+    <%= f.text_field :title, class: 'form-control' %>
   </div>
 
   <div class="form-group">
@@ -22,13 +22,31 @@
     <%= f.select :visibility, options_for_select(["All", "Registered Users", "Privileged Users"], ["All"]), {}, { class: 'form-control' } %>
   </div>
 
-  <%= f.fields_for :contents do |builder| %>
-    <%= render 'content_fields', f: builder %>
-  <% end %>
+  <hr/>
+  <h4>Add New Fields</h4>
+  <div class="row">
+    <div class="form-group nested_fields">
+      <%= f.fields_for :contents do |builder| %>
+        <%= render 'content_fields', f: builder %>
+      <% end %>
+    </div>
+
+    <div class="btn-group col-md-12">
+      <button type="button" class="btn btn-sm btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Add Field <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <% @content_types ||= [] %>
+        <% @content_types.each do |m|  %>
+          <li><%= link_to_add_association m.underscore.humanize.titleize, f, :contents, 'data-association-insertion-node': '.nested_fields', 'data-association-insertion-method': 'append', wrap_object: Proc.new { |content| content = m.constantize.new } %></li>
+        <% end  %>
+      </ul>
+    </div>
+  </div>
+  <hr/>
 
   <div class="form-group">
-    <%= link_to_add_fields "Add Module", f, :contents, 'btn btn-sm btn-warning' %>
-    <%= f.submit class: 'btn btn-sm btn-success' %>
-  </div>
+      <%= f.submit class: 'btn btn-sm btn-success' %>
+    </div>
 <% end %>
 </div>

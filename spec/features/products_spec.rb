@@ -6,7 +6,7 @@ RSpec.feature "Product", :type => :feature do
     login    
     visit new_admin_product_url
 
-    fill_in 'Name', :with => "My Widget"
+    fill_in 'Title', :with => "My Widget"
     select "All", from: 'product[visibility]'
     click_button "Create"
 
@@ -14,26 +14,26 @@ RSpec.feature "Product", :type => :feature do
   end
 
   scenario "User creates a duplicate product" do
-    product = FactoryGirl.create(:product, name: "My Widget")
+    product = FactoryGirl.create(:product, title: "My Widget")
     
     login
     visit new_admin_product_url
     
-    fill_in "Name", :with => "My Widget"
+    fill_in "Title", :with => "My Widget"
     select "All", from: 'product[visibility]'
     click_button "Create"
 
-    expect(page).to have_content("Name has already been taken")
+    expect(page).to have_content("Title has already been taken")
   end
 
   scenario "User creates a invalid product" do
     login
     visit new_admin_product_url
 
-    fill_in "Name", :with => ""
+    fill_in "Title", :with => ""
     click_button "Create"
 
-    expect(page).to have_content("Name can't be blank")
+    expect(page).to have_content("Title can't be blank")
   end
 
   private
