@@ -36,6 +36,7 @@
         Add Field <span class="caret"></span>
       </button>
       <ul class="dropdown-menu">
+        <% @content_types ||= [] %>
         <% @content_types.each do |m|  %>
           <li><%= link_to_add_association m.underscore.humanize.titleize, f, :contents, 'data-association-insertion-node': '.nested_fields', 'data-association-insertion-method': 'append', wrap_object: Proc.new { |content| content = m.constantize.new } %></li>
         <% end  %>
