@@ -1,9 +1,37 @@
 FactoryGirl.define do
   factory :content do
-    product_id 1
-    follows 1
-    parent 1
-    kind "MyString"
-    payload "MyText"
+    product
+    name "MyString"
+  end
+
+  factory :modulee do
+    name "Module 1"
+    attr_1 "attr value"
+  end
+
+  factory :sub_module do
+    name "Sub Module 1"
+    attr_2 "attr value"
+  end
+
+  factory :quiz do
+    name "Quiz 1"
+  end
+
+  factory :video do
+    name "Video 1"
+    url "http://www.google.com"
+  end
+
+  factory :audio do
+    name "Audio 1"
+  end
+
+  factory :html do
+    name "Html 1"
+  end
+
+  factory :flashcard do
+    name "Flashcard 1"
   end
 end

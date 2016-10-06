@@ -9,8 +9,6 @@ RSpec.feature "Product", :type => :feature do
     fill_in 'Name', :with => "My Widget"
     select "All", from: 'product[visibility]'
     click_button "Create"
-
-    
     expect(page).to have_text("Product was successfully created")
   end
 

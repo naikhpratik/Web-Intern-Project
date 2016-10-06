@@ -24,6 +24,9 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    active_record-acts_as (2.0.0)
+      activerecord (>= 4.2)
+      activesupport (>= 4.2)
     activejob (5.0.0.rc2)
       activesupport (= 5.0.0.rc2)
       globalid (>= 0.3.6)
@@ -42,6 +45,8 @@ GEM
     airbrake (5.4.5)
       airbrake-ruby (~> 1.4)
     airbrake-ruby (1.4.6)
+    ancestry (2.1.0)
+      activerecord (>= 3.0.0)
     arel (7.1.1)
     autoprefixer-rails (6.4.1.1)
       execjs
@@ -84,6 +89,7 @@ GEM
       xpath (~> 2.0)
     childprocess (0.5.9)
       ffi (~> 1.0, >= 1.0.11)
+    cocoon (1.2.9)
     codeclimate-test-reporter (0.6.0)
       simplecov (>= 0.7.1, < 1.0.0)
     coderay (1.1.1)
@@ -328,7 +334,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_record-acts_as
   airbrake
+  ancestry
   bcrypt-ruby
   better_errors
   binding_of_caller
@@ -341,6 +349,7 @@ DEPENDENCIES
   capistrano-rails-console
   capistrano-rvm
   capybara
+  cocoon
   codeclimate-test-reporter
   coffee-rails (~> 4.1.0)
   database_cleaner

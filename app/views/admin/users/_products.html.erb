@@ -3,7 +3,7 @@
     <div class="row">
       <div class="form-group col-md-6">
         <div class="row">
-          <label class="col-md-6 control-label"><%= "#{product.name}".html_safe %></label>
+          <label class="col-md-6 control-label"><%= "#{product.title}".html_safe %></label>
           <div class="col-md-6">
             <% if form %>
               <%= hidden_field_tag 'product_ids[]', product.id %>

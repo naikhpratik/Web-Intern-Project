@@ -1,3 +1,8 @@
 class Content < ApplicationRecord
-  belongs_to :product, :foreign_key => "product_id"
+  actable
+  has_ancestry
+
+  validates :name, presence: true
+
+  belongs_to :product
 end

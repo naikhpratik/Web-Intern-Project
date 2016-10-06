@@ -4,7 +4,7 @@
   <% if @products.present? %>
     <div class="list-group col-md-4">
       <% @products.each do |product| %>
-        <%= link_to product.name, product, class: 'list-group-item' %>
+        <%= link_to product.title, product, class: 'list-group-item' %>
       <% end %>
     </div>
   <% end %>
@@ -18,7 +18,7 @@
       <div class="list-group col-md-4">
         <% if @my_products.present? %>
           <% @my_products.each do |product| %>
-            <%= link_to product.name, product, class: 'list-group-item' %>
+            <%= link_to product.title, product, class: 'list-group-item' %>
           <% end %>
         <% end %>
       </div>
