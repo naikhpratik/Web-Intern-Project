@@ -35,6 +35,15 @@ gem 'bootstrap-sass', '~> 3.3.6'
 # Cancan
 gem 'cancancan', '~> 1.10'
 
+# Acts-as
+gem 'active_record-acts_as'
+
+# Ancestry
+gem 'ancestry'
+
+# Cocoon
+gem "cocoon"
+
 gem 'rails-controller-testing'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
