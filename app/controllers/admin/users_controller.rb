@@ -60,6 +60,31 @@ class Admin::UsersController < Admin::BaseController
     end
   end
 
+  def assign_products
+  end
+
+ def create_products
+     role_ids = params[:role_ids]
+     product_ids = params[:product_ids]
+
+     user_products = []
+
+     role_ids.each_with_index do |role_id, index|
+       user_products.push(UserProduct.create(user_id: @user.id, product_id: product_ids[index], role_id: Role.find_by_name(role_id).id)) unless role_id.blank?
+     end
+
+     @user.user_products = user_products
+
+     respond_to do |format|
+       if @user.save
+         format.html { redirect_to admin_user_url, notice: 'User Products successfully updated.' }
+       else
+         format.html { redirect_to assign_products_admin_user_path(@user), error: 'Couldn\'t update User Products' }
+       end
+     end
+   end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -68,7 +93,7 @@ class Admin::UsersController < Admin::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:username, :email, :password, :password_confirmation,:id).tap do |whitelisted|
+      params.require(:user).permit(:username, :email, :password, :password_confirmation).tap do |whitelisted|
         whitelisted[:role_ids] = get_new_ids params[:role_ids]
       end
     end
