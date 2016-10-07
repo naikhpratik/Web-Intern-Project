@@ -16,7 +16,7 @@ class Admin::ProductsController < Admin::BaseController
   # GET /products/new
   def new
     @product = Product.new
-    @product.contents.build
+    @product.contents.new
   end
 
   # GET /products/1/edit
@@ -68,10 +68,12 @@ class Admin::ProductsController < Admin::BaseController
     def set_content_types
       @content_types = ['Modulee', 'SubModule', 'Quiz', 'Flashcard', 'Html', 'Audio', 'Video']
     end
-    
+
+
     # Never trust parameters from the scary internet, only allow the white list through.
+
     def product_params
-      params.fetch(:product).permit(:title, :visibility, contents_attributes: [:id, :name, :parent_id, :actable_type, :attr_1, :attr_2, :url, :_destroy])
+      params.fetch(:product).permit(:title, :visibility, contents_attributes: [:id, :product_id, :name, :parent_id, :actable_type, :attr_1, :attr_2, :url, :_destroy])
     end
 
 end
