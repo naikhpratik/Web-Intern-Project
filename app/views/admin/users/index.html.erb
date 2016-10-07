@@ -16,7 +16,6 @@
           <tr>
               <td><%= link_to user.username, admin_user_path(user), class: 'btn-link' %></td>
               <td><%= user.email %></td>
-              <!--td><%= user.roles.map(&:name).join(', ') unless user.roles.blank? %></td-->
               <td><%= user.roles.collect {|role| link_to role.name, admin_role_path(role), class: 'btn-link' }.join(', ').html_safe unless user.roles.blank? %></td>
               <td>
                 <div class="btn-group">
