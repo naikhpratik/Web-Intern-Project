@@ -12,10 +12,10 @@ namespace :admin do
     end
   end
 
-  resources :products  
+  resources :products
   resources :roles, only: [:show]
 end
-  
+
   resources :contents
 
 

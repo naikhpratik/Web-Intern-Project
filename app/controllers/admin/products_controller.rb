@@ -68,8 +68,10 @@ class Admin::ProductsController < Admin::BaseController
     def set_content_types
       @content_types = ['Modulee', 'SubModule', 'Quiz', 'Flashcard', 'Html', 'Audio', 'Video']
     end
-    
+
+
     # Never trust parameters from the scary internet, only allow the white list through.
+
     def product_params
       params.fetch(:product).permit(:title, :visibility, contents_attributes: [:id, :name, :parent_id, :actable_type, :attr_1, :attr_2, :url, :_destroy])
     end
