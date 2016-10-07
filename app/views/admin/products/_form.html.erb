@@ -19,7 +19,7 @@
 
   <div class="form-group">
     <%= f.label :visibility, class: 'control-label' %>
-    <%= f.select :visibility, options_for_select(["All", "Registered Users", "Privileged Users"], ["All"]), {}, { class: 'form-control' } %>
+    <%= f.select :visibility, options_for_select(["All", "Registered Users", "Privileged Users"], @product.visibility), {}, { class: 'form-control' } %>
   </div>
 
   <hr/>
