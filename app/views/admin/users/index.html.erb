@@ -12,7 +12,7 @@
     </thead>
     <tbody>
       <% @users.each do |user|%>
-        <% if current_user.is_product_manager? && user.is_content_contributor? %>
+        <% if current_user.is_product_manager? && user.is_content_contributor? || user.is_instructor? %>
           <tr>
               <td><%= link_to user.username, admin_user_path(user), class: 'btn-link' %></td>
               <td><%= user.email %></td>

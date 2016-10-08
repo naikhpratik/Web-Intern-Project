@@ -1,0 +1,2243 @@
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (3.3ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[36mActiveRecord::SchemaMigration Load (4.3ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('8754121331457351360', 0);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to AddSeedDataForInstructor (20161008185322)
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT  `roles`.* FROM `roles` WHERE `roles`.`name` = 'Instructor' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRole Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Instructor' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `roles` (`name`, `created_at`, `updated_at`) VALUES ('Instructor', '2016-10-08 19:11:16', '2016-10-08 19:11:16')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20161008185322')[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'test', '2016-10-08 19:11:16', '2016-10-08 19:11:16')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('8754121331457351360')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSHOW CREATE TABLE `audios`[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSHOW CREATE TABLE `contents`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'contents'[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSHOW CREATE TABLE `flashcards`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'flashcards'[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSHOW CREATE TABLE `htmls`[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSHOW CREATE TABLE `modulees`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'modulees'[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSHOW CREATE TABLE `products`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'products'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW CREATE TABLE `quizzes`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'quizzes'[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSHOW CREATE TABLE `roles`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'roles'[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSHOW CREATE TABLE `sub_modules`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'sub_modules'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW CREATE TABLE `user_products`[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW CREATE TABLE `user_roles`[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSHOW CREATE TABLE `users`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'users'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW CREATE TABLE `videos`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'videos'[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'C3Suite_test'
+  AND fk.table_name = 'audios'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'C3Suite_test'
+  AND fk.table_name = 'contents'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'C3Suite_test'
+  AND fk.table_name = 'flashcards'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'C3Suite_test'
+  AND fk.table_name = 'htmls'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'C3Suite_test'
+  AND fk.table_name = 'modulees'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'C3Suite_test'
+  AND fk.table_name = 'products'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'C3Suite_test'
+  AND fk.table_name = 'quizzes'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'C3Suite_test'
+  AND fk.table_name = 'roles'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'C3Suite_test'
+  AND fk.table_name = 'sub_modules'
+[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'C3Suite_test'
+  AND fk.table_name = 'user_products'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'C3Suite_test'
+  AND fk.table_name = 'user_roles'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'C3Suite_test'
+  AND fk.table_name = 'users'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'C3Suite_test'
+  AND fk.table_name = 'videos'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (0.4ms)[0m  [1m[34mselect table_name from information_schema.views where table_schema = 'c3suite_test'[0m
+  [1m[35m (4.8ms)[0m  [1m[35mTRUNCATE TABLE `ar_internal_metadata`;[0m
+  [1m[35m (4.1ms)[0m  [1m[35mTRUNCATE TABLE `audios`;[0m
+  [1m[35m (3.7ms)[0m  [1m[35mTRUNCATE TABLE `contents`;[0m
+  [1m[35m (3.4ms)[0m  [1m[35mTRUNCATE TABLE `flashcards`;[0m
+  [1m[35m (2.6ms)[0m  [1m[35mTRUNCATE TABLE `htmls`;[0m
+  [1m[35m (2.9ms)[0m  [1m[35mTRUNCATE TABLE `modulees`;[0m
+  [1m[35m (4.1ms)[0m  [1m[35mTRUNCATE TABLE `products`;[0m
+  [1m[35m (2.5ms)[0m  [1m[35mTRUNCATE TABLE `quizzes`;[0m
+  [1m[35m (3.7ms)[0m  [1m[35mTRUNCATE TABLE `roles`;[0m
+  [1m[35m (2.5ms)[0m  [1m[35mTRUNCATE TABLE `sub_modules`;[0m
+  [1m[35m (2.9ms)[0m  [1m[35mTRUNCATE TABLE `user_products`;[0m
+  [1m[35m (3.0ms)[0m  [1m[35mTRUNCATE TABLE `user_roles`;[0m
+  [1m[35m (3.8ms)[0m  [1m[35mTRUNCATE TABLE `users`;[0m
+  [1m[35m (2.7ms)[0m  [1m[35mTRUNCATE TABLE `videos`;[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'user@example.com' LIMIT 1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `username`) VALUES ('user@example.com', '$2a$04$nEVe1s0ie0MhTXW/keTnx.nJo6Rx45bdkyKzWuNx92g0KhlkoQM4O', '2016-10-08 19:11:27', '2016-10-08 19:11:27', 'user')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Admin' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `roles` (`name`, `created_at`, `updated_at`) VALUES ('Admin', '2016-10-08 19:11:27', '2016-10-08 19:11:27')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRole Load (1.1ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Admin' AND (`roles`.`id` != 1) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `user_roles` (`created_at`, `updated_at`, `role_id`) VALUES ('2016-10-08 19:11:27', '2016-10-08 19:11:27', 1)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `user_roles` (`created_at`, `updated_at`, `user_id`, `role_id`) VALUES ('2016-10-08 19:11:27', '2016-10-08 19:11:27', 1, 1)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' AND (`users`.`id` != 1) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-10-08 14:11:27 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (429.1ms)
+  Rendered layouts/_navbar.html.erb (1.1ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 679ms (Views: 663.9ms | ActiveRecord: 0.0ms)
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-10-08 14:11:28 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'user@example.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE `users` SET `current_sign_in_at` = '2016-10-08 19:11:28', `last_sign_in_at` = '2016-10-08 19:11:28', `current_sign_in_ip` = '127.0.0.1', `last_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1, `updated_at` = '2016-10-08 19:11:28' WHERE `users`.`id` = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 20ms (ActiveRecord: 1.0ms)
+Started GET "/" for 127.0.0.1 at 2016-10-08 14:11:28 -0500
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering dashboard/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT `products`.* FROM `products` WHERE `products`.`visibility` IN ('All', 'Registered Users')[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` INNER JOIN `user_products` ON `products`.`id` = `user_products`.`product_id` WHERE `user_products`.`user_id` = 1[0m
+  Rendered dashboard/index.html.erb within layouts/application (4.3ms)
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 1[0m
+  Rendered layouts/_navbar.html.erb (3.8ms)
+  Rendered layouts/_sidebar.html.erb (1.9ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 28ms (Views: 17.7ms | ActiveRecord: 2.5ms)
+Started GET "/admin/products/new" for 127.0.0.1 at 2016-10-08 14:11:28 -0500
+Processing by Admin::ProductsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 1[0m
+  Rendering admin/products/new.html.erb within layouts/application
+  Rendered admin/products/_content_fields.html.erb (2.3ms)
+  Rendered admin/products/_module_fields.html.erb (4.6ms)
+  Rendered admin/products/_content_fields.html.erb (9.9ms)
+  Rendered admin/products/_sub_module_fields.html.erb (2.6ms)
+  Rendered admin/products/_content_fields.html.erb (5.1ms)
+  Rendered admin/products/_quiz_fields.html.erb (6.3ms)
+  Rendered admin/products/_content_fields.html.erb (8.7ms)
+  Rendered admin/products/_flashcard_fields.html.erb (2.4ms)
+  Rendered admin/products/_content_fields.html.erb (6.3ms)
+  Rendered admin/products/_html_fields.html.erb (2.2ms)
+  Rendered admin/products/_content_fields.html.erb (4.9ms)
+  Rendered admin/products/_audio_fields.html.erb (2.4ms)
+  Rendered admin/products/_content_fields.html.erb (5.0ms)
+  Rendered admin/products/_video_fields.html.erb (2.8ms)
+  Rendered admin/products/_content_fields.html.erb (5.9ms)
+  Rendered admin/products/_form.html.erb (119.5ms)
+  Rendered admin/products/new.html.erb within layouts/application (121.6ms)
+  Rendered layouts/_navbar.html.erb (0.9ms)
+  Rendered layouts/_sidebar.html.erb (1.1ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 165ms (Views: 129.0ms | ActiveRecord: 7.4ms)
+Started POST "/admin/products" for 127.0.0.1 at 2016-10-08 14:11:28 -0500
+Processing by Admin::ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "product"=>{"title"=>"My Widget", "visibility"=>"All"}, "commit"=>"Create Product"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`title` = BINARY 'My Widget' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `products` (`title`, `created_at`, `updated_at`, `visibility`) VALUES ('My Widget', '2016-10-08 19:11:28', '2016-10-08 19:11:28', 'All')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/admin/products/1
+Completed 302 Found in 21ms (ActiveRecord: 1.5ms)
+Started GET "/admin/products/1" for 127.0.0.1 at 2016-10-08 14:11:28 -0500
+Processing by Admin::ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 1[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering admin/products/show.html.erb within layouts/application
+  Rendered admin/products/show.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_navbar.html.erb (1.1ms)
+  Rendered layouts/_sidebar.html.erb (0.8ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 32ms (Views: 14.8ms | ActiveRecord: 1.1ms)
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'user@example.com' LIMIT 1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `username`) VALUES ('user@example.com', '$2a$04$yczKZdz4zPhYazVTIAqKVurLzmi/DAiLh0rlIPxFQg2hI/sQnubGG', '2016-10-08 19:11:28', '2016-10-08 19:11:28', 'user')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Product Manager' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `roles` (`name`, `created_at`, `updated_at`) VALUES ('Product Manager', '2016-10-08 19:11:28', '2016-10-08 19:11:28')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Product Manager' AND (`roles`.`id` != 2) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `user_roles` (`created_at`, `updated_at`, `role_id`) VALUES ('2016-10-08 19:11:28', '2016-10-08 19:11:28', 2)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `user_roles` (`created_at`, `updated_at`, `user_id`, `role_id`) VALUES ('2016-10-08 19:11:28', '2016-10-08 19:11:28', 2, 2)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' AND (`users`.`id` != 2) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-10-08 14:11:28 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (6.8ms)
+  Rendered layouts/_navbar.html.erb (1.0ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 22ms (Views: 21.2ms | ActiveRecord: 0.0ms)
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-10-08 14:11:28 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'user@example.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `users` SET `current_sign_in_at` = '2016-10-08 19:11:28', `last_sign_in_at` = '2016-10-08 19:11:28', `current_sign_in_ip` = '127.0.0.1', `last_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1 WHERE `users`.`id` = 2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 17ms (ActiveRecord: 1.0ms)
+Started GET "/" for 127.0.0.1 at 2016-10-08 14:11:28 -0500
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering dashboard/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` WHERE `products`.`visibility` IN ('All', 'Registered Users')[0m
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT `products`.* FROM `products` INNER JOIN `user_products` ON `products`.`id` = `user_products`.`product_id` WHERE `user_products`.`user_id` = 2[0m
+  Rendered dashboard/index.html.erb within layouts/application (3.0ms)
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 2[0m
+  Rendered layouts/_navbar.html.erb (3.2ms)
+  Rendered layouts/_sidebar.html.erb (1.3ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 20ms (Views: 15.6ms | ActiveRecord: 1.3ms)
+Started GET "/admin/products/new" for 127.0.0.1 at 2016-10-08 14:11:28 -0500
+Processing by Admin::ProductsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 2[0m
+  Rendering admin/products/new.html.erb within layouts/application
+  Rendered admin/products/_content_fields.html.erb (0.8ms)
+  Rendered admin/products/_module_fields.html.erb (2.0ms)
+  Rendered admin/products/_content_fields.html.erb (4.2ms)
+  Rendered admin/products/_sub_module_fields.html.erb (4.3ms)
+  Rendered admin/products/_content_fields.html.erb (8.0ms)
+  Rendered admin/products/_quiz_fields.html.erb (2.8ms)
+  Rendered admin/products/_content_fields.html.erb (3.9ms)
+  Rendered admin/products/_flashcard_fields.html.erb (2.4ms)
+  Rendered admin/products/_content_fields.html.erb (4.1ms)
+  Rendered admin/products/_html_fields.html.erb (3.0ms)
+  Rendered admin/products/_content_fields.html.erb (5.1ms)
+  Rendered admin/products/_audio_fields.html.erb (2.2ms)
+  Rendered admin/products/_content_fields.html.erb (4.8ms)
+  Rendered admin/products/_video_fields.html.erb (10.5ms)
+  Rendered admin/products/_content_fields.html.erb (12.3ms)
+  Rendered admin/products/_form.html.erb (62.1ms)
+  Rendered admin/products/new.html.erb within layouts/application (64.7ms)
+  Rendered layouts/_navbar.html.erb (2.3ms)
+  Rendered layouts/_sidebar.html.erb (1.2ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 102ms (Views: 85.3ms | ActiveRecord: 0.8ms)
+Started POST "/admin/products" for 127.0.0.1 at 2016-10-08 14:11:28 -0500
+Processing by Admin::ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "product"=>{"title"=>"My Widget", "visibility"=>"All"}, "commit"=>"Create Product"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 2[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`title` = BINARY 'My Widget' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `products` (`title`, `created_at`, `updated_at`, `visibility`) VALUES ('My Widget', '2016-10-08 19:11:28', '2016-10-08 19:11:28', 'All')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/admin/products/2
+Completed 302 Found in 33ms (ActiveRecord: 2.0ms)
+Started GET "/admin/products/2" for 127.0.0.1 at 2016-10-08 14:11:28 -0500
+Processing by Admin::ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 2[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering admin/products/show.html.erb within layouts/application
+  Rendered admin/products/show.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_navbar.html.erb (1.8ms)
+  Rendered layouts/_sidebar.html.erb (1.3ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+Completed 200 OK in 33ms (Views: 17.0ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'user@example.com' LIMIT 1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `username`) VALUES ('user@example.com', '$2a$04$HLE45kSy5U1ZVyhGi8zSJem.4c1K8Xt6ac9kSwWzb6ZFx5hxC5zi2', '2016-10-08 19:11:28', '2016-10-08 19:11:28', 'user')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' AND (`users`.`id` != 3) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-10-08 14:11:28 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (7.2ms)
+  Rendered layouts/_navbar.html.erb (2.1ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+Completed 200 OK in 26ms (Views: 24.8ms | ActiveRecord: 0.0ms)
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-10-08 14:11:28 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'user@example.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE `users` SET `current_sign_in_at` = '2016-10-08 19:11:28', `last_sign_in_at` = '2016-10-08 19:11:28', `current_sign_in_ip` = '127.0.0.1', `last_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1 WHERE `users`.`id` = 3[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 21ms (ActiveRecord: 1.0ms)
+Started GET "/" for 127.0.0.1 at 2016-10-08 14:11:28 -0500
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering dashboard/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT `products`.* FROM `products` WHERE `products`.`visibility` IN ('All', 'Registered Users')[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` INNER JOIN `user_products` ON `products`.`id` = `user_products`.`product_id` WHERE `user_products`.`user_id` = 3[0m
+  Rendered dashboard/index.html.erb within layouts/application (3.9ms)
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 3[0m
+  Rendered layouts/_navbar.html.erb (3.6ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 21ms (Views: 15.3ms | ActiveRecord: 1.8ms)
+Started GET "/admin/products/new" for 127.0.0.1 at 2016-10-08 14:11:28 -0500
+Processing by Admin::ProductsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (1.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 3[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 19ms (ActiveRecord: 1.6ms)
+Started GET "/" for 127.0.0.1 at 2016-10-08 14:11:29 -0500
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering dashboard/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` WHERE `products`.`visibility` IN ('All', 'Registered Users')[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` INNER JOIN `user_products` ON `products`.`id` = `user_products`.`product_id` WHERE `user_products`.`user_id` = 3[0m
+  Rendered dashboard/index.html.erb within layouts/application (3.6ms)
+  [1m[36mRole Load (0.7ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 3[0m
+  Rendered layouts/_navbar.html.erb (8.1ms)
+  Rendered layouts/_messages.html.erb (1.3ms)
+Completed 200 OK in 31ms (Views: 24.4ms | ActiveRecord: 1.8ms)
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`title` = BINARY 'My Widget' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `products` (`title`, `created_at`, `updated_at`, `visibility`) VALUES ('My Widget', '2016-10-08 19:11:29', '2016-10-08 19:11:29', 'All')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'user@example.com' LIMIT 1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `username`) VALUES ('user@example.com', '$2a$04$0uBrELSUz2TbuAiXmSyqeue6gKGvY0H/A3QVB6H5Wsx3WwY9nSdmG', '2016-10-08 19:11:29', '2016-10-08 19:11:29', 'user')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Admin' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `roles` (`name`, `created_at`, `updated_at`) VALUES ('Admin', '2016-10-08 19:11:29', '2016-10-08 19:11:29')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 4[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Admin' AND (`roles`.`id` != 3) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `user_roles` (`created_at`, `updated_at`, `role_id`) VALUES ('2016-10-08 19:11:29', '2016-10-08 19:11:29', 3)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `user_roles` (`created_at`, `updated_at`, `user_id`, `role_id`) VALUES ('2016-10-08 19:11:29', '2016-10-08 19:11:29', 4, 3)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' AND (`users`.`id` != 4) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-10-08 14:11:29 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.5ms)
+  Rendered layouts/_navbar.html.erb (1.5ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+Completed 200 OK in 23ms (Views: 22.3ms | ActiveRecord: 0.0ms)
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-10-08 14:11:29 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'user@example.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `users` SET `current_sign_in_at` = '2016-10-08 19:11:29', `last_sign_in_at` = '2016-10-08 19:11:29', `current_sign_in_ip` = '127.0.0.1', `last_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1 WHERE `users`.`id` = 4[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 20ms (ActiveRecord: 1.0ms)
+Started GET "/" for 127.0.0.1 at 2016-10-08 14:11:29 -0500
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering dashboard/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` WHERE `products`.`visibility` IN ('All', 'Registered Users')[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` INNER JOIN `user_products` ON `products`.`id` = `user_products`.`product_id` WHERE `user_products`.`user_id` = 4[0m
+  Rendered dashboard/index.html.erb within layouts/application (3.2ms)
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 4[0m
+  Rendered layouts/_navbar.html.erb (3.4ms)
+  Rendered layouts/_sidebar.html.erb (1.6ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+Completed 200 OK in 24ms (Views: 17.3ms | ActiveRecord: 1.3ms)
+Started GET "/admin/products/new" for 127.0.0.1 at 2016-10-08 14:11:29 -0500
+Processing by Admin::ProductsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 4[0m
+  Rendering admin/products/new.html.erb within layouts/application
+  Rendered admin/products/_content_fields.html.erb (0.7ms)
+  Rendered admin/products/_module_fields.html.erb (1.9ms)
+  Rendered admin/products/_content_fields.html.erb (4.0ms)
+  Rendered admin/products/_sub_module_fields.html.erb (1.7ms)
+  Rendered admin/products/_content_fields.html.erb (3.3ms)
+  Rendered admin/products/_quiz_fields.html.erb (3.0ms)
+  Rendered admin/products/_content_fields.html.erb (5.5ms)
+  Rendered admin/products/_flashcard_fields.html.erb (1.9ms)
+  Rendered admin/products/_content_fields.html.erb (3.8ms)
+  Rendered admin/products/_html_fields.html.erb (1.5ms)
+  Rendered admin/products/_content_fields.html.erb (2.9ms)
+  Rendered admin/products/_audio_fields.html.erb (1.5ms)
+  Rendered admin/products/_content_fields.html.erb (5.3ms)
+  Rendered admin/products/_video_fields.html.erb (2.1ms)
+  Rendered admin/products/_content_fields.html.erb (3.5ms)
+  Rendered admin/products/_form.html.erb (44.2ms)
+  Rendered admin/products/new.html.erb within layouts/application (45.8ms)
+  Rendered layouts/_navbar.html.erb (1.1ms)
+  Rendered layouts/_sidebar.html.erb (2.0ms)
+  Rendered layouts/_messages.html.erb (1.0ms)
+Completed 200 OK in 76ms (Views: 60.6ms | ActiveRecord: 0.8ms)
+Started POST "/admin/products" for 127.0.0.1 at 2016-10-08 14:11:29 -0500
+Processing by Admin::ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "product"=>{"title"=>"My Widget", "visibility"=>"All"}, "commit"=>"Create Product"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 4[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`title` = BINARY 'My Widget' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering admin/products/new.html.erb within layouts/application
+  Rendered admin/products/_form.html.erb (3.6ms)
+  Rendered admin/products/new.html.erb within layouts/application (5.1ms)
+  Rendered layouts/_navbar.html.erb (0.9ms)
+  Rendered layouts/_sidebar.html.erb (0.8ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 37ms (Views: 18.0ms | ActiveRecord: 1.3ms)
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'user@example.com' LIMIT 1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `username`) VALUES ('user@example.com', '$2a$04$N1J7wqbl7Y9J9IbBokGHkuclbErdk1uikRM4Q7MzVxcm8CcQn8ndW', '2016-10-08 19:11:29', '2016-10-08 19:11:29', 'user')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Admin' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `roles` (`name`, `created_at`, `updated_at`) VALUES ('Admin', '2016-10-08 19:11:29', '2016-10-08 19:11:29')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 5[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Admin' AND (`roles`.`id` != 4) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `user_roles` (`created_at`, `updated_at`, `role_id`) VALUES ('2016-10-08 19:11:29', '2016-10-08 19:11:29', 4)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `user_roles` (`created_at`, `updated_at`, `user_id`, `role_id`) VALUES ('2016-10-08 19:11:29', '2016-10-08 19:11:29', 5, 4)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' AND (`users`.`id` != 5) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-10-08 14:11:29 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.5ms)
+  Rendered layouts/_navbar.html.erb (2.0ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 20ms (Views: 19.6ms | ActiveRecord: 0.0ms)
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-10-08 14:11:29 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'user@example.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `users` SET `current_sign_in_at` = '2016-10-08 19:11:29', `last_sign_in_at` = '2016-10-08 19:11:29', `current_sign_in_ip` = '127.0.0.1', `last_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1 WHERE `users`.`id` = 5[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 15ms (ActiveRecord: 0.9ms)
+Started GET "/" for 127.0.0.1 at 2016-10-08 14:11:29 -0500
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering dashboard/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` WHERE `products`.`visibility` IN ('All', 'Registered Users')[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` INNER JOIN `user_products` ON `products`.`id` = `user_products`.`product_id` WHERE `user_products`.`user_id` = 5[0m
+  Rendered dashboard/index.html.erb within layouts/application (2.4ms)
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 5[0m
+  Rendered layouts/_navbar.html.erb (2.7ms)
+  Rendered layouts/_sidebar.html.erb (0.9ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 18ms (Views: 13.3ms | ActiveRecord: 1.2ms)
+Started GET "/admin/products/new" for 127.0.0.1 at 2016-10-08 14:11:29 -0500
+Processing by Admin::ProductsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 5[0m
+  Rendering admin/products/new.html.erb within layouts/application
+  Rendered admin/products/_content_fields.html.erb (1.2ms)
+  Rendered admin/products/_module_fields.html.erb (2.0ms)
+  Rendered admin/products/_content_fields.html.erb (4.4ms)
+  Rendered admin/products/_sub_module_fields.html.erb (3.2ms)
+  Rendered admin/products/_content_fields.html.erb (5.0ms)
+  Rendered admin/products/_quiz_fields.html.erb (1.7ms)
+  Rendered admin/products/_content_fields.html.erb (2.9ms)
+  Rendered admin/products/_flashcard_fields.html.erb (3.3ms)
+  Rendered admin/products/_content_fields.html.erb (4.6ms)
+  Rendered admin/products/_html_fields.html.erb (3.0ms)
+  Rendered admin/products/_content_fields.html.erb (4.7ms)
+  Rendered admin/products/_audio_fields.html.erb (1.6ms)
+  Rendered admin/products/_content_fields.html.erb (3.0ms)
+  Rendered admin/products/_video_fields.html.erb (2.4ms)
+  Rendered admin/products/_content_fields.html.erb (3.8ms)
+  Rendered admin/products/_form.html.erb (48.9ms)
+  Rendered admin/products/new.html.erb within layouts/application (50.6ms)
+  Rendered layouts/_navbar.html.erb (1.2ms)
+  Rendered layouts/_sidebar.html.erb (0.8ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 83ms (Views: 66.9ms | ActiveRecord: 0.6ms)
+Started POST "/admin/products" for 127.0.0.1 at 2016-10-08 14:11:29 -0500
+Processing by Admin::ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "product"=>{"title"=>"", "visibility"=>"All"}, "commit"=>"Create Product"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 5[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`title` = BINARY '' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering admin/products/new.html.erb within layouts/application
+  Rendered admin/products/_form.html.erb (3.2ms)
+  Rendered admin/products/new.html.erb within layouts/application (4.6ms)
+  Rendered layouts/_navbar.html.erb (0.9ms)
+  Rendered layouts/_sidebar.html.erb (1.3ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 36ms (Views: 18.4ms | ActiveRecord: 1.2ms)
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`title` = BINARY 'Sierra Moore' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `products` (`title`, `created_at`, `updated_at`, `visibility`) VALUES ('Sierra Moore', '2016-10-08 19:11:29', '2016-10-08 19:11:29', 'All')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mModulee Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `modulees` WHERE `modulees`.`attr_1` = BINARY 'attr value' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `modulees` (`attr_1`) VALUES ('attr value')[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `contents` (`created_at`, `updated_at`, `actable_type`, `actable_id`, `name`) VALUES ('2016-10-08 19:11:29', '2016-10-08 19:11:29', 'Modulee', 1, 'Module 1')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mModulee Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `modulees` WHERE `modulees`.`attr_1` = BINARY 'attr value' AND (`modulees`.`id` != 1) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `contents` SET `product_id` = 4 WHERE `contents`.`id` = 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `contents` SET `contents`.`updated_at` = '2016-10-08 19:11:29' WHERE `contents`.`id` = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'user@example.com' LIMIT 1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `username`) VALUES ('user@example.com', '$2a$04$P1uSSagtxZln8fVBFyRw9uFrnRRtCkGaTIKstRHdbcdW5OHaL/7oy', '2016-10-08 19:11:29', '2016-10-08 19:11:29', 'user')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Admin' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `roles` (`name`, `created_at`, `updated_at`) VALUES ('Admin', '2016-10-08 19:11:29', '2016-10-08 19:11:29')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 6[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Admin' AND (`roles`.`id` != 5) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `user_roles` (`created_at`, `updated_at`, `role_id`) VALUES ('2016-10-08 19:11:29', '2016-10-08 19:11:29', 5)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `user_roles` (`created_at`, `updated_at`, `user_id`, `role_id`) VALUES ('2016-10-08 19:11:29', '2016-10-08 19:11:29', 6, 5)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' AND (`users`.`id` != 6) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-10-08 14:11:29 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.4ms)
+  Rendered layouts/_navbar.html.erb (1.2ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 20ms (Views: 18.4ms | ActiveRecord: 0.0ms)
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-10-08 14:11:29 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'user@example.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `users` SET `current_sign_in_at` = '2016-10-08 19:11:29', `last_sign_in_at` = '2016-10-08 19:11:29', `current_sign_in_ip` = '127.0.0.1', `last_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1 WHERE `users`.`id` = 6[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 17ms (ActiveRecord: 1.1ms)
+Started GET "/" for 127.0.0.1 at 2016-10-08 14:11:29 -0500
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering dashboard/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` WHERE `products`.`visibility` IN ('All', 'Registered Users')[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` INNER JOIN `user_products` ON `products`.`id` = `user_products`.`product_id` WHERE `user_products`.`user_id` = 6[0m
+  Rendered dashboard/index.html.erb within layouts/application (2.6ms)
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 6[0m
+  Rendered layouts/_navbar.html.erb (2.7ms)
+  Rendered layouts/_sidebar.html.erb (1.0ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+Completed 200 OK in 19ms (Views: 14.1ms | ActiveRecord: 1.2ms)
+Started GET "/admin/products/4/edit" for 127.0.0.1 at 2016-10-08 14:11:29 -0500
+Processing by Admin::ProductsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 4 LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 6[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 4 LIMIT 1[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering admin/products/edit.html.erb within layouts/application
+  [1m[36mContent Load (0.4ms)[0m  [1m[34mSELECT `contents`.* FROM `contents` WHERE `contents`.`product_id` = 4[0m
+  [1m[36mModulee Load (0.3ms)[0m  [1m[34mSELECT  `modulees`.* FROM `modulees` WHERE `modulees`.`id` = 1 LIMIT 1[0m
+  [1m[36mContent Load (1.7ms)[0m  [1m[34mSELECT `contents`.* FROM `contents` WHERE `contents`.`actable_type` = 'Modulee' AND `contents`.`actable_id` = 1[0m
+  Rendered admin/products/_module_fields.html.erb (2.7ms)
+  Rendered admin/products/_content_fields.html.erb (16.9ms)
+  Rendered admin/products/_module_fields.html.erb (1.2ms)
+  Rendered admin/products/_content_fields.html.erb (2.3ms)
+  Rendered admin/products/_sub_module_fields.html.erb (2.8ms)
+  Rendered admin/products/_content_fields.html.erb (6.6ms)
+  Rendered admin/products/_quiz_fields.html.erb (1.9ms)
+  Rendered admin/products/_content_fields.html.erb (3.1ms)
+  Rendered admin/products/_flashcard_fields.html.erb (1.7ms)
+  Rendered admin/products/_content_fields.html.erb (3.1ms)
+  Rendered admin/products/_html_fields.html.erb (2.5ms)
+  Rendered admin/products/_content_fields.html.erb (5.6ms)
+  Rendered admin/products/_audio_fields.html.erb (2.3ms)
+  Rendered admin/products/_content_fields.html.erb (4.9ms)
+  Rendered admin/products/_video_fields.html.erb (2.1ms)
+  Rendered admin/products/_content_fields.html.erb (3.5ms)
+  Rendered admin/products/_form.html.erb (69.5ms)
+  Rendered admin/products/edit.html.erb within layouts/application (71.1ms)
+  Rendered layouts/_navbar.html.erb (1.3ms)
+  Rendered layouts/_sidebar.html.erb (1.1ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 100ms (Views: 82.9ms | ActiveRecord: 3.3ms)
+Started PATCH "/admin/products/4" for 127.0.0.1 at 2016-10-08 14:11:29 -0500
+Processing by Admin::ProductsController#update as HTML
+  Parameters: {"utf8"=>"✓", "product"=>{"title"=>"Sierra Moore", "visibility"=>"All", "contents_attributes"=>{"0"=>{"actable_type"=>"Modulee", "parent_id"=>"", "name"=>"My Module", "attr_1"=>"Attribute Value", "_destroy"=>"false", "id"=>"1"}}}, "commit"=>"Update Product", "id"=>"4"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 4 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 6[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 4 LIMIT 1[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mModulee Load (0.3ms)[0m  [1m[34mSELECT  `modulees`.* FROM `modulees` WHERE `modulees`.`id` = 1 LIMIT 1[0m
+  [1m[36mContent Load (0.3ms)[0m  [1m[34mSELECT `contents`.* FROM `contents` WHERE `contents`.`actable_type` = 'Modulee' AND `contents`.`actable_id` = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mModulee Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `modulees` WHERE `modulees`.`attr_1` = BINARY 'Attribute Value' AND (`modulees`.`id` != 1) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `modulees` SET `attr_1` = 'Attribute Value' WHERE `modulees`.`id` = 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `contents` SET `name` = 'My Module' WHERE `contents`.`id` = 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `contents` SET `contents`.`updated_at` = '2016-10-08 19:11:29' WHERE `contents`.`id` = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`title` = BINARY 'Sierra Moore' AND (`products`.`id` != 4) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/admin/products/4
+Completed 302 Found in 26ms (ActiveRecord: 3.6ms)
+Started GET "/admin/products/4" for 127.0.0.1 at 2016-10-08 14:11:29 -0500
+Processing by Admin::ProductsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 4 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 6[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 4 LIMIT 1[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering admin/products/show.html.erb within layouts/application
+  Rendered admin/products/show.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_navbar.html.erb (1.6ms)
+  Rendered layouts/_sidebar.html.erb (0.8ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 27ms (Views: 13.3ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`title` = BINARY 'Maximillia Reynolds IV' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `products` (`title`, `created_at`, `updated_at`, `visibility`) VALUES ('Maximillia Reynolds IV', '2016-10-08 19:11:29', '2016-10-08 19:11:29', 'All')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mModulee Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `modulees` WHERE `modulees`.`attr_1` = BINARY 'attr value' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `modulees` (`attr_1`) VALUES ('attr value')[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `contents` (`created_at`, `updated_at`, `actable_type`, `actable_id`, `name`) VALUES ('2016-10-08 19:11:29', '2016-10-08 19:11:29', 'Modulee', 2, 'Module 1')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mModulee Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `modulees` WHERE `modulees`.`attr_1` = BINARY 'attr value' AND (`modulees`.`id` != 2) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `contents` SET `product_id` = 5 WHERE `contents`.`id` = 2[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `contents` SET `contents`.`updated_at` = '2016-10-08 19:11:29' WHERE `contents`.`id` = 2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'user@example.com' LIMIT 1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `username`) VALUES ('user@example.com', '$2a$04$P/pCWsbO8as4qTYf7MFW1eESNhwOR7UN1Cyy0AC8Dh5skAtMFgM8.', '2016-10-08 19:11:29', '2016-10-08 19:11:29', 'user')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Admin' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `roles` (`name`, `created_at`, `updated_at`) VALUES ('Admin', '2016-10-08 19:11:29', '2016-10-08 19:11:29')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 7[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Admin' AND (`roles`.`id` != 6) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `user_roles` (`created_at`, `updated_at`, `role_id`) VALUES ('2016-10-08 19:11:29', '2016-10-08 19:11:29', 6)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `user_roles` (`created_at`, `updated_at`, `user_id`, `role_id`) VALUES ('2016-10-08 19:11:29', '2016-10-08 19:11:29', 7, 6)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' AND (`users`.`id` != 7) LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-10-08 14:11:29 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.2ms)
+  Rendered layouts/_navbar.html.erb (1.4ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 18ms (Views: 17.4ms | ActiveRecord: 0.0ms)
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-10-08 14:11:29 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'user@example.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `users` SET `current_sign_in_at` = '2016-10-08 19:11:29', `last_sign_in_at` = '2016-10-08 19:11:29', `current_sign_in_ip` = '127.0.0.1', `last_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1 WHERE `users`.`id` = 7[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 15ms (ActiveRecord: 0.9ms)
+Started GET "/" for 127.0.0.1 at 2016-10-08 14:11:29 -0500
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering dashboard/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` WHERE `products`.`visibility` IN ('All', 'Registered Users')[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` INNER JOIN `user_products` ON `products`.`id` = `user_products`.`product_id` WHERE `user_products`.`user_id` = 7[0m
+  Rendered dashboard/index.html.erb within layouts/application (2.8ms)
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 7[0m
+  Rendered layouts/_navbar.html.erb (2.9ms)
+  Rendered layouts/_sidebar.html.erb (1.1ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 20ms (Views: 14.2ms | ActiveRecord: 1.2ms)
+Started GET "/admin/products/5/edit" for 127.0.0.1 at 2016-10-08 14:11:29 -0500
+Processing by Admin::ProductsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 5 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 7[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 5 LIMIT 1[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering admin/products/edit.html.erb within layouts/application
+  [1m[36mContent Load (0.3ms)[0m  [1m[34mSELECT `contents`.* FROM `contents` WHERE `contents`.`product_id` = 5[0m
+  [1m[36mModulee Load (0.3ms)[0m  [1m[34mSELECT  `modulees`.* FROM `modulees` WHERE `modulees`.`id` = 2 LIMIT 1[0m
+  [1m[36mContent Load (0.4ms)[0m  [1m[34mSELECT `contents`.* FROM `contents` WHERE `contents`.`actable_type` = 'Modulee' AND `contents`.`actable_id` = 2[0m
+  Rendered admin/products/_module_fields.html.erb (2.1ms)
+  Rendered admin/products/_content_fields.html.erb (10.2ms)
+  Rendered admin/products/_module_fields.html.erb (1.9ms)
+  Rendered admin/products/_content_fields.html.erb (4.1ms)
+  Rendered admin/products/_sub_module_fields.html.erb (2.3ms)
+  Rendered admin/products/_content_fields.html.erb (3.9ms)
+  Rendered admin/products/_quiz_fields.html.erb (4.3ms)
+  Rendered admin/products/_content_fields.html.erb (5.5ms)
+  Rendered admin/products/_flashcard_fields.html.erb (1.4ms)
+  Rendered admin/products/_content_fields.html.erb (2.9ms)
+  Rendered admin/products/_html_fields.html.erb (1.4ms)
+  Rendered admin/products/_content_fields.html.erb (2.7ms)
+  Rendered admin/products/_audio_fields.html.erb (1.4ms)
+  Rendered admin/products/_content_fields.html.erb (2.9ms)
+  Rendered admin/products/_video_fields.html.erb (1.7ms)
+  Rendered admin/products/_content_fields.html.erb (3.1ms)
+  Rendered admin/products/_form.html.erb (57.7ms)
+  Rendered admin/products/edit.html.erb within layouts/application (61.4ms)
+  Rendered layouts/_navbar.html.erb (1.0ms)
+  Rendered layouts/_sidebar.html.erb (0.8ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 90ms (Views: 72.5ms | ActiveRecord: 2.0ms)
+Started PATCH "/admin/products/5" for 127.0.0.1 at 2016-10-08 14:11:29 -0500
+Processing by Admin::ProductsController#update as HTML
+  Parameters: {"utf8"=>"✓", "product"=>{"title"=>"Maximillia Reynolds IV", "visibility"=>"All", "contents_attributes"=>{"0"=>{"actable_type"=>"Modulee", "parent_id"=>"", "name"=>"Module 1", "attr_1"=>"attr value", "_destroy"=>"false", "id"=>"2"}}}, "commit"=>"Update Product", "id"=>"5"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 5 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 7[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 5 LIMIT 1[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mModulee Load (0.3ms)[0m  [1m[34mSELECT  `modulees`.* FROM `modulees` WHERE `modulees`.`id` = 2 LIMIT 1[0m
+  [1m[36mContent Load (0.3ms)[0m  [1m[34mSELECT `contents`.* FROM `contents` WHERE `contents`.`actable_type` = 'Modulee' AND `contents`.`actable_id` = 2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mModulee Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `modulees` WHERE `modulees`.`attr_1` = BINARY 'attr value' AND (`modulees`.`id` != 2) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE `contents` SET `contents`.`updated_at` = '2016-10-08 19:11:29' WHERE `contents`.`id` = 2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`title` = BINARY 'Maximillia Reynolds IV' AND (`products`.`id` != 5) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/admin/products/5
+Completed 302 Found in 23ms (ActiveRecord: 2.9ms)
+Started GET "/admin/products/5" for 127.0.0.1 at 2016-10-08 14:11:30 -0500
+Processing by Admin::ProductsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 5 LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 7[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 5 LIMIT 1[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering admin/products/show.html.erb within layouts/application
+  Rendered admin/products/show.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_navbar.html.erb (0.9ms)
+  Rendered layouts/_sidebar.html.erb (0.7ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 27ms (Views: 13.8ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'user@example.com' LIMIT 1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `username`) VALUES ('user@example.com', '$2a$04$3G3x/Tp0JScVGST.ZqYE4uO7kX6R66aA/TQXiT44NNZ3/woySMiJ.', '2016-10-08 19:11:30', '2016-10-08 19:11:30', 'user')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Admin' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `roles` (`name`, `created_at`, `updated_at`) VALUES ('Admin', '2016-10-08 19:11:30', '2016-10-08 19:11:30')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 8[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Admin' AND (`roles`.`id` != 7) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `user_roles` (`created_at`, `updated_at`, `role_id`) VALUES ('2016-10-08 19:11:30', '2016-10-08 19:11:30', 7)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `user_roles` (`created_at`, `updated_at`, `user_id`, `role_id`) VALUES ('2016-10-08 19:11:30', '2016-10-08 19:11:30', 8, 7)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' AND (`users`.`id` != 8) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'user@example.com' LIMIT 1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `username`) VALUES ('user@example.com', '$2a$04$8P8exqcaRCs2NtM2/h11jeCCup8FGsOC3CDfFi/Kzyz3q.fTp5.OS', '2016-10-08 19:11:30', '2016-10-08 19:11:30', 'user')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Product Manager' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `roles` (`name`, `created_at`, `updated_at`) VALUES ('Product Manager', '2016-10-08 19:11:30', '2016-10-08 19:11:30')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 9[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Product Manager' AND (`roles`.`id` != 8) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `user_roles` (`created_at`, `updated_at`, `role_id`) VALUES ('2016-10-08 19:11:30', '2016-10-08 19:11:30', 8)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `user_roles` (`created_at`, `updated_at`, `user_id`, `role_id`) VALUES ('2016-10-08 19:11:30', '2016-10-08 19:11:30', 9, 8)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' AND (`users`.`id` != 9) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'user@example.com' LIMIT 1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `username`) VALUES ('user@example.com', '$2a$04$Lh8a/BvnNLcOn06CiXG1iOnH9uJZh0TavIOER5ys1bjcZqbBETSGq', '2016-10-08 19:11:30', '2016-10-08 19:11:30', 'user')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Content Contributor' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `roles` (`name`, `created_at`, `updated_at`) VALUES ('Content Contributor', '2016-10-08 19:11:30', '2016-10-08 19:11:30')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 10[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Content Contributor' AND (`roles`.`id` != 9) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `user_roles` (`created_at`, `updated_at`, `role_id`) VALUES ('2016-10-08 19:11:30', '2016-10-08 19:11:30', 9)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `user_roles` (`created_at`, `updated_at`, `user_id`, `role_id`) VALUES ('2016-10-08 19:11:30', '2016-10-08 19:11:30', 10, 9)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' AND (`users`.`id` != 10) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'user@example.com' LIMIT 1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `username`) VALUES ('user@example.com', '$2a$04$YGy0eAEm25JNTdTqfAlUwu01HrjUBevupVRlJ9GDpWqmFBjKYFi0a', '2016-10-08 19:11:30', '2016-10-08 19:11:30', 'user')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 11[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `audios` VALUES ()[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `contents` (`created_at`, `updated_at`, `actable_type`, `actable_id`, `name`) VALUES ('2016-10-08 19:11:30', '2016-10-08 19:11:30', 'Audio', 1, 'Audio 1')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`title` = BINARY 'Ruthe Monahan' LIMIT 1[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO `products` (`title`, `created_at`, `updated_at`, `visibility`) VALUES ('Ruthe Monahan', '2016-10-08 19:11:30', '2016-10-08 19:11:30', 'All')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `contents` (`product_id`, `created_at`, `updated_at`, `name`) VALUES (6, '2016-10-08 19:11:30', '2016-10-08 19:11:30', 'MyString')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `flashcards` VALUES ()[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `contents` (`created_at`, `updated_at`, `actable_type`, `actable_id`, `name`) VALUES ('2016-10-08 19:11:30', '2016-10-08 19:11:30', 'Flashcard', 1, 'Flashcard 1')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `htmls` VALUES ()[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `contents` (`created_at`, `updated_at`, `actable_type`, `actable_id`, `name`) VALUES ('2016-10-08 19:11:30', '2016-10-08 19:11:30', 'Html', 1, 'Html 1')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mModulee Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `modulees` WHERE `modulees`.`attr_1` = BINARY 'attr value' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `modulees` (`attr_1`) VALUES ('attr value')[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `contents` (`created_at`, `updated_at`, `actable_type`, `actable_id`, `name`) VALUES ('2016-10-08 19:11:30', '2016-10-08 19:11:30', 'Modulee', 3, 'Module 1')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mModulee Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `modulees` WHERE `modulees`.`attr_1` = BINARY 'attr value' AND (`modulees`.`id` != 3) LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mModulee Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `modulees` WHERE `modulees`.`attr_1` = BINARY 'attr value' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `modulees` (`attr_1`) VALUES ('attr value')[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `contents` (`created_at`, `updated_at`, `actable_type`, `actable_id`, `name`) VALUES ('2016-10-08 19:11:30', '2016-10-08 19:11:30', 'Modulee', 4, 'Module 1')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mModulee Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `modulees` WHERE `modulees`.`attr_1` = BINARY 'attr value' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`title` = BINARY 'Esta Johns' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `products` (`title`, `created_at`, `updated_at`, `visibility`) VALUES ('Esta Johns', '2016-10-08 19:11:30', '2016-10-08 19:11:30', 'All')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`title` = BINARY 'Esta Johns' AND (`products`.`id` != 7) LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`title` IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`title` = BINARY 'Test Product 1' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `quizzes` VALUES ()[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `contents` (`created_at`, `updated_at`, `actable_type`, `actable_id`, `name`) VALUES ('2016-10-08 19:11:30', '2016-10-08 19:11:30', 'Quiz', 1, 'Quiz 1')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Test Role 1' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `roles` (`name`, `created_at`, `updated_at`) VALUES ('Test Role 1', '2016-10-08 19:11:30', '2016-10-08 19:11:30')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Test Role 1' AND (`roles`.`id` != 10) LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRole Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Test Role 1' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `roles` (`name`, `created_at`, `updated_at`) VALUES ('Test Role 1', '2016-10-08 19:11:30', '2016-10-08 19:11:30')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Test Role 1' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Test Role 1' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Test Role 1' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `roles` (`name`, `created_at`, `updated_at`) VALUES ('Test Role 1', '2016-10-08 19:11:30', '2016-10-08 19:11:30')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Test Role 2' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `roles` (`name`, `created_at`, `updated_at`) VALUES ('Test Role 2', '2016-10-08 19:11:30', '2016-10-08 19:11:30')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE (`roles`.`id` != 12)[0m
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSubModule Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `sub_modules` WHERE `sub_modules`.`attr_2` = BINARY 'attr value' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `sub_modules` (`attr_2`) VALUES ('attr value')[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `contents` (`created_at`, `updated_at`, `actable_type`, `actable_id`, `name`) VALUES ('2016-10-08 19:11:30', '2016-10-08 19:11:30', 'SubModule', 1, 'Sub Module 1')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mSubModule Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `sub_modules` WHERE `sub_modules`.`attr_2` = BINARY 'attr value' AND (`sub_modules`.`id` != 1) LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSubModule Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `sub_modules` WHERE `sub_modules`.`attr_2` = BINARY 'attr value' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `sub_modules` (`attr_2`) VALUES ('attr value')[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO `contents` (`created_at`, `updated_at`, `actable_type`, `actable_id`, `name`) VALUES ('2016-10-08 19:11:30', '2016-10-08 19:11:30', 'SubModule', 2, 'Sub Module 1')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mSubModule Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `sub_modules` WHERE `sub_modules`.`attr_2` = BINARY 'attr value' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'user@example.com' LIMIT 1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `username`) VALUES ('user@example.com', '$2a$04$rSsJQA.EnLbD9FZ/SeKhvuymYqjj4NyVhFxISyZOh6gTpXDFhBKo2', '2016-10-08 19:11:30', '2016-10-08 19:11:30', 'user')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' AND (`users`.`id` != 12) LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `videos` (`url`) VALUES ('http://www.google.com')[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `contents` (`created_at`, `updated_at`, `actable_type`, `actable_id`, `name`) VALUES ('2016-10-08 19:11:30', '2016-10-08 19:11:30', 'Video', 1, 'Video 1')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (0.8ms)[0m  [1m[34mselect table_name from information_schema.views where table_schema = 'c3suite_test'[0m
+  [1m[35m (6.7ms)[0m  [1m[35mTRUNCATE TABLE `ar_internal_metadata`;[0m
+  [1m[35m (3.0ms)[0m  [1m[35mTRUNCATE TABLE `audios`;[0m
+  [1m[35m (4.7ms)[0m  [1m[35mTRUNCATE TABLE `contents`;[0m
+  [1m[35m (2.8ms)[0m  [1m[35mTRUNCATE TABLE `flashcards`;[0m
+  [1m[35m (5.0ms)[0m  [1m[35mTRUNCATE TABLE `htmls`;[0m
+  [1m[35m (2.8ms)[0m  [1m[35mTRUNCATE TABLE `modulees`;[0m
+  [1m[35m (3.1ms)[0m  [1m[35mTRUNCATE TABLE `products`;[0m
+  [1m[35m (2.9ms)[0m  [1m[35mTRUNCATE TABLE `quizzes`;[0m
+  [1m[35m (3.2ms)[0m  [1m[35mTRUNCATE TABLE `roles`;[0m
+  [1m[35m (4.4ms)[0m  [1m[35mTRUNCATE TABLE `sub_modules`;[0m
+  [1m[35m (3.3ms)[0m  [1m[35mTRUNCATE TABLE `user_products`;[0m
+  [1m[35m (4.4ms)[0m  [1m[35mTRUNCATE TABLE `user_roles`;[0m
+  [1m[35m (3.0ms)[0m  [1m[35mTRUNCATE TABLE `users`;[0m
+  [1m[35m (3.3ms)[0m  [1m[35mTRUNCATE TABLE `videos`;[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'user@example.com' LIMIT 1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `username`) VALUES ('user@example.com', '$2a$04$5kboSjh0WHKo.Sfqh6r.m.j5IJj2rl/5SXcTxKueLDcW1Ri2KPOLm', '2016-10-08 19:33:44', '2016-10-08 19:33:44', 'user')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Admin' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `roles` (`name`, `created_at`, `updated_at`) VALUES ('Admin', '2016-10-08 19:33:44', '2016-10-08 19:33:44')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Admin' AND (`roles`.`id` != 1) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `user_roles` (`created_at`, `updated_at`, `role_id`) VALUES ('2016-10-08 19:33:44', '2016-10-08 19:33:44', 1)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `user_roles` (`created_at`, `updated_at`, `user_id`, `role_id`) VALUES ('2016-10-08 19:33:44', '2016-10-08 19:33:44', 1, 1)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' AND (`users`.`id` != 1) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-10-08 14:33:44 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (441.9ms)
+  Rendered layouts/_navbar.html.erb (1.0ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 713ms (Views: 699.4ms | ActiveRecord: 0.0ms)
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-10-08 14:33:45 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'user@example.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `users` SET `current_sign_in_at` = '2016-10-08 19:33:45', `last_sign_in_at` = '2016-10-08 19:33:45', `current_sign_in_ip` = '127.0.0.1', `last_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1, `updated_at` = '2016-10-08 19:33:45' WHERE `users`.`id` = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 20ms (ActiveRecord: 1.0ms)
+Started GET "/" for 127.0.0.1 at 2016-10-08 14:33:45 -0500
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering dashboard/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` WHERE `products`.`visibility` IN ('All', 'Registered Users')[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` INNER JOIN `user_products` ON `products`.`id` = `user_products`.`product_id` WHERE `user_products`.`user_id` = 1[0m
+  Rendered dashboard/index.html.erb within layouts/application (5.0ms)
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 1[0m
+  Rendered layouts/_navbar.html.erb (3.0ms)
+  Rendered layouts/_sidebar.html.erb (1.9ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+Completed 200 OK in 30ms (Views: 17.6ms | ActiveRecord: 2.7ms)
+Started GET "/admin/products/new" for 127.0.0.1 at 2016-10-08 14:33:45 -0500
+Processing by Admin::ProductsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 1[0m
+  Rendering admin/products/new.html.erb within layouts/application
+  Rendered admin/products/_content_fields.html.erb (2.6ms)
+  Rendered admin/products/_module_fields.html.erb (4.1ms)
+  Rendered admin/products/_content_fields.html.erb (9.9ms)
+  Rendered admin/products/_sub_module_fields.html.erb (2.7ms)
+  Rendered admin/products/_content_fields.html.erb (5.6ms)
+  Rendered admin/products/_quiz_fields.html.erb (3.2ms)
+  Rendered admin/products/_content_fields.html.erb (4.7ms)
+  Rendered admin/products/_flashcard_fields.html.erb (3.3ms)
+  Rendered admin/products/_content_fields.html.erb (6.0ms)
+  Rendered admin/products/_html_fields.html.erb (2.1ms)
+  Rendered admin/products/_content_fields.html.erb (4.7ms)
+  Rendered admin/products/_audio_fields.html.erb (2.4ms)
+  Rendered admin/products/_content_fields.html.erb (5.7ms)
+  Rendered admin/products/_video_fields.html.erb (4.7ms)
+  Rendered admin/products/_content_fields.html.erb (7.5ms)
+  Rendered admin/products/_form.html.erb (118.5ms)
+  Rendered admin/products/new.html.erb within layouts/application (120.4ms)
+  Rendered layouts/_navbar.html.erb (1.5ms)
+  Rendered layouts/_sidebar.html.erb (1.4ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 165ms (Views: 129.6ms | ActiveRecord: 7.4ms)
+Started POST "/admin/products" for 127.0.0.1 at 2016-10-08 14:33:45 -0500
+Processing by Admin::ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "product"=>{"title"=>"My Widget", "visibility"=>"All"}, "commit"=>"Create Product"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`title` = BINARY 'My Widget' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `products` (`title`, `created_at`, `updated_at`, `visibility`) VALUES ('My Widget', '2016-10-08 19:33:45', '2016-10-08 19:33:45', 'All')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/admin/products/1
+Completed 302 Found in 24ms (ActiveRecord: 2.0ms)
+Started GET "/admin/products/1" for 127.0.0.1 at 2016-10-08 14:33:45 -0500
+Processing by Admin::ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 1[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering admin/products/show.html.erb within layouts/application
+  Rendered admin/products/show.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_navbar.html.erb (1.0ms)
+  Rendered layouts/_sidebar.html.erb (0.8ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 31ms (Views: 13.4ms | ActiveRecord: 1.2ms)
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'user@example.com' LIMIT 1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `username`) VALUES ('user@example.com', '$2a$04$mily.7WF.nj/coglGbWjj.UumX24ihZp/Bf0nT6hJPfvYlvqaaVku', '2016-10-08 19:33:45', '2016-10-08 19:33:45', 'user')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Product Manager' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `roles` (`name`, `created_at`, `updated_at`) VALUES ('Product Manager', '2016-10-08 19:33:45', '2016-10-08 19:33:45')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Product Manager' AND (`roles`.`id` != 2) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `user_roles` (`created_at`, `updated_at`, `role_id`) VALUES ('2016-10-08 19:33:45', '2016-10-08 19:33:45', 2)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `user_roles` (`created_at`, `updated_at`, `user_id`, `role_id`) VALUES ('2016-10-08 19:33:45', '2016-10-08 19:33:45', 2, 2)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' AND (`users`.`id` != 2) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-10-08 14:33:45 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.0ms)
+  Rendered layouts/_navbar.html.erb (0.9ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.0ms)
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-10-08 14:33:45 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'user@example.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE `users` SET `current_sign_in_at` = '2016-10-08 19:33:45', `last_sign_in_at` = '2016-10-08 19:33:45', `current_sign_in_ip` = '127.0.0.1', `last_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1 WHERE `users`.`id` = 2[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 18ms (ActiveRecord: 1.2ms)
+Started GET "/" for 127.0.0.1 at 2016-10-08 14:33:45 -0500
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering dashboard/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT `products`.* FROM `products` WHERE `products`.`visibility` IN ('All', 'Registered Users')[0m
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT `products`.* FROM `products` INNER JOIN `user_products` ON `products`.`id` = `user_products`.`product_id` WHERE `user_products`.`user_id` = 2[0m
+  Rendered dashboard/index.html.erb within layouts/application (3.9ms)
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 2[0m
+  Rendered layouts/_navbar.html.erb (3.6ms)
+  Rendered layouts/_sidebar.html.erb (1.5ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 23ms (Views: 17.5ms | ActiveRecord: 1.6ms)
+Started GET "/admin/products/new" for 127.0.0.1 at 2016-10-08 14:33:45 -0500
+Processing by Admin::ProductsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 2[0m
+  Rendering admin/products/new.html.erb within layouts/application
+  Rendered admin/products/_content_fields.html.erb (0.9ms)
+  Rendered admin/products/_module_fields.html.erb (2.2ms)
+  Rendered admin/products/_content_fields.html.erb (4.4ms)
+  Rendered admin/products/_sub_module_fields.html.erb (4.1ms)
+  Rendered admin/products/_content_fields.html.erb (6.8ms)
+  Rendered admin/products/_quiz_fields.html.erb (4.1ms)
+  Rendered admin/products/_content_fields.html.erb (5.4ms)
+  Rendered admin/products/_flashcard_fields.html.erb (2.2ms)
+  Rendered admin/products/_content_fields.html.erb (4.0ms)
+  Rendered admin/products/_html_fields.html.erb (2.4ms)
+  Rendered admin/products/_content_fields.html.erb (3.8ms)
+  Rendered admin/products/_audio_fields.html.erb (3.2ms)
+  Rendered admin/products/_content_fields.html.erb (5.4ms)
+  Rendered admin/products/_video_fields.html.erb (8.8ms)
+  Rendered admin/products/_content_fields.html.erb (10.6ms)
+  Rendered admin/products/_form.html.erb (63.1ms)
+  Rendered admin/products/new.html.erb within layouts/application (64.9ms)
+  Rendered layouts/_navbar.html.erb (1.7ms)
+  Rendered layouts/_sidebar.html.erb (1.5ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+Completed 200 OK in 100ms (Views: 81.3ms | ActiveRecord: 0.9ms)
+Started POST "/admin/products" for 127.0.0.1 at 2016-10-08 14:33:46 -0500
+Processing by Admin::ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "product"=>{"title"=>"My Widget", "visibility"=>"All"}, "commit"=>"Create Product"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.6ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 2[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`title` = BINARY 'My Widget' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `products` (`title`, `created_at`, `updated_at`, `visibility`) VALUES ('My Widget', '2016-10-08 19:33:46', '2016-10-08 19:33:46', 'All')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/admin/products/2
+Completed 302 Found in 22ms (ActiveRecord: 2.3ms)
+Started GET "/admin/products/2" for 127.0.0.1 at 2016-10-08 14:33:46 -0500
+Processing by Admin::ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 2[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering admin/products/show.html.erb within layouts/application
+  Rendered admin/products/show.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_navbar.html.erb (1.6ms)
+  Rendered layouts/_sidebar.html.erb (1.5ms)
+  Rendered layouts/_messages.html.erb (1.0ms)
+Completed 200 OK in 49ms (Views: 19.3ms | ActiveRecord: 1.5ms)
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'user@example.com' LIMIT 1[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `username`) VALUES ('user@example.com', '$2a$04$qpQs03Tzh4OSVX4ytgyH/eomT3lx5KTbgfyi5cLDBcCEOBI807i9a', '2016-10-08 19:33:46', '2016-10-08 19:33:46', 'user')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' AND (`users`.`id` != 3) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-10-08 14:33:46 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (6.8ms)
+  Rendered layouts/_navbar.html.erb (1.9ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+Completed 200 OK in 24ms (Views: 23.1ms | ActiveRecord: 0.0ms)
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-10-08 14:33:46 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'user@example.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[33mUPDATE `users` SET `current_sign_in_at` = '2016-10-08 19:33:46', `last_sign_in_at` = '2016-10-08 19:33:46', `current_sign_in_ip` = '127.0.0.1', `last_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1 WHERE `users`.`id` = 3[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 21ms (ActiveRecord: 1.9ms)
+Started GET "/" for 127.0.0.1 at 2016-10-08 14:33:46 -0500
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering dashboard/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT `products`.* FROM `products` WHERE `products`.`visibility` IN ('All', 'Registered Users')[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` INNER JOIN `user_products` ON `products`.`id` = `user_products`.`product_id` WHERE `user_products`.`user_id` = 3[0m
+  Rendered dashboard/index.html.erb within layouts/application (2.6ms)
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 3[0m
+  Rendered layouts/_navbar.html.erb (3.2ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 18ms (Views: 12.9ms | ActiveRecord: 1.3ms)
+Started GET "/admin/products/new" for 127.0.0.1 at 2016-10-08 14:33:46 -0500
+Processing by Admin::ProductsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 3[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 15ms (ActiveRecord: 0.7ms)
+Started GET "/" for 127.0.0.1 at 2016-10-08 14:33:46 -0500
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering dashboard/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` WHERE `products`.`visibility` IN ('All', 'Registered Users')[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` INNER JOIN `user_products` ON `products`.`id` = `user_products`.`product_id` WHERE `user_products`.`user_id` = 3[0m
+  Rendered dashboard/index.html.erb within layouts/application (3.8ms)
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 3[0m
+  Rendered layouts/_navbar.html.erb (3.5ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 19ms (Views: 14.4ms | ActiveRecord: 1.2ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`title` = BINARY 'My Widget' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `products` (`title`, `created_at`, `updated_at`, `visibility`) VALUES ('My Widget', '2016-10-08 19:33:46', '2016-10-08 19:33:46', 'All')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'user@example.com' LIMIT 1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `username`) VALUES ('user@example.com', '$2a$04$JbdjnbqhPWKqFW4dVogkPeCdkaznghfsWFbhDhGwAwPE/PQDE7Wwy', '2016-10-08 19:33:46', '2016-10-08 19:33:46', 'user')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Admin' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `roles` (`name`, `created_at`, `updated_at`) VALUES ('Admin', '2016-10-08 19:33:46', '2016-10-08 19:33:46')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRole Load (0.7ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 4[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Admin' AND (`roles`.`id` != 3) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `user_roles` (`created_at`, `updated_at`, `role_id`) VALUES ('2016-10-08 19:33:46', '2016-10-08 19:33:46', 3)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `user_roles` (`created_at`, `updated_at`, `user_id`, `role_id`) VALUES ('2016-10-08 19:33:46', '2016-10-08 19:33:46', 4, 3)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' AND (`users`.`id` != 4) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-10-08 14:33:46 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.1ms)
+  Rendered layouts/_navbar.html.erb (2.3ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+Completed 200 OK in 22ms (Views: 20.8ms | ActiveRecord: 0.0ms)
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-10-08 14:33:46 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'user@example.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `users` SET `current_sign_in_at` = '2016-10-08 19:33:46', `last_sign_in_at` = '2016-10-08 19:33:46', `current_sign_in_ip` = '127.0.0.1', `last_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1 WHERE `users`.`id` = 4[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 18ms (ActiveRecord: 0.9ms)
+Started GET "/" for 127.0.0.1 at 2016-10-08 14:33:46 -0500
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering dashboard/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT `products`.* FROM `products` WHERE `products`.`visibility` IN ('All', 'Registered Users')[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` INNER JOIN `user_products` ON `products`.`id` = `user_products`.`product_id` WHERE `user_products`.`user_id` = 4[0m
+  Rendered dashboard/index.html.erb within layouts/application (3.2ms)
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 4[0m
+  Rendered layouts/_navbar.html.erb (10.4ms)
+  Rendered layouts/_sidebar.html.erb (0.8ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 29ms (Views: 23.4ms | ActiveRecord: 1.4ms)
+Started GET "/admin/products/new" for 127.0.0.1 at 2016-10-08 14:33:46 -0500
+Processing by Admin::ProductsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 4[0m
+  Rendering admin/products/new.html.erb within layouts/application
+  Rendered admin/products/_content_fields.html.erb (0.8ms)
+  Rendered admin/products/_module_fields.html.erb (1.7ms)
+  Rendered admin/products/_content_fields.html.erb (3.8ms)
+  Rendered admin/products/_sub_module_fields.html.erb (1.7ms)
+  Rendered admin/products/_content_fields.html.erb (3.1ms)
+  Rendered admin/products/_quiz_fields.html.erb (1.7ms)
+  Rendered admin/products/_content_fields.html.erb (2.9ms)
+  Rendered admin/products/_flashcard_fields.html.erb (1.4ms)
+  Rendered admin/products/_content_fields.html.erb (2.8ms)
+  Rendered admin/products/_html_fields.html.erb (1.4ms)
+  Rendered admin/products/_content_fields.html.erb (2.8ms)
+  Rendered admin/products/_audio_fields.html.erb (1.8ms)
+  Rendered admin/products/_content_fields.html.erb (3.6ms)
+  Rendered admin/products/_video_fields.html.erb (1.8ms)
+  Rendered admin/products/_content_fields.html.erb (3.4ms)
+  Rendered admin/products/_form.html.erb (38.9ms)
+  Rendered admin/products/new.html.erb within layouts/application (41.2ms)
+  Rendered layouts/_navbar.html.erb (0.9ms)
+  Rendered layouts/_sidebar.html.erb (0.7ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 71ms (Views: 55.4ms | ActiveRecord: 0.7ms)
+Started POST "/admin/products" for 127.0.0.1 at 2016-10-08 14:33:46 -0500
+Processing by Admin::ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "product"=>{"title"=>"My Widget", "visibility"=>"All"}, "commit"=>"Create Product"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 4[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`title` = BINARY 'My Widget' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering admin/products/new.html.erb within layouts/application
+  Rendered admin/products/_form.html.erb (3.5ms)
+  Rendered admin/products/new.html.erb within layouts/application (5.0ms)
+  Rendered layouts/_navbar.html.erb (0.8ms)
+  Rendered layouts/_sidebar.html.erb (0.7ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 33ms (Views: 17.0ms | ActiveRecord: 1.3ms)
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'user@example.com' LIMIT 1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `username`) VALUES ('user@example.com', '$2a$04$Q1lMKZTEJtDSAmqjgAP4xeg8UXQD2MQ9zfELXhIzz7Mm7ocs/5tmu', '2016-10-08 19:33:46', '2016-10-08 19:33:46', 'user')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Admin' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `roles` (`name`, `created_at`, `updated_at`) VALUES ('Admin', '2016-10-08 19:33:46', '2016-10-08 19:33:46')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 5[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Admin' AND (`roles`.`id` != 4) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `user_roles` (`created_at`, `updated_at`, `role_id`) VALUES ('2016-10-08 19:33:46', '2016-10-08 19:33:46', 4)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `user_roles` (`created_at`, `updated_at`, `user_id`, `role_id`) VALUES ('2016-10-08 19:33:46', '2016-10-08 19:33:46', 5, 4)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' AND (`users`.`id` != 5) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-10-08 14:33:46 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.7ms)
+  Rendered layouts/_navbar.html.erb (1.0ms)
+  Rendered layouts/_messages.html.erb (1.1ms)
+Completed 200 OK in 19ms (Views: 18.4ms | ActiveRecord: 0.0ms)
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-10-08 14:33:46 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'user@example.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `users` SET `current_sign_in_at` = '2016-10-08 19:33:46', `last_sign_in_at` = '2016-10-08 19:33:46', `current_sign_in_ip` = '127.0.0.1', `last_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1 WHERE `users`.`id` = 5[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 15ms (ActiveRecord: 0.9ms)
+Started GET "/" for 127.0.0.1 at 2016-10-08 14:33:46 -0500
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering dashboard/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` WHERE `products`.`visibility` IN ('All', 'Registered Users')[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` INNER JOIN `user_products` ON `products`.`id` = `user_products`.`product_id` WHERE `user_products`.`user_id` = 5[0m
+  Rendered dashboard/index.html.erb within layouts/application (2.3ms)
+  [1m[36mRole Load (0.6ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 5[0m
+  Rendered layouts/_navbar.html.erb (4.0ms)
+  Rendered layouts/_sidebar.html.erb (1.0ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 20ms (Views: 15.5ms | ActiveRecord: 1.4ms)
+Started GET "/admin/products/new" for 127.0.0.1 at 2016-10-08 14:33:46 -0500
+Processing by Admin::ProductsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 5[0m
+  Rendering admin/products/new.html.erb within layouts/application
+  Rendered admin/products/_content_fields.html.erb (0.7ms)
+  Rendered admin/products/_module_fields.html.erb (1.9ms)
+  Rendered admin/products/_content_fields.html.erb (3.9ms)
+  Rendered admin/products/_sub_module_fields.html.erb (1.9ms)
+  Rendered admin/products/_content_fields.html.erb (3.3ms)
+  Rendered admin/products/_quiz_fields.html.erb (1.7ms)
+  Rendered admin/products/_content_fields.html.erb (2.8ms)
+  Rendered admin/products/_flashcard_fields.html.erb (1.7ms)
+  Rendered admin/products/_content_fields.html.erb (3.4ms)
+  Rendered admin/products/_html_fields.html.erb (1.8ms)
+  Rendered admin/products/_content_fields.html.erb (3.4ms)
+  Rendered admin/products/_audio_fields.html.erb (1.3ms)
+  Rendered admin/products/_content_fields.html.erb (2.8ms)
+  Rendered admin/products/_video_fields.html.erb (1.7ms)
+  Rendered admin/products/_content_fields.html.erb (3.0ms)
+  Rendered admin/products/_form.html.erb (38.2ms)
+  Rendered admin/products/new.html.erb within layouts/application (40.0ms)
+  Rendered layouts/_navbar.html.erb (0.8ms)
+  Rendered layouts/_sidebar.html.erb (0.7ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 65ms (Views: 50.8ms | ActiveRecord: 0.7ms)
+Started POST "/admin/products" for 127.0.0.1 at 2016-10-08 14:33:46 -0500
+Processing by Admin::ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "product"=>{"title"=>"", "visibility"=>"All"}, "commit"=>"Create Product"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 5[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`title` = BINARY '' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering admin/products/new.html.erb within layouts/application
+  Rendered admin/products/_form.html.erb (3.6ms)
+  Rendered admin/products/new.html.erb within layouts/application (5.0ms)
+  Rendered layouts/_navbar.html.erb (0.9ms)
+  Rendered layouts/_sidebar.html.erb (1.1ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 34ms (Views: 17.6ms | ActiveRecord: 1.4ms)
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`title` = BINARY 'Allan Lehner V' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `products` (`title`, `created_at`, `updated_at`, `visibility`) VALUES ('Allan Lehner V', '2016-10-08 19:33:46', '2016-10-08 19:33:46', 'All')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mModulee Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `modulees` WHERE `modulees`.`attr_1` = BINARY 'attr value' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `modulees` (`attr_1`) VALUES ('attr value')[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `contents` (`created_at`, `updated_at`, `actable_type`, `actable_id`, `name`) VALUES ('2016-10-08 19:33:46', '2016-10-08 19:33:46', 'Modulee', 1, 'Module 1')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mModulee Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `modulees` WHERE `modulees`.`attr_1` = BINARY 'attr value' AND (`modulees`.`id` != 1) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE `contents` SET `product_id` = 4 WHERE `contents`.`id` = 1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE `contents` SET `contents`.`updated_at` = '2016-10-08 19:33:46' WHERE `contents`.`id` = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'user@example.com' LIMIT 1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `username`) VALUES ('user@example.com', '$2a$04$fTQQaKhvJemkfxbJi1IXyue/z3WcE1Y3MqWbnO/M7Tzr1a8wcYFZK', '2016-10-08 19:33:46', '2016-10-08 19:33:46', 'user')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Admin' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `roles` (`name`, `created_at`, `updated_at`) VALUES ('Admin', '2016-10-08 19:33:46', '2016-10-08 19:33:46')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 6[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Admin' AND (`roles`.`id` != 5) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `user_roles` (`created_at`, `updated_at`, `role_id`) VALUES ('2016-10-08 19:33:46', '2016-10-08 19:33:46', 5)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO `user_roles` (`created_at`, `updated_at`, `user_id`, `role_id`) VALUES ('2016-10-08 19:33:46', '2016-10-08 19:33:46', 6, 5)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' AND (`users`.`id` != 6) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-10-08 14:33:46 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.0ms)
+  Rendered layouts/_navbar.html.erb (0.9ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 17ms (Views: 16.0ms | ActiveRecord: 0.0ms)
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-10-08 14:33:46 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'user@example.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `users` SET `current_sign_in_at` = '2016-10-08 19:33:46', `last_sign_in_at` = '2016-10-08 19:33:46', `current_sign_in_ip` = '127.0.0.1', `last_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1 WHERE `users`.`id` = 6[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 15ms (ActiveRecord: 0.8ms)
+Started GET "/" for 127.0.0.1 at 2016-10-08 14:33:46 -0500
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering dashboard/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` WHERE `products`.`visibility` IN ('All', 'Registered Users')[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` INNER JOIN `user_products` ON `products`.`id` = `user_products`.`product_id` WHERE `user_products`.`user_id` = 6[0m
+  Rendered dashboard/index.html.erb within layouts/application (3.0ms)
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 6[0m
+  Rendered layouts/_navbar.html.erb (2.7ms)
+  Rendered layouts/_sidebar.html.erb (1.0ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 19ms (Views: 13.5ms | ActiveRecord: 1.4ms)
+Started GET "/admin/products/4/edit" for 127.0.0.1 at 2016-10-08 14:33:46 -0500
+Processing by Admin::ProductsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 4 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 6[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 4 LIMIT 1[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering admin/products/edit.html.erb within layouts/application
+  [1m[36mContent Load (0.3ms)[0m  [1m[34mSELECT `contents`.* FROM `contents` WHERE `contents`.`product_id` = 4[0m
+  [1m[36mModulee Load (0.3ms)[0m  [1m[34mSELECT  `modulees`.* FROM `modulees` WHERE `modulees`.`id` = 1 LIMIT 1[0m
+  [1m[36mContent Load (0.5ms)[0m  [1m[34mSELECT `contents`.* FROM `contents` WHERE `contents`.`actable_type` = 'Modulee' AND `contents`.`actable_id` = 1[0m
+  Rendered admin/products/_module_fields.html.erb (2.5ms)
+  Rendered admin/products/_content_fields.html.erb (14.7ms)
+  Rendered admin/products/_module_fields.html.erb (1.4ms)
+  Rendered admin/products/_content_fields.html.erb (2.9ms)
+  Rendered admin/products/_sub_module_fields.html.erb (1.8ms)
+  Rendered admin/products/_content_fields.html.erb (3.4ms)
+  Rendered admin/products/_quiz_fields.html.erb (2.2ms)
+  Rendered admin/products/_content_fields.html.erb (4.2ms)
+  Rendered admin/products/_flashcard_fields.html.erb (1.6ms)
+  Rendered admin/products/_content_fields.html.erb (3.3ms)
+  Rendered admin/products/_html_fields.html.erb (1.4ms)
+  Rendered admin/products/_content_fields.html.erb (2.9ms)
+  Rendered admin/products/_audio_fields.html.erb (1.5ms)
+  Rendered admin/products/_content_fields.html.erb (2.8ms)
+  Rendered admin/products/_video_fields.html.erb (1.8ms)
+  Rendered admin/products/_content_fields.html.erb (3.2ms)
+  Rendered admin/products/_form.html.erb (55.0ms)
+  Rendered admin/products/edit.html.erb within layouts/application (57.0ms)
+  Rendered layouts/_navbar.html.erb (0.9ms)
+  Rendered layouts/_sidebar.html.erb (0.7ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 84ms (Views: 67.4ms | ActiveRecord: 2.0ms)
+Started PATCH "/admin/products/4" for 127.0.0.1 at 2016-10-08 14:33:46 -0500
+Processing by Admin::ProductsController#update as HTML
+  Parameters: {"utf8"=>"✓", "product"=>{"title"=>"Allan Lehner V", "visibility"=>"All", "contents_attributes"=>{"0"=>{"actable_type"=>"Modulee", "parent_id"=>"", "name"=>"My Module", "attr_1"=>"Attribute Value", "_destroy"=>"false", "id"=>"1"}}}, "commit"=>"Update Product", "id"=>"4"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 4 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 6[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 4 LIMIT 1[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mModulee Load (0.3ms)[0m  [1m[34mSELECT  `modulees`.* FROM `modulees` WHERE `modulees`.`id` = 1 LIMIT 1[0m
+  [1m[36mContent Load (0.3ms)[0m  [1m[34mSELECT `contents`.* FROM `contents` WHERE `contents`.`actable_type` = 'Modulee' AND `contents`.`actable_id` = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mModulee Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `modulees` WHERE `modulees`.`attr_1` = BINARY 'Attribute Value' AND (`modulees`.`id` != 1) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `modulees` SET `attr_1` = 'Attribute Value' WHERE `modulees`.`id` = 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `contents` SET `name` = 'My Module' WHERE `contents`.`id` = 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `contents` SET `contents`.`updated_at` = '2016-10-08 19:33:46' WHERE `contents`.`id` = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`title` = BINARY 'Allan Lehner V' AND (`products`.`id` != 4) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/admin/products/4
+Completed 302 Found in 28ms (ActiveRecord: 3.4ms)
+Started GET "/admin/products/4" for 127.0.0.1 at 2016-10-08 14:33:46 -0500
+Processing by Admin::ProductsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 4 LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 6[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 4 LIMIT 1[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering admin/products/show.html.erb within layouts/application
+  Rendered admin/products/show.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_navbar.html.erb (1.0ms)
+  Rendered layouts/_sidebar.html.erb (1.1ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 27ms (Views: 13.1ms | ActiveRecord: 1.0ms)
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`title` = BINARY 'Mavis Lynch' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `products` (`title`, `created_at`, `updated_at`, `visibility`) VALUES ('Mavis Lynch', '2016-10-08 19:33:46', '2016-10-08 19:33:46', 'All')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mModulee Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `modulees` WHERE `modulees`.`attr_1` = BINARY 'attr value' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `modulees` (`attr_1`) VALUES ('attr value')[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `contents` (`created_at`, `updated_at`, `actable_type`, `actable_id`, `name`) VALUES ('2016-10-08 19:33:46', '2016-10-08 19:33:46', 'Modulee', 2, 'Module 1')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mModulee Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `modulees` WHERE `modulees`.`attr_1` = BINARY 'attr value' AND (`modulees`.`id` != 2) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `contents` SET `product_id` = 5 WHERE `contents`.`id` = 2[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE `contents` SET `contents`.`updated_at` = '2016-10-08 19:33:46' WHERE `contents`.`id` = 2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'user@example.com' LIMIT 1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `username`) VALUES ('user@example.com', '$2a$04$fXFBHtYz/FOaar1lZMmaSezz/wJAEvxkjsezyQI6Jn2IyBsbsRheO', '2016-10-08 19:33:46', '2016-10-08 19:33:46', 'user')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Admin' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `roles` (`name`, `created_at`, `updated_at`) VALUES ('Admin', '2016-10-08 19:33:46', '2016-10-08 19:33:46')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 7[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Admin' AND (`roles`.`id` != 6) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `user_roles` (`created_at`, `updated_at`, `role_id`) VALUES ('2016-10-08 19:33:46', '2016-10-08 19:33:46', 6)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `user_roles` (`created_at`, `updated_at`, `user_id`, `role_id`) VALUES ('2016-10-08 19:33:46', '2016-10-08 19:33:46', 7, 6)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' AND (`users`.`id` != 7) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-10-08 14:33:46 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.4ms)
+  Rendered layouts/_navbar.html.erb (1.0ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 19ms (Views: 17.9ms | ActiveRecord: 0.0ms)
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-10-08 14:33:46 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'user@example.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE `users` SET `current_sign_in_at` = '2016-10-08 19:33:46', `last_sign_in_at` = '2016-10-08 19:33:46', `current_sign_in_ip` = '127.0.0.1', `last_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1 WHERE `users`.`id` = 7[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 15ms (ActiveRecord: 1.1ms)
+Started GET "/" for 127.0.0.1 at 2016-10-08 14:33:47 -0500
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering dashboard/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` WHERE `products`.`visibility` IN ('All', 'Registered Users')[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products` INNER JOIN `user_products` ON `products`.`id` = `user_products`.`product_id` WHERE `user_products`.`user_id` = 7[0m
+  Rendered dashboard/index.html.erb within layouts/application (2.9ms)
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 7[0m
+  Rendered layouts/_navbar.html.erb (2.9ms)
+  Rendered layouts/_sidebar.html.erb (1.0ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 19ms (Views: 14.0ms | ActiveRecord: 1.4ms)
+Started GET "/admin/products/5/edit" for 127.0.0.1 at 2016-10-08 14:33:47 -0500
+Processing by Admin::ProductsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 5 LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 7[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 5 LIMIT 1[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering admin/products/edit.html.erb within layouts/application
+  [1m[36mContent Load (0.4ms)[0m  [1m[34mSELECT `contents`.* FROM `contents` WHERE `contents`.`product_id` = 5[0m
+  [1m[36mModulee Load (0.3ms)[0m  [1m[34mSELECT  `modulees`.* FROM `modulees` WHERE `modulees`.`id` = 2 LIMIT 1[0m
+  [1m[36mContent Load (0.3ms)[0m  [1m[34mSELECT `contents`.* FROM `contents` WHERE `contents`.`actable_type` = 'Modulee' AND `contents`.`actable_id` = 2[0m
+  Rendered admin/products/_module_fields.html.erb (2.0ms)
+  Rendered admin/products/_content_fields.html.erb (7.8ms)
+  Rendered admin/products/_module_fields.html.erb (1.1ms)
+  Rendered admin/products/_content_fields.html.erb (2.2ms)
+  Rendered admin/products/_sub_module_fields.html.erb (2.0ms)
+  Rendered admin/products/_content_fields.html.erb (3.5ms)
+  Rendered admin/products/_quiz_fields.html.erb (1.8ms)
+  Rendered admin/products/_content_fields.html.erb (3.3ms)
+  Rendered admin/products/_flashcard_fields.html.erb (1.6ms)
+  Rendered admin/products/_content_fields.html.erb (3.1ms)
+  Rendered admin/products/_html_fields.html.erb (1.4ms)
+  Rendered admin/products/_content_fields.html.erb (2.7ms)
+  Rendered admin/products/_audio_fields.html.erb (1.4ms)
+  Rendered admin/products/_content_fields.html.erb (2.7ms)
+  Rendered admin/products/_video_fields.html.erb (1.6ms)
+  Rendered admin/products/_content_fields.html.erb (3.0ms)
+  Rendered admin/products/_form.html.erb (44.4ms)
+  Rendered admin/products/edit.html.erb within layouts/application (45.9ms)
+  Rendered layouts/_navbar.html.erb (0.9ms)
+  Rendered layouts/_sidebar.html.erb (0.7ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 73ms (Views: 56.2ms | ActiveRecord: 2.2ms)
+Started PATCH "/admin/products/5" for 127.0.0.1 at 2016-10-08 14:33:47 -0500
+Processing by Admin::ProductsController#update as HTML
+  Parameters: {"utf8"=>"✓", "product"=>{"title"=>"Mavis Lynch", "visibility"=>"All", "contents_attributes"=>{"0"=>{"actable_type"=>"Modulee", "parent_id"=>"", "name"=>"Module 1", "attr_1"=>"attr value", "_destroy"=>"false", "id"=>"2"}}}, "commit"=>"Update Product", "id"=>"5"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 5 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 7[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 5 LIMIT 1[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mModulee Load (0.3ms)[0m  [1m[34mSELECT  `modulees`.* FROM `modulees` WHERE `modulees`.`id` = 2 LIMIT 1[0m
+  [1m[36mContent Load (0.3ms)[0m  [1m[34mSELECT `contents`.* FROM `contents` WHERE `contents`.`actable_type` = 'Modulee' AND `contents`.`actable_id` = 2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mModulee Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `modulees` WHERE `modulees`.`attr_1` = BINARY 'attr value' AND (`modulees`.`id` != 2) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `contents` SET `contents`.`updated_at` = '2016-10-08 19:33:47' WHERE `contents`.`id` = 2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`title` = BINARY 'Mavis Lynch' AND (`products`.`id` != 5) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/admin/products/5
+Completed 302 Found in 24ms (ActiveRecord: 2.9ms)
+Started GET "/admin/products/5" for 127.0.0.1 at 2016-10-08 14:33:47 -0500
+Processing by Admin::ProductsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 5 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 7[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 5 LIMIT 1[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering admin/products/show.html.erb within layouts/application
+  Rendered admin/products/show.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_navbar.html.erb (0.8ms)
+  Rendered layouts/_sidebar.html.erb (0.7ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 26ms (Views: 12.5ms | ActiveRecord: 1.0ms)
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'user@example.com' LIMIT 1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `username`) VALUES ('user@example.com', '$2a$04$58c0IVjljEG1SaHzR/MlrOg9VRdoBPWbYF1zaPrFkGxZLn7XzU4Pe', '2016-10-08 19:33:47', '2016-10-08 19:33:47', 'user')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Admin' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `roles` (`name`, `created_at`, `updated_at`) VALUES ('Admin', '2016-10-08 19:33:47', '2016-10-08 19:33:47')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 8[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Admin' AND (`roles`.`id` != 7) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `user_roles` (`created_at`, `updated_at`, `role_id`) VALUES ('2016-10-08 19:33:47', '2016-10-08 19:33:47', 7)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `user_roles` (`created_at`, `updated_at`, `user_id`, `role_id`) VALUES ('2016-10-08 19:33:47', '2016-10-08 19:33:47', 8, 7)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' AND (`users`.`id` != 8) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'user@example.com' LIMIT 1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `username`) VALUES ('user@example.com', '$2a$04$mteRhXho.Fru5vTtwuK3bu783P6t6Naz1RN0oXxUFOk5NZ6tXlDXq', '2016-10-08 19:33:47', '2016-10-08 19:33:47', 'user')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Product Manager' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `roles` (`name`, `created_at`, `updated_at`) VALUES ('Product Manager', '2016-10-08 19:33:47', '2016-10-08 19:33:47')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 9[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Product Manager' AND (`roles`.`id` != 8) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `user_roles` (`created_at`, `updated_at`, `role_id`) VALUES ('2016-10-08 19:33:47', '2016-10-08 19:33:47', 8)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `user_roles` (`created_at`, `updated_at`, `user_id`, `role_id`) VALUES ('2016-10-08 19:33:47', '2016-10-08 19:33:47', 9, 8)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' AND (`users`.`id` != 9) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'user@example.com' LIMIT 1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `username`) VALUES ('user@example.com', '$2a$04$CjscgCYLMc9yw7FhqA8yH.zrRTWCCpu9oo9yAtl3rPiM59BOtFU.i', '2016-10-08 19:33:47', '2016-10-08 19:33:47', 'user')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Content Contributor' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `roles` (`name`, `created_at`, `updated_at`) VALUES ('Content Contributor', '2016-10-08 19:33:47', '2016-10-08 19:33:47')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 10[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Content Contributor' AND (`roles`.`id` != 9) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `user_roles` (`created_at`, `updated_at`, `role_id`) VALUES ('2016-10-08 19:33:47', '2016-10-08 19:33:47', 9)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `user_roles` (`created_at`, `updated_at`, `user_id`, `role_id`) VALUES ('2016-10-08 19:33:47', '2016-10-08 19:33:47', 10, 9)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' AND (`users`.`id` != 10) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'user@example.com' LIMIT 1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `username`) VALUES ('user@example.com', '$2a$04$CbPPz/6DKb4zdJ6C7KJ1jOvPqVVzfyx47LAjaNtOTQMf5mHXCtihW', '2016-10-08 19:33:47', '2016-10-08 19:33:47', 'user')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 11[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `audios` VALUES ()[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `contents` (`created_at`, `updated_at`, `actable_type`, `actable_id`, `name`) VALUES ('2016-10-08 19:33:47', '2016-10-08 19:33:47', 'Audio', 1, 'Audio 1')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`title` = BINARY 'Antonette Boehm' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `products` (`title`, `created_at`, `updated_at`, `visibility`) VALUES ('Antonette Boehm', '2016-10-08 19:33:47', '2016-10-08 19:33:47', 'All')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `contents` (`product_id`, `created_at`, `updated_at`, `name`) VALUES (6, '2016-10-08 19:33:47', '2016-10-08 19:33:47', 'MyString')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `flashcards` VALUES ()[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `contents` (`created_at`, `updated_at`, `actable_type`, `actable_id`, `name`) VALUES ('2016-10-08 19:33:47', '2016-10-08 19:33:47', 'Flashcard', 1, 'Flashcard 1')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `htmls` VALUES ()[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `contents` (`created_at`, `updated_at`, `actable_type`, `actable_id`, `name`) VALUES ('2016-10-08 19:33:47', '2016-10-08 19:33:47', 'Html', 1, 'Html 1')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mModulee Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `modulees` WHERE `modulees`.`attr_1` = BINARY 'attr value' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `modulees` (`attr_1`) VALUES ('attr value')[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `contents` (`created_at`, `updated_at`, `actable_type`, `actable_id`, `name`) VALUES ('2016-10-08 19:33:47', '2016-10-08 19:33:47', 'Modulee', 3, 'Module 1')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mModulee Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `modulees` WHERE `modulees`.`attr_1` = BINARY 'attr value' AND (`modulees`.`id` != 3) LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mModulee Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `modulees` WHERE `modulees`.`attr_1` = BINARY 'attr value' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `modulees` (`attr_1`) VALUES ('attr value')[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `contents` (`created_at`, `updated_at`, `actable_type`, `actable_id`, `name`) VALUES ('2016-10-08 19:33:47', '2016-10-08 19:33:47', 'Modulee', 4, 'Module 1')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mModulee Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `modulees` WHERE `modulees`.`attr_1` = BINARY 'attr value' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`title` = BINARY 'Adrien Bosco' LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO `products` (`title`, `created_at`, `updated_at`, `visibility`) VALUES ('Adrien Bosco', '2016-10-08 19:33:47', '2016-10-08 19:33:47', 'All')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`title` = BINARY 'Adrien Bosco' AND (`products`.`id` != 7) LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`title` IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `products` WHERE `products`.`title` = BINARY 'Test Product 1' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `quizzes` VALUES ()[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `contents` (`created_at`, `updated_at`, `actable_type`, `actable_id`, `name`) VALUES ('2016-10-08 19:33:47', '2016-10-08 19:33:47', 'Quiz', 1, 'Quiz 1')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Test Role 1' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `roles` (`name`, `created_at`, `updated_at`) VALUES ('Test Role 1', '2016-10-08 19:33:47', '2016-10-08 19:33:47')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Test Role 1' AND (`roles`.`id` != 10) LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRole Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Test Role 1' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `roles` (`name`, `created_at`, `updated_at`) VALUES ('Test Role 1', '2016-10-08 19:33:47', '2016-10-08 19:33:47')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Test Role 1' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Test Role 1' LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Test Role 1' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `roles` (`name`, `created_at`, `updated_at`) VALUES ('Test Role 1', '2016-10-08 19:33:47', '2016-10-08 19:33:47')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRole Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `roles` WHERE `roles`.`name` = BINARY 'Test Role 2' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `roles` (`name`, `created_at`, `updated_at`) VALUES ('Test Role 2', '2016-10-08 19:33:47', '2016-10-08 19:33:47')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE (`roles`.`id` != 12)[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSubModule Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `sub_modules` WHERE `sub_modules`.`attr_2` = BINARY 'attr value' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `sub_modules` (`attr_2`) VALUES ('attr value')[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `contents` (`created_at`, `updated_at`, `actable_type`, `actable_id`, `name`) VALUES ('2016-10-08 19:33:47', '2016-10-08 19:33:47', 'SubModule', 1, 'Sub Module 1')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mSubModule Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `sub_modules` WHERE `sub_modules`.`attr_2` = BINARY 'attr value' AND (`sub_modules`.`id` != 1) LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSubModule Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `sub_modules` WHERE `sub_modules`.`attr_2` = BINARY 'attr value' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `sub_modules` (`attr_2`) VALUES ('attr value')[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `contents` (`created_at`, `updated_at`, `actable_type`, `actable_id`, `name`) VALUES ('2016-10-08 19:33:47', '2016-10-08 19:33:47', 'SubModule', 2, 'Sub Module 1')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mSubModule Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `sub_modules` WHERE `sub_modules`.`attr_2` = BINARY 'attr value' LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'user@example.com' LIMIT 1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `username`) VALUES ('user@example.com', '$2a$04$FgGV7K6joSOeXqzdjweoG.OqM9VHumekMfBDOHv/yUzuXGB0H7x0W', '2016-10-08 19:33:47', '2016-10-08 19:33:47', 'user')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'user' AND (`users`.`id` != 12) LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`username` IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `videos` (`url`) VALUES ('http://www.google.com')[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `contents` (`created_at`, `updated_at`, `actable_type`, `actable_id`, `name`) VALUES ('2016-10-08 19:33:47', '2016-10-08 19:33:47', 'Video', 1, 'Video 1')[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
