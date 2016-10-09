@@ -61,6 +61,7 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def assign_products
+    @my_products = current_user.products || []
   end
 
  def create_products
