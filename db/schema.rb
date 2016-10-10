@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161008185322) do
+ActiveRecord::Schema.define(version: 20161010191258) do
 
   create_table "audios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "play_count"
@@ -32,15 +32,14 @@ ActiveRecord::Schema.define(version: 20161008185322) do
   end
 
   create_table "flashcards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "attr_4"
   end
 
   create_table "htmls", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.boolean "has_plain_text"
+    t.text    "description",    limit: 65535
   end
 
   create_table "modulees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "attr_1"
   end
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -52,7 +51,6 @@ ActiveRecord::Schema.define(version: 20161008185322) do
   end
 
   create_table "quizzes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "attr_3"
   end
 
   create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -62,7 +60,6 @@ ActiveRecord::Schema.define(version: 20161008185322) do
   end
 
   create_table "sub_modules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "attr_2"
   end
 
   create_table "user_products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

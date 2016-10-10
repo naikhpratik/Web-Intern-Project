@@ -1,7 +1,7 @@
 <% f.object = f.object.specific if f.object.specific.instance_of? Audio %>
 
 <div class="col-md-12">
-  <div class="row quiz_fields">
+  <div class="row audio_fields">
     <%= f.hidden_field :actable_type, value: 'Audio' %>
     <%= f.hidden_field :parent_id %>
     
@@ -11,7 +11,7 @@
     </div>
     
     <div class="form-group col-md-2">
-      <%= link_to_remove_association "<span class='glyphicon glyphicon-minus' aria-hidden='true'></span>".html_safe, f, class: "remove_fields btn btn-sm btn-danger", data: { confirm: 'Are you sure?' }, wrapper_class: 'quiz_fields'  %>
+      <%= link_to_remove_association "<span class='glyphicon glyphicon-minus' aria-hidden='true'></span>".html_safe, f, class: "remove_fields btn btn-sm btn-danger", data: { confirm: 'Are you sure?' }, wrapper_class: 'audio_fields'  %>
     </div>
   </div>
 </div>

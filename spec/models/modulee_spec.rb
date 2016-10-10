@@ -10,10 +10,4 @@ RSpec.describe Modulee, type: :model do
     modulee = FactoryGirl.create(:modulee)
     expect(modulee).to be_valid
   end
-
-  it "is not valid with duplicate attr_1" do
-    modulee = FactoryGirl.create(:modulee)
-    expect(modulee_new).to be_invalid
-  end
-
 end

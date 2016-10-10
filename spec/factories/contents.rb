@@ -6,12 +6,10 @@ FactoryGirl.define do
 
   factory :modulee do
     name "Module 1"
-    attr_1 "attr value"
   end
 
   factory :sub_module do
     name "Sub Module 1"
-    attr_2 "attr value"
   end
 
   factory :quiz do

@@ -89,6 +89,13 @@ GEM
       xpath (~> 2.0)
     childprocess (0.5.9)
       ffi (~> 1.0, >= 1.0.11)
+    ckeditor (4.2.0)
+      cocaine
+      orm_adapter (~> 0.5.0)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.8)
+      climate_control (>= 0.0.3, < 1.0)
     cocoon (1.2.9)
     codeclimate-test-reporter (0.6.0)
       simplecov (>= 0.7.1, < 1.0.0)
@@ -349,6 +356,7 @@ DEPENDENCIES
   capistrano-rails-console
   capistrano-rvm
   capybara
+  ckeditor
   cocoon
   codeclimate-test-reporter
   coffee-rails (~> 4.1.0)
