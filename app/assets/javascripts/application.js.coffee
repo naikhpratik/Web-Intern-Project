@@ -15,4 +15,5 @@
 # //= require turbolinks
 # //= require admin
 # //= require cocoon
+# //= require ckeditor/init
 # //= require bootstrap-sprockets

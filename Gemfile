@@ -44,6 +44,9 @@ gem 'ancestry'
 # Cocoon
 gem "cocoon"
 
+# Text Editor
+gem 'ckeditor'
+
 gem 'rails-controller-testing'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
