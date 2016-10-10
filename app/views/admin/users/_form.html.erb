@@ -36,6 +36,8 @@
     <%= f.label "Role name", class: 'control-label' %>
     <%= select_tag 'role_ids', options_for_select(Role.all.map(&:name), @user_roles), multiple: true, prompt: "Default", class: 'form-control'  %>
   </div>
+
+
   <div class="form-group">
     <%= f.submit class: 'btn btn-sm btn-success' %>
   </div>

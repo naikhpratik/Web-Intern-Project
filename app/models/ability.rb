@@ -8,6 +8,11 @@ class Ability
         can :manage, :all
     elsif user.is_product_manager?
         can :manage, Product
+        can :manage, User
+    elsif user.is_content_contributor?
+        can [:read,:update], Product
+    elsif user.is_instructor?
+        can [:read], Product
     else
         can :read, Product
     end

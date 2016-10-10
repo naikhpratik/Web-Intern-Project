@@ -12,23 +12,44 @@
     </thead>
     <tbody>
       <% @users.each do |user|%>
-      <tr>
-        <td><%= link_to user.username, admin_user_path(user), class: 'btn-link' %></td>
-        <td><%= user.email %></td>
-        <!--td><%= user.roles.map(&:name).join(', ') unless user.roles.blank? %></td-->
-        <td><%= user.roles.collect {|role| link_to role.name, admin_role_path(role), class: 'btn-link' }.join(', ').html_safe unless user.roles.blank? %></td>
-        <td>
-          <div class="btn-group">
-            <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Actions <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-              <li><%= link_to 'Edit', edit_admin_user_path(user) %></li>
-              <li><%= link_to 'Destroy', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></li>
-            </ul>
-          </div>
-        </td>
-      </tr>
+        <% if current_user.is_product_manager? && user.is_content_contributor? || user.is_instructor? %>
+          <tr>
+              <td><%= link_to user.username, admin_user_path(user), class: 'btn-link' %></td>
+              <td><%= user.email %></td>
+              <td><%= user.roles.collect {|role| link_to role.name, admin_role_path(role), class: 'btn-link' }.join(', ').html_safe unless user.roles.blank? %></td>
+              <td>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Actions <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><%= link_to 'Edit', edit_admin_user_path(user) %></li>
+                    <li><%= link_to 'Destroy', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+            <% else %>
+              <% if current_user.is_admin?%>
+              <tr>
+                <td><%= link_to user.username, admin_user_path(user), class: 'btn-link' %></td>
+                <td><%= user.email %></td>
+                <!--td><%= user.roles.map(&:name).join(', ') unless user.roles.blank? %></td-->
+                <td><%= user.roles.collect {|role| link_to role.name, admin_role_path(role), class: 'btn-link' }.join(', ').html_safe unless user.roles.blank? %></td>
+                <td>
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Actions <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><%= link_to 'Edit', edit_admin_user_path(user) %></li>
+                      <li><%= link_to 'Destroy', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+              <% end %>
+        <% end %>
       <% end %>
 
     </tbody>
@@ -38,5 +59,7 @@
 <% end %>
 
 <br/>
-
-<%= link_to 'New User', new_admin_user_path, class: 'btn btn-sm btn-success' %> <%= link_to 'Back', dashboard_path, class: 'btn btn-sm btn-primary' %>
+<% if current_user.is_admin? %>
+  <%= link_to 'New User', new_admin_user_path, class: 'btn btn-sm btn-success' %>
+<% end %>
+<%= link_to 'Back', dashboard_path, class: 'btn btn-sm btn-primary' %>

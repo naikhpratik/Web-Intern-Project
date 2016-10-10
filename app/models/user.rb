@@ -28,6 +28,14 @@ class User < ApplicationRecord
     is_type?("Content Manager")
   end
 
+  def is_content_contributor?
+    is_type?("Content Contributor")
+  end
+
+  def is_instructor?
+    is_type?("Instructor")
+  end
+
   private
 
   def is_type? type

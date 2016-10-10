@@ -5,18 +5,18 @@ RSpec.feature "Product", :type => :feature do
   scenario "Admin creates a valid product" do
     login 'Admin'
     visit new_admin_product_url
-
+ 
     fill_in 'Title', :with => "My Widget"
     select "All", from: 'product[visibility]'
     click_button "Create"
-
+    
     expect(page).to have_text("Product was successfully created")
-  end
-
+   end
+ 
   scenario "Product Manager creates a Product" do
     login 'Product Manager'
     visit new_admin_product_url
-
+ 
     fill_in 'Title', :with => "My Widget"
     select "All", from: 'product[visibility]'
     click_button "Create"
@@ -33,10 +33,10 @@ RSpec.feature "Product", :type => :feature do
 
   scenario "Admin creates a duplicate product" do
     product = FactoryGirl.create(:product, title: "My Widget")
-    
+
     login 'Admin'
     visit new_admin_product_url
-    
+
     fill_in "Title", :with => "My Widget"
     select "All", from: 'product[visibility]'
     click_button "Create"
@@ -54,6 +54,50 @@ RSpec.feature "Product", :type => :feature do
     expect(page).to have_content("Title can't be blank")
   end
 
+  scenario "Admin updates a Product with its contents" do
+    product = FactoryGirl.create(:product)
+    
+    modulee = FactoryGirl.create(:modulee)
+    modulee.product_id = product.id
+    modulee.save!
+
+    login 'Admin'
+    visit edit_admin_product_path(product)
+
+    fill_in "product[contents_attributes][0][name]", with: 'My Module'
+    fill_in "product[contents_attributes][0][attr_1]", with: 'Attribute Value'
+
+    click_button "Update"
+
+    expect(page).to have_text("Product was successfully updated")
+  end
+
+  scenario "Admin destroys contents of a Product" do
+    product = FactoryGirl.create(:product)
+    
+    modulee = FactoryGirl.create(:modulee)
+    modulee.product_id = product.id
+    modulee.save!
+
+    login 'Admin'
+    visit edit_admin_product_path(product)
+
+    all('.remove_fields').first.click
+
+    click_button "Update"
+
+    expect(page).to have_text("Product was successfully updated")
+  end
+
+  scenario "Admin destroys a Product" do
+    # product = FactoryGirl.create(:product)
+
+    # login 'Admin'
+    # visit admin_products_path
+
+    # all('.btn-group > button').first.click
+  end
+
   private
 
   def login (role_name = nil)
@@ -64,8 +108,9 @@ RSpec.feature "Product", :type => :feature do
       user.roles = [role]
       user_role = UserRole.create(user_id: user.id, role_id: role.id)
     end
-    
+
     user.save!
+
 
     visit new_user_session_url
     fill_in 'Email', with: user.email

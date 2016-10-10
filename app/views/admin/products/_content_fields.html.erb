@@ -1,15 +1,15 @@
-<% if f.object.instance_of? Quiz %>
+<% if f.object.instance_of? Quiz or f.object.specific.instance_of? Quiz %>
   <%= render 'quiz_fields', f: f %>
-<% elsif f.object.instance_of? Flashcard %>
+<% elsif f.object.instance_of? Flashcard or f.object.specific.instance_of? Flashcard %>
   <%= render 'flashcard_fields', f: f %>
-<% elsif f.object.instance_of? Html %>
+<% elsif f.object.instance_of? Html or f.object.specific.instance_of? Html %>
   <%= render 'html_fields', f: f %>
-<% elsif f.object.instance_of? Audio %>
+<% elsif f.object.instance_of? Audio or f.object.specific.instance_of? Audio %>
   <%= render 'audio_fields', f: f %>
-<% elsif f.object.instance_of? Video %>
+<% elsif f.object.instance_of? Video or f.object.specific.instance_of? Video %>
   <%= render 'video_fields', f: f %>
-<% elsif f.object.instance_of? Modulee %>
+<% elsif f.object.instance_of? Modulee or f.object.specific.instance_of? Modulee %>
   <%= render 'module_fields', f: f %>
-<% elsif f.object.instance_of? SubModule %>
+<% elsif f.object.instance_of? SubModule or f.object.specific.instance_of? SubModule %>
   <%= render 'sub_module_fields', f: f %>
 <% end %>
