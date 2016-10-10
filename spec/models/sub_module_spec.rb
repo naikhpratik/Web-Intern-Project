@@ -10,10 +10,4 @@ RSpec.describe SubModule, type: :model do
     sub_module = FactoryGirl.create(:sub_module)
     expect(sub_module).to be_valid
   end
-
-  it "is not valid with duplicate attr_2" do
-    sub_module = FactoryGirl.create(:sub_module)
-    expect(sub_module_new).to be_invalid
-  end
-
 end

@@ -65,7 +65,6 @@ RSpec.feature "Product", :type => :feature do
     visit edit_admin_product_path(product)
 
     fill_in "product[contents_attributes][0][name]", with: 'My Module'
-    fill_in "product[contents_attributes][0][attr_1]", with: 'Attribute Value'
 
     click_button "Update"
 
