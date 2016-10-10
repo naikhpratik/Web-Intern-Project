@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(version: 20161010191258) do
     t.integer "play_count"
   end
 
+  add_foreign_key "contents", "products"
   add_foreign_key "user_products", "users"
   add_foreign_key "user_roles", "roles"
   add_foreign_key "user_roles", "users"
