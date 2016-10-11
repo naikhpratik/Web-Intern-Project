@@ -13,15 +13,11 @@ RSpec.feature "Product", :type => :feature do
     expect(page).to have_text("Product was successfully created")
    end
  
-  scenario "Product Manager creates a Product" do
+  scenario "Product Manager can't create a Product" do
     login 'Product Manager'
     visit new_admin_product_url
- 
-    fill_in 'Title', :with => "My Widget"
-    select "All", from: 'product[visibility]'
-    click_button "Create"
-
-    expect(page).to have_text("Product was successfully created")
+    
+    expect(page).to have_text("You are not authorized to access this page")
   end
 
   scenario "Normal User can't create a Product" do

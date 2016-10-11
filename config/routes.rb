@@ -27,4 +27,6 @@ end
   devise_for :users, :controllers => { registrations: 'users/registrations' }
 
   resources :products, only: [:index, :show]
+
+  mount Ckeditor::Engine => '/ckeditor'
 end

@@ -1,4 +1,4 @@
 <%= navbar_link do %>
-  <%= nav_link 'Manage Users', admin_users_path if can? :manage, User %>
+  <%= nav_link 'Manage Users', admin_users_path if can? :read, User %>
   <%= nav_link 'Manage Products', admin_products_path %>
 <% end %>
