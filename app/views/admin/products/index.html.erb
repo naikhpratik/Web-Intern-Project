@@ -20,8 +20,10 @@
             </button>
             <ul class="dropdown-menu">
               <li><%= link_to 'View', admin_product_path(product) %></li>
-              <% if can? :manage, product %>
+              <% if can? :update, product %>
                 <li><%= link_to 'Edit', edit_admin_product_path(product) %></li>
+              <% end %>
+              <% if can? :destroy, product %>
                 <li><%= link_to 'Destroy', admin_product_path(product), method: :delete, data: { confirm: 'Are you sure?' } %></li>
               <% end %>
             </ul>
