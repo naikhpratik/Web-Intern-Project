@@ -1,5 +1,5 @@
 class Admin::UsersController < Admin::BaseController
-  skip_authorize_resource :only => [:assign_products, :create_products]
+  skip_authorize_resource :only => [:assign_products, :create_products,:edit]
   before_action :set_user, only: [:assign_products, :create_products, :show, :edit, :update, :destroy]
 
   def index
