@@ -21,6 +21,29 @@ describe "Ability" do
     end
   end
 
+  describe "as product manager" do
+    it "can assign users to the product which they were assigned" do
+      user = user_with_role 'Product Manager'
+      product = FactoryGirl.create(:product)
+
+      role_ids = user.roles.pluck(:name)
+      product_ids = [product.id]
+
+      user_products = []
+
+      role_ids.each_with_index do |role_id, index|
+        user_products.push(UserProduct.create(user_id: user.id, product_id: product_ids[index], role_id: Role.find_by_name(role_id).id)) unless role_id.blank?
+      end
+
+      user.user_products = user_products
+      user.save!
+
+      ability = Ability.new(user)
+      expect(ability).to be_able_to(:read, product)
+      expect(ability).to be_able_to(:update, product)
+    end
+  end
+
   describe "as content contributor" do
     it "can read and update Product" do
       user = user_with_role 'Content Contributor'
@@ -32,7 +55,7 @@ describe "Ability" do
   end
 
   describe "as content instructor" do
-    it "can read and update Product" do
+    it "can read Product" do
       user = user_with_role 'Instructor'
 
       ability = Ability.new(user)
@@ -41,7 +64,7 @@ describe "Ability" do
   end
 
   describe "as normal user" do
-    it "can read all" do
+    it "can read Product" do
       user = FactoryGirl.create(:user)
 
       ability = Ability.new(user)

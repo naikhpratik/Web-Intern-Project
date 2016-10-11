@@ -1,6 +1,6 @@
 <% if products.present? %>
   <% products.each do |product| %>
-    <% if can? :manage, product %>
+    <% if can? :update, product %>
       <div class="row">
         <div class="form-group col-md-6">
           <div class="row">
