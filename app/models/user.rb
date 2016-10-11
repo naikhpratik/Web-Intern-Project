@@ -16,6 +16,15 @@ class User < ApplicationRecord
     where.not(id: user)
   end
 
+  def has_role? (role)
+    if role.instance_of? Array
+      role = role.collect { |r| r.to_s.split('_').join(' ').titleize }
+      (roles.pluck(:name) & role).empty?
+    else
+      role.to_s.to_i > 0 ? (roles.pluck(:id).include? role.to_i) : (roles.pluck(:name).include? role.to_s.split('_').join(' ').titleize)
+    end
+  end
+
   def is_admin?
     is_type?("Admin")
   end

@@ -1,4 +1,5 @@
 class Admin::UsersController < Admin::BaseController
+  skip_authorize_resource :only => [:assign_products, :create_products]
   before_action :set_user, only: [:assign_products, :create_products, :show, :edit, :update, :destroy]
 
   def index
@@ -36,7 +37,7 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def update
-    @user.user_roles.destroy
+    @user.user_roles.destroy_all
     @user.user_products.destroy_with_roles user_params[:role_ids]
     user_roles = []
 
@@ -78,7 +79,7 @@ class Admin::UsersController < Admin::BaseController
 
      respond_to do |format|
        if @user.save
-         format.html { redirect_to admin_user_url, notice: 'User Products successfully updated.' }
+         format.html { redirect_to admin_user_url, notice: 'User permissions successfully updated.' }
        else
          format.html { redirect_to assign_products_admin_user_path(@user), error: 'Couldn\'t update User Products' }
        end
