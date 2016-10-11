@@ -5,7 +5,11 @@ class Admin::ProductsController < Admin::BaseController
   # GET /products
   # GET /products.json
   def index
+    if current_user.is_admin?
     @products = Product.all
+  else
+    @products = current_user.products
+  end
   end
 
   # GET /products/1

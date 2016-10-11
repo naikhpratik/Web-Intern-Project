@@ -10,10 +10,27 @@ class Admin::UsersController < Admin::BaseController
 
   def new
     @user = User.new
+    if current_user.is_admin?
+    @roles = Role.all.map(&:name)
+  elsif current_user.is_product_manager?
+    @roles = Role.where(:name=>['Content Contributor','Instructor']).pluck(:name)
+  end
+
   end
 
   def edit
     @user_roles = @user.roles.map(&:name)
+    if current_user.is_admin?
+      @roles = Role.all.map(&:name)
+    elsif current_user.is_product_manager?
+      @roles = Role.where(:name=>['Content Contributor','Instructor']).pluck(:name)
+    end
+
+    if current_user.is_admin?
+    @value = false
+    else
+    @value = true
+    end
   end
 
   def create
@@ -94,7 +111,7 @@ class Admin::UsersController < Admin::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:username, :email, :password, :password_confirmation).tap do |whitelisted|
+        params.require(:user).permit(:username, :email, :password, :password_confirmation).tap do |whitelisted|
         whitelisted[:role_ids] = get_new_ids params[:role_ids]
       end
     end

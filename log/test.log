@@ -2241,3 +2241,7 @@ Completed 200 OK in 26ms (Views: 12.5ms | ActiveRecord: 1.0ms)
   [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `contents` (`created_at`, `updated_at`, `actable_type`, `actable_id`, `name`) VALUES ('2016-10-08 19:33:47', '2016-10-08 19:33:47', 'Video', 1, 'Video 1')[0m
   [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
   [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
