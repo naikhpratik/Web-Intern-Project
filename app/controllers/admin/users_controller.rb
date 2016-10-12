@@ -14,7 +14,7 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def edit
-    @user_roles = @user.roles.map(&:name)
+    @user_roles = @user.roles.pluck(:name)
   end
 
   def create
@@ -95,7 +95,7 @@ class Admin::UsersController < Admin::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:username, :email, :password, :password_confirmation).tap do |whitelisted|
+        params.require(:user).permit(:username, :email, :password, :password_confirmation).tap do |whitelisted|
         whitelisted[:role_ids] = get_new_ids params[:role_ids]
       end
     end

@@ -13,7 +13,7 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
 
   def self.all_except(user)
-    where.not(id: user)
+    where.not(id: user).collect { |u| u if u.roles.pluck(:name).exclude? 'Admin' }.compact
   end
 
   def has_role? (role)
