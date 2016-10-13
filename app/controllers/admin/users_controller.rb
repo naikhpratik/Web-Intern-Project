@@ -82,7 +82,7 @@ class Admin::UsersController < Admin::BaseController
     @my_products = current_user.products || []
   end
 
- def create_products
+  def create_products
      role_ids = params[:role_ids]
      product_ids = params[:product_ids]
 
@@ -130,8 +130,8 @@ class Admin::UsersController < Admin::BaseController
       role_names.each do |role_name|
         roles.each do |role|
           role_ids.push(role.id) if role.name == role_name
-        end
       end
+    end
 
       role_ids
     end
