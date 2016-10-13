@@ -1,5 +1,5 @@
 class Admin::UsersController < Admin::BaseController
-  skip_authorize_resource :only => [:assign_products, :create_products,:edit]
+  skip_authorize_resource :only => [:assign_products, :create_products, :edit, :update]
   before_action :set_user, only: [:assign_products, :create_products, :show, :edit, :update, :destroy]
 
   def index
@@ -12,25 +12,21 @@ class Admin::UsersController < Admin::BaseController
   def new
     @user = User.new
     if current_user.is_admin?
-    @roles = Role.all.map(&:name)
-  elsif current_user.is_product_manager?
-    @roles = Role.where(:name=>['Content Contributor','Instructor']).pluck(:name)
-  end
-
+      @roles = Role.all.map(&:name)
+    elsif current_user.is_product_manager?
+      @roles = Role.where(:name=>['Content Contributor','Instructor']).pluck(:name)
+    end
   end
 
   def edit
     @user_roles = @user.roles.map(&:name)
     if current_user.is_admin?
       @roles = Role.all.map(&:name)
+      @value = false
     elsif current_user.is_product_manager?
       @roles = Role.where(:name=>['Content Contributor','Instructor']).pluck(:name)
-    end
-
-    if current_user.is_admin?
-    @value = false
     else
-    @value = true
+      @value = true
     end
   end
 
