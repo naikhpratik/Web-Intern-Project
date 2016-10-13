@@ -8,7 +8,7 @@
             <div class="col-md-6">
               <% if form %>
                 <%= hidden_field_tag 'product_ids[]', product.id %>
-                <%= select_tag 'role_ids[]', options_for_select(user.roles.map(&:name), user.user_products.role(product.id)), prompt: 'None', class: 'form-control' %>                  
+                <%= select_tag 'role_ids[]', options_for_select(user.roles.map(&:name), user.user_products.role(product.id)), prompt: 'None', class: 'form-control' %>
               <% end %>
             </div>
           </div>

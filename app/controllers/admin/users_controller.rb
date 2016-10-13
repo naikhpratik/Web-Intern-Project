@@ -1,5 +1,5 @@
 class Admin::UsersController < Admin::BaseController
-  skip_authorize_resource :only => [:assign_products, :create_products]
+  skip_authorize_resource :only => [:assign_products, :create_products,:edit]
   before_action :set_user, only: [:assign_products, :create_products, :show, :edit, :update, :destroy]
 
   def index
@@ -11,10 +11,27 @@ class Admin::UsersController < Admin::BaseController
 
   def new
     @user = User.new
+    if current_user.is_admin?
+    @roles = Role.all.map(&:name)
+  elsif current_user.is_product_manager?
+    @roles = Role.where(:name=>['Content Contributor','Instructor']).pluck(:name)
+  end
+
   end
 
   def edit
-    @user_roles = @user.roles.pluck(:name)
+    @user_roles = @user.roles.map(&:name)
+    if current_user.is_admin?
+      @roles = Role.all.map(&:name)
+    elsif current_user.is_product_manager?
+      @roles = Role.where(:name=>['Content Contributor','Instructor']).pluck(:name)
+    end
+
+    if current_user.is_admin?
+    @value = false
+    else
+    @value = true
+    end
   end
 
   def create
@@ -65,7 +82,7 @@ class Admin::UsersController < Admin::BaseController
     @my_products = current_user.products || []
   end
 
- def create_products
+  def create_products
      role_ids = params[:role_ids]
      product_ids = params[:product_ids]
 
@@ -113,8 +130,8 @@ class Admin::UsersController < Admin::BaseController
       role_names.each do |role_name|
         roles.each do |role|
           role_ids.push(role.id) if role.name == role_name
-        end
       end
+    end
 
       role_ids
     end
