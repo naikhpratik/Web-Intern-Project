@@ -25,6 +25,7 @@ class Admin::UsersController < Admin::BaseController
       @value = false
     elsif current_user.is_product_manager?
       @roles = Role.where(:name=>['Content Contributor','Instructor']).pluck(:name)
+      @value = true
     else
       @value = true
     end
@@ -33,7 +34,8 @@ class Admin::UsersController < Admin::BaseController
   def create
     @user = User.new(user_params)
     user_roles = []
-
+    @roles = Role.all.map(&:name)
+    #@value = true
     user_params[:role_ids].each do |role_id|
       user_roles.push(UserRole.create({user_id: @user.id, role_id: role_id})) unless role_id.blank?
     end

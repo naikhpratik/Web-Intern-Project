@@ -20,17 +20,17 @@
 
   <div class="form-group">
     <%= f.label :email, class: 'control-label' %>
-    <%= f.email_field :email, class: 'form-control', :disabled=>@value %>
+    <%= f.email_field :email, class: 'form-control', :disabled=>@value%>
   </div>
 
   <div class="form-group">
-    <%= f.label :password, class: 'control-label'%> <%= "<i>(leave blank if you don't want to change it)</i><br/>".html_safe if params[:action] == 'edit' %>
-    <%= f.password_field :password, autocomplete: "off", class: 'form-control', :disabled=>@value %>
+    <%= f.label :password, class: 'control-label' %> <%= "<i>(leave blank if you don't want to change it)</i><br/>".html_safe if params[:action] == 'edit' %>
+    <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= f.label :password_confirmation, class: 'control-label' , style: 'display:none' %>
-    <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', :disabled=>@value, style: 'display:none'  %>
+    <%= f.label :password_confirmation, class: 'control-label', :disabled=>@value%>
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' ,:disabled=>@value%>
   </div>
 
   <div class="form-group">
