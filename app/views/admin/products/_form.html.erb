@@ -22,6 +22,18 @@
     <%= f.select :visibility, options_for_select(["All", "Registered Users", "Privileged Users"], @product.visibility), {}, { class: 'form-control' } %>
   </div>
 
+  <div class="form-group">
+    <%= label_tag :product_managers, 'Product Managers' %>
+    <% if current_user.has_role? :admin %>
+      <%= select_tag 'product[managers][]', options_for_select(User.product_managers.pluck(:email), @product_managers), class: 'form-control ', multiple: true, id: 'product_managers_select_field' %>
+    <% else %>
+      <p><%= @product_managers.join(', ') %></p>
+    <% end %>
+  </div>
+
+  <hr/>
+  <%= link_to "Manage Contributors", admin_product_content_managers_path(@product), class: 'btn btn-sm btn-warning' if params[:action] == 'edit' %>
+
   <hr/>
   <h4>Add New Fields</h4>
   <div class="row">

@@ -1,0 +1,36 @@
+<h3>Content Contributors</h3>
+
+<h4>Add New</h4>
+<%= form_for :content_manager, url: admin_product_content_managers_path(@product), method: :post, html: { class: 'form' } do |f| %>
+<div class="row">
+  <div class="form-group col-md-6">
+    <%= select_tag 'contributor[email]', options_for_select(@contributors), prompt: 'None', class: 'form-control select2 select2-offscreen', id: 'content_manager_select_field' %>
+  </div>
+
+</div>
+
+<% if @product.contents.present? %>
+  <div class="form-group">
+    <div class="col-md-12 assigned-modules">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="contributor[modules][]" value="0" id="all-contributor-modules"> All
+        </label>
+      </div>
+      <% @product.contents.each do |c| %>
+        <%if c.specific.present? %>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" value="<%= c.id %>" name="contributor[modules][]"> <%= c.specific.name %>
+            </label>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+  <div class="form-group">
+    <%= f.submit 'Add Content Contributor', class: 'btn btn-sm btn-success' %>
+  </div>
+<% end %>
