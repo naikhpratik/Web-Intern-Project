@@ -1,0 +1,2 @@
+module Admin::ContentManagersHelper
+end

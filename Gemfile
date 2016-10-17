@@ -47,6 +47,13 @@ gem "cocoon"
 # Text Editor
 gem 'ckeditor'
 
+# Select2 for multiple select
+gem 'select2-rails', '~> 4.0', '>= 4.0.1'
+# Rails assets for Select2
+source 'https://rails-assets.org' do
+  gem 'rails-assets-select2', '~> 4.0.0'
+end
+
 gem 'rails-controller-testing'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

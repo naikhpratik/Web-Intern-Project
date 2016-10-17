@@ -1,32 +1,36 @@
 Rails.application.routes.draw do
-root 'dashboard#index'
+  root 'dashboard#index'
 
-get '/admin', to: 'admin/users#index'
-get '/dashboard', to: 'dashboard#index'
+  get '/admin', to: 'admin/users#index'
+  get '/dashboard', to: 'dashboard#index'
 
-namespace :admin do
-  resources :users do
-    member do
-      get 'assign_products'
-      post 'create_products'
-    end
-  end
-
-  resources :products
-  resources :roles, only: [:show]
-end
-
-  resources :contents
-
-
-#page
+  #page
   get 'page/home'
   get 'page/about'
   get 'page/contact'
 
-  devise_for :users, :controllers => { registrations: 'users/registrations' }
+  # Admin
+  namespace :admin do
+    resources :users do
+      member do
+        get 'assign_products'
+        post 'create_products'
+      end
+    end
+
+    resources :products do
+      resources :content_managers, shallow: true
+    end
+
+    resources :contents
+    resources :roles, only: [:show]
+  end
 
   resources :products, only: [:index, :show]
 
+  # Devise
+  devise_for :users, :controllers => { registrations: 'users/registrations' }
+  
+  # Ckeditor
   mount Ckeditor::Engine => '/ckeditor'
 end

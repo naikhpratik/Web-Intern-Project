@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161010191258) do
+ActiveRecord::Schema.define(version: 20161016160500) do
 
   create_table "audios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "play_count"
+  end
+
+  create_table "content_managers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "user_id"
+    t.integer "content_id"
+    t.integer "product_id"
+    t.index ["content_id"], name: "index_content_managers_on_content_id", using: :btree
+    t.index ["product_id"], name: "index_content_managers_on_product_id", using: :btree
+    t.index ["user_id"], name: "index_content_managers_on_user_id", using: :btree
   end
 
   create_table "contents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -95,6 +104,8 @@ ActiveRecord::Schema.define(version: 20161010191258) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "username"
+    t.string   "ancestry"
+    t.index ["ancestry"], name: "index_users_on_ancestry", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
@@ -104,6 +115,9 @@ ActiveRecord::Schema.define(version: 20161010191258) do
     t.integer "play_count"
   end
 
+  add_foreign_key "content_managers", "contents"
+  add_foreign_key "content_managers", "products"
+  add_foreign_key "content_managers", "users"
   add_foreign_key "contents", "products"
   add_foreign_key "user_products", "users"
   add_foreign_key "user_roles", "roles"

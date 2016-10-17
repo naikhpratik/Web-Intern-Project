@@ -26,6 +26,7 @@ class Admin::ProductsController < Admin::BaseController
   # GET /products/1/edit
   def edit
     @contents = Content.all
+    @product_managers = @product.users.pluck(:email) unless @product.users.empty?
   end
 
   # POST /products
@@ -45,8 +46,26 @@ class Admin::ProductsController < Admin::BaseController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
+    pparams = product_params
+    user_emails = pparams[:managers]
+
+    if user_emails.present?
+      user_products = []
+      role = Role.find_by_name(User::PRODUCT_MANAGER)
+
+      user_emails.each do |email|
+        user = User.find_by_email(email)
+        user_products << UserProduct.find_or_create_by({ user_id: user.id, product_id: @product.id, role_id: role.id }) unless user.blank?
+      end
+
+      @product.user_products = user_products unless user_products.empty?
+      pparams.delete(:managers)
+    else
+      @product.user_products = []
+    end
+
     respond_to do |format|
-      if @product.update(product_params)
+      if @product.update(pparams)
         format.html { redirect_to admin_product_url(@product), notice: 'Product was successfully updated.' }
       else
         format.html { render :edit }
@@ -70,14 +89,16 @@ class Admin::ProductsController < Admin::BaseController
     end
 
     def set_content_types
-      @content_types = ['Modulee', 'SubModule', 'Quiz', 'Flashcard', 'Html', 'Audio', 'Video']
+      @content_types = Content::CONTENT_TYPES
     end
 
 
     # Never trust parameters from the scary internet, only allow the white list through.
 
     def product_params
-      params.fetch(:product).permit(:title, :visibility, contents_attributes: [:id, :product_id, :description, :name, :parent_id, :actable_type, :url, :_destroy])
+      params.fetch(:product).permit(:title, :visibility,
+        managers: [],
+        contents_attributes: [:id, :product_id, :description, :name, :parent_id, :actable_type, :url, :_destroy])
     end
 
 end

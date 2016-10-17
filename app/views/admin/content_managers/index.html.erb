@@ -1,0 +1,26 @@
+<h3>Contributors</h3>
+<% if @contributors.present? %>
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Manage</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @contributors.each do |contributor| %>
+        <tr>
+          <td><%= link_to contributor.user.email, admin_user_path(contributor.user), class: 'btn-link' %></td>
+          <td><%= contributor.manage %></td>
+          <td></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+    <p class="well">No records found.</p>
+<% end %>
+
+<%= link_to 'New Content Contributor', new_admin_product_content_manager_path, class: 'btn btn-sm btn-success' %>
