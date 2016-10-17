@@ -11,5 +11,4 @@ class UserProduct < ApplicationRecord
   def self.destroy_with_roles role_ids
     where(role_id: Role.all_except(role_ids)).destroy_all
   end
-
 end
