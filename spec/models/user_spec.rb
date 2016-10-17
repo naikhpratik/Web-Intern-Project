@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  it { should have_many(:content_managers) }
-  it { should have_many(:contents) }
+  it { should have_many(:contents).through(:content_managers) }
 
   it "is valid with valid attributes" do
     user = FactoryGirl.create(:user)

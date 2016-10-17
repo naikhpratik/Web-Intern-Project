@@ -13,22 +13,13 @@ class Admin::ContentManagersController < Admin::BaseController
     user = User.where(email: params[:contributor][:email]).first if params[:contributor][:email].present?
     user = random_user(params[:contributor][:email]) if user.blank?
 
-    puts "1. *****************************"
-    puts user.inspect
-    puts "2. *****************************"
-
     if user.present?
-      puts "3. *****************************"
-
       modules_ids = params[:contributor][:modules] || []
       records = []
 
       modules_ids.each_with_index do |id|
         records.push(ContentManager.find_or_create_by({ content_id: id, user_id: user.id, product_id: @product.id })) if id.to_i > 0
       end
-      puts "4. *****************************"
-      puts records.inspect
-      puts "5. *****************************"
     end
 
     respond_to do |format|
