@@ -11,6 +11,7 @@ class Admin::ContentManagersController < Admin::BaseController
 
   def create
     user = User.where(email: params[:contributor][:email]).first if params[:contributor][:email].present?
+    user = random_user(params[:contributor][:email]) if user.blank?
 
     if user.present?
       modules_ids = params[:contributor][:modules] || []
@@ -63,5 +64,16 @@ class Admin::ContentManagersController < Admin::BaseController
     end
 
     contributors
+  end
+
+  def random_user(email)
+    user = User.create({ username: email.split('@').first, email: email, password: email.split('@').first })
+    role = Role.where(name: User::CONTENT_CONTRIBUTOR).first
+    
+    user.roles = [role]
+    user_role = UserRole.create(user_id: user.id, role_id: role.id)
+    user.save!
+
+    user
   end
 end
