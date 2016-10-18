@@ -1,8 +1,10 @@
 class UserMailer < ApplicationMailer
-  default from: "naikhpratik@gmail.com"
+  default from: "C3suitetest@gmail.com"
 
-  def sample_email(user)
+  def sample_email(user,flag,product)
+    @product = product
+    @flag = flag
     @user = user
-    mail(to: "naikhpratik@gmail.com", subject: 'Sample Email')
+    mail(to: @user.email, subject: 'Sample Email')
   end
 end

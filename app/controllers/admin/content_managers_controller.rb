@@ -14,8 +14,14 @@ class Admin::ContentManagersController < Admin::BaseController
 
   def create
 
-      user = User.where(email: params[:contributor][:email]).first if params[:contributor][:email].present?
-      user = random_user(params[:contributor][:email]) if user.blank?
+      if params[:contributor][:email].present?
+        user = User.where(email: params[:contributor][:email]).first
+        flag = true
+      end
+      if user.blank?
+        flag = false
+        user = random_user(params[:contributor][:email])
+      end
 
       if user.present?
         modules_ids = params[:contributor][:modules] || []
@@ -28,10 +34,11 @@ class Admin::ContentManagersController < Admin::BaseController
 
       respond_to do |format|
         if records.present?
-          UserMailer.sample_email(user).deliver
+
+          UserMailer.sample_email(user,flag,@product.title).deliver
           format.html { redirect_to admin_product_content_managers_path, notice: "Content Contributor was successfully created." }
         else
-          UserMailer.sample_email(user).deliver
+          UserMailer.sample_email(user,flag,@product.title).deliver
           format.html { render :email_fields }
         end
       end

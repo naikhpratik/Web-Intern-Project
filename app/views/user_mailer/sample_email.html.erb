@@ -7,13 +7,16 @@
     <h1>Hello User </h1>
 
     <p>
-      Please Use this login credentials for <a href="23.20.37.229">C3Suite </a> : <br>
+      <% if @flag==false %>
+      Please Use this login credentials for <a href="23.20.37.229">C3Suite </a> : <br><br>
       Email : <%= @user.email %><br>
-      Password : <%= @user.password %><br>
+      Password : <%= @user.password %><br><br>
 
-      Change password from Edit Profile 
-
-
+      Change password from Edit Profile
+      <% else %>
+      You Can now edit the content of the product <%= @product %><br>
+      Please login With your credentials for <a href="23.20.37.229">C3Suite </a> <br>
+      <% end %>
     </p>
   </body>
 </html>
