@@ -18,7 +18,7 @@ class Admin::ContentManagersController < Admin::BaseController
         user = User.where(email: params[:contributor][:email]).first
         flag = true
       end
-      if user.blank?
+        if user.blank?
         flag = false
         user = random_user(params[:contributor][:email])
       end
