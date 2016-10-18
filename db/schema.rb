@@ -118,6 +118,7 @@ ActiveRecord::Schema.define(version: 20161016160500) do
   add_foreign_key "content_managers", "contents"
   add_foreign_key "content_managers", "products"
   add_foreign_key "content_managers", "users"
+  add_foreign_key "contents", "products"
   add_foreign_key "user_products", "users"
   add_foreign_key "user_roles", "roles"
   add_foreign_key "user_roles", "users"
