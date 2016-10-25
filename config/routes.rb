@@ -19,7 +19,10 @@ Rails.application.routes.draw do
     end
 
     resources :products do
-      resources :content_managers, shallow: true
+      resources :content_managers, shallow: true do
+        post 'permissions'
+        post 'destroy_permissions'
+      end
     end
 
     resources :contents
