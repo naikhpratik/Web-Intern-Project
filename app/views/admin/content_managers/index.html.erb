@@ -13,8 +13,20 @@
       <% @contributors.each do |contributor| %>
         <tr>
           <td><%= link_to contributor.user.email, admin_user_path(contributor.user), class: 'btn-link' %></td>
-          <td><%= contributor.manage %></td>
-          <td></td>
+          <td><%= contributor.manage.collect { |cnt| cnt.name }.join(', ') %></td>
+          <td>
+            <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Actions <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <% if can? :manage, ContentManager %>
+                  <li><%= link_to 'Edit', admin_content_manager_permissions_path({ product_id: @product.id, content_manager_id: contributor.user.id }), method: :post %></li>
+                  <li><%= link_to 'Destroy', admin_content_manager_destroy_permissions_path({ id: contributor.user.id, content_manager_id: contributor.user.id }), method: :post, data: { confirm: 'Are you sure?' } if can? :destroy, ContentManager %></li>
+                <% end %>
+              </ul>
+            </div>
+          </td>
         </tr>
       <% end %>
     </tbody>

@@ -44,6 +44,8 @@ gem 'ancestry'
 # Cocoon
 gem "cocoon"
 
+#mail
+gem "figaro"
 # Text Editor
 gem 'ckeditor'
 
