@@ -9,27 +9,40 @@ class Admin::ContentManagersController < Admin::BaseController
   def new
   end
 
-  def create
-    user = User.where(email: params[:contributor][:email]).first if params[:contributor][:email].present?
-    user = random_user(params[:contributor][:email]) if user.blank?
-
-    if user.present?
-      modules_ids = params[:contributor][:modules] || []
-      records = []
-
-      modules_ids.each_with_index do |id|
-        records.push(ContentManager.find_or_create_by({ content_id: id, user_id: user.id, product_id: @product.id })) if id.to_i > 0
-      end
-    end
-
-    respond_to do |format|
-      if records.present?
-        format.html { redirect_to admin_product_content_managers_path, notice: "Content Contributor was successfully created." }
-      else
-        format.html { render :new }
-      end
-    end
+  def email_fields
   end
+
+  def create
+
+      if params[:contributor][:email].present?
+        user = User.where(email: params[:contributor][:email]).first
+        flag = true
+      end
+        if user.blank?
+        flag = false
+        user = random_user(params[:contributor][:email])
+      end
+
+      if user.present?
+        modules_ids = params[:contributor][:modules] || []
+        records = []
+
+        modules_ids.each_with_index do |id|
+          records.push(ContentManager.find_or_create_by({ content_id: id, user_id: user.id, product_id: @product.id })) if id.to_i > 0
+        end
+      end
+
+      respond_to do |format|
+        if records.present?
+
+          UserMailer.sample_email(user,flag,@product.title).deliver
+          format.html { redirect_to admin_product_content_managers_path, notice: "Content Contributor was successfully created." }
+        else
+          UserMailer.sample_email(user,flag,@product.title).deliver
+          format.html { render :email_fields }
+        end
+      end
+    end
 
   def permissions
     @contributor = params[:contributor]
@@ -72,7 +85,7 @@ class Admin::ContentManagersController < Admin::BaseController
   def random_user(email)
     user = User.create({ username: email.split('@').first, email: email, password: email.split('@').first })
     role = Role.where(name: User::CONTENT_CONTRIBUTOR).first
-    
+
     user.roles = [role]
     user_role = UserRole.create(user_id: user.id, role_id: role.id)
     user.save!
