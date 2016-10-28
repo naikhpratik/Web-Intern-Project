@@ -5,7 +5,7 @@
 <div class="form-group">
   <%= form_tag admin_contents_path, :method => :get, html: { class: 'form col-md-6' } do  %>
   <%= label_tag :content, 'Search Content by name' %>
-  <%= select_tag :content, options_for_select(Content.pluck(:name), @content_managers), class: 'form-control ', multiple: false, id: 'product_managers_select_field', :style => "width:100px"%>
+  <%= select_tag :content, options_for_select(Content.pluck(:name)), class: 'form-control ', multiple: false, id: 'product_managers_select_field', :style => "width:100px"%>
   </br><%= submit_tag "Search", class: 'btn btn-sm btn-success' %>
     <% end %>
 </div>
