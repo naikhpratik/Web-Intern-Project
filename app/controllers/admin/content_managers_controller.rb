@@ -1,6 +1,6 @@
 class Admin::ContentManagersController < Admin::BaseController
-  before_action :set_product, only: [:index, :new, :create, :edit, :update, :set_content_contributors]
-  before_action :set_content_contributors, only: [:new, :edit, :update]
+  before_action :set_product, only: [:index, :new, :create, :update, :set_content_contributors, :permissions]
+  before_action :set_content_contributors, only: [:new, :update, :permissions]
 
   def index
     @contributors = product_contributors
@@ -44,13 +44,16 @@ class Admin::ContentManagersController < Admin::BaseController
       end
     end
 
-  def edit
+  def permissions
+    @contributor = params[:contributor]
   end
 
   def update
   end
 
-  def destroy
+  def destroy_permissions
+    @contributor = params[:contributor]
+    redirect_to admin_content_manager_path, notice: 'Content Manager was successfully removed.'
   end
 
   private
@@ -72,7 +75,7 @@ class Admin::ContentManagersController < Admin::BaseController
     if user_ids.present?
       user_ids.each do |uid|
         contributors << OpenStruct.new({user: User.find(uid),
-                  manage: content_managers.where(user_id: uid).pluck(:content_id).collect{ |cid| Content.find(cid).name }.join(', ')}) unless uid.blank?
+                  manage: content_managers.where(user_id: uid).pluck(:content_id).collect{ |cid| Content.find(cid) }}) unless uid.blank?
       end
     end
 
