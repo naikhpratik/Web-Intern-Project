@@ -2,6 +2,7 @@ require "codeclimate-test-reporter"
 require "capybara/rspec"
 require "simplecov"
 require 'sunspot_test/rspec'
+require 'factory_girl_rails'
 
 SimpleCov.start
 
@@ -30,7 +31,7 @@ RSpec.configure do |config|
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
 
-
+  config.include FactoryGirl::Syntax::Methods
   config.expect_with :rspec do |expectations|
     # This option will default to `true` in RSpec 4. It makes the `description`
     # and `failure_message` of custom matchers include text for helper methods
