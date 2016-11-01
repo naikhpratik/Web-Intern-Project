@@ -18,6 +18,11 @@ config/secrets.yml
 .byebug_history
 .DS_Store
 
+# solr
+/solr/development
+/solr/test
+/solr/pid
+
 ## vim temporary files
 
 *.swp
