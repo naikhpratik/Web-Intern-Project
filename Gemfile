@@ -29,6 +29,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 
+#Search
+gem 'sunspot_rails'
+
 # Bootstrap
 gem 'bootstrap-sass', '~> 3.3.6'
 
@@ -78,6 +81,8 @@ group :development do
   gem 'guard-rspec'
   gem 'html2haml'
   gem 'hub', :require=>nil
+  gem 'sunspot_solr'
+  gem 'progress_bar'
   gem 'quiet_assets'
   gem 'rails_layout'
   gem 'rb-fchange', :require=>false
