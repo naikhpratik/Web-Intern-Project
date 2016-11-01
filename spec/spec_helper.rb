@@ -1,6 +1,8 @@
 require "codeclimate-test-reporter"
 require "capybara/rspec"
 require "simplecov"
+require 'sunspot_test/rspec'
+require 'factory_girl_rails'
 
 SimpleCov.start
 
@@ -29,7 +31,7 @@ RSpec.configure do |config|
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
 
-
+  config.include FactoryGirl::Syntax::Methods
   config.expect_with :rspec do |expectations|
     # This option will default to `true` in RSpec 4. It makes the `description`
     # and `failure_message` of custom matchers include text for helper methods
@@ -38,6 +40,7 @@ RSpec.configure do |config|
     #     # => "be bigger than 2 and smaller than 4"
     # ...rather than:
     #     # => "be bigger than 2"
+
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
 
@@ -47,6 +50,7 @@ RSpec.configure do |config|
     # Prevents you from mocking or stubbing a method that does not exist on
     # a real object. This is generally recommended, and will default to
     # `true` in RSpec 4.
+
     mocks.verify_partial_doubles = true
   end
 
@@ -56,6 +60,7 @@ RSpec.configure do |config|
   # inherited by the metadata hash of host groups and examples, rather than
   # triggering implicit auto-inclusion in groups with matching metadata.
   config.shared_context_metadata_behavior = :apply_to_host_groups
+
 
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
