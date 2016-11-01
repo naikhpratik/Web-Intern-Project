@@ -97,6 +97,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rspec-rails'
+  gem 'sunspot_test'
   gem 'capybara'
   gem 'launchy'
   gem 'database_cleaner'
