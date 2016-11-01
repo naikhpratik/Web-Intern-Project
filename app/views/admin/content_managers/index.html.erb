@@ -21,8 +21,13 @@
               </button>
               <ul class="dropdown-menu">
                 <% if can? :manage, ContentManager %>
-                  <li><%= link_to 'Edit', admin_content_manager_permissions_path({ product_id: @product.id, content_manager_id: contributor.user.id }), method: :post %></li>
-                  <li><%= link_to 'Destroy', admin_content_manager_destroy_permissions_path({ id: contributor.user.id, content_manager_id: contributor.user.id }), method: :post, data: { confirm: 'Are you sure?' } if can? :destroy, ContentManager %></li>
+                  <li>
+                    <%= link_to 'Edit', '#', class: 'edit-contributor-btn' %>
+                    <%= form_tag permissions_admin_product_content_managers_path, authenticity_token: true do %>
+                      <%= hidden_field_tag :contributor_id, contributor.user.id %>
+                    <% end %>
+                  </li>
+                  <li><%= link_to 'Destroy', destroy_permissions_admin_product_content_managers_path({ contributor_id: contributor.user.id }), method: :post, data: { confirm: 'Are you sure?' } if can? :destroy, ContentManager %></li>
                 <% end %>
               </ul>
             </div>

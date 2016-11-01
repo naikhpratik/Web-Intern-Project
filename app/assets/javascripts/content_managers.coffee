@@ -9,3 +9,8 @@ $ ->
 
   $(document).on "click", "#all-contributor-modules", ->
     $(".assigned-modules input").not(this).prop('checked', $(this).prop("checked"));
+    return
+  
+  $(document).on "click", ".edit-contributor-btn", ->
+    $(this).siblings('form').submit()
+    return

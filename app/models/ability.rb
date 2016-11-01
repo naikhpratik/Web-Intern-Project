@@ -8,13 +8,15 @@ class Ability
         can :manage, :all
     elsif user.is_product_manager?
         can :read, User
-        can :read, Product
-        can [:read, :update], Product do |p|
+        can [:read, :edit], Product
+        #can [:manage], ContentManager
+        can [:read, :update, :edit], Product do |p|
             p.users.pluck(:id).include? (user.id)
         end
         can :manage, ContentManager
     elsif user.is_content_contributor?
-        can [:read,:update], Product
+        #can [:read,:update], Product
+        can [:read], ContentManager
     elsif user.is_instructor?
         can [:read], Product
     else
