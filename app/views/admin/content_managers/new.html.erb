@@ -1,4 +1,4 @@
-<h3>Content Contributors</h3>
+<h3>Content Contributor</h3>
   <h4>Add New</h4>
   <%= form_for :content_manager, url: admin_product_content_managers_path(@product), method: :post, html: { class: 'form' } do |f| %>
     <div class="row">
@@ -31,5 +31,6 @@
 
       <div class="form-group">
         <%= f.submit 'Add Content Contributor', class: 'btn btn-sm btn-success' %>
+        <%= link_to 'Back', admin_product_content_managers_path(@product), class: 'btn btn-sm btn-primary' %>
       </div>
   <% end %>

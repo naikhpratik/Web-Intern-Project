@@ -40,6 +40,16 @@ class User < ApplicationRecord
     has_role?(CONTENT_CONTRIBUTOR) && !existing_contributors_for_product(product_id).include?(self.id)
   end
 
+  def contributions(product_id = nil)
+    contributions = ContentManager.where(user_id: self.id)
+
+    if product_id.present?
+      contributions.where(product_id: product_id)
+    end
+
+    contributions
+  end
+
   def is_admin?
     is_type?("Admin")
   end
