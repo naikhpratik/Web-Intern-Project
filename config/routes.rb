@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     end
 
     resources :products do
-      resources :content_managers, shallow: true do
+      resources :contributions, shallow: true do
         collection do
           post 'permissions'
           post 'update_permissions'

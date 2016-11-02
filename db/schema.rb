@@ -10,19 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161016160500) do
+ActiveRecord::Schema.define(version: 20161102064707) do
 
   create_table "audios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "play_count"
-  end
-
-  create_table "content_managers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "user_id"
-    t.integer "content_id"
-    t.integer "product_id"
-    t.index ["content_id"], name: "index_content_managers_on_content_id", using: :btree
-    t.index ["product_id"], name: "index_content_managers_on_product_id", using: :btree
-    t.index ["user_id"], name: "index_content_managers_on_user_id", using: :btree
   end
 
   create_table "contents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -38,6 +29,15 @@ ActiveRecord::Schema.define(version: 20161016160500) do
     t.index ["actable_type", "actable_id"], name: "index_contents_on_actable_type_and_actable_id", using: :btree
     t.index ["ancestry"], name: "index_contents_on_ancestry", using: :btree
     t.index ["product_id"], name: "fk_rails_6f4dae6b48", using: :btree
+  end
+
+  create_table "contributions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "user_id"
+    t.integer "content_id"
+    t.integer "product_id"
+    t.index ["content_id"], name: "index_contributions_on_content_id", using: :btree
+    t.index ["product_id"], name: "index_contributions_on_product_id", using: :btree
+    t.index ["user_id"], name: "index_contributions_on_user_id", using: :btree
   end
 
   create_table "flashcards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -115,10 +115,10 @@ ActiveRecord::Schema.define(version: 20161016160500) do
     t.integer "play_count"
   end
 
-  add_foreign_key "content_managers", "contents"
-  add_foreign_key "content_managers", "products"
-  add_foreign_key "content_managers", "users"
   add_foreign_key "contents", "products"
+  add_foreign_key "contributions", "contents"
+  add_foreign_key "contributions", "products"
+  add_foreign_key "contributions", "users"
   add_foreign_key "user_products", "users"
   add_foreign_key "user_roles", "roles"
   add_foreign_key "user_roles", "users"

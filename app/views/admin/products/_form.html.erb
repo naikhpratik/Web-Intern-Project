@@ -32,7 +32,7 @@
   </div>
 
   <hr/>
-  <%= link_to "Manage Contributors", admin_product_content_managers_path(@product), class: 'btn btn-sm btn-warning' if params[:action] == 'edit' %>
+  <%= link_to "Manage Contributors", admin_product_contributions_path(@product), class: 'btn btn-sm btn-warning' if params[:action] == 'edit' %>
 
   <hr/>
   <h4>Add New Fields</h4>
