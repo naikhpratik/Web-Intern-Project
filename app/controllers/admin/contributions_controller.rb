@@ -61,9 +61,10 @@ class Admin::ContributionsController < Admin::BaseController
       end
 
       # Destroy records
-      destroy_ids = (existing_ids - params[:contributor][:modules]) || []
+      destroy_ids = Contribution.where(user_id: user.id, product_id: @product.id).where.not(content_id: params[:contributor][:modules]).pluck(:content_id)
       destroy_ids.each do |id|
-        Contribution.where(content_id: id, user_id: user.id, product_id: @product.id).first.destroy if id.to_i > 0
+        contribution = Contribution.where(content_id: id, user_id: user.id, product_id: @product.id).first if id.to_i > 0
+        contribution.destroy if contribution.present?
       end
     end
 
