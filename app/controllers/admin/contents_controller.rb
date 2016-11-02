@@ -1,10 +1,15 @@
-class ContentsController < ApplicationController
+class Admin::ContentsController < ApplicationController
   before_action :set_content, only: [:show, :edit, :update, :destroy]
 
   # GET /contents
   # GET /contents.json
   def index
     @contents = Content.all
+    @search = Content.search do
+      fulltext params[:content]
+    end
+    @contents = @search.results
+    #@content_managers = @contents.pluck(:name) unless @contents.empty?
   end
 
   # GET /contents/1
@@ -65,7 +70,11 @@ class ContentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def content_params
-      params.require(:content).permit(:product_id, :follows, :parent, :kind, :payload)
+      params.require(:content).permit(:product_id, :follows, :parent, :kind, :payload, :name)
       params.require(:product).permit(:name,:id)
+      params.fetch(:product).permit(
+        managers: [],
+        contents_attributes: [:id, :product_id, :description, :name, :parent_id, :actable_type, :url, :_destroy])
+
     end
 end

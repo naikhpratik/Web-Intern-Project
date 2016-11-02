@@ -5,23 +5,19 @@ RSpec.feature "Product", :type => :feature do
   scenario "Admin creates a valid product" do
     login 'Admin'
     visit new_admin_product_url
- 
-    fill_in 'Title', :with => "My Widget"
-    select "All", from: 'product[visibility]'
-    click_button "Create"
-    
-    expect(page).to have_text("Product was successfully created")
-   end
- 
-  scenario "Product Manager creates a Product" do
-    login 'Product Manager'
-    visit new_admin_product_url
- 
+
     fill_in 'Title', :with => "My Widget"
     select "All", from: 'product[visibility]'
     click_button "Create"
 
     expect(page).to have_text("Product was successfully created")
+   end
+
+  scenario "Product Manager can't create a Product" do
+    login 'Product Manager'
+    visit new_admin_product_url
+
+    expect(page).to have_text("You are not authorized to access this page")
   end
 
   scenario "Normal User can't create a Product" do
@@ -56,7 +52,8 @@ RSpec.feature "Product", :type => :feature do
 
   scenario "Admin updates a Product with its contents" do
     product = FactoryGirl.create(:product)
-    
+
+
     modulee = FactoryGirl.create(:modulee)
     modulee.product_id = product.id
     modulee.save!
@@ -65,16 +62,14 @@ RSpec.feature "Product", :type => :feature do
     visit edit_admin_product_path(product)
 
     fill_in "product[contents_attributes][0][name]", with: 'My Module'
-    fill_in "product[contents_attributes][0][attr_1]", with: 'Attribute Value'
 
     click_button "Update"
-
     expect(page).to have_text("Product was successfully updated")
   end
 
   scenario "Admin destroys contents of a Product" do
     product = FactoryGirl.create(:product)
-    
+
     modulee = FactoryGirl.create(:modulee)
     modulee.product_id = product.id
     modulee.save!
@@ -102,7 +97,7 @@ RSpec.feature "Product", :type => :feature do
 
   def login (role_name = nil)
     user = FactoryGirl.create(:user)
-    
+
     if role_name.present?
       role = Role.create(name: role_name)
       user.roles = [role]

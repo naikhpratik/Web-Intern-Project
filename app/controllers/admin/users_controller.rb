@@ -1,4 +1,5 @@
 class Admin::UsersController < Admin::BaseController
+  skip_authorize_resource :only => [:assign_products, :create_products, :edit, :update]
   before_action :set_user, only: [:assign_products, :create_products, :show, :edit, :update, :destroy]
 
   def index
@@ -10,16 +11,31 @@ class Admin::UsersController < Admin::BaseController
 
   def new
     @user = User.new
+    if current_user.is_admin?
+      @roles = Role.all.map(&:name)
+    elsif current_user.is_product_manager?
+      @roles = Role.where(:name=>['Content Contributor','Instructor']).pluck(:name)
+    end
   end
 
   def edit
     @user_roles = @user.roles.map(&:name)
+    if current_user.is_admin?
+      @roles = Role.all.map(&:name)
+      @value = false
+    elsif current_user.is_product_manager?
+      @roles = Role.where(:name=>['Content Contributor','Instructor']).pluck(:name)
+      @value = true
+    else
+      @value = true
+    end
   end
 
   def create
     @user = User.new(user_params)
     user_roles = []
-
+    @roles = Role.all.map(&:name)
+    #@value = true
     user_params[:role_ids].each do |role_id|
       user_roles.push(UserRole.create({user_id: @user.id, role_id: role_id})) unless role_id.blank?
     end
@@ -36,7 +52,7 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def update
-    @user.user_roles.destroy
+    @user.user_roles.destroy_all
     @user.user_products.destroy_with_roles user_params[:role_ids]
     user_roles = []
 
@@ -64,7 +80,7 @@ class Admin::UsersController < Admin::BaseController
     @my_products = current_user.products || []
   end
 
- def create_products
+  def create_products
      role_ids = params[:role_ids]
      product_ids = params[:product_ids]
 
@@ -78,7 +94,7 @@ class Admin::UsersController < Admin::BaseController
 
      respond_to do |format|
        if @user.save
-         format.html { redirect_to admin_user_url, notice: 'User Products successfully updated.' }
+         format.html { redirect_to admin_user_url, notice: 'User permissions successfully updated.' }
        else
          format.html { redirect_to assign_products_admin_user_path(@user), error: 'Couldn\'t update User Products' }
        end
@@ -94,7 +110,7 @@ class Admin::UsersController < Admin::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:username, :email, :password, :password_confirmation).tap do |whitelisted|
+        params.require(:user).permit(:username, :email, :password, :password_confirmation).tap do |whitelisted|
         whitelisted[:role_ids] = get_new_ids params[:role_ids]
       end
     end
@@ -112,8 +128,8 @@ class Admin::UsersController < Admin::BaseController
       role_names.each do |role_name|
         roles.each do |role|
           role_ids.push(role.id) if role.name == role_name
-        end
       end
+    end
 
       role_ids
     end

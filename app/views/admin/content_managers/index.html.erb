@@ -1,0 +1,44 @@
+<h3>Contributors</h3>
+<% if @contributors.present? %>
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Manage</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @contributors.each do |contributor| %>
+        <tr>
+          <td><%= link_to contributor.user.email, admin_user_path(contributor.user), class: 'btn-link' %></td>
+          <td><%= contributor.manage.collect { |cnt| cnt.name }.join(', ') %></td>
+          <td>
+            <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Actions <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <% if can? :manage, ContentManager %>
+                  <li>
+                    <%= link_to 'Edit', '#', class: 'edit-contributor-btn' %>
+                    <%= form_tag permissions_admin_product_content_managers_path, authenticity_token: true do %>
+                      <%= hidden_field_tag :contributor_id, contributor.user.id %>
+                    <% end %>
+                  </li>
+                  <li><%= link_to 'Destroy', destroy_permissions_admin_product_content_managers_path({ contributor_id: contributor.user.id }), method: :post, data: { confirm: 'Are you sure?' } if can? :destroy, ContentManager %></li>
+                <% end %>
+              </ul>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+    <p class="well">No records found.</p>
+<% end %>
+
+<%= link_to 'New Content Contributor', new_admin_product_content_manager_path, class: 'btn btn-sm btn-success' %>
+<%= link_to 'Back', edit_admin_product_path(@product), class: 'btn btn-sm btn-primary' %>

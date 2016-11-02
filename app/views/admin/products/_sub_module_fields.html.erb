@@ -1,7 +1,7 @@
 <% f.object = f.object.specific if f.object.specific.instance_of? SubModule %>
 
 <div class="col-md-12">
-  <div class="row quiz_fields">
+  <div class="row sub_module_fields">
     <%= f.hidden_field :actable_type, value: 'SubModule' %>
     <%= f.hidden_field :parent_id %>
 
@@ -9,14 +9,9 @@
       <%= f.label :name, class: 'control-label' %>
       <%= f.text_field :name, class: 'form-control' %>
     </div>
-
-    <div class="form-group col-md-5">
-      <%= f.label :attr_2, class: 'control-label' %>
-      <%= f.text_field :attr_2, class: 'form-control' %>
-    </div>
     
     <div class="form-group col-md-2">
-      <%= link_to_remove_association "<span class='glyphicon glyphicon-minus' aria-hidden='true'></span>".html_safe, f, class: "remove_fields btn btn-sm btn-danger", data: { confirm: 'Are you sure?' }, wrapper_class: 'quiz_fields'  %>
+      <%= link_to_remove_association "<span class='glyphicon glyphicon-minus' aria-hidden='true'></span>".html_safe, f, class: "remove_fields btn btn-sm btn-danger", data: { confirm: 'Are you sure?' }, wrapper_class: 'sub_module_fields'  %>
     </div>
   </div>
 </div>

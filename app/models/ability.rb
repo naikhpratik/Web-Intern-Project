@@ -7,10 +7,16 @@ class Ability
     if user.is_admin?
         can :manage, :all
     elsif user.is_product_manager?
-        can :manage, Product
-        can :manage, User
+        can :read, User
+        can [:read, :edit], Product
+        #can [:manage], ContentManager
+        can [:read, :update, :edit], Product do |p|
+            p.users.pluck(:id).include? (user.id)
+        end
+        can :manage, ContentManager
     elsif user.is_content_contributor?
-        can [:read,:update], Product
+        #can [:read,:update], Product
+        can [:read], ContentManager
     elsif user.is_instructor?
         can [:read], Product
     else

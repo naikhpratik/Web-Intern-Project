@@ -29,6 +29,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 
+#Search
+gem 'sunspot_rails'
+
 # Bootstrap
 gem 'bootstrap-sass', '~> 3.3.6'
 
@@ -43,6 +46,18 @@ gem 'ancestry'
 
 # Cocoon
 gem "cocoon"
+
+#mail
+gem "figaro"
+# Text Editor
+gem 'ckeditor'
+
+# Select2 for multiple select
+gem 'select2-rails', '~> 4.0', '>= 4.0.1'
+# Rails assets for Select2
+source 'https://rails-assets.org' do
+  gem 'rails-assets-select2', '~> 4.0.0'
+end
 
 gem 'rails-controller-testing'
 
@@ -66,6 +81,8 @@ group :development do
   gem 'guard-rspec'
   gem 'html2haml'
   gem 'hub', :require=>nil
+  gem 'sunspot_solr'
+  gem 'progress_bar'
   gem 'quiet_assets'
   gem 'rails_layout'
   gem 'rb-fchange', :require=>false
@@ -80,6 +97,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rspec-rails'
+  gem 'sunspot_test'
   gem 'capybara'
   gem 'launchy'
   gem 'database_cleaner'
