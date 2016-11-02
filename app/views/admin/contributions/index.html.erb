@@ -20,14 +20,14 @@
                 Actions <span class="caret"></span>
               </button>
               <ul class="dropdown-menu">
-                <% if can? :manage, ContentManager %>
+                <% if can? :manage, Contribution %>
                   <li>
                     <%= link_to 'Edit', '#', class: 'edit-contributor-btn' %>
                     <%= form_tag permissions_admin_product_content_managers_path, authenticity_token: true do %>
                       <%= hidden_field_tag :contributor_id, contributor.user.id %>
                     <% end %>
                   </li>
-                  <li><%= link_to 'Destroy', destroy_permissions_admin_product_content_managers_path({ contributor_id: contributor.user.id }), method: :post, data: { confirm: 'Are you sure?' } if can? :destroy, ContentManager %></li>
+                  <li><%= link_to 'Destroy', destroy_permissions_admin_product_content_managers_path({ contributor_id: contributor.user.id }), method: :post, data: { confirm: 'Are you sure?' } if can? :destroy, Contribution %></li>
                 <% end %>
               </ul>
             </div>

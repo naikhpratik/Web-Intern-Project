@@ -4,8 +4,8 @@ class Content < ApplicationRecord
   actable
   has_ancestry
 
-  has_many :content_managers, dependent: :destroy
-  has_many :users, through: :content_managers
+  has_many :contributions, dependent: :destroy
+  has_many :users, through: :contributions
 
   validates :name, presence: true
 

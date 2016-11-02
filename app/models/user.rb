@@ -16,8 +16,8 @@ class User < ApplicationRecord
   has_many :user_roles, dependent: :destroy
   has_many :roles, through: :user_roles
 
-  has_many :content_managers, dependent: :destroy
-  has_many :contents, through: :content_managers
+  has_many :contributions, dependent: :destroy
+  has_many :contents, through: :contributions
 
   validates :username, presence: true, uniqueness: true
 
@@ -41,7 +41,7 @@ class User < ApplicationRecord
   end
 
   def contributions(product_id = nil)
-    contributions = ContentManager.where(user_id: self.id)
+    contributions = Contribution.where(user_id: self.id)
 
     if product_id.present?
       contributions.where(product_id: product_id)
@@ -78,7 +78,7 @@ class User < ApplicationRecord
 
   # Get contributors list for a certain product
   def existing_contributors_for_product(product_id)
-    content_managers.where(product_id: product_id)
+    contributions.where(product_id: product_id)
     .select(:user_id).distinct.pluck(:user_id)
   end
 

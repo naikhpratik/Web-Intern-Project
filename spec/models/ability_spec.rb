@@ -50,7 +50,7 @@ describe "Ability" do
 
       ability = Ability.new(user)
       expect(ability).to be_able_to(:read, Product)
-      expect(ability).to be_able_to(:update, Product)
+      expect(ability).to be_able_to(:read, Contribution)
     end
   end
 
