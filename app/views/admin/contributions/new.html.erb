@@ -1,9 +1,9 @@
 <h3>Content Contributor</h3>
   <h4>Add New</h4>
-  <%= form_for :content_manager, url: admin_product_content_managers_path(@product), method: :post, html: { class: 'form' } do |f| %>
+  <%= form_for :contribution, url: admin_product_contributions_path(@product), method: :post, html: { class: 'form' } do |f| %>
     <div class="row">
       <div class="form-group col-md-6">
-        <%= select_tag 'contributor[email]', options_for_select(@contributors), prompt: 'None', class: 'form-control select2 select2-offscreen', id: 'content_manager_select_field' %>
+        <%= select_tag 'contributor[email]', options_for_select(@contributors), prompt: 'None', class: 'form-control select2 select2-offscreen', id: 'contributor_select_field' %>
       </div>
 
     </div>
@@ -31,6 +31,6 @@
 
       <div class="form-group">
         <%= f.submit 'Add Content Contributor', class: 'btn btn-sm btn-success' %>
-        <%= link_to 'Back', admin_product_content_managers_path(@product), class: 'btn btn-sm btn-primary' %>
+        <%= link_to 'Back', admin_product_contributions_path(@product), class: 'btn btn-sm btn-primary' %>
       </div>
   <% end %>

@@ -1,4 +1,4 @@
-class Admin::ContentManagersController < Admin::BaseController
+class Admin::ContributionsController < Admin::BaseController
   before_action :set_product, only: [:index, :new, :create, :update, :set_content_contributors, :permissions, :update_permissions, :destroy_permissions]
   before_action :set_content_contributors, only: [:new, :update, :permissions]
 
@@ -36,7 +36,7 @@ class Admin::ContentManagersController < Admin::BaseController
         if records.present?
 
           UserMailer.sample_email(user,flag,@product.title).deliver
-          format.html { redirect_to admin_product_content_managers_path, notice: "Content Contributor was successfully created." }
+          format.html { redirect_to admin_product_contributions_path, notice: "Content Contributor was successfully created." }
         else
           UserMailer.sample_email(user,flag,@product.title).deliver
           format.html { render :email_fields }
@@ -67,7 +67,7 @@ class Admin::ContentManagersController < Admin::BaseController
       end
     end
 
-    redirect_to admin_product_content_managers_path, notice: 'Content Contributor was successfully updated.'
+    redirect_to admin_product_contributions_path, notice: 'Content Contributor was successfully updated.'
   end
 
   def destroy_permissions
@@ -77,7 +77,7 @@ class Admin::ContentManagersController < Admin::BaseController
       Contribution.where(user_id: user.id, product_id: @product.id).destroy_all if user.present?
     end
 
-    redirect_to admin_product_content_managers_path, notice: 'Content Contributor was successfully removed.'
+    redirect_to admin_product_contributions_path, notice: 'Content Contributor was successfully removed.'
   end
 
   private
