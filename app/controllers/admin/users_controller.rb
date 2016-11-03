@@ -7,6 +7,7 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def show
+    @prod=Product.all
   end
 
   def new
