@@ -1,4 +1,4 @@
-class ContentManager < ApplicationRecord
+class Contribution < ApplicationRecord
   belongs_to :user
   belongs_to :content
 end

@@ -1,4 +1,4 @@
-class Admin::ContentManagersController < Admin::BaseController
+class Admin::ContributionsController < Admin::BaseController
   before_action :set_product, only: [:index, :new, :create, :update, :set_content_contributors, :permissions, :update_permissions, :destroy_permissions]
   before_action :set_content_contributors, only: [:new, :update, :permissions]
 
@@ -28,7 +28,7 @@ class Admin::ContentManagersController < Admin::BaseController
         records = []
 
         modules_ids.each_with_index do |id|
-          records.push(ContentManager.find_or_create_by({ content_id: id, user_id: user.id, product_id: @product.id })) if id.to_i > 0
+          records.push(Contribution.find_or_create_by({ content_id: id, user_id: user.id, product_id: @product.id })) if id.to_i > 0
         end
       end
 
@@ -36,7 +36,7 @@ class Admin::ContentManagersController < Admin::BaseController
         if records.present?
 
           UserMailer.sample_email(user,flag,@product.title).deliver
-          format.html { redirect_to admin_product_content_managers_path, notice: "Content Contributor was successfully created." }
+          format.html { redirect_to admin_product_contributions_path, notice: "Content Contributor was successfully created." }
         else
           UserMailer.sample_email(user,flag,@product.title).deliver
           format.html { render :email_fields }
@@ -52,32 +52,33 @@ class Admin::ContentManagersController < Admin::BaseController
   def update_permissions
     if params[:contributor][:email].present?
       user = User.where(email: params[:contributor][:email]).first
-      existing_ids = user.content_managers.pluck(:content_id) if user.present?
+      existing_ids = user.contributions.pluck(:content_id) if user.present?
 
       # Add new or update records
       new_modules_ids = (params[:contributor][:modules] - existing_ids) || []
       new_modules_ids.each do |id|
-        ContentManager.find_or_create_by({ content_id: id, user_id: user.id, product_id: @product.id }) if id.to_i > 0
+        Contribution.find_or_create_by({ content_id: id, user_id: user.id, product_id: @product.id }) if id.to_i > 0
       end
 
       # Destroy records
-      destroy_ids = (existing_ids - params[:contributor][:modules]) || []
+      destroy_ids = Contribution.where(user_id: user.id, product_id: @product.id).where.not(content_id: params[:contributor][:modules]).pluck(:content_id)
       destroy_ids.each do |id|
-        ContentManager.where(content_id: id, user_id: user.id, product_id: @product.id).first.destroy if id.to_i > 0
+        contribution = Contribution.where(content_id: id, user_id: user.id, product_id: @product.id).first if id.to_i > 0
+        contribution.destroy if contribution.present?
       end
     end
 
-    redirect_to admin_product_content_managers_path, notice: 'Content Contributor was successfully updated.'
+    redirect_to admin_product_contributions_path, notice: 'Content Contributor was successfully updated.'
   end
 
   def destroy_permissions
     if params[:contributor_id].present?
       user = User.where(id: params[:contributor_id]).first
 
-      ContentManager.where(user_id: user.id, product_id: @product.id).destroy_all if user.present?
+      Contribution.where(user_id: user.id, product_id: @product.id).destroy_all if user.present?
     end
 
-    redirect_to admin_product_content_managers_path, notice: 'Content Contributor was successfully removed.'
+    redirect_to admin_product_contributions_path, notice: 'Content Contributor was successfully removed.'
   end
 
   private
@@ -97,14 +98,14 @@ class Admin::ContentManagersController < Admin::BaseController
   end
 
   def product_contributors
-    content_managers = ContentManager.where(product_id: @product.id)
-    user_ids = content_managers.distinct.pluck(:user_id)
+    contributions = Contribution.where(product_id: @product.id)
+    user_ids = contributions.distinct.pluck(:user_id)
     contributors = []
 
     if user_ids.present?
       user_ids.each do |uid|
         contributors << OpenStruct.new({user: User.find(uid),
-                  manage: content_managers.where(user_id: uid).pluck(:content_id).collect{ |cid| Content.find(cid) }}) unless uid.blank?
+                  manage: contributions.where(user_id: uid).pluck(:content_id).collect{ |cid| Content.find(cid) }}) unless uid.blank?
       end
     end
 
