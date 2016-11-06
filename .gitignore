@@ -3,7 +3,7 @@
 capybara-*.html
 .rspec
 .idea/
-/log/*
+/log
 /tmp
 /db/*.sqlite3
 /public/system
@@ -19,9 +19,9 @@ config/secrets.yml
 .DS_Store
 
 # solr
-/solr/development
-/solr/test
-/solr/pid
+/solr/development/
+/solr/test/
+/solr/pid/
 
 ## vim temporary files
 
