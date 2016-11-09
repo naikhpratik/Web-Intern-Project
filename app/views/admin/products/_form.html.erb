@@ -43,6 +43,7 @@
       <% end %>
     </div>
 
+    <% if current_user.is_admin? || current_user.is_product_manager? %>
     <div class="btn-group col-md-12">
       <button type="button" class="btn btn-sm btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Add Field <span class="caret"></span>
@@ -54,6 +55,7 @@
         <% end  %>
       </ul>
     </div>
+    <% end %>
   </div>
   <hr/>
 

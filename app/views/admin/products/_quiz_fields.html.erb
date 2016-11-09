@@ -1,6 +1,6 @@
 <% f.object = f.object.specific if f.object.specific.instance_of? Quiz %>
 
-<div class="col-md-12">
+<div class="col-md-12" style=<%= "display: hidden".html_safe if cannot? :read, f.object.content %>>
   <div class="row quiz_fields">
     <%= f.hidden_field :actable_type, value: 'Quiz' %>
     <%= f.hidden_field :parent_id %>
