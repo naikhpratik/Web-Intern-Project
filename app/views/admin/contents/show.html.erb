@@ -6,24 +6,23 @@
 </p>
 
 <p>
-  <strong>Follows:</strong>
-  <%= @content.follows %>
+  <strong>Module Name:</strong>
+  <%= @content.name %>
 </p>
 
-<p>
+<!-- <p>
+  <strong>Follows:</strong>
+  <%#= @content.follows %>
+</p> -->
+
+<!-- <p>
   <strong>Parent:</strong>
   <%= @content.parent %>
-</p>
+</p> -->
 
 <p>
   <strong>Kind:</strong>
-  <%= @content.kind %>
+  <%= @content.actable_type %>
 </p>
-
-<p>
-  <strong>Payload:</strong>
-  <%= @content.payload %>
-</p>
-
-<%= link_to 'Edit', edit_content_path(@content) %> |
-<%= link_to 'Back', contents_path %>
+<br>
+<%= link_to 'Back', :back , class: 'btn btn-sm btn-primary'%>
