@@ -11,32 +11,32 @@ Rails.application.routes.draw do
 
   # Admin
   namespace :admin do
-    resources :users do
-      member do
-        get 'assign_products'
-        post 'create_products'
-      end
-    end
-
-    resources :products do
-      resources :contributions, shallow: true do
-        collection do
-          post 'permissions'
-          post 'update_permissions'
-          post 'destroy_permissions'
+      resources :users do
+        member do
+          get 'assign_products'
+          post 'create_products'
         end
       end
-    end
 
-    resources :contents
-    resources :roles, only: [:show]
+      resources :products do
+        resources :contributions, shallow: true do
+          collection do
+            post 'permissions'
+            post 'update_permissions'
+            post 'destroy_permissions'
+          end
+        end
+      end
+
+      resources :contents
+      resources :roles, only: [:show]
   end
 
   resources :products, only: [:index, :show]
 
   # Devise
   devise_for :users, :controllers => { registrations: 'users/registrations' }
-  
+
   # Ckeditor
   mount Ckeditor::Engine => '/ckeditor'
 end

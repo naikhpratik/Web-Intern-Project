@@ -12,9 +12,13 @@ class Admin::ContentsController < ApplicationController
     #@content_managers = @contents.pluck(:name) unless @contents.empty?
   end
 
+  
   # GET /contents/1
   # GET /contents/1.json
   def show
+    @time = Content.where(:id=>params[:id]).pluck(:time)
+    gon.time = @time
+
   end
 
   # GET /contents/new
@@ -24,6 +28,7 @@ class Admin::ContentsController < ApplicationController
 
   # GET /contents/1/edit
   def edit
+    @content = Content.find(params[:id])
   end
 
   # POST /contents
@@ -58,7 +63,7 @@ class Admin::ContentsController < ApplicationController
   def destroy
     @content.destroy
     respond_to do |format|
-      format.html { redirect_to contents_url, notice: 'Content was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Content was successfully destroyed.' }
     end
   end
 
@@ -70,7 +75,7 @@ class Admin::ContentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def content_params
-      params.require(:content).permit(:product_id, :follows, :parent, :kind, :payload, :name)
+      params.require(:content).permit(:product_id, :kind, :payload)
       params.require(:product).permit(:name,:id)
       params.fetch(:product).permit(
         managers: [],

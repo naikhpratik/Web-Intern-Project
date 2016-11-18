@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '>= 5.0.0.rc2', '< 5.1'
 #timer Script
-gem 'jquery-rails'
+gem 'gon'
 
 gem 'binding_of_caller'
 # Use mysql as the database for Active Record
