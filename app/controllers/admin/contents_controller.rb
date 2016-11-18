@@ -12,7 +12,9 @@ class Admin::ContentsController < ApplicationController
     #@content_managers = @contents.pluck(:name) unless @contents.empty?
   end
 
-  
+  def timerupdate
+    @content.update_attributes(:time => params[:time])
+  end
   # GET /contents/1
   # GET /contents/1.json
   def show
@@ -51,7 +53,7 @@ class Admin::ContentsController < ApplicationController
 
     respond_to do |format|
       if @content.update(content_params)
-        format.html { redirect_to @content, notice: 'Content was successfully updated.' }
+        format.html { redirect_to admin_content_path(@content), notice: 'Content was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -75,11 +77,11 @@ class Admin::ContentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def content_params
-      params.require(:content).permit(:product_id, :kind, :payload)
-      params.require(:product).permit(:name,:id)
-      params.fetch(:product).permit(
-        managers: [],
-        contents_attributes: [:id, :product_id, :description, :name, :parent_id, :actable_type, :url, :_destroy])
+      params.require(:content).permit(:product_id, :kind, :payload,:time)
+      #params.require(:product).permit(:name,:id)
+      #params.fetch(:product).permit(
+        #managers: [],
+        #contents_attributes: [:id, :product_id, :description, :name, :parent_id, :actable_type, :url, :_destroy])
 
     end
 end

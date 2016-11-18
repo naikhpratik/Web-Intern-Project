@@ -4,7 +4,6 @@
 </div>
 
 <div style="display:none;" id="quiztimer"></div>
-<p id="notice"><%= notice %></p>
 
 <p>
   <strong>Product:</strong>
@@ -30,7 +29,11 @@
   <strong>Kind:</strong>
   <%= @content.actable_type %>
 </p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @content.time %>
+</p>
 <br>
 <button onclick="timer()" , class = 'btn btn-sm btn-success'>Start Test</button>
-<%#= link_to 'Start Test','#', class: 'btn btn-sm btn-success', :id=>'startclicked' , :onlick=>'myFunction()'%>
 <%= link_to 'Back', :back , class: 'btn btn-sm btn-primary'%>

@@ -28,7 +28,16 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :contents
+      resources :contents do
+        resources :contributions, shallow: true do
+          collection do
+            post 'permissions'
+            post 'update_permissions'
+            post 'destroy_permissions'
+          end
+        end
+      end
+
       resources :roles, only: [:show]
   end
 
