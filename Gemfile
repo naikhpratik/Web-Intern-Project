@@ -96,7 +96,7 @@ end
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem 'simplecov', :require => false
+  gem 'simplecov', :require => true
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rspec-rails'

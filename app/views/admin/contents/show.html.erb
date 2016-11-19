@@ -34,6 +34,13 @@
   <strong>Time:</strong>
   <%= @content.time %>
 </p>
+
+<p>
+  <strong>Time Left:</strong>
+  <%= @min %> minutes <%= @sec %> seconds
+</p>
 <br>
-<button onclick="timer()" , class = 'btn btn-sm btn-success'>Start Test</button>
-<%= link_to 'Back', :back , class: 'btn btn-sm btn-primary'%>
+<input type="button" value="Start Test" onclick="starttimer()" id="start" class='btn btn-sm btn-success'>
+<input type="button" value="Pause" onclick="pausetimer()" id="pause" class='btn btn-sm btn-success' style="display:none;">
+<!-- <button onclick="timer()" , class = 'btn btn-sm btn-success', id="startbutton", value='asd'></button> -->
+<%= link_to 'Back', admin_product_path(@backid) , class: 'btn btn-sm btn-primary', :id=>"link_to"%>

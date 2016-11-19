@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161117192541) do
+ActiveRecord::Schema.define(version: 20161118193641) do
 
   create_table "audios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "play_count"
@@ -70,6 +70,15 @@ ActiveRecord::Schema.define(version: 20161117192541) do
   end
 
   create_table "sub_modules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  end
+
+  create_table "user_contents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer "contents_id"
+    t.integer "user_id"
+    t.integer "starttime"
+    t.integer "stoptime"
+    t.index ["contents_id"], name: "index_user_contents_on_contents_id", using: :btree
+    t.index ["user_id"], name: "index_user_contents_on_user_id", using: :btree
   end
 
   create_table "user_products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|

@@ -12,15 +12,23 @@ class Admin::ContentsController < ApplicationController
     #@content_managers = @contents.pluck(:name) unless @contents.empty?
   end
 
-  def timerupdate
-    @content.update_attributes(:time => params[:time])
-  end
+  # def timerupdate
+  #   @content.update_attributes(:time => params[:time])
+  # end
+
   # GET /contents/1
   # GET /contents/1.json
   def show
     @time = Content.where(:id=>params[:id]).pluck(:time)
     gon.time = @time
 
+    #hr = params[:hr]
+    @min=params[:min]
+    #@totalmin= (hr * 60)+ @min
+    @sec=params[:sec]
+    @id = params[:id]
+    gon.contentid = @id
+    @backid=Content.where(:id=>params[:id]).pluck(:product_id)
   end
 
   # GET /contents/new
