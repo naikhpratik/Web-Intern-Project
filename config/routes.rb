@@ -29,11 +29,14 @@ Rails.application.routes.draw do
       end
 
       resources :contents do
+        post 'usercontentssave'
+        post 'usercontentsupdate'
         resources :contributions, shallow: true do
           collection do
             post 'permissions'
             post 'update_permissions'
             post 'destroy_permissions'
+
           end
         end
       end

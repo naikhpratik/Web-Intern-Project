@@ -4,7 +4,9 @@
 </div>
 
 <div style="display:none;" id="quiztimer"></div>
-
+<style>
+form {display: inline-block;}
+</style>
 <p>
   <strong>Product:</strong>
   <%= @content.product_id %>
@@ -40,7 +42,19 @@
   <%= @min %> minutes <%= @sec %> seconds
 </p>
 <br>
-<input type="button" value="Start Test" onclick="starttimer()" id="start" class='btn btn-sm btn-success'>
-<input type="button" value="Pause" onclick="pausetimer()" id="pause" class='btn btn-sm btn-success' style="display:none;">
-<!-- <button onclick="timer()" , class = 'btn btn-sm btn-success', id="startbutton", value='asd'></button> -->
+<div>
+<%= form_for( @content, :url => admin_content_usercontentssave_path( @content ), :html => { :method => :post } ) do |f| %>
+    <input type="submit" value="Start Test" onclick="starttimer()" id="start" class='btn btn-sm btn-success'>
+<% end %>
+
+<%= form_for( @content, :url => admin_content_usercontentsupdate_path( @content ), :html => { :method => :post } ) do |f| %>
+    <input type="hidden" value="Stop Test" onclick="stoptimer()" id="stop" class='btn btn-sm btn-success'>
+<% end %>
+
+<!-- <input type="submit" value="End Test" id="end" class='btn btn-sm btn-success'>
+<input type="hidden" value="Stop Test" onclick="stoptimer()" id="stop" class='btn btn-sm btn-success'> -->
 <%= link_to 'Back', admin_product_path(@backid) , class: 'btn btn-sm btn-primary', :id=>"link_to"%>
+<input type="submit" value="Pause" onclick="pausetimer()" id="pause" class='btn btn-sm btn-success' style="display:none;">
+</div>
+
+<!-- <button onclick="timer()" , class = 'btn btn-sm btn-success', id="startbutton", value='asd'></button> -->

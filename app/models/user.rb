@@ -19,6 +19,7 @@ class User < ApplicationRecord
   has_many :contributions, dependent: :destroy
   has_many :contents, through: :contributions
   has_many :user_contents, dependent: :destroy
+  has_many :contents,  through: :user_contents
 
   validates :username, presence: true, uniqueness: true
 

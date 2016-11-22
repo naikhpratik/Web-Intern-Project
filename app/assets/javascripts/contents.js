@@ -18,6 +18,7 @@ var timeleft = 0;
 function starttimer()
 {
   var stopelem = document.getElementById("start");
+  //var stopelem1 = document.getElementById("start1");
   if(stopelem.value=="Start Test")
   {
     $('#quiztimer').countdown({
@@ -29,6 +30,9 @@ function starttimer()
     var stopelem = document.getElementById("start");
     stopelem.value="Stop";
     document.getElementById("link_to").style.display = "None";
+    document.getElementById("start").style.visibility = "hidden";
+    document.getElementById("stop").type = "submit";
+
   }
   else
     {
@@ -75,6 +79,9 @@ function stoptimer()
       //alert(value)
       min = timeleft[4]*60+timeleft[5];
       window.open(gon.contentid+"?min="+min+"&sec="+timeleft[6],"_self");
+      document.getElementById("start").style.visibility = "hidden";
+      //document.getElementById("end").type = "submit";
+
     }
   }
 }
