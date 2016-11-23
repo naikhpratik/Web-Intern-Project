@@ -11,6 +11,7 @@
 # // about supported directives.
 # //
 # //= require jquery
+# //= require jquery.turbolinks
 # //= require jquery_ujs
 # //= require turbolinks
 # //= require select2
@@ -21,3 +22,5 @@
 # //= require cocoon
 # //= require ckeditor/init
 # //= require bootstrap-sprockets
+# //= require jquery.countdown.js
+# //= require_tree .

@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161102064707) do
+ActiveRecord::Schema.define(version: 20161118193641) do
 
-  create_table "audios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "audios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "play_count"
   end
 
-  create_table "contents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "contents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer  "product_id"
     t.integer  "parent_id"
     t.datetime "created_at",   null: false
@@ -26,12 +26,13 @@ ActiveRecord::Schema.define(version: 20161102064707) do
     t.integer  "actable_id"
     t.string   "name"
     t.integer  "view_count"
+    t.integer  "time"
     t.index ["actable_type", "actable_id"], name: "index_contents_on_actable_type_and_actable_id", using: :btree
     t.index ["ancestry"], name: "index_contents_on_ancestry", using: :btree
     t.index ["product_id"], name: "fk_rails_6f4dae6b48", using: :btree
   end
 
-  create_table "contributions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "contributions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "user_id"
     t.integer "content_id"
     t.integer "product_id"
@@ -40,18 +41,18 @@ ActiveRecord::Schema.define(version: 20161102064707) do
     t.index ["user_id"], name: "index_contributions_on_user_id", using: :btree
   end
 
-  create_table "flashcards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "flashcards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
   end
 
-  create_table "htmls", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "htmls", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.boolean "has_plain_text"
     t.text    "description",    limit: 65535
   end
 
-  create_table "modulees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "modulees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
   end
 
-  create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "title"
     t.string   "icon"
     t.datetime "created_at", null: false
@@ -59,19 +60,28 @@ ActiveRecord::Schema.define(version: 20161102064707) do
     t.string   "visibility"
   end
 
-  create_table "quizzes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "quizzes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
   end
 
-  create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "sub_modules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "sub_modules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
   end
 
-  create_table "user_products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "user_contents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer "contents_id"
+    t.integer "user_id"
+    t.integer "starttime"
+    t.integer "stoptime"
+    t.index ["contents_id"], name: "index_user_contents_on_contents_id", using: :btree
+    t.index ["user_id"], name: "index_user_contents_on_user_id", using: :btree
+  end
+
+  create_table "user_products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer  "product_id"
     t.integer  "user_id"
     t.datetime "created_at", null: false
@@ -81,7 +91,7 @@ ActiveRecord::Schema.define(version: 20161102064707) do
     t.index ["user_id"], name: "index_user_products_on_user_id", using: :btree
   end
 
-  create_table "user_roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "user_roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
@@ -90,7 +100,7 @@ ActiveRecord::Schema.define(version: 20161102064707) do
     t.index ["user_id"], name: "fk_rails_318345354e", using: :btree
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -110,7 +120,7 @@ ActiveRecord::Schema.define(version: 20161102064707) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  create_table "videos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "videos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string  "url"
     t.integer "play_count"
   end

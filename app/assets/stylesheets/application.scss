@@ -14,7 +14,8 @@
  *= require select2-bootstrap
  *= require_tree .
  *= require_self
+ ##nope
+ *= require jquery.countdown.css
  */
-
 @import "bootstrap-sprockets";
 @import "bootstrap";
