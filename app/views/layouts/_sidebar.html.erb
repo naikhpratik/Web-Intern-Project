@@ -1,5 +1,5 @@
 <%= navbar_link do %>
   <%= nav_link 'Manage Users', admin_users_path if can? :read, User %>
-  <%= nav_link 'Manage Products', admin_products_path if can? :read, User%>
+  <%= nav_link 'Manage Products', admin_products_path if can? :read, Product %>
   <%= nav_link 'Manage Contents', admin_contents_path if can? :read, Contribution %>
 <% end %>

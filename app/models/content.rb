@@ -6,6 +6,8 @@ class Content < ApplicationRecord
 
   has_many :contributions, dependent: :destroy
   has_many :users, through: :contributions
+  has_many :user_contents, dependent: :destroy
+  has_many :users,  through: :user_contents
 
   validates :name, presence: true
 

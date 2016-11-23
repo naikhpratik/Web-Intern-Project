@@ -1,4 +1,5 @@
-require "spec_helper"
+require 'rails_helper'
+require 'capybara/rspec'
 require "cancan/matchers"
 
 describe "Ability" do
@@ -48,9 +49,12 @@ describe "Ability" do
     it "can read and update Product" do
       user = user_with_role 'Content Contributor'
 
+      content = FactoryGirl.create(:content)
+      contribution = Contribution.create(user_id: user.id, product_id: content.product.id, content_id: content.id)
+
       ability = Ability.new(user)
       expect(ability).to be_able_to(:read, Product)
-      expect(ability).to be_able_to(:read, Contribution)
+      expect(ability).to be_able_to(:read, content)
     end
   end
 

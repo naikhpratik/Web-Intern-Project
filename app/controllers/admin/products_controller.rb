@@ -7,6 +7,8 @@ class Admin::ProductsController < Admin::BaseController
   def index
     if current_user.is_admin?
       @products = Product.all
+    elsif current_user.is_content_contributor?
+      @products = current_user.contributions.collect { |c| c.content.product if c.content.present? }.compact.uniq
     else
       @products = current_user.products
     end
@@ -15,6 +17,7 @@ class Admin::ProductsController < Admin::BaseController
   # GET /products/1
   # GET /products/1.json
   def show
+    @contents = Content.where(:product_id => params[:id])
   end
 
   # GET /products/new
@@ -49,20 +52,25 @@ class Admin::ProductsController < Admin::BaseController
     pparams = product_params
     user_emails = pparams[:managers]
 
-    if user_emails.present?
-      user_products = []
-      role = Role.find_by_name(User::PRODUCT_MANAGER)
+    # Update PMs for a Project only when the current user is an admin
+    if current_user.is_admin?
+      if user_emails.present?
+        user_products = []
+        role = Role.find_by_name(User::PRODUCT_MANAGER)
 
-      user_emails.each do |email|
-        user = User.find_by_email(email)
-        user_products << UserProduct.find_or_create_by({ user_id: user.id, product_id: @product.id, role_id: role.id }) unless user.blank?
+        user_emails.each do |email|
+          user = User.find_by_email(email)
+          user_products << UserProduct.find_or_create_by({ user_id: user.id, product_id: @product.id, role_id: role.id }) unless user.blank?
+        end
+
+        @product.user_products = user_products unless user_products.empty?
+      else
+        @product.user_products = []
       end
-
-      @product.user_products = user_products unless user_products.empty?
-      pparams.delete(:managers)
-    else
-      @product.user_products = []
     end
+
+    # Remove :managers symbol as it's not part of the Product instance
+    pparams.delete(:managers)
 
     respond_to do |format|
       if @product.update(pparams)
