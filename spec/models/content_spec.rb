@@ -6,7 +6,7 @@ RSpec.describe Content, type: :model do
 
   it { should belong_to(:product) }
 
-  it { should have_many(:users).through(:contributions) }
+  it { should have_many(:users).through(:user_contents) }
 
   it "is valid with valid attributes" do
     content = FactoryGirl.create(:content)
