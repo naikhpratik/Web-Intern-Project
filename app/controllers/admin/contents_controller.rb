@@ -125,7 +125,7 @@ end
     # Never trust parameters from the scary internet, only allow the white list through.
     def content_params
       params.require(:content).permit(:product_id, :kind, :payload,:time)
-      params.require(:user_contents).permit(:contents_id,:user_id,:starttime,:stoptime)
+      #params.require(:user_contents).permit(:contents_id,:user_id,:starttime,:stoptime)
       #params.require(:product).permit(:name,:id)
       #params.fetch(:product).permit(
         #managers: [],
