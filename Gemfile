@@ -32,9 +32,6 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 
-#Search
-gem 'sunspot_rails'
-
 # Bootstrap
 gem 'bootstrap-sass', '~> 3.3.6'
 
@@ -99,7 +96,6 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rspec-rails'
-  gem 'sunspot_test'
   gem 'capybara'
   gem 'launchy'
   gem 'database_cleaner'
