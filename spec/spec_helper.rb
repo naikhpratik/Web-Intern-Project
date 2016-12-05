@@ -1,6 +1,5 @@
 require "capybara/rspec"
 require "simplecov"
-require 'sunspot_test/rspec'
 require 'factory_girl_rails'
 
 SimpleCov.start

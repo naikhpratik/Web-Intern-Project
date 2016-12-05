@@ -12,8 +12,4 @@ class Content < ApplicationRecord
   validates :name, presence: true
 
   belongs_to :product
-
-  searchable do
-    text :name
-  end
 end
