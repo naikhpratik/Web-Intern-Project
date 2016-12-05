@@ -84,7 +84,6 @@ group :development do
   gem 'guard-rspec'
   gem 'html2haml'
   gem 'hub', :require=>nil
-  gem 'sunspot_solr'
   gem 'progress_bar'
   gem 'quiet_assets'
   gem 'rails_layout'

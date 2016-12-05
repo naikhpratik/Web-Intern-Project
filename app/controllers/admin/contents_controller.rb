@@ -5,11 +5,6 @@ class Admin::ContentsController < ApplicationController
   # GET /contents.json
   def index
     @contents = Content.all
-    @search = Content.search do
-      fulltext params[:content]
-    end
-    @contents = @search.results
-    #@content_managers = @contents.pluck(:name) unless @contents.empty?
   end
 
   # def timerupdate
