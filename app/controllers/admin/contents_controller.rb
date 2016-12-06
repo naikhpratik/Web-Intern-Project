@@ -18,27 +18,39 @@ class Admin::ContentsController < ApplicationController
     @id = params[:id]
     gon.contentid = @id
     @backid=Content.where(:id=>params[:id]).pluck(:product_id)
-    @min1=params[:min]
-    @sec1=params[:sec]
-    if(@min1)
+
+    if(params[:min])
+      session[:min] = params[:min]
+      session[:sec] = params[:sec]
+
       @content1 = Content.where(:id=>params[:content_id])
       @usercontent = UserContent.find_by(contents_id: params[:content_id],user_id: current_user.id)
       #@test = UserContent.where(:contents_id=>params[:content1_id])
         if(@usercontent)
           @usercontent.update_attributes(:stoptime=>@min)
-        respond_to do |format|
-          format.html { redirect_to admin_product_path(@content1.pluck(:product_id).first), notice: 'You have Successfully Finished the Test' }
+          respond_to do |format|
+            format.html { redirect_to admin_product_path(@content1.pluck(:product_id).first), notice: 'You have Successfully show Finished the Test' }
+          end
         end
     end
   end
-  end
 
 def time
-  @time = Content.where(:id=>params[:id]).pluck(:time)
-  gon.time = @time
+  @usercontent = UserContent.find_by(contents_id: params[:id],user_id: current_user.id)
+  if(@usercontent)
+    @time = @usercontent.stoptime
+    gon.time = @time
+  else
+    @time = Content.where(:id=>params[:id]).pluck(:time)
+    gon.time = @time
+  end
   @min=params[:min]
   @sec=params[:sec]
   #@content.update_attributes(:colour => newcolour)
+end
+
+def stats
+
 end
 
   def usercontentssave
@@ -52,15 +64,16 @@ end
 
   def usercontentsupdate
 
-    @min=params[:min]
-    @sec=params[:sec]
+    @min=session[:min]
+    @sec=session[:sec]
+
     @content1 = Content.where(:id=>params[:content_id])
     @usercontent = UserContent.find_by(contents_id: params[:content_id],user_id: current_user.id)
     @test = UserContent.where(:contents_id=>params[:content1_id])
     if(@usercontent)
       @usercontent.update_attributes(:stoptime=>@min)
     respond_to do |format|
-      format.html { redirect_to admin_product_path(@content1.pluck(:product_id).first), notice: 'You have Successfully Finished the Test' }
+      format.html { redirect_to admin_product_path(@content1.pluck(:product_id).first), notice: 'You have update Successfully Finished the Test' }
     end
   end
   end
