@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161118193641) do
+ActiveRecord::Schema.define(version: 20161207210051) do
 
   create_table "audios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "play_count"
@@ -41,6 +41,13 @@ ActiveRecord::Schema.define(version: 20161118193641) do
     t.index ["user_id"], name: "index_contributions_on_user_id", using: :btree
   end
 
+  create_table "flashcard_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "front",      limit: 65535
+    t.text     "back",       limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
   create_table "flashcards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
   end
 
@@ -60,6 +67,18 @@ ActiveRecord::Schema.define(version: 20161118193641) do
     t.string   "visibility"
   end
 
+  create_table "quiz_questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "question",      limit: 65535
+    t.text     "hint",          limit: 65535
+    t.integer  "content_id"
+    t.string   "question_type"
+    t.text     "correct",       limit: 65535
+    t.text     "distractors",   limit: 65535
+    t.text     "explination",   limit: 65535
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
   create_table "quizzes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
   end
 
@@ -67,9 +86,6 @@ ActiveRecord::Schema.define(version: 20161118193641) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "sub_modules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
   end
 
   create_table "user_contents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
