@@ -10,6 +10,4 @@
   <%= render 'video_fields', f: f %>
 <% elsif f.object.instance_of? Modulee or f.object.specific.instance_of? Modulee %>
   <%= render 'module_fields', f: f %>
-<% elsif f.object.instance_of? SubModule or f.object.specific.instance_of? SubModule %>
-  <%= render 'sub_module_fields', f: f %>
 <% end %>

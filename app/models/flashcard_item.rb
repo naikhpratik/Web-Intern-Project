@@ -1,0 +1,2 @@
+class FlashcardItem < ApplicationRecord
+end
