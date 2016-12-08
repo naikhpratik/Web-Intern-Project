@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get 'page/about'
   get 'page/contact'
 
+  #diagnostics
+  get 'healthcheck', to: 'diagnostics#healthcheck'
+
   # Admin
   namespace :admin do
       resources :users do

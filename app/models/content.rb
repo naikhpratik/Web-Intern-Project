@@ -1,5 +1,5 @@
 class Content < ApplicationRecord
-  CONTENT_TYPES = ['Modulee', 'SubModule', 'Quiz', 'Flashcard', 'Html', 'Audio', 'Video']
+  CONTENT_TYPES = ['Modulee', 'Quiz', 'Flashcard', 'Html', 'Audio', 'Video']
 
   actable
   has_ancestry
