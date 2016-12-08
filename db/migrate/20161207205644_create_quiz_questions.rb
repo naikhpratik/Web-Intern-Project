@@ -8,8 +8,6 @@ class CreateQuizQuestions < ActiveRecord::Migration[5.0]
       t.text :correct
       t.text :distractors
       t.text :explination
-
-      t.timestamps
     end
   end
 end
