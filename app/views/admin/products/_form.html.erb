@@ -35,7 +35,7 @@
   <%= link_to "Manage Contributors", admin_product_contributions_path(@product), class: 'btn btn-sm btn-warning' if params[:action] == 'edit' %>
 
   <hr/>
-  <h4>Add New Fields</h4>
+  <h4>Content</h4>
   <div class="row">
     <div class="form-group nested_fields">
       <%= f.fields_for :contents do |builder| %>

@@ -3493,3 +3493,19 @@ DEPRECATION WARNING: `render :text` is deprecated because it does not actually r
 Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.0ms)
 
 
+DEPRECATION WARNING: alias_method_chain is deprecated. Please, use Module#prepend instead. From module, you can access the original method using super. (called from <top (required)> at /Users/zacek/Projects/C3suite_server/config/environment.rb:5)
+Started GET "/" for 127.0.0.1 at 2016-12-10 13:36:38 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (23.1ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering dashboard/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT `products`.* FROM `products` WHERE `products`.`visibility` IN ('All', 'Registered Users')[0m
+  [1m[36mProduct Load (2.0ms)[0m  [1m[34mSELECT `products`.* FROM `products` INNER JOIN `user_products` ON `products`.`id` = `user_products`.`product_id` WHERE `user_products`.`user_id` = 1[0m
+  Rendered dashboard/index.html.erb within layouts/application (36.6ms)
+  [1m[36mRole Load (0.9ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `user_roles` ON `roles`.`id` = `user_roles`.`role_id` WHERE `user_roles`.`user_id` = 1[0m
+  Rendered layouts/_navbar.html.erb (78.2ms)
+  Rendered layouts/_sidebar.html.erb (12.8ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 2946ms (Views: 2729.3ms | ActiveRecord: 144.5ms)
+
+
