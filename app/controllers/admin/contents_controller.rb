@@ -1,12 +1,26 @@
 class Admin::ContentsController < ApplicationController
   before_action :set_content, only: [:show, :edit, :update, :destroy]
-
-  # GET /contents
+    # GET /contents
   # GET /contents.json
   def index
     @contents = Content.all
   end
 
+  def import
+     rowarray = Hash.new
+     values=Array.new
+     spreadsheet = Content.open_spreadsheet(params[:file])
+     header = spreadsheet.row(1)
+     (2..spreadsheet.last_row).each do |i|
+       rowarray = Hash[[header, spreadsheet.row(i)].transpose]
+        #@rowarray = rowarray
+        values << rowarray
+
+     end
+     session[:rowarray] = rowarray
+     session[:array] = values
+       redirect_to admin_content_path(1), notice: "Records imported."
+  end
   # def timerupdate
   #   @content.update_attributes(:time => params[:time])
   # end
@@ -14,6 +28,8 @@ class Admin::ContentsController < ApplicationController
   # GET /contents/1
   # GET /contents/1.json
   def show
+    @rowarray=session[:rowarray]
+    @values = session[:array]
     time()
     @id = params[:id]
     gon.contentid = @id

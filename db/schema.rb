@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161207210051) do
+ActiveRecord::Schema.define(version: 20161213024526) do
+
+  create_table "Payload", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.text "payload", limit: 65535
+  end
 
   create_table "audios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "play_count"
@@ -82,6 +86,15 @@ ActiveRecord::Schema.define(version: 20161207210051) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "sessions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string   "session_id",                    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "data",       limit: 4294967295
+    t.index ["session_id"], name: "index_sessions_on_session_id", unique: true, using: :btree
+    t.index ["updated_at"], name: "index_sessions_on_updated_at", using: :btree
   end
 
   create_table "user_contents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
