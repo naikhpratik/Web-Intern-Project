@@ -1,4 +1,4 @@
-Rails.application.routes.draw do
+  Rails.application.routes.draw do
   root 'dashboard#index'
 
   get '/admin', to: 'admin/users#index'
@@ -22,8 +22,10 @@ Rails.application.routes.draw do
       end
 
       resources :products do
+
         resources :contributions, shallow: true do
           collection do
+
             post 'permissions'
             post 'update_permissions'
             post 'destroy_permissions'
@@ -32,6 +34,7 @@ Rails.application.routes.draw do
       end
 
       resources :contents do
+        post 'import'
         post 'usercontentssave'
         post 'usercontentsupdate'
         resources :contributions, shallow: true do
