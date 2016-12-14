@@ -14,10 +14,27 @@ class Admin::ProductsController < Admin::BaseController
     end
   end
 
+  def import
+     rowarray = Hash.new
+     values=Array.new
+     spreadsheet = Product.open_spreadsheet(params[:file])
+     header = spreadsheet.row(1)
+     (2..spreadsheet.last_row).each do |i|
+       rowarray = Hash[[header, spreadsheet.row(i)].transpose]
+        #@rowarray = rowarray
+        values << rowarray
+
+     end
+     session[:rowarray] = rowarray
+     session[:array] = values
+       redirect_to :back, notice: "Records imported."
+  end
   # GET /products/1
   # GET /products/1.json
   def show
     @contents = Content.where(:product_id => params[:id])
+    @rowarray = session[:rowarray]
+    @values = session[:array]
   end
 
   # GET /products/new
