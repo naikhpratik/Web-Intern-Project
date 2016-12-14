@@ -19,7 +19,7 @@ class Admin::ContentsController < ApplicationController
      end
      session[:rowarray] = rowarray
      session[:array] = values
-       redirect_to admin_content_path(1), notice: "Records imported."
+       redirect_to :back, notice: "Records imported."
   end
   # def timerupdate
   #   @content.update_attributes(:time => params[:time])
@@ -28,8 +28,6 @@ class Admin::ContentsController < ApplicationController
   # GET /contents/1
   # GET /contents/1.json
   def show
-    @rowarray=session[:rowarray]
-    @values = session[:array]
     time()
     @id = params[:id]
     gon.contentid = @id
