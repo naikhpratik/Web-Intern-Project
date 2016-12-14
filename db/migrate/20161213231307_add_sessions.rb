@@ -1,7 +1,7 @@
 class AddSessions < ActiveRecord::Migration[5.0]
   def change
     create_table :sessions do |t|
-      t.text :session_id,  null: false
+      t.text :session_id,  null: false, :length=>700
       t.longtext :data
 
       ## Rememberable
@@ -9,6 +9,6 @@ class AddSessions < ActiveRecord::Migration[5.0]
       t.datetime :updated_at
 
     end
-    add_index :sessions, :session_id,    unique: true
+    add_index :sessions, :session_id,    unique: true, :length=>700
   end
 end
