@@ -43,18 +43,55 @@ form {display: inline-block;}
 </p>
 <br>
 <div>
-<%= form_for( @content, :url => admin_content_usercontentssave_path( @content ), :html => { :method => :post } ) do |f| %>
-    <input type="submit" value="Start Test" onclick="starttimer()" id="start" class='btn btn-sm btn-success'>
-<% end %>
-
-<%= form_for( @content, :url => admin_content_usercontentsupdate_path( @content ), :html => { :method => :post } ) do |f| %>
+  <% if !@min %>
+    <%= form_for( @content, :url => admin_content_usercontentssave_path( @content ), :html => { :method => :post } ) do |f| %>
+    <span><input type="submit" value="Start Test" onclick="starttimer()" id="start" class='btn btn-sm btn-success'></span>
+    <% end %>
     <input type="hidden" value="Stop Test" onclick="stoptimer()" id="stop" class='btn btn-sm btn-success'>
-<% end %>
+  <% end %>
 
-<!-- <input type="submit" value="End Test" id="end" class='btn btn-sm btn-success'>
-<input type="hidden" value="Stop Test" onclick="stoptimer()" id="stop" class='btn btn-sm btn-success'> -->
-<%= link_to 'Back', admin_product_path(@backid) , class: 'btn btn-sm btn-primary', :id=>"link_to"%>
-<input type="submit" value="Pause" onclick="pausetimer()" id="pause" class='btn btn-sm btn-success' style="display:none;">
+  <%= form_for( @content, :url => admin_content_usercontentsupdate_path( @content ), :html => { :method => :post } ) do |f| %>
+  <span>  <input type="submit" value="Finish" id="finish" class='btn btn-sm btn-success'></span>
+  <% end %>
+
+  <% if !@min %>
+  <span>  <%= link_to 'Back', admin_product_path(@backid) , class: 'btn btn-sm btn-primary', :id=>"link_to"%></span>
+  <% end %>
+    <span><input type="submit" value="Pause" onclick="pausetimer()" id="pause" class='btn btn-sm btn-success' style="display:none;"></span>
 </div>
 
 <!-- <button onclick="timer()" , class = 'btn btn-sm btn-success', id="startbutton", value='asd'></button> -->
+
+<table id="Data" class="table table-condensed">
+  <tr>
+    <td>ID</td>
+    <td>Section</td>
+    <td>Question</td>
+    <td>Section/Chapter</td>
+    <td>Correct Answer</td>
+    <td>Incorrect Answer1</td>
+    <td>Incorrect Answer2</td>
+    <td>Incorrect Answer3</td>
+    <td>Incorrect Answer4</td>
+    <td>Explanation</td>
+  <tr>
+
+<%@values.each do |row| %>
+<tr>
+  <td><%= row["ID"] %></td>
+  <td><%= row["Section"] %></td>
+  <td><%= row["Question"] %></td>
+  <td><%= row["Section/Chapter"] %></td>
+  <td><%= row["Correct Answer"] %></td>
+  <td><%= row["Incorrect Answer1"] %></td>
+  <td><%= row["Incorrect Answer2"] %></td>
+  <td><%= row["Incorrect Answer3"] %></td>
+  <td><%= row["Incorrect Answer4"] %></td>
+  <td><%= row["Explanation"] %></td>
+  </tr>
+<% end %>
+
+</table>
+<%#= @rowarray %>
+<%#= @values%>
+<h1>File has been uploaded. Check</h1>

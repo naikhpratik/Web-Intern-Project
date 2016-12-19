@@ -4,8 +4,9 @@ source 'https://rubygems.org'
 gem 'rails', '>= 5.0.0.rc2', '< 5.1'
 #timer Script
 gem 'gon'
-
+gem 'roo'
 gem 'binding_of_caller'
+gem 'activerecord-session_store'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.3.18', '< 0.5'
 # Use Puma as the app server
