@@ -32,7 +32,7 @@ class Admin::ProductsController < Admin::BaseController
   # GET /products/1
   # GET /products/1.json
   def show
-    @contents = Content.where(:product_id => params[:id])
+    @contents = Content.where(:product_id => params[:id]).roots
     @rowarray = session[:rowarray]
     @values = session[:array]
   end
