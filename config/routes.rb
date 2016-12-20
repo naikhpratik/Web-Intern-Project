@@ -22,7 +22,7 @@
       end
 
       resources :products do
-
+        post 'import'
         resources :contributions, shallow: true do
           collection do
 
@@ -34,7 +34,7 @@
       end
 
       resources :contents do
-        post 'import'
+
         post 'usercontentssave'
         post 'usercontentsupdate'
         resources :contributions, shallow: true do

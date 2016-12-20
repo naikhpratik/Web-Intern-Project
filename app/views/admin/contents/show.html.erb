@@ -61,37 +61,3 @@ form {display: inline-block;}
 </div>
 
 <!-- <button onclick="timer()" , class = 'btn btn-sm btn-success', id="startbutton", value='asd'></button> -->
-
-<table id="Data" class="table table-condensed">
-  <tr>
-    <td>ID</td>
-    <td>Section</td>
-    <td>Question</td>
-    <td>Section/Chapter</td>
-    <td>Correct Answer</td>
-    <td>Incorrect Answer1</td>
-    <td>Incorrect Answer2</td>
-    <td>Incorrect Answer3</td>
-    <td>Incorrect Answer4</td>
-    <td>Explanation</td>
-  <tr>
-
-<%@values.each do |row| %>
-<tr>
-  <td><%= row["ID"] %></td>
-  <td><%= row["Section"] %></td>
-  <td><%= row["Question"] %></td>
-  <td><%= row["Section/Chapter"] %></td>
-  <td><%= row["Correct Answer"] %></td>
-  <td><%= row["Incorrect Answer1"] %></td>
-  <td><%= row["Incorrect Answer2"] %></td>
-  <td><%= row["Incorrect Answer3"] %></td>
-  <td><%= row["Incorrect Answer4"] %></td>
-  <td><%= row["Explanation"] %></td>
-  </tr>
-<% end %>
-
-</table>
-<%#= @rowarray %>
-<%#= @values%>
-<h1>File has been uploaded. Check</h1>
