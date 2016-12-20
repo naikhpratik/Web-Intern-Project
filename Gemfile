@@ -36,6 +36,9 @@ gem 'devise'
 # Bootstrap
 gem 'bootstrap-sass', '~> 3.3.6'
 
+# HAML
+gem 'haml-rails'
+
 # Cancan
 gem 'cancancan', '~> 1.10'
 

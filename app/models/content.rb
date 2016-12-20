@@ -15,6 +15,9 @@ class Content < ApplicationRecord
   belongs_to :product
 
 
+  def printable_type
+    return self.actable_type == 'Modulee' ? 'Module' : self.actable_type
+  end
 
   def self.open_spreadsheet(file)
     case File.extname(file.original_filename)
