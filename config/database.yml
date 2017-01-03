@@ -27,4 +27,3 @@ development:
 test:
   <<: *default
   database: C3Suite_test
-

@@ -1,0 +1,23 @@
+.panel.panel-default
+  .panel-heading
+    .h4
+      = modulee.name
+      .pull-right
+        .btn.btn-default.btn-sm
+          Edit
+  .panel-body
+    - modulee.children.each do |child|
+      = render partial: child.actable_type.downcase, object: child
+    .pull-right
+      %select.form-control
+        %option
+          = "Add Submodule to #{modulee.name}"
+        %option Add HTML
+        %option Add Video
+        %option Add Audio
+        %option Add Quiz
+        %option Add Flashcard
+- if !modulee.parent
+  .pull-right
+    .btn.btn-default
+      Add Module

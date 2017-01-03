@@ -1,0 +1,13 @@
+%h5
+  %p
+    %strong Title:
+    = @product.title
+  %p
+    %strong Visibility:
+    = @product.visibility
+%h3 Content
+- @contents.each do |content|
+  = render partial: content.actable_type.downcase, object: content
+%br
+= link_to 'Edit', edit_admin_product_path(@product), class: 'btn btn-default' if can? :update, @product
+= link_to 'Back', admin_products_path, class: 'btn btn-default'

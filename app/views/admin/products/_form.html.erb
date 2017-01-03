@@ -34,30 +34,7 @@
   <hr/>
   <%= link_to "Manage Contributors", admin_product_contributions_path(@product), class: 'btn btn-sm btn-warning' if params[:action] == 'edit' %>
 
-  <hr/>
-  <h4>Add New Fields</h4>
-  <div class="row">
-    <div class="form-group nested_fields">
-      <%= f.fields_for :contents do |builder| %>
-        <%= render 'content_fields', f: builder %>
-      <% end %>
-    </div>
 
-    <% if current_user.is_admin? || current_user.is_product_manager? %>
-    <div class="btn-group col-md-12">
-      <button type="button" class="btn btn-sm btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Add Field <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu">
-        <% @content_types ||= [] %>
-        <% @content_types.each do |m|  %>
-          <li><%= link_to_add_association m.underscore.humanize.titleize, f, :contents, 'data-association-insertion-node': '.nested_fields', 'data-association-insertion-method': 'append', wrap_object: Proc.new { |content| content = m.constantize.new } %></li>
-        <% end  %>
-      </ul>
-    </div>
-    <% end %>
-  </div>
-  <hr/>
 
   <div class="form-group">
       <%= f.submit class: 'btn btn-sm btn-success' %>
