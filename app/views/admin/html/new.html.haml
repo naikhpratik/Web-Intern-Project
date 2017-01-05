@@ -1,0 +1,15 @@
+.h1
+  HTML Content
+.h4
+  = "Part of #{@html.parent.name}"
+  = form_for @html, :url => new_admin_content_html_path do |f|
+    .form-group
+      %label
+        Description
+      %input.form-control
+      %p.help-block
+        (Not shown to users - For content management only)
+    .form-group
+      %label
+        HTML
+      %textarea.form-control{rows: 25}

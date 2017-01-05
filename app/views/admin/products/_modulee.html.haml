@@ -9,14 +9,19 @@
     - modulee.children.each do |child|
       = render partial: child.actable_type.downcase, object: child
     .pull-right
-      %select.form-control
-        %option
-          = "Add Submodule to #{modulee.name}"
-        %option Add HTML
-        %option Add Video
-        %option Add Audio
-        %option Add Quiz
-        %option Add Flashcard
+      Add:
+      .btn.btn-default.btn-sm
+        Submodule
+      .btn.btn-default.btn-sm
+        = link_to('HTML', new_admin_content_html_url(modulee))
+      .btn.btn-default.btn-sm
+        Video
+      .btn.btn-default.btn-sm
+        Audio
+      .btn.btn-default.btn-sm
+        Quiz
+      .btn.btn-default.btn-sm
+        Flashcard
 - if !modulee.parent
   .pull-right
     .btn.btn-default

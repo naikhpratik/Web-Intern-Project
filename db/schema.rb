@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 20161213231307) do
   create_table "flashcard_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "front",      limit: 65535
     t.text     "back",       limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "flashcards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -73,6 +75,8 @@ ActiveRecord::Schema.define(version: 20161213231307) do
     t.text     "correct",       limit: 65535
     t.text     "distractors",   limit: 65535
     t.text     "explination",   limit: 65535
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "quizzes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
