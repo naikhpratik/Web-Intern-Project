@@ -45,6 +45,9 @@
 
           end
         end
+
+        resources :html
+
       end
 
       resources :roles, only: [:show]

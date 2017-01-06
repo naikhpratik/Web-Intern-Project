@@ -3,6 +3,6 @@
     = html.name
     .pull-right
       .btn.btn-default.btn-xs
-        Edit
+        = link_to('edit', edit_admin_content_html_url(html.id))
   .panel-body
     html excerpt will go here
