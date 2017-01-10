@@ -4,7 +4,7 @@
       = modulee.name
       .pull-right
         .btn.btn-default.btn-sm
-          Edit
+          = link_to 'Edit', edit_admin_product_modulee_path(@product, modulee)
   .panel-body
     - modulee.children.each do |child|
       = render partial: child.actable_type.downcase, object: child
@@ -25,4 +25,4 @@
 - if !modulee.parent
   .pull-right
     .btn.btn-default
-      Add Module
+      = link_to('Add Module', new_admin_product_modulee_url(@product))
