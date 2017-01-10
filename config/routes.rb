@@ -31,6 +31,8 @@
             post 'destroy_permissions'
           end
         end
+
+        resources :modulees, path: 'modules'
       end
 
       resources :contents do
