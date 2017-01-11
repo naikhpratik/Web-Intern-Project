@@ -33,6 +33,7 @@
         end
 
         resources :modulees, path: 'modules'
+        resources :htmls, path: 'html'
       end
 
       resources :contents do
@@ -47,8 +48,6 @@
 
           end
         end
-
-        resources :html
 
       end
 

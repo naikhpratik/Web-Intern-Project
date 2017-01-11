@@ -4,7 +4,7 @@
       = modulee.name
       .pull-right
         .btn.btn-default.btn-sm
-          = link_to 'Edit', edit_admin_product_modulee_path(@product, modulee)
+          = link_to 'Edit', edit_admin_product_modulee_path(@product, modulee.actable_id)
   .panel-body
     - modulee.children.each do |child|
       = render partial: child.actable_type.downcase, object: child
@@ -13,7 +13,7 @@
       .btn.btn-default.btn-sm
         Submodule
       .btn.btn-default.btn-sm
-        = link_to('HTML', new_admin_content_html_url(modulee))
+        = link_to('HTML', new_admin_product_html_path(@product))
       .btn.btn-default.btn-sm
         Video
       .btn.btn-default.btn-sm
@@ -25,4 +25,4 @@
 - if !modulee.parent
   .pull-right
     .btn.btn-default
-      = link_to('Add Module', new_admin_product_modulee_url(@product))
+      = link_to('Add Module', new_admin_product_modulee_path(@product))
