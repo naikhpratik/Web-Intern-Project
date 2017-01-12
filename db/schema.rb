@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161213231307) do
+ActiveRecord::Schema.define(version: 20170112110039) do
 
   create_table "audios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "play_count"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20161213231307) do
     t.string   "name"
     t.integer  "view_count"
     t.integer  "time"
+    t.integer  "row_order"
     t.index ["actable_type", "actable_id"], name: "index_contents_on_actable_type_and_actable_id", using: :btree
     t.index ["ancestry"], name: "index_contents_on_ancestry", using: :btree
     t.index ["product_id"], name: "fk_rails_6f4dae6b48", using: :btree
@@ -42,10 +43,8 @@ ActiveRecord::Schema.define(version: 20161213231307) do
   end
 
   create_table "flashcard_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "front",      limit: 65535
-    t.text     "back",       limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.text "front", limit: 65535
+    t.text "back",  limit: 65535
   end
 
   create_table "flashcards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -68,15 +67,13 @@ ActiveRecord::Schema.define(version: 20161213231307) do
   end
 
   create_table "quiz_questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "question",      limit: 65535
-    t.text     "hint",          limit: 65535
-    t.integer  "content_id"
-    t.string   "question_type"
-    t.text     "correct",       limit: 65535
-    t.text     "distractors",   limit: 65535
-    t.text     "explination",   limit: 65535
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.text    "question",      limit: 65535
+    t.text    "hint",          limit: 65535
+    t.integer "content_id"
+    t.string  "question_type"
+    t.text    "correct",       limit: 65535
+    t.text    "distractors",   limit: 65535
+    t.text    "explination",   limit: 65535
   end
 
   create_table "quizzes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

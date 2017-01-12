@@ -37,6 +37,9 @@
       end
 
       resources :contents do
+        collection do
+          get 'update_content_position'
+        end
 
         post 'usercontentssave'
         post 'usercontentsupdate'

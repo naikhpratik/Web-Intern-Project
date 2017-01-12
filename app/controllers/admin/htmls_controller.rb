@@ -1,6 +1,7 @@
 class Admin::HtmlsController < ApplicationController
 	before_action :set_html, only: [:edit, :update, :destroy]
-	before_action :set_product, except: [:destroy]
+  before_action :set_product, except: [:destroy]
+	before_action :set_content, except: [:destroy]
 
   def new
     @html = Html.new(product_id: @product.id) if @product.present?
@@ -41,8 +42,12 @@ class Admin::HtmlsController < ApplicationController
   	@product ||= Product.find(params[:product_id])
   end
 
+  def set_content
+    @content ||= Content.find(params[:content_id]) if params[:content_id].present?
+  end
+
   def html_params
-  	params.require(:html).permit(:name, :description, :product_id)
+  	params.require(:html).permit(:name, :description, :parent_id, :product_id)
   end
 
 end

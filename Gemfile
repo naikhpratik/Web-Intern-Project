@@ -22,6 +22,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'bcrypt-ruby'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+# jQuery UI
+gem 'jquery-ui-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5.x'
 gem 'jquery-turbolinks'
@@ -47,6 +49,9 @@ gem 'active_record-acts_as'
 
 # Ancestry
 gem 'ancestry'
+
+# Ranked Model for contents positioning
+gem 'ranked-model'
 
 # Cocoon
 gem "cocoon"

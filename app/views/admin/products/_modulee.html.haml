@@ -4,25 +4,30 @@
       = modulee.name
       .pull-right
         .btn.btn-default.btn-sm
-          = link_to 'Edit', edit_admin_product_modulee_path(@product, modulee.actable_id)
+          = link_to 'Edit', edit_admin_product_modulee_path(@product, modulee.specific)
   .panel-body
-    - modulee.children.each do |child|
-      = render partial: child.actable_type.downcase, object: child
-    .pull-right
-      Add:
-      .btn.btn-default.btn-sm
-        Submodule
-      .btn.btn-default.btn-sm
-        = link_to('HTML', new_admin_product_html_path(@product))
-      .btn.btn-default.btn-sm
-        Video
-      .btn.btn-default.btn-sm
-        Audio
-      .btn.btn-default.btn-sm
-        Quiz
-      .btn.btn-default.btn-sm
-        Flashcard
-- if !modulee.parent
-  .pull-right
-    .btn.btn-default
-      = link_to('Add Module', new_admin_product_modulee_path(@product))
+    .row
+      .col-md-12
+        .pull-right
+          Add:
+          .btn.btn-default.btn-sm
+            Submodule
+          .btn.btn-default.btn-sm
+            = link_to('HTML', new_admin_product_html_path(@product, content_id: modulee.id))
+          .btn.btn-default.btn-sm
+            Video
+          .btn.btn-default.btn-sm
+            Audio
+          .btn.btn-default.btn-sm
+            Quiz
+          .btn.btn-default.btn-sm
+            Flashcard
+    %br
+    %ul.sortable
+      - modulee.children.each do |child|
+        %li
+          = render partial: child.actable_type.downcase, object: child
+/ - if !modulee.parent
+/   .pull-right
+/     .btn.btn-default
+/       = link_to('Add Module', new_admin_product_modulee_path(@product))
