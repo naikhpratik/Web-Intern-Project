@@ -2,6 +2,9 @@ require 'csv'
 class Content < ApplicationRecord
   CONTENT_TYPES = ['Modulee', 'Quiz', 'Flashcard', 'Html', 'Audio', 'Video']
 
+  include RankedModel
+  ranks :row_order, class_name: 'Content'
+
   actable
   has_ancestry
 

@@ -49,6 +49,17 @@ class Admin::ContentsController < ApplicationController
     end
   end
 
+  def update_content_position
+    if content_params[:content_id].to_i > 0
+      content = Content.find(content_params[:content_id])
+      content.row_order_position = content_params[:row_order_position]
+      puts content.inspect
+      puts content.inspect if content.save
+    end
+
+    render nothing: true
+  end
+
 def time
   @usercontent = UserContent.find_by(contents_id: params[:id],user_id: current_user.id)
   if(@usercontent)
@@ -146,7 +157,7 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def content_params
-      params.require(:content).permit(:product_id, :kind, :payload,:time)
+      params.require(:content).permit(:content_id, :product_id, :kind, :payload, :time, :row_order_position)
       #params.require(:user_contents).permit(:contents_id,:user_id,:starttime,:stoptime)
       #params.require(:product).permit(:name,:id)
       #params.fetch(:product).permit(
