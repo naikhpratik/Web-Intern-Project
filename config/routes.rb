@@ -34,6 +34,7 @@
 
         resources :modulees, path: 'modules'
         resources :htmls, path: 'html'
+        resources :media
       end
 
       resources :contents do

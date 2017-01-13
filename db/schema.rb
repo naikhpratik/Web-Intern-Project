@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170112110039) do
-
-  create_table "audios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "play_count"
-  end
+ActiveRecord::Schema.define(version: 20170113105608) do
 
   create_table "contents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "product_id"
@@ -51,8 +47,16 @@ ActiveRecord::Schema.define(version: 20170112110039) do
   end
 
   create_table "htmls", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string  "description"
     t.boolean "has_plain_text"
-    t.text    "description",    limit: 65535
+  end
+
+  create_table "media", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string  "local_type"
+    t.string  "caption"
+    t.text    "transcript",    limit: 65535
+    t.integer "duration"
+    t.string  "thumbnail_url"
   end
 
   create_table "modulees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -139,11 +143,6 @@ ActiveRecord::Schema.define(version: 20170112110039) do
     t.index ["ancestry"], name: "index_users_on_ancestry", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-  end
-
-  create_table "videos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string  "url"
-    t.integer "play_count"
   end
 
   add_foreign_key "contents", "products"

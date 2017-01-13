@@ -8,10 +8,6 @@ FactoryGirl.define do
     name "Module 1"
   end
 
-  factory :sub_module do
-    name "Sub Module 1"
-  end
-
   factory :quiz do
     name "Quiz 1"
   end

@@ -1,6 +1,6 @@
 require 'csv'
 class Content < ApplicationRecord
-  CONTENT_TYPES = ['Modulee', 'Quiz', 'Flashcard', 'Html', 'Audio', 'Video']
+  CONTENT_TYPES = ['Modulee', 'Quiz', 'Flashcard', 'Html', 'Media']
 
   include RankedModel
   ranks :row_order, class_name: 'Content'

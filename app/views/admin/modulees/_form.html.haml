@@ -1,11 +1,14 @@
 .h1
-  = @modulee.name || "New Module"
-.h4
-  - if @product.present? && @modulee.present?
-    = form_for [:admin, @product, @modulee] do |f|
-      = f.hidden_field :product_id, value: @product.id
-      .form-group
-        %label= f.label :name
-        = f.text_field :name, class: 'form-control'
-      .form-group
-        = f.submit class: 'btn btn-sm btn-default'
+  Module
+- if @product.present? && @modulee.present?
+  = form_for [:admin, @product, @modulee] do |f|
+    .row
+      .col-md-6
+        = errors_for(@modulee)
+        
+        = f.hidden_field :product_id, value: @product.id
+        .form-group
+          %label= f.label :name
+          = f.text_field :name, class: 'form-control'
+        .form-group
+          = f.submit class: 'btn btn-sm btn-default'
