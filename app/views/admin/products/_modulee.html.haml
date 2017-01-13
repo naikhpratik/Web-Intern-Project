@@ -15,17 +15,15 @@
           .btn.btn-default.btn-sm
             = link_to('HTML', new_admin_product_html_path(@product, content_id: modulee.id))
           .btn.btn-default.btn-sm
-            Video
-          .btn.btn-default.btn-sm
-            Audio
-          .btn.btn-default.btn-sm
             Quiz
           .btn.btn-default.btn-sm
             Flashcard
+          .btn.btn-default.btn-sm
+            Media
     %br
     %ul.sortable
       - modulee.children.each do |child|
-        %li
+        %li{ "data-content-id": child.id }
           = render partial: child.actable_type.downcase, object: child
 / - if !modulee.parent
 /   .pull-right
