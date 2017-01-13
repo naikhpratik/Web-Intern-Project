@@ -19,7 +19,7 @@
           .btn.btn-default.btn-sm
             Flashcard
           .btn.btn-default.btn-sm
-            Media
+            = link_to('Media', new_admin_product_media_path(@product, content_id: modulee.id))
     %br
     %ul.sortable
       - modulee.children.each do |child|

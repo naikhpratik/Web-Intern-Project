@@ -1,0 +1,11 @@
+.panel.panel-default
+  .panel-heading
+    %span.h5
+      = media.name
+    .label.label-default
+      = media.specific.local_type.capitalize
+    .pull-right
+      .btn.btn-default.btn-xs
+        = link_to('edit', edit_admin_product_media_path(@product, media.specific))
+  .panel-body
+    = media.specific.caption
