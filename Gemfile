@@ -61,6 +61,9 @@ gem "figaro"
 # Text Editor
 gem 'ckeditor'
 
+# Sanitize HTML
+gem 'sanitize'
+
 # Select2 for multiple select
 gem 'select2-rails', '~> 4.0', '>= 4.0.1'
 # Rails assets for Select2

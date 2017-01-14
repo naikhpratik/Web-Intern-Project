@@ -33,7 +33,11 @@
         end
 
         resources :modulees, path: 'modules'
-        resources :htmls, path: 'html'
+        resources :htmls, path: 'html' do
+          member do
+            get 'preview'
+          end
+        end
         resources :media
       end
 

@@ -18,6 +18,6 @@
       .form-group
         %label
           HTML
-        %textarea.form-control{rows: 25}
+        = f.cktext_area :html_source
       .form-group
         = f.submit class: 'btn btn-sm btn-default'
