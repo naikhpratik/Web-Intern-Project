@@ -1,7 +1,7 @@
 .panel.panel-default
   .panel-heading
     .h4
-      = modulee.title
+      = link_to modulee.title, admin_product_modulee_path(@product, modulee.specific)
       .pull-right
         .btn.btn-default.btn-sm
           = link_to 'Edit', edit_admin_product_modulee_path(@product, modulee.specific)

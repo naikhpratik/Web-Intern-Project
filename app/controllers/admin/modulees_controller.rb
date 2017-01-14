@@ -1,6 +1,9 @@
 class Admin::ModuleesController < Admin::BaseController
-	before_action :set_modulee, only: [:edit, :update, :destroy]
+	before_action :set_modulee, only: [:show, :edit, :update, :destroy]
 	before_action :set_product, except: [:destroy]
+
+  def show
+  end
 
   def new
     @modulee = Modulee.new(product_id: @product.id) if @product.present?
