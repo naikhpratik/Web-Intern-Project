@@ -1,7 +1,7 @@
 .panel.panel-default
   .panel-heading
     %span.h5
-      = media.title
+      = link_to media.title, admin_product_media_path(@product, media.specific)
     .label.label-default
       = media.specific.local_type.capitalize
     .pull-right
