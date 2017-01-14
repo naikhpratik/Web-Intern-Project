@@ -10,7 +10,6 @@ $ ->
       update: (e, ui) ->
         content_id = ui.item.data('content-id')
         position = ui.item.index()
-        console.log(position)
         $.ajax(
           type: 'GET'
           url: '/admin/contents/update_content_position'
