@@ -62,7 +62,7 @@ RSpec.feature "Product", :type => :feature do
     login 'Admin'
     visit edit_admin_product_path(product)
 
-    fill_in "product[contents_attributes][0][name]", with: 'My Module'
+    fill_in "product[contents_attributes][0][title]", with: 'My Module'
 
     click_button "Update"
     expect(page).to have_text("Product was successfully updated")
