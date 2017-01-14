@@ -13,7 +13,7 @@ class Content < ApplicationRecord
   has_many :user_contents, dependent: :destroy
   has_many :users,  through: :user_contents
 
-  validates :name, presence: true
+  validates :title, presence: true
 
   belongs_to :product
 

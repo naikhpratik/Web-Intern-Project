@@ -47,7 +47,7 @@ class Admin::MediaController < ApplicationController
   end
 
   def media_params
-    params.require(:media).permit(:local_type, :name, :caption, :transcript, :duration, :thumbnail_url, :parent_id, :product_id)
+    params.require(:media).permit(:local_type, :title, :caption, :transcript, :duration, :thumbnail_url, :parent_id, :product_id)
   end
 
 end

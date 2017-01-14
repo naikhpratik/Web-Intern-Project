@@ -9,7 +9,6 @@ $ ->
       containment: 'parent',
       update: (e, ui) ->
         content_id = ui.item.data('content-id')
-        console.log(content_id)
         position = ui.item.index()
         $.ajax(
           type: 'GET'
