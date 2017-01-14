@@ -27,7 +27,7 @@ describe "Ability" do
       user = user_with_role 'Product Manager'
       product = FactoryGirl.create(:product)
 
-      role_ids = user.roles.pluck(:title)
+      role_ids = user.roles.pluck(:name)
       product_ids = [product.id]
 
       user_products = []
