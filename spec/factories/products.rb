@@ -1,7 +1,7 @@
 FactoryGirl.define do
 
   factory :product do
-    title { Faker::Name.name }
+    title { Faker::Name.title }
     visibility "All"
   end
 
