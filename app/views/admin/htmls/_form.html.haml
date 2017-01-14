@@ -8,8 +8,8 @@
       = f.hidden_field :product_id, value: @product.id
       = f.hidden_field :parent_id, value: @content.id if @content.present?
       .form-group
-        %label= f.label :name
-        = f.text_field :name, class: 'form-control'
+        %label= f.label :title
+        = f.text_field :title, class: 'form-control'
       .form-group
         %label= f.label :description
         = f.text_field :description, class: 'form-control'

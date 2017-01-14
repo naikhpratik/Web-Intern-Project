@@ -1,7 +1,7 @@
 .panel.panel-default
   .panel-heading
     .h4
-      = modulee.name
+      = modulee.title
       .pull-right
         .btn.btn-default.btn-sm
           = link_to 'Edit', edit_admin_product_modulee_path(@product, modulee.specific)
@@ -22,7 +22,8 @@
             = link_to('Media', new_admin_product_media_path(@product, content_id: modulee.id))
     %br
     %ul.sortable
-      - modulee.children.each do |child|
+      / Re-order by :row_order so that all the children specific to modulee are in order
+      - modulee.children.order(:row_order).each do |child|
         %li{ "data-content-id": child.id }
           = render partial: child.actable_type.downcase, object: child
 / - if !modulee.parent

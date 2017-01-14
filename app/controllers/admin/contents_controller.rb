@@ -53,7 +53,7 @@ class Admin::ContentsController < ApplicationController
     if content_params[:content_id].to_i > 0
       content = Content.find(content_params[:content_id])
       content.row_order_position = content_params[:row_order_position]
-      puts content.inspect if content.save
+      content.save
     end
 
     render nothing: true
