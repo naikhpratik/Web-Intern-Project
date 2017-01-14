@@ -1,7 +1,10 @@
-class Admin::HtmlsController < ApplicationController
-	before_action :set_html, only: [:edit, :update, :destroy]
+class Admin::HtmlsController < Admin::BaseController
+	before_action :set_html, only: [:preview, :edit, :update, :destroy]
   before_action :set_product, except: [:destroy]
 	before_action :set_content, except: [:destroy]
+
+  def preview
+  end
 
   def new
     @html = Html.new(product_id: @product.id) if @product.present?
@@ -47,7 +50,7 @@ class Admin::HtmlsController < ApplicationController
   end
 
   def html_params
-  	params.require(:html).permit(:name, :description, :parent_id, :product_id)
+  	params.require(:html).permit(:title, :description, :html_source, :parent_id, :product_id)
   end
 
 end

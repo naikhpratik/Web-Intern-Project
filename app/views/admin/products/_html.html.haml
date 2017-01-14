@@ -5,4 +5,4 @@
       .btn.btn-default.btn-xs
         = link_to('edit', edit_admin_product_html_path(@product, html.specific))
   .panel-body
-    html excerpt will go here
+    = raw(html.specific.html_source)

@@ -1,4 +1,4 @@
-class Admin::MediaController < ApplicationController
+class Admin::MediaController < Admin::BaseController
   before_action :set_media, only: [:edit, :update, :destroy]
   before_action :set_product, except: [:destroy]
   before_action :set_content, except: [:destroy]
