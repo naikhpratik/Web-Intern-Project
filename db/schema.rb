@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170114065146) do
+ActiveRecord::Schema.define(version: 20170116154010) do
 
   create_table "contents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "product_id"
@@ -39,8 +39,10 @@ ActiveRecord::Schema.define(version: 20170114065146) do
   end
 
   create_table "flashcard_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text "front", limit: 65535
-    t.text "back",  limit: 65535
+    t.text    "front",        limit: 65535
+    t.text    "back",         limit: 65535
+    t.integer "flashcard_id"
+    t.index ["flashcard_id"], name: "index_flashcard_items_on_flashcard_id", using: :btree
   end
 
   create_table "flashcards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -150,6 +152,7 @@ ActiveRecord::Schema.define(version: 20170114065146) do
   add_foreign_key "contributions", "contents"
   add_foreign_key "contributions", "products"
   add_foreign_key "contributions", "users"
+  add_foreign_key "flashcard_items", "flashcards"
   add_foreign_key "user_products", "users"
   add_foreign_key "user_roles", "roles"
   add_foreign_key "user_roles", "users"

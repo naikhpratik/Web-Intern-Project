@@ -8,9 +8,11 @@
 
 %h3 Content
 .help-block
-  Note: Following items are
+  (Following items are
+  .label.label-default draggable
+  and
   .label.label-default sortable
-  and (by default) appear in the order of their creation.
+  and (by default) appear in the order of their creation.)
 %ul.sortable
   - @contents.each do |content|
     %li{ "data-content-id": content.id }

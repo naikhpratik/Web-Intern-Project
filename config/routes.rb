@@ -33,6 +33,7 @@
         end
 
         resources :modulees, path: 'modules'
+        resources :flashcards
         resources :htmls, path: 'html' do
           member do
             get 'preview'
