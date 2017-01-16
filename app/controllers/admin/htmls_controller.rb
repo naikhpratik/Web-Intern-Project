@@ -18,7 +18,7 @@ class Admin::HtmlsController < Admin::BaseController
   	@html = Html.new(html_params)
 
   	if @html.save
-  	  redirect_to admin_product_url(@product), notice: 'Html Content was successfully created'
+  	  redirect_to admin_product_html_url(@product, @html), notice: 'Html Content was successfully created'
   	else
   		render action: :new
   	end
@@ -26,7 +26,7 @@ class Admin::HtmlsController < Admin::BaseController
 
   def update
   	if @html.update(html_params)
-  		redirect_to	admin_product_url(@product), notice: 'Html Content was successfully updated.'
+  		redirect_to	preview_admin_product_html_url(@product, @html), notice: 'Html Content was successfully updated.'
   	else
   		render action: :edit
   	end

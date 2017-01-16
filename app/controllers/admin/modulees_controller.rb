@@ -17,7 +17,7 @@ class Admin::ModuleesController < Admin::BaseController
   	@modulee = Modulee.new(modulee_params)
 
   	if @modulee.save
-  	  redirect_to admin_product_url(@product), notice: 'Module was successfully created'
+  	  redirect_to admin_product_modulee_url(@product, @modulee), notice: 'Module was successfully created'
   	else
   		render action: :new
   	end
@@ -25,7 +25,7 @@ class Admin::ModuleesController < Admin::BaseController
 
   def update
   	if @modulee.update(modulee_params)
-  		redirect_to	admin_product_url(@product), notice: 'Module was successfully updated.'
+  		redirect_to	admin_product_modulee_url(@product, @modulee), notice: 'Module was successfully updated.'
   	else
   		render action: :edit
   	end
@@ -45,6 +45,6 @@ class Admin::ModuleesController < Admin::BaseController
   end
 
   def modulee_params
-  	params.require(:modulee).permit(:name, :product_id)
+  	params.require(:modulee).permit(:title, :product_id)
   end
 end
