@@ -17,7 +17,7 @@
           .btn.btn-default.btn-sm
             Quiz
           .btn.btn-default.btn-sm
-            Flashcard
+            = link_to('Flashcard', new_admin_product_flashcard_path(@product, content_id: modulee.id))
           .btn.btn-default.btn-sm
             = link_to('Media', new_admin_product_media_path(@product, content_id: modulee.id))
     %br

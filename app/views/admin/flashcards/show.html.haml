@@ -1,0 +1,24 @@
+.h2
+  Flashcard
+  %small
+    = @flashcard.title
+- @flashcard.items.each_with_index do |item, index|
+  .col-md-6  
+    .h4
+      Flashcard
+      = "##{index + 1}"
+    .col-md-6.well
+      .label.label-default
+        FRONT
+      = raw(item.front)
+    .col-md-6.well
+      .label.label-default
+        BACK
+      = raw(item.back)
+
+.row
+  .col-md-6
+    .btn.btn-default.btn-sm
+      = link_to('Back', admin_product_path(@product))
+    .btn.btn-default.btn-sm
+      = link_to('Edit', edit_admin_product_flashcard_path(@product, @flashcard))

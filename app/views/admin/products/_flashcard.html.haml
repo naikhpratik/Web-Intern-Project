@@ -1,8 +1,8 @@
 .panel.panel-default
   .panel-heading
-    = flashcard.title
+    = link_to flashcard.title, admin_product_flashcard_path(@product, flashcard.specific)
     .pull-right
       .btn.btn-default.btn-xs
-        Edit
+        = link_to('edit', edit_admin_product_flashcard_path(@product, flashcard.specific))
   .panel-body
     Flashcard deck details go here
