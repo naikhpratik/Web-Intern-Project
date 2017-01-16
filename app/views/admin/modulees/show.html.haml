@@ -22,3 +22,11 @@
       - @modulee.children.order(:row_order).each do |child|
         %li{ "data-content-id": child.id }
           = render partial: '/admin/products/' << child.actable_type.downcase, object: child
+
+.btn.btn-default.btn-sm
+  = link_to('Back', admin_product_path(@product))
+.btn.btn-default.btn-sm
+  = link_to('Edit', edit_admin_product_modulee_path(@product, @modulee))
+
+%br
+%br
