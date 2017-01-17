@@ -37,6 +37,7 @@ class Admin::FlashcardsController < Admin::BaseController
   end
 
   def update_flashcard_item_position
+    # TODO: Not cool, do something about the following 2 lines of code.
     flashcard_item = flashcard_params[:flashcard_items_attributes].first if flashcard_params[:flashcard_items_attributes].present?
     flashcard_item = flashcard_item[1] if flashcard_item.present?
 

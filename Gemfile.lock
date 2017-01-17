@@ -235,6 +235,8 @@ GEM
       mini_portile2 (~> 2.1.0)
     nokogumbo (1.4.10)
       nokogiri
+    non-stupid-digest-assets (1.0.9)
+      sprockets (>= 2.0)
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
@@ -437,6 +439,7 @@ DEPENDENCIES
   launchy
   mini_magick
   mysql2 (>= 0.3.18, < 0.5)
+  non-stupid-digest-assets (~> 1.0.9)
   progress_bar
   puma (~> 3.0)
   quiet_assets
