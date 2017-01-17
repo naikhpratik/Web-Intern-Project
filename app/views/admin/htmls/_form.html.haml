@@ -15,9 +15,9 @@
         = f.text_field :description, class: 'form-control'
         %p.help-block
           (Not shown to users - For content management only)
-      .form-group
-        %label
-          HTML
-        = f.cktext_area :html_source
-      .form-group
-        = f.submit class: 'btn btn-sm btn-default'
+  .form-group
+    %label
+      HTML
+    = f.cktext_area :html_source, ckeditor: { rows: 25 }
+  .form-group
+    = f.submit class: 'btn btn-sm btn-default', value: 'Save Html'

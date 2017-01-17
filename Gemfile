@@ -60,6 +60,9 @@ gem "cocoon"
 gem "figaro"
 # Text Editor
 gem 'ckeditor'
+# File Uploader (using https for data transmission with encryption)
+gem 'carrierwave', git: 'https://github.com/carrierwaveuploader/carrierwave.git'
+gem 'mini_magick'
 
 # Sanitize HTML
 gem 'sanitize'
