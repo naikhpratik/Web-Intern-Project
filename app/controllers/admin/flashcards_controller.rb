@@ -4,6 +4,7 @@ class Admin::FlashcardsController < Admin::BaseController
   before_action :set_content, except: [:destroy]
 
   def show
+    @flashcard_items = @flashcard.items.rank(:row_order)
   end
 
   def new
@@ -35,6 +36,19 @@ class Admin::FlashcardsController < Admin::BaseController
   def destroy
   end
 
+  def update_flashcard_item_position
+    flashcard_item = flashcard_params[:flashcard_items_attributes].first if flashcard_params[:flashcard_items_attributes].present?
+    flashcard_item = flashcard_item[1] if flashcard_item.present?
+
+    if flashcard_item.present? && flashcard_item[:id].to_i > 0
+      fitem = FlashcardItem.find(flashcard_item[:id])
+      fitem.row_order_position = flashcard_item[:row_order_position]
+      fitem.save
+    end
+
+    render nothing: true
+  end
+
   private
 
   def set_flashcard
@@ -50,7 +64,7 @@ class Admin::FlashcardsController < Admin::BaseController
   end
 
   def flashcard_params
-    params.require(:flashcard).permit(:title, :parent_id, :product_id, flashcard_items_attributes: [:id, :front, :back, :_destroy])
+    params.require(:flashcard).permit(:title, :parent_id, :product_id, flashcard_items_attributes: [:id, :front, :back, :row_order_position, :_destroy])
   end
 
 end

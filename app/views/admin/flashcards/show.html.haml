@@ -3,22 +3,20 @@
   %small
     = @flashcard.title
 .help-block (Click on the tiles to flip sides)
-- @flashcard.items.each_with_index do |item, index|
+.row
   .col-md-6
-    .h4
-      Flashcard
-      = "##{index + 1}"
-    .well.flashcard-item-view
-      .h6
-        .label
-          FRONT
-        = raw(item.front)
-      .h6.hidden
-        .label
-          BACK
-        = raw(item.back)
-      .p.hidden
-        Click the tile to flip sides
+    %ul#sortable_flashcard_items
+      - @flashcard_items.each_with_index do |item, index|
+        %li{ "data-flashcard-item-id": item.id }
+          .well.flashcard-item-view
+            .h6
+              .label
+                FRONT
+              = raw(item.front)
+            .h6.hidden
+              .label
+                BACK
+              = raw(item.back)
 
 .row
   .col-md-6

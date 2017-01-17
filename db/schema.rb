@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170117111930) do
+ActiveRecord::Schema.define(version: 20170117111931) do
 
   create_table "ckeditor_assets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "data_file_name",               null: false
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20170117111930) do
     t.text    "front",        limit: 65535
     t.text    "back",         limit: 65535
     t.integer "flashcard_id"
+    t.integer "row_order"
     t.index ["flashcard_id"], name: "index_flashcard_items_on_flashcard_id", using: :btree
   end
 
