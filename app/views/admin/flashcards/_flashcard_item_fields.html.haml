@@ -1,9 +1,8 @@
 .row.nested-fields
-  .col-md-6.form-group.field
-    %label= f.label :front
+  .col-md-5.form-group.field
     = f.cktext_area :front, class: 'form-control', ckeditor: { toolbar: :mini }
-    = link_to_remove_association "<span class='glyphicon glyphicon-remove'></span> Remove Flashcard".html_safe, f, class: 'btn btn-default btn-sm'
-  .col-md-6.form-group.field
-    %label= f.label :back
+  .col-md-5.form-group.field
     = f.cktext_area :back, class: 'form-control', ckeditor: { toolbar: :mini }
-    
+  .col-md-2
+    = link_to_remove_association "<span class='glyphicon glyphicon-remove'></span> Delete".html_safe, f, class: 'btn btn-default btn-sm'
+%br

@@ -2,19 +2,23 @@
   Flashcard
   %small
     = @flashcard.title
+.help-block (Click on the tiles to flip sides)
 - @flashcard.items.each_with_index do |item, index|
-  .col-md-6  
+  .col-md-6
     .h4
       Flashcard
       = "##{index + 1}"
-    .col-md-6.well
-      .label.label-default
-        FRONT
-      = raw(item.front)
-    .col-md-6.well
-      .label.label-default
-        BACK
-      = raw(item.back)
+    .well.flashcard-item-view
+      .h6
+        .label
+          FRONT
+        = raw(item.front)
+      .h6.hidden
+        .label
+          BACK
+        = raw(item.back)
+      .p.hidden
+        Click the tile to flip sides
 
 .row
   .col-md-6

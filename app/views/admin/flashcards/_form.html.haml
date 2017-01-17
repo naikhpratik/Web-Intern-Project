@@ -1,5 +1,5 @@
 .h1
-  Flashcard Deck
+  Flashcard
 = form_for [:admin, @product, @flashcard] do |f|
   .row
     .col-md-6
@@ -11,9 +11,17 @@
         %label= f.label :title
         = f.text_field :title, class: 'form-control'
 
-  .h4 Flashcard Item
+  .h4 Flashcard Items
+
+  - if @flashcard.flashcard_items.present?
+    .row
+      .col-md-5
+        .h5 Front
+      .col-md-5
+        .h5 Back
+
   = f.fields_for :flashcard_items do |flashcard_item|
     = render 'flashcard_item_fields', f: flashcard_item
   .form-group.links
     = link_to_add_association 'New Flashcard Item', f, :flashcard_items, class: 'btn btn-default btn-sm'
-    = f.submit class: 'btn btn-sm btn-default'
+    = f.submit class: 'btn btn-sm btn-default', value: 'Save Flashcard'
