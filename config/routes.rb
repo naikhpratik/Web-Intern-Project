@@ -33,7 +33,11 @@
         end
 
         resources :modulees, path: 'modules'
-        resources :flashcards
+        resources :flashcards do
+          member do
+            get 'update_flashcard_item_position'
+          end
+        end
         resources :htmls, path: 'html' do
           member do
             get 'preview'
