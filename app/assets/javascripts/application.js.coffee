@@ -20,6 +20,7 @@
 # //= require admin
 # //= require products
 # //= require contributions
+# //= require flashcards
 # //= require cocoon
 # //= require ckeditor/init
 # //= require bootstrap-sprockets
