@@ -87,9 +87,9 @@ namespace :deploy do
 
 end
 
-#require 'airbrake/capistrano3'
-#after "deploy:finished", "airbrake:deploy"
-
+namespace :deploy do
+  after :finished, 'airbrake:deploy'
+end
 
 namespace :rails do
   desc 'Open a rails console `cap [staging] rails:console [server_index default: 0]`'
