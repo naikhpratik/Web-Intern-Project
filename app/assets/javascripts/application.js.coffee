@@ -22,6 +22,7 @@
 # //= require contributions
 # //= require flashcards
 # //= require cocoon
+# //= require bugherd
 # //= require ckeditor/init
 # //= require bootstrap-sprockets
 # //= require jquery.countdown.js
