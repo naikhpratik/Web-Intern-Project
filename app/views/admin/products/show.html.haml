@@ -5,9 +5,22 @@
   %p
     %strong Visibility:
     = @product.visibility
+
 %h3 Content
-- @contents.each do |content|
-  = render partial: content.actable_type.downcase, object: content
+.help-block
+  (Following items are
+  .label.label-default draggable
+  and
+  .label.label-default sortable
+  and (by default) appear in the order of their creation.)
+%ul.sortable
+  - @contents.each do |content|
+    %li{ "data-content-id": content.id }
+      = render partial: content.actable_type.downcase, object: content
 %br
+= link_to('Add Module', new_admin_product_modulee_path(@product), class: 'btn btn-default') if can? :update, @product
 = link_to 'Edit', edit_admin_product_path(@product), class: 'btn btn-default' if can? :update, @product
 = link_to 'Back', admin_products_path, class: 'btn btn-default'
+
+%br
+%br

@@ -1,0 +1,28 @@
+.h2
+  Flashcard Deck
+  %small
+    = @flashcard.title
+%br
+.h4 Cards
+.help-block (Click on the tiles to flip sides)
+.row
+  .col-md-6
+    %ul#sortable_flashcard_items
+      - @flashcard_items.each_with_index do |item, index|
+        %li{ "data-flashcard-item-id": item.id }
+          .well.flashcard-item-view
+            .h6
+              .label
+                FRONT
+              = raw(item.front)
+            .h6.hidden
+              .label
+                BACK
+              = raw(item.back)
+
+.row
+  .col-md-6
+    .btn.btn-default.btn-sm
+      = link_to('Back', admin_product_path(@product))
+    .btn.btn-default.btn-sm
+      = link_to('Edit', edit_admin_product_flashcard_path(@product, @flashcard))

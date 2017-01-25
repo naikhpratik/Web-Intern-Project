@@ -22,7 +22,7 @@
         <%if c.specific.present? %>
           <div class="checkbox">
             <label>
-              <input type="checkbox" value="<%= c.id %>" name="contributor[modules][]" <%= "checked" if @contributions.include?(c.id) %>> <%= c.specific.name %>
+              <input type="checkbox" value="<%= c.id %>" name="contributor[modules][]" <%= "checked" if @contributions.include?(c.id) %>> <%= c.specific.title %>
             </label>
           </div>
         <% end %>

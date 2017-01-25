@@ -1,6 +1,9 @@
 require 'csv'
 class Content < ApplicationRecord
-  CONTENT_TYPES = ['Modulee', 'Quiz', 'Flashcard', 'Html', 'Audio', 'Video']
+  CONTENT_TYPES = ['Modulee', 'Quiz', 'Flashcard', 'Html', 'Media']
+
+  include RankedModel
+  ranks :row_order, class_name: 'Content'
 
   actable
   has_ancestry
@@ -10,7 +13,7 @@ class Content < ApplicationRecord
   has_many :user_contents, dependent: :destroy
   has_many :users,  through: :user_contents
 
-  validates :name, presence: true
+  validates :title, presence: true
 
   belongs_to :product
 

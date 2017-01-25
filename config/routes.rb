@@ -33,9 +33,23 @@
         end
 
         resources :modulees, path: 'modules'
+        resources :flashcards do
+          member do
+            get 'update_flashcard_item_position'
+          end
+        end
+        resources :htmls, path: 'html' do
+          member do
+            get 'preview'
+          end
+        end
+        resources :media
       end
 
       resources :contents do
+        collection do
+          get 'update_content_position'
+        end
 
         post 'usercontentssave'
         post 'usercontentsupdate'
@@ -47,8 +61,6 @@
 
           end
         end
-
-        resources :html
 
       end
 
