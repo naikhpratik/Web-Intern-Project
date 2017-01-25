@@ -1,5 +1,5 @@
 .h1
-  Flashcard
+  Flashcard Deck
 = form_for [:admin, @product, @flashcard] do |f|
   .row
     .col-md-6
@@ -11,7 +11,7 @@
         %label= f.label :title
         = f.text_field :title, class: 'form-control'
 
-  .h4 Flashcard Items
+  .h4 Cards
 
   - if @flashcard.flashcard_items.present?
     .row
