@@ -20,6 +20,8 @@ class Admin::HtmlsController < Admin::BaseController
   	if @html.save
   	  redirect_to preview_admin_product_html_url(@product, @html), notice: 'Html Content was successfully created'
   	else
+      # persist content if the form validation fails
+      @content ||= Content.find(html_params[:parent_id].to_i) if html_params[:parent_id].present?
   		render action: :new
   	end
   end

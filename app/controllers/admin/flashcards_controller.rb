@@ -21,6 +21,9 @@ class Admin::FlashcardsController < Admin::BaseController
     if @flashcard.save
       redirect_to admin_product_flashcard_url(@product, @flashcard), notice: 'Flashcard Content was successfully created'
     else
+      # persist content if the form validation fails
+      @content ||= Content.find(flashcard_params[:parent_id].to_i) if flashcard_params[:parent_id].present?
+      
       render action: :new
     end
   end

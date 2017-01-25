@@ -17,6 +17,8 @@ class Admin::MediaController < Admin::BaseController
     if @media.save
       redirect_to admin_product_url(@product), notice: "#{@media.local_type.capitalize} content was successfully created"
     else
+      # persist content if the form validation fails
+      @content ||= Content.find(flashcard_params[:parent_id].to_i) if flashcard_params[:parent_id].present?
       render action: :new
     end
   end
