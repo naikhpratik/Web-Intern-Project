@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170117111931) do
+ActiveRecord::Schema.define(version: 20170202192351) do
+
+  create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text    "text",        limit: 65535
+    t.integer "question_id"
+    t.index ["question_id"], name: "index_answers_on_question_id", using: :btree
+  end
 
   create_table "ckeditor_assets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "data_file_name",               null: false
@@ -86,17 +92,24 @@ ActiveRecord::Schema.define(version: 20170117111931) do
     t.string   "visibility"
   end
 
+  create_table "questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text    "hint",        limit: 65535
+    t.text    "explanation", limit: 65535
+    t.integer "answer_id"
+    t.index ["answer_id"], name: "index_questions_on_answer_id", using: :btree
+  end
+
   create_table "quiz_questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text    "question",      limit: 65535
-    t.text    "hint",          limit: 65535
-    t.integer "content_id"
-    t.string  "question_type"
-    t.text    "correct",       limit: 65535
-    t.text    "distractors",   limit: 65535
-    t.text    "explination",   limit: 65535
+    t.integer "quiz_id"
+    t.integer "question_id"
+    t.index ["question_id"], name: "index_quiz_questions_on_question_id", using: :btree
+    t.index ["quiz_id"], name: "index_quiz_questions_on_quiz_id", using: :btree
   end
 
   create_table "quizzes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string  "type"
+    t.integer "time"
+    t.integer "row_order"
   end
 
   create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -166,6 +179,8 @@ ActiveRecord::Schema.define(version: 20170117111931) do
   add_foreign_key "contributions", "products"
   add_foreign_key "contributions", "users"
   add_foreign_key "flashcard_items", "flashcards"
+  add_foreign_key "quiz_questions", "questions"
+  add_foreign_key "quiz_questions", "quizzes"
   add_foreign_key "user_products", "users"
   add_foreign_key "user_roles", "roles"
   add_foreign_key "user_roles", "users"
