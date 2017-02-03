@@ -43,6 +43,7 @@
             get 'preview'
           end
         end
+        resources :quizzes
         resources :media
       end
 

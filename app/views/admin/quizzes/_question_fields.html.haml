@@ -1,0 +1,17 @@
+.row.nested-fields
+  .well.col-md-8.col-md-offset-1
+    .row
+      .col-md-10.form-group.field
+        = f.label :hint
+        = f.text_field :hint, class: 'form-control'
+    .row
+      .col-md-10.form-group.field
+        = f.label :explanation
+        = f.text_area :explanation, class: 'form-control'
+      .col-md-2
+        = link_to_remove_association "<span class='glyphicon glyphicon-remove'></span> Delete".html_safe, f, class: 'btn btn-default btn-sm btn-question-rmv'
+    .row
+      = f.fields_for :answers do |answer|
+        = render 'answer_fields', f: answer
+      = link_to_add_association 'New Answer', f, :answers, class: 'btn btn-default btn-sm'
+%br
