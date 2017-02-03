@@ -3,6 +3,6 @@
     = quiz.title
     .pull-right
       .btn.btn-default.btn-xs
-        Edit
+        = link_to('edit', edit_admin_product_quiz_path(@product, quiz.specific))
   .panel-body
     quiz details go here

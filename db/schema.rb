@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170202192351) do
+ActiveRecord::Schema.define(version: 20170203150420) do
 
   create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text    "text",        limit: 65535
@@ -107,9 +107,8 @@ ActiveRecord::Schema.define(version: 20170202192351) do
   end
 
   create_table "quizzes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string  "type"
+    t.string  "q_type"
     t.integer "time"
-    t.integer "row_order"
   end
 
   create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
