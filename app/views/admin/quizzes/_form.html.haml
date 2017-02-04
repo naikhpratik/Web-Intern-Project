@@ -2,7 +2,7 @@
   Quiz
 = form_for [:admin, @product, @quiz] do |f|
   .row
-    .col-md-6
+    .col-md-7
       = errors_for(@quiz)
 
       = f.hidden_field :product_id, value: @product.id
@@ -16,9 +16,11 @@
       .form-group
         %label= f.label "Time (in seconds)"
         = f.number_field :time, class: 'form-control', min: 10, step: 10
+  
   %h4 Questions
   = f.fields_for :questions do |question|
     = render 'question_fields', f: question
+
   .form-group.links
     = link_to_add_association 'New Question', f, :questions, class: 'btn btn-default btn-sm'
     = f.submit class: 'btn btn-sm btn-default'
