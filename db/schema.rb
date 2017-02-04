@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170203150420) do
+ActiveRecord::Schema.define(version: 20170203161605) do
 
   create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text    "text",        limit: 65535
@@ -96,14 +96,9 @@ ActiveRecord::Schema.define(version: 20170203150420) do
     t.text    "hint",        limit: 65535
     t.text    "explanation", limit: 65535
     t.integer "answer_id"
-    t.index ["answer_id"], name: "index_questions_on_answer_id", using: :btree
-  end
-
-  create_table "quiz_questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "quiz_id"
-    t.integer "question_id"
-    t.index ["question_id"], name: "index_quiz_questions_on_question_id", using: :btree
-    t.index ["quiz_id"], name: "index_quiz_questions_on_quiz_id", using: :btree
+    t.index ["answer_id"], name: "index_questions_on_answer_id", using: :btree
+    t.index ["quiz_id"], name: "index_questions_on_quiz_id", using: :btree
   end
 
   create_table "quizzes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -178,8 +173,7 @@ ActiveRecord::Schema.define(version: 20170203150420) do
   add_foreign_key "contributions", "products"
   add_foreign_key "contributions", "users"
   add_foreign_key "flashcard_items", "flashcards"
-  add_foreign_key "quiz_questions", "questions"
-  add_foreign_key "quiz_questions", "quizzes"
+  add_foreign_key "questions", "quizzes"
   add_foreign_key "user_products", "users"
   add_foreign_key "user_roles", "roles"
   add_foreign_key "user_roles", "users"
