@@ -1,10 +1,9 @@
 .row.nested-fields
-  .col-md-8
+  .col-md-10
     .row
       .col-md-1.form-group.field
-        = radio_button_tag :correct, {}
-      .col-md-9.form-group.field
+        = f.radio_button :correct, {}
+      .col-md-10.form-group.field
         = f.text_field :text, placeholder: 'answer text', class: 'form-control'
-      .col-md-2
-        = link_to_remove_association "<span class='glyphicon glyphicon-remove'></span> Delete".html_safe, f, class: 'btn btn-default btn-sm'
-%br
+      .col-md-1
+        = link_to_remove_association "<span class='glyphicon glyphicon-remove'></span>".html_safe, f, class: 'btn btn-warning btn-sm btn-answer-rmv'

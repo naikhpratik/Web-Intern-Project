@@ -14,8 +14,8 @@
         %label= f.label 'Type'
         = f.text_field :q_type, class: 'form-control'
       .form-group
-        %label= f.label :time
-        = f.text_field :time, class: 'form-control'
+        %label= f.label "Time (in seconds)"
+        = f.number_field :time, class: 'form-control', min: 10, step: 10
   %h4 Questions
   = f.fields_for :questions do |question|
     = render 'question_fields', f: question
