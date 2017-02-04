@@ -1,16 +1,23 @@
 .row.nested-fields
-  .well.col-md-8.col-md-offset-1
-    = link_to_remove_association "<span class='glyphicon glyphicon-remove'></span>".html_safe, f, class: 'btn btn-warning btn-sm btn-question-rmv'
-    .row
-      .col-md-10.form-group.field
-        = f.label :hint
-        = f.text_field :hint, class: 'form-control'
-    .row
-      .col-md-10.form-group.field
-        = f.label :explanation
-        = f.text_area :explanation, class: 'form-control'
-    .row
-      = f.fields_for :answers do |answer|
-        = render 'answer_fields', f: answer
-      = link_to_add_association 'New Answer', f, :answers, class: 'btn btn-default btn-sm btn-answer-add'
-%br
+  .col-md-8
+    .panel.panel-default
+      .panel-heading
+        .h5.panel-title.pull-left &nbsp; 
+        .pull-right
+          = link_to "<span class='glyphicon glyphicon-chevron-up'></span>".html_safe, "#", class: 'btn btn-warning btn-sm clickable'
+          = link_to_remove_association "<span class='glyphicon glyphicon-remove'></span>".html_safe, f, class: 'btn btn-warning btn-sm'
+        .clearfix
+
+      .panel-body
+        .row
+          .col-md-10.form-group.field
+            = f.label :explanation
+            = f.text_area :explanation, class: 'form-control'
+        .row
+          .col-md-10.form-group.field
+            = f.label :hint
+            = f.text_field :hint, class: 'form-control'
+        .row
+          = f.fields_for :answers do |answer|
+            = render 'answer_fields', f: answer
+          = link_to_add_association 'New Answer', f, :answers, class: 'btn btn-default btn-sm btn-answer-add'

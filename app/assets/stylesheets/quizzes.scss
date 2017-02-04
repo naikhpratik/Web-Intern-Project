@@ -4,8 +4,9 @@
 
 .btn-question-rmv {
   position: absolute;
-  right: 0;
-  top: 0;
+  right: 20px;
+  top: 5px;
+  padding: 4px 8px !important;
 }
 
 .btn-answer-add {
@@ -13,7 +14,7 @@
 }
 
 .btn-answer-rmv {
-  margin-left: -9px;
+  margin-left: -11px;
 }
 
 .form-group.field > input[type="radio"] {

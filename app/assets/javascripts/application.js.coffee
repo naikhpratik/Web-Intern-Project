@@ -21,6 +21,7 @@
 # //= require products
 # //= require contributions
 # //= require flashcards
+# //= require quizzes
 # //= require cocoon
 # //= require bugherd
 # //= require ckeditor/init
