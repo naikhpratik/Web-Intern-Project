@@ -3,5 +3,20 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .btn-question-rmv {
-  margin-top: -7px !important;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.btn-answer-add {
+  margin-left: 15px;
+}
+
+.btn-answer-rmv {
+  margin-left: -9px;
+}
+
+.form-group.field > input[type="radio"] {
+  margin-left: 19px;
+  margin-top: 12px;
 }
