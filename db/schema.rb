@@ -10,11 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170203161605) do
+ActiveRecord::Schema.define(version: 20170205033255) do
 
   create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text    "text",        limit: 65535
     t.integer "question_id"
+    t.boolean "correct"
     t.index ["question_id"], name: "index_answers_on_question_id", using: :btree
   end
 
@@ -95,9 +96,7 @@ ActiveRecord::Schema.define(version: 20170203161605) do
   create_table "questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text    "hint",        limit: 65535
     t.text    "explanation", limit: 65535
-    t.integer "answer_id"
     t.integer "quiz_id"
-    t.index ["answer_id"], name: "index_questions_on_answer_id", using: :btree
     t.index ["quiz_id"], name: "index_questions_on_quiz_id", using: :btree
   end
 
