@@ -10,14 +10,14 @@
 
       .panel-body
         .row
-          .col-md-10.form-group.field
+          .col-md-12.form-group.field
             = f.label :explanation
             = f.text_area :explanation, class: 'form-control'
         .row
-          .col-md-10.form-group.field
+          .col-md-12.form-group.field
             = f.label :hint
             = f.text_field :hint, class: 'form-control'
-        .row
+        .row.answers
           = f.fields_for :answers do |answer|
             = render 'answer_fields', f: answer
           = link_to_add_association 'New Answer', f, :answers, class: 'btn btn-default btn-sm btn-answer-add'
