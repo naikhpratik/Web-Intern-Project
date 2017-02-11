@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %title C3Suite
+    = include_gon
+    = csrf_meta_tags
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    / #nope#
+    = stylesheet_link_tag "jquery.countdown",'data-turbolinks-eval': 'reload'
+    = javascript_include_tag "jquery.countdown",'data-turbolinks-eval': 'reload'
+    = javascript_include_tag "jquery.plugin",'data-turbolinks-eval': 'reload'
+  %body
+    .container
+      = render 'layouts/navbar'
+      .row
+        - if current_user && (current_user.is_admin? || current_user.is_product_manager? || current_user.is_content_contributor?)
+          .col-md-2.sidebar
+            = render 'layouts/sidebar'
+          .col-md-10.col-md-offset-2
+            = render 'layouts/messages'
+            = yield
+        - else
+          .col-md-12
+            = render 'layouts/messages'
+            = yield

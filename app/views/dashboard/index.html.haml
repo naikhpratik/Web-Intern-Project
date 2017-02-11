@@ -1,0 +1,27 @@
+- if @my_products.present?
+  .row
+    %h3 My Products
+  .row
+    - @my_products.each do |product|
+      .col-md-4.col-sm-6
+        .thumbnail
+          %img = image_url('http://lorempixel.com/512/512')
+          .caption
+            %h3 = product.title
+            %p Lorem ipsum
+            %p
+              = link_to 'Launch', product_url, class: 'btn btn-primary'
+- if @products.present?
+  .row
+    %h3 Available Products
+  .row
+    - @products.each do |product|
+      .col-md-4.col-sm-6
+        .thumbnail
+          = image_tag('http://lorempixel.com/512/512')
+          .caption
+            %h3
+              = product.title
+            %p Lorem ipsum
+            %p
+              = link_to 'Buy', product_url(product), class: 'btn btn-primary'
