@@ -1,0 +1,23 @@
+// Place all the styles related to the admin::quizzes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.btn-question-rmv {
+  position: absolute;
+  right: 20px;
+  top: 5px;
+  padding: 4px 8px !important;
+}
+
+.btn-answer-add {
+  margin-left: 15px;
+}
+
+.btn-answer-rmv {
+  margin-left: -11px;
+}
+
+.form-group.field > input[type="radio"] {
+  margin-left: 19px;
+  margin-top: 12px;
+}

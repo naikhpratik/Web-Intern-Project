@@ -5,6 +5,9 @@
       .pull-right
         .btn.btn-default.btn-sm
           = link_to 'Edit', edit_admin_product_modulee_path(@product, modulee.specific)
+        .btn.btn-default.btn-sm
+          .glyphicon.glyphicon-sort
+
   .panel-body
     .row
       .col-md-12
@@ -15,7 +18,7 @@
           .btn.btn-default.btn-sm
             = link_to('HTML', new_admin_product_html_path(@product, content_id: modulee.id))
           .btn.btn-default.btn-sm
-            Quiz
+            = link_to('Quiz', new_admin_product_quiz_path(@product, content_id: modulee.id))
           .btn.btn-default.btn-sm
             = link_to('Flashcard', new_admin_product_flashcard_path(@product, content_id: modulee.id))
           .btn.btn-default.btn-sm
