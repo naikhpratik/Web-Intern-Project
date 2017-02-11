@@ -24,7 +24,8 @@ class Admin::QuizzesController < Admin::BaseController
   end
 
   def update
-    if @quiz.update(quiz_params)
+    reset_params = reset_answer_params(quiz_params)
+    if @quiz.update(reset_params)
       redirect_to admin_product_url(@product), notice: 'Quiz was successfully updated.'
     else
       render action: :edit
@@ -50,6 +51,18 @@ class Admin::QuizzesController < Admin::BaseController
 
   def quiz_params
     params.require(:quiz).permit(:title, :q_type, :time, :parent_id, :product_id, questions_attributes: [:id, :hint, :explanation, :_destroy, answers_attributes: [:id, :text, :correct, :_destroy]])
+  end
+
+  def reset_answer_params rparams
+    rparams[:questions_attributes].each do |q_no, q|
+      q[:answers_attributes].each do |a_no, a|
+        if a[:correct].nil?
+          a[:correct] = false
+        end
+      end
+    end
+
+    rparams
   end
 
 end
