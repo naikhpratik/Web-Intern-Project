@@ -1,6 +1,6 @@
-%br/
-%h5
-  %strong Title:
-  = @product.title
-%br/
-= link_to 'Back', dashboard_path, class: 'btn btn-sm btn-primary'
+.row
+  = image_tag('http://lorempixel.com/1920/480', class: 'center-block img-responsive hidden-xs')
+  = image_tag('http://lorempixel.com/200/200', class: 'center-block img-callout')
+.row.product-title
+  %h1
+    = @product.title
