@@ -1,3 +1,5 @@
+CKEDITOR_BASEPATH = '/public/assets/javascript/ckeditor'
+
 CKEDITOR.config.height = 300;
 
 CKEDITOR.config.extraPlugins = 'autogrow image2';
