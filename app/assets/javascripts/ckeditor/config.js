@@ -1,19 +1,3 @@
-// CKEDITOR.editorConfig = function( config )
-// {
-//   config.extraPlugins = 'autogrow';
-
-//   // Allow all the elements ...
-//   config.allowedContent = {
-//     $1: {
-//         elements: CKEDITOR.dtd,
-//         attributes: true
-//     }
-//   };
-//   // ... except the following
-//   config.disallowedContent = 'styles script; *[on*]';
-// };
-
-
 CKEDITOR.config.height = 300;
 
 CKEDITOR.config.extraPlugins = 'autogrow image2';
