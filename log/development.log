@@ -11317,3 +11317,4 @@ Completed 200 OK in 693ms (Views: 624.7ms | ActiveRecord: 5.9ms)
 
   [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+DEPRECATION WARNING: alias_method_chain is deprecated. Please, use Module#prepend instead. From module, you can access the original method using super. (called from <top (required)> at /Users/zacek/Projects/C3suite_server/config/environment.rb:5)
