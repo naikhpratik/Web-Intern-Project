@@ -1,0 +1,36 @@
+.h3 Contents
+
+%table.table.table-condensed
+  %thead
+    %tr
+      %th Product
+      %th Content
+      %th Type
+      %th
+
+  %tbody
+    - @contents.each do |i, content_group|
+      - content_group.each_with_index do |content, j|
+        %tr
+          - if j == 0
+            %td{ rowspan: content_group.count }
+              = content.product.title
+          %td
+            = link_to content.title, admin_content_path(content)
+          %td
+            = content.actable_type
+          %td
+            .btn-group
+              %button{ type: 'button', class: 'btn btn-sm btn-primary dropdown-toggle', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: false } }
+                Actions
+                %span.caret
+              %ul.dropdown-menu
+                %li
+                  = link_to 'View', admin_content_path(content)
+                %li
+                  = link_to 'Edit', edit_admin_content_path(content)
+
+                %li
+                  = link_to 'Destroy', admin_content_path(content), method: :delete, data: { confirm: 'Are you sure?' }
+
+%br

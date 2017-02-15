@@ -1,0 +1,44 @@
+.h3
+  Content
+
+%p
+  %strong
+    Product: 
+  = @content.product.title
+
+%p
+  %strong
+    Title:  
+  = @content.title
+
+%p
+  %strong
+    Type: 
+  = @content.actable_type
+
+%p
+  %strong
+    Time: 
+  = @content.time
+
+= link_to 'Edit', edit_admin_content_path(@content), class: 'btn btn-sm btn-default' if can? :update, @content
+= link_to 'Back', admin_contents_path, class: 'btn btn-sm btn-default'
+
+%br
+/ <div>
+/   <% if !@min %>
+/     <%= form_for( @content, :url => admin_content_usercontentssave_path( @content ), :html => { :method => :post } ) do |f| %>
+/     <span><input type="submit" value="Start Test" onclick="starttimer()" id="start" class='btn btn-sm btn-success'></span>
+/     <% end %>
+/     <input type="hidden" value="Stop Test" onclick="stoptimer()" id="stop" class='btn btn-sm btn-success'>
+/   <% end %>
+
+/   <%= form_for( @content, :url => admin_content_usercontentsupdate_path( @content ), :html => { :method => :post } ) do |f| %>
+/   <span>  <input type="submit" value="Finish" id="finish" class='btn btn-sm btn-success'></span>
+/   <% end %>
+
+/   <% if !@min %>
+/   <span>  <%= link_to 'Back', admin_product_path(@backid) , class: 'btn btn-sm btn-primary', :id=>"link_to"%></span>
+/   <% end %>
+/     <span><input type="submit" value="Pause" onclick="pausetimer()" id="pause" class='btn btn-sm btn-success' style="display:none;"></span>
+/ </div>
