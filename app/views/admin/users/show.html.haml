@@ -1,0 +1,33 @@
+.h3 Account Details
+%p
+  %strong Username:
+  = @user.username
+  
+  %br
+  %br
+  
+  %strong Email:
+  = @user.email
+
+  - if @user.roles.present?
+    %br
+    %br
+    %strong Roles:
+    = @user.roles.map(&:name).join(', ')
+
+- if @user.products.present?
+  %strong Products and roles
+  .row
+    .col-md-5
+      .row
+        - @user.products.each do |product|
+          .col-md-6
+            = product.title
+          .col-md-6
+            = @user.user_products.role(product.id)
+
+%br
+.row
+  .col-md-12
+    = link_to 'Edit', edit_admin_user_path(@user), class: 'btn btn-sm btn-success' if can? :manage, @user
+    = link_to 'Back', admin_users_path, class: 'btn btn-sm btn-primary'

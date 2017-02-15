@@ -3,19 +3,18 @@ class Admin::UsersController < Admin::BaseController
   before_action :set_user, only: [:assign_products, :create_products, :show, :edit, :update, :destroy]
 
   def index
-  	@users = User.all_except(current_user)
+  	@users = User.all
   end
 
   def show
-    @prod=Product.all
   end
 
   def new
     @user = User.new
     if current_user.is_admin?
-      @roles = Role.all.map(&:name)
+      @roles = Role.all.pluck(:name)
     elsif current_user.is_product_manager?
-      @roles = Role.where(:name=>['Content Contributor','Instructor']).pluck(:name)
+      @roles = Role.where(name: [User::PRODUCT_MANAGER, User::CONTENT_CONTRIBUTOR]).pluck(:name)
     end
   end
 
@@ -34,14 +33,7 @@ class Admin::UsersController < Admin::BaseController
 
   def create
     @user = User.new(user_params)
-    user_roles = []
-    @roles = Role.all.map(&:name)
-    #@value = true
-    user_params[:role_ids].each do |role_id|
-      user_roles.push(UserRole.create({user_id: @user.id, role_id: role_id})) unless role_id.blank?
-    end
-
-    @user.user_roles = user_roles
+    @user.roles = roles
 
     respond_to do |format|
       if @user.save
@@ -53,16 +45,13 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def update
-    @user.user_roles.destroy_all
-    @user.user_products.destroy_with_roles user_params[:role_ids]
-    user_roles = []
+    # New to-be-added user roles
+    @user.user_roles = roles.collect { |r| UserRole.find_or_create_by(user_id: @user.id, role_id: r.id) }
 
-    user_params[:role_ids].each do |role_id|
-      user_roles.push(UserRole.create({user_id: @user.id, role_id: role_id})) unless role_id.blank?
-    end
+    # @user.user_products.destroy_with_roles user_params[:role_ids]
 
     respond_to do |format|
-      if (password_upchanged? && @user.update_without_password(user_params)) || @user.update(user_params)
+      if (password_unchanged? && @user.update_without_password(user_params)) || @user.update(user_params)
         format.html { redirect_to admin_user_url(@user), notice: 'User was successfully updated.' }
       else
         format.html { render :edit }
@@ -112,26 +101,14 @@ class Admin::UsersController < Admin::BaseController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
         params.require(:user).permit(:username, :email, :password, :password_confirmation).tap do |whitelisted|
-        whitelisted[:role_ids] = get_new_ids params[:role_ids]
       end
     end
 
-    def password_upchanged?
+    def roles
+      params[:roles].collect { |name| Role.find_by_name(name) }.compact unless params[:roles].blank?
+    end
+
+    def password_unchanged?
       user_params[:password].blank?
-    end
-
-    # TODO: Find a better alternative
-    def get_new_ids role_names
-      roles = Role.all.select(:name, :id)
-      role_names = role_names
-      role_ids = []
-
-      role_names.each do |role_name|
-        roles.each do |role|
-          role_ids.push(role.id) if role.name == role_name
-      end
-    end
-
-      role_ids
     end
 end
