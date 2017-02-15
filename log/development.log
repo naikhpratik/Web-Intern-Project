@@ -14412,3 +14412,4 @@ WHERE fk.referenced_column_name is not null
   AND fk.table_schema = 'C3Suite_development'
   AND fk.table_name = 'videos'
 [0m
+DEPRECATION WARNING: alias_method_chain is deprecated. Please, use Module#prepend instead. From module, you can access the original method using super. (called from <top (required)> at /Users/zacek/Projects/C3suite_server/config/environment.rb:5)
