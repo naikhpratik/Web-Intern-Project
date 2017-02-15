@@ -10,13 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170208104154) do
+ActiveRecord::Schema.define(version: 20170215164457) do
 
   create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text    "text",        limit: 65535
     t.integer "question_id"
     t.boolean "correct"
     t.index ["question_id"], name: "index_answers_on_question_id", using: :btree
+  end
+
+  create_table "audios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "play_count"
   end
 
   create_table "ckeditor_assets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -58,10 +62,12 @@ ActiveRecord::Schema.define(version: 20170208104154) do
   end
 
   create_table "flashcard_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text    "front",        limit: 65535
-    t.text    "back",         limit: 65535
-    t.integer "flashcard_id"
-    t.integer "row_order"
+    t.text     "front",        limit: 65535
+    t.text     "back",         limit: 65535
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "flashcard_id"
+    t.integer  "row_order"
     t.index ["flashcard_id"], name: "index_flashcard_items_on_flashcard_id", using: :btree
   end
 
@@ -69,8 +75,8 @@ ActiveRecord::Schema.define(version: 20170208104154) do
   end
 
   create_table "htmls", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string  "description"
     t.boolean "has_plain_text"
+    t.text    "description",    limit: 65535
     t.text    "html_source",    limit: 65535
   end
 
@@ -85,12 +91,34 @@ ActiveRecord::Schema.define(version: 20170208104154) do
   create_table "modulees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
   end
 
+  create_table "product_asset_kinds", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "description"
+    t.string   "alternates"
+    t.string   "kind"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "product_assets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "description"
+    t.string   "uri"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "product_id"
+    t.integer  "kind"
+  end
+
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
     t.string   "icon"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                                              null: false
+    t.datetime "updated_at",                                              null: false
     t.string   "visibility"
+    t.string   "tagline"
+    t.text     "html_description", limit: 65535
+    t.string   "pricing_model"
+    t.integer  "frequency"
+    t.decimal  "price",                          precision: 10, scale: 2
   end
 
   create_table "questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -98,6 +126,18 @@ ActiveRecord::Schema.define(version: 20170208104154) do
     t.text    "explanation", limit: 65535
     t.integer "quiz_id"
     t.index ["quiz_id"], name: "index_questions_on_quiz_id", using: :btree
+  end
+
+  create_table "quiz_questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "question",      limit: 65535
+    t.text     "hint",          limit: 65535
+    t.integer  "content_id"
+    t.string   "question_type"
+    t.text     "correct",       limit: 65535
+    t.text     "distractors",   limit: 65535
+    t.text     "explination",   limit: 65535
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "quizzes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -167,7 +207,11 @@ ActiveRecord::Schema.define(version: 20170208104154) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "answers", "questions"
+  create_table "videos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string  "url"
+    t.integer "play_count"
+  end
+
   add_foreign_key "contents", "products"
   add_foreign_key "contributions", "contents"
   add_foreign_key "contributions", "products"

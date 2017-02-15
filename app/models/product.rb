@@ -12,6 +12,7 @@ class Product < ApplicationRecord
   has_many :contents, dependent: :destroy
   accepts_nested_attributes_for :contents, reject_if: :all_blank, allow_destroy: true
 
+  has_many :product_assets
 
 
   def update params

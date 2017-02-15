@@ -1,0 +1,2 @@
+class ProductAssetKind < ApplicationRecord
+end
