@@ -13,6 +13,9 @@ class User < ApplicationRecord
   has_many :user_products, dependent: :destroy
   has_many :products, through: :user_products
 
+  has_many :user_subscriptions, dependent: :destroy
+  has_many :subscribed_products, through: :user_subscriptions, class_name: 'Product', foreign_key: :product_id, source: :product
+
   has_many :user_roles, dependent: :destroy
   has_many :roles, through: :user_roles
 

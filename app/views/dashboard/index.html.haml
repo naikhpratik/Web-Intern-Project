@@ -10,7 +10,7 @@
             %h3 = product.title
             %p Lorem ipsum
             %p
-              = link_to 'Launch', product_url, class: 'btn btn-primary'
+              = link_to 'Launch', product_url(product), class: 'btn btn-primary'
 - if @products.present?
   .row
     %h3 Available Products
