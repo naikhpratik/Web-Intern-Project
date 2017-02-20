@@ -1,0 +1,10 @@
+.row.nested-fields
+  .col-md-6.form-group.field
+    = f.hidden_field :product_id, value: @product.id
+    = f.select :user_id, options_for_select(product_users(@product.id), selected: f.object.user_id), { include_blank: 'Select User' }, class: 'form-control'
+  .col-md-4.form-group.field
+    = f.select :role_id, options_for_select(Role.all.pluck(:name, :id), selected: f.object.role_id), { include_blank: 'Select Role' }, class: 'form-control'
+  .col-md-2
+    = link_to_remove_association "<span class='glyphicon glyphicon-remove'></span> Delete".html_safe, f, class: 'btn btn-default btn-sm'  
+  .col-md-10.form-group.field.permission_contents_field
+    = f.select :contents, options_for_select(Content.where(product_id: @product.id).pluck(:title, :id), selected: contents_to_array(f.object.id)), {}, class: 'form-control', id: 'product_users_contents_permissions', multiple: true

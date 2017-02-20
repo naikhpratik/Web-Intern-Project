@@ -1,8 +1,22 @@
 $ ->
   $(document).on "turbolinks:load", ->
-    $("#product_managers_select_field").select2({
+    # declare function to convert default select to select2
+    toSelect2 = (item) ->
+      $(item).find(".permission_contents_field > select").select2({
+        theme: "bootstrap",
+        placeholder: "Add Permitted Contents"
+      });
+
+    # for newly added items
+    $(document).on 'cocoon:after-insert', (e, item) ->
+      toSelect2(item)
+
+    # for existing items
+    toSelect2(document)
+
+    .select2({
       theme: "bootstrap",
-      placeholder: "Select Product Managers(s)"
+      placeholder: "Select Permitted Contents"
     });
 
     $('.sortable').sortable({
