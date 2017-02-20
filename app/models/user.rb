@@ -10,16 +10,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :user_products, dependent: :destroy
-  has_many :products, through: :user_products
+  has_many :permissions, dependent: :destroy
+  has_many :products, through: :permissions
 
   has_many :user_roles, dependent: :destroy
   has_many :roles, through: :user_roles
-
-  has_many :contributions, dependent: :destroy
-  has_many :contents, through: :contributions
-  has_many :user_contents, dependent: :destroy
-  has_many :contents,  through: :user_contents
 
   validates :username, presence: true, uniqueness: true
 
