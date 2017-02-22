@@ -19,6 +19,7 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
 
   scope :product_managers, -> { joins(:roles).where('roles.name = ?', PRODUCT_MANAGER) }
+  scope :admins, -> { joins(:roles).where('roles.name = ?', ADMIN) }
 
   def self.all_except(user)
     where.not(id: user).collect { |u| u if u.roles.pluck(:name).exclude? 'Admin' }.compact
