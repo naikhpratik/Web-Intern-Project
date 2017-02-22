@@ -16,10 +16,10 @@
     Type: 
   = @content.actable_type
 
-%p
-  %strong
-    Time: 
-  = @content.time
+/ %p
+/   %strong
+/     Time: 
+/   = @content.time
 
 = link_to 'Edit', edit_admin_content_path(@content), class: 'btn btn-sm btn-default' if can? :update, @content
 = link_to 'Back', admin_contents_path, class: 'btn btn-sm btn-default'

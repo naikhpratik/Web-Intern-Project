@@ -2,7 +2,8 @@ class Admin::ContentsController < ApplicationController
   before_action :set_content, only: [:show, :edit, :update, :destroy]
 
   def index
-    @contents = Content.all.group_by(&:product_id)
+    content_ids = current_user.permissions.collect { |p| p.contents }.flatten
+    @contents = Content.find(content_ids).group_by(&:product_id)
   end
 
   def import
@@ -53,16 +54,16 @@ class Admin::ContentsController < ApplicationController
   end
 
 	def time
-	  @usercontent = UserContent.find_by(contents_id: params[:id],user_id: current_user.id)
-	  if(@usercontent)
-	    @time = @usercontent.stoptime
-	    gon.time = @time
-	  else
-	    @time = Content.where(:id=>params[:id]).pluck(:time)
-	    gon.time = @time
-	  end
-	  @min=params[:min]
-	  @sec=params[:sec]
+	  # @usercontent = UserContent.find_by(contents_id: params[:id],user_id: current_user.id)
+	  # if(@usercontent)
+	  #   @time = @usercontent.stoptime
+	  #   gon.time = @time
+	  # else
+	  #   @time = Content.where(:id=>params[:id]).pluck(:time)
+	  #   gon.time = @time
+	  # end
+	  # @min=params[:min]
+	  # @sec=params[:sec]
 	end
 
   def usercontentssave
