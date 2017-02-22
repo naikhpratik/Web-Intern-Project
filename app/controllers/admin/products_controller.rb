@@ -5,8 +5,6 @@ class Admin::ProductsController < Admin::BaseController
   def index
     if current_user.is_admin?
       @products = Product.all
-    elsif current_user.is_content_contributor?
-      @products = current_user.contributions.collect { |c| c.content.product if c.content.present? }.compact.uniq
     else
       @products = current_user.products
     end
