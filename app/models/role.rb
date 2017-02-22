@@ -7,4 +7,8 @@ class Role < ApplicationRecord
   def self.all_except ids
     where.not(id: ids).map(&:id)
   end
+
+  def self.non_admin_roles
+    where.not(name: 'Admin').pluck(:name, :id)
+  end
 end

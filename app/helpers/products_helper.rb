@@ -1,17 +1,17 @@
 module ProductsHelper
-  def product_users pid
+  # Get all the non-admin users who aren't contributing to this product
+  def non_contributing_users pid
     user_products = UserProduct.where(product_id: pid) || []
-    existing_users = user_products.collect { |up| up.user.id }.compact unless user_products.blank?
-    
-    users = User.where.not(id: existing_users)
+    product_user_ids = user_products.collect { |up| up.user_id }.compact unless user_products.blank?
 
+    users = User.where.not(id: product_user_ids) - User.admins
     users.present? ? users.pluck(:username, :id) : []
   end
 
-  def contents_to_array pid
+  def contents_to_array perm_id
     # TODO: This is a tmp solution. Find a better way.
-    perm = Permission.where(id: pid) if pid.to_i > 0
-    contents = perm.first.contents.tr(" '\"", "").scan(/\d+/) if perm.present?
+    perm = Permission.where(id: perm_id) if perm_id.to_i > 0
+    contents = perm.first.contents if perm.present?
     
     contents
   end

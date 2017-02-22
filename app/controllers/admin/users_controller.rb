@@ -91,6 +91,14 @@ class Admin::UsersController < Admin::BaseController
      end
    end
 
+  def get_user_roles
+    user_id = params[:id].to_i if params[:id].present?
+    
+    roles = User.find(user_id).roles if user_id > 0
+    roles = roles.pluck(:id, :name) if roles.count > 0
+
+    render json: roles || []
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
