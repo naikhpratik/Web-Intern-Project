@@ -63,7 +63,7 @@ $ ->
 
     # Make content items sortable
     $('.sortable').sortable({
-      containment: 'parent',
+      # containment: 'parent',
       update: (e, ui) ->
         content_id = ui.item.data('content-id')
         position = ui.item.index()

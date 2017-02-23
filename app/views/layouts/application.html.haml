@@ -12,10 +12,10 @@
     = javascript_include_tag "jquery.countdown",'data-turbolinks-eval': 'reload'
     = javascript_include_tag "jquery.plugin",'data-turbolinks-eval': 'reload'
   %body
-    .container
+    .container-fluid
       = render 'layouts/navbar'
       .row
-        - if current_user && (current_user.is_admin? || current_user.is_product_manager? || current_user.is_content_contributor?)
+        - if current_user && current_user.roles.length > 0
           .col-md-2.sidebar
             = render 'layouts/sidebar'
           .col-md-10.col-md-offset-2
