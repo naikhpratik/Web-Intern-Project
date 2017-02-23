@@ -13,7 +13,7 @@
   and
   .label.label-default sortable
   and (by default) appear in the order of their creation.)
-%ul.sortable
+%ul{ class: [('sortable' if can? :update, Product), ('not-sortable' if cannot? :update, Product)] }
   - @contents.each do |content|
     %li{ "data-content-id": content.id }
       = render partial: content.actable_type.downcase, object: content
