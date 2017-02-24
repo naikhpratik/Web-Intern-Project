@@ -19,7 +19,6 @@
 # //= require select2-full
 # //= require admin
 # //= require products
-# //= require contributions
 # //= require flashcards
 # //= require quizzes
 # //= require cocoon
