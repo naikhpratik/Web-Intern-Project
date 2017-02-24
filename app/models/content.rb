@@ -8,11 +8,6 @@ class Content < ApplicationRecord
   actable
   has_ancestry
 
-  has_many :contributions, dependent: :destroy
-  has_many :users, through: :contributions
-  has_many :user_contents, dependent: :destroy
-  has_many :users,  through: :user_contents
-
   validates :title, presence: true
 
   belongs_to :product

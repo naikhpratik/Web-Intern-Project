@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170220042945) do
+ActiveRecord::Schema.define(version: 20170224055833) do
 
   create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text    "text",        limit: 65535
@@ -46,15 +46,6 @@ ActiveRecord::Schema.define(version: 20170220042945) do
     t.index ["actable_type", "actable_id"], name: "index_contents_on_actable_type_and_actable_id", using: :btree
     t.index ["ancestry"], name: "index_contents_on_ancestry", using: :btree
     t.index ["product_id"], name: "fk_rails_6f4dae6b48", using: :btree
-  end
-
-  create_table "contributions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "user_id"
-    t.integer "content_id"
-    t.integer "product_id"
-    t.index ["content_id"], name: "index_contributions_on_content_id", using: :btree
-    t.index ["product_id"], name: "index_contributions_on_product_id", using: :btree
-    t.index ["user_id"], name: "index_contributions_on_user_id", using: :btree
   end
 
   create_table "flashcard_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -153,15 +144,6 @@ ActiveRecord::Schema.define(version: 20170220042945) do
     t.index ["session_id"], name: "index_sessions_on_session_id", unique: true, length: {"session_id"=>255}, using: :btree
   end
 
-  create_table "user_contents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "contents_id"
-    t.integer "user_id"
-    t.integer "starttime"
-    t.integer "stoptime"
-    t.index ["contents_id"], name: "index_user_contents_on_contents_id", using: :btree
-    t.index ["user_id"], name: "index_user_contents_on_user_id", using: :btree
-  end
-
   create_table "user_products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "product_id"
     t.integer  "user_id"
@@ -203,9 +185,6 @@ ActiveRecord::Schema.define(version: 20170220042945) do
 
   add_foreign_key "answers", "questions"
   add_foreign_key "contents", "products"
-  add_foreign_key "contributions", "contents"
-  add_foreign_key "contributions", "products"
-  add_foreign_key "contributions", "users"
   add_foreign_key "flashcard_items", "flashcards"
   add_foreign_key "permissions", "products"
   add_foreign_key "permissions", "roles"
