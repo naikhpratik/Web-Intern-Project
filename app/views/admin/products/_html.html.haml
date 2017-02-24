@@ -1,6 +1,6 @@
 .panel.panel-default
   .panel-heading
-    = link_to html.title, preview_admin_product_html_path(@product, html.specific)
+    = link_to html.title, admin_product_html_path(@product, html.specific)
     .pull-right
       .btn.btn-default.btn-xs
         = link_to('edit', edit_admin_product_html_path(@product, html.specific))

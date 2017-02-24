@@ -1,7 +1,10 @@
 class Admin::MediaController < Admin::BaseController
-  before_action :set_media, only: [:edit, :update, :destroy]
+  before_action :set_media, only: [:show, :edit, :update, :destroy]
   before_action :set_product, except: [:destroy]
   before_action :set_content, except: [:destroy]
+
+  def show
+  end
 
   def new
     @media = Media.new(product_id: @product.id) if @product.present?

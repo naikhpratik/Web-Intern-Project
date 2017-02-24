@@ -1,5 +1,5 @@
 class Admin::FlashcardsController < Admin::BaseController
-  before_action :set_flashcard, only: [:preview, :edit, :update, :destroy]
+  before_action :set_flashcard, only: [:show, :edit, :update, :destroy]
   before_action :set_product, except: [:destroy]
   before_action :set_content, except: [:destroy]
 

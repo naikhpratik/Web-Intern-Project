@@ -39,11 +39,7 @@
             get 'update_flashcard_item_position'
           end
         end
-        resources :htmls, path: 'html' do
-          member do
-            get 'preview'
-          end
-        end
+        resources :htmls, path: 'html'
         resources :quizzes
         resources :media
       end
