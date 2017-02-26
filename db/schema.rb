@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170224055833) do
+ActiveRecord::Schema.define(version: 20170226111904) do
 
   create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text    "text",        limit: 65535
@@ -144,16 +144,6 @@ ActiveRecord::Schema.define(version: 20170224055833) do
     t.index ["session_id"], name: "index_sessions_on_session_id", unique: true, length: {"session_id"=>255}, using: :btree
   end
 
-  create_table "user_products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "product_id"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "role_id"
-    t.index ["product_id"], name: "index_user_products_on_product_id", using: :btree
-    t.index ["user_id"], name: "index_user_products_on_user_id", using: :btree
-  end
-
   create_table "user_roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -190,7 +180,6 @@ ActiveRecord::Schema.define(version: 20170224055833) do
   add_foreign_key "permissions", "roles"
   add_foreign_key "permissions", "users"
   add_foreign_key "questions", "quizzes"
-  add_foreign_key "user_products", "users"
   add_foreign_key "user_roles", "roles"
   add_foreign_key "user_roles", "users"
 end
