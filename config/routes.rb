@@ -16,8 +16,6 @@
   namespace :admin do
       resources :users do
         member do
-          get 'assign_products'
-          post 'create_products'
           get 'get_user_roles'
         end
       end

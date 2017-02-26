@@ -1,6 +1,6 @@
 class Admin::UsersController < Admin::BaseController
-  skip_authorize_resource :only => [:assign_products, :create_products, :edit, :update]
-  before_action :set_user, only: [:assign_products, :create_products, :show, :edit, :update, :destroy]
+  skip_authorize_resource :only => [:edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
   	@users = User.all
@@ -48,8 +48,6 @@ class Admin::UsersController < Admin::BaseController
     # New to-be-added user roles
     @user.user_roles = roles.collect { |r| UserRole.find_or_create_by(user_id: @user.id, role_id: r.id) }
 
-    # @user.user_products.destroy_with_roles user_params[:role_ids]
-
     respond_to do |format|
       if (password_unchanged? && @user.update_without_password(user_params)) || @user.update(user_params)
         format.html { redirect_to admin_user_url(@user), notice: 'User was successfully updated.' }
@@ -65,31 +63,6 @@ class Admin::UsersController < Admin::BaseController
       format.html { redirect_to admin_users_url, notice: 'User was successfully destroyed.' }
     end
   end
-
-  def assign_products
-    @my_products = current_user.products || []
-  end
-
-  def create_products
-     role_ids = params[:role_ids]
-     product_ids = params[:product_ids]
-
-     user_products = []
-
-     role_ids.each_with_index do |role_id, index|
-       user_products.push(UserProduct.create(user_id: @user.id, product_id: product_ids[index], role_id: Role.find_by_name(role_id).id)) unless role_id.blank?
-     end
-
-     @user.user_products = user_products
-
-     respond_to do |format|
-       if @user.save
-         format.html { redirect_to admin_user_url, notice: 'User permissions successfully updated.' }
-       else
-         format.html { redirect_to assign_products_admin_user_path(@user), error: 'Couldn\'t update User Products' }
-       end
-     end
-   end
 
   def get_user_roles
     user_id = params[:id].to_i if params[:id].present?

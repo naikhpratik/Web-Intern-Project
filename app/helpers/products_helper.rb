@@ -1,10 +1,7 @@
 module ProductsHelper
   # Get all the non-admin users who aren't contributing to this product
   def non_contributing_users pid
-    user_products = UserProduct.where(product_id: pid) || []
-    product_user_ids = user_products.collect { |up| up.user_id }.compact unless user_products.blank?
-
-    users = User.where.not(id: product_user_ids) - User.admins
+    users = User.non_admins
     users.present? ? users.pluck(:username, :id) : []
   end
 
