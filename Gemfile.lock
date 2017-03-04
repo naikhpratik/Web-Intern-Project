@@ -1,11 +1,19 @@
 GIT
   remote: https://github.com/carrierwaveuploader/carrierwave.git
-  revision: 9ef68325dd5ea465b4d340af9a9def10934cd677
+  revision: 6a1445e0daef29a5d4f799a016359b62d82dbc24
   specs:
     carrierwave (1.0.0)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
+
+GIT
+  remote: https://github.com/lardawge/carrierwave_backgrounder
+  revision: 460394b0e2c0cf0c192be9c1a60bcf9dfb1f9e4d
+  specs:
+    carrierwave_backgrounder (0.4.2)
+      carrierwave (>= 0.5, < 2.0)
+      mime-types (~> 2.99)
 
 GEM
   remote: https://rubygems.org/
@@ -34,7 +42,7 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
-    active_record-acts_as (2.0.5)
+    active_record-acts_as (2.0.9)
       activerecord (>= 4.2)
       activesupport (>= 4.2)
     activejob (5.0.0.rc2)
@@ -59,13 +67,13 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.0)
       public_suffix (~> 2.0, >= 2.0.2)
-    airbrake (5.6.1)
-      airbrake-ruby (~> 1.6)
-    airbrake-ruby (1.6.0)
+    airbrake (5.8.1)
+      airbrake-ruby (~> 1.8)
+    airbrake-ruby (1.8.0)
     ancestry (2.2.2)
       activerecord (>= 3.0.0)
     arel (7.1.4)
-    autoprefixer-rails (6.6.1)
+    autoprefixer-rails (6.7.6)
       execjs
     bcrypt (3.1.11)
     bcrypt-ruby (3.1.5)
@@ -79,9 +87,9 @@ GEM
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
-    builder (3.2.2)
+    builder (3.2.3)
     byebug (9.0.6)
-    cancancan (1.15.0)
+    cancancan (1.16.0)
     capistrano (3.4.1)
       i18n
       rake (>= 10.0.0)
@@ -97,14 +105,24 @@ GEM
     capistrano-rvm (0.1.2)
       capistrano (~> 3.0)
       sshkit (~> 1.2)
-    capybara (2.11.0)
+    capistrano3-delayed-job (1.7.3)
+      capistrano (~> 3.0, >= 3.0.0)
+      daemons (~> 1.2.4)
+    capybara (2.12.1)
       addressable
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    childprocess (0.5.9)
+    carrierwave-audio (1.0.6)
+      carrierwave (>= 0.10.0)
+      ruby-sox (>= 0.0.3)
+      soxi-wrapper (>= 0.0.1)
+    carrierwave-video (0.5.6)
+      carrierwave
+      streamio-ffmpeg
+    childprocess (0.6.2)
       ffi (~> 1.0, >= 1.0.11)
     ckeditor (4.2.2)
       cocaine
@@ -113,7 +131,7 @@ GEM
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
     cocoon (1.2.9)
-    codeclimate-test-reporter (1.0.4)
+    codeclimate-test-reporter (1.0.6)
       simplecov
     coderay (1.1.1)
     coffee-rails (4.1.1)
@@ -123,30 +141,52 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    concurrent-ruby (1.0.4)
+    concurrent-ruby (1.0.5)
     crass (1.0.2)
+    daemons (1.2.4)
     database_cleaner (1.5.3)
     debug_inspector (0.0.2)
+    delayed_job (4.1.2)
+      activesupport (>= 3.0, < 5.1)
+    delayed_job_active_record (4.1.1)
+      activerecord (>= 3.0, < 5.1)
+      delayed_job (>= 3.0, < 5)
     devise (4.2.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
-    diff-lcs (1.2.5)
+    diff-lcs (1.3)
     docile (1.1.5)
     erubis (2.7.0)
+    excon (0.55.0)
     execjs (2.7.0)
     factory_girl (4.8.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.8.0)
       factory_girl (~> 4.8.0)
       railties (>= 3.0.0)
-    faker (1.7.2)
+    faker (1.7.3)
       i18n (~> 0.5)
-    ffi (1.9.14)
+    ffi (1.9.18)
     figaro (1.1.1)
       thor (~> 0.14)
+    fog-aws (1.2.1)
+      fog-core (~> 1.38)
+      fog-json (~> 1.0)
+      fog-xml (~> 0.1)
+      ipaddress (~> 0.8)
+    fog-core (1.43.0)
+      builder
+      excon (~> 0.49)
+      formatador (~> 0.2)
+    fog-json (1.0.2)
+      fog-core (~> 1.0)
+      multi_json (~> 1.10)
+    fog-xml (0.1.2)
+      fog-core
+      nokogiri (~> 1.5, >= 1.5.11)
     formatador (0.2.5)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
@@ -155,7 +195,7 @@ GEM
       json
       multi_json
       request_store (>= 1.0)
-    guard (2.14.0)
+    guard (2.14.1)
       formatador (>= 0.2.4)
       listen (>= 2.7, < 4.0)
       lumberjack (~> 1.0)
@@ -185,15 +225,16 @@ GEM
       html2haml (>= 1.0.1)
       railties (>= 4.0.1)
     highline (1.7.8)
-    html2haml (2.0.0)
+    html2haml (2.1.0)
       erubis (~> 2.7.0)
-      haml (~> 4.0.0)
-      nokogiri (~> 1.6.0)
+      haml (~> 4.0)
+      nokogiri (>= 1.6.0)
       ruby_parser (~> 3.5)
     hub (1.12.4)
-    i18n (0.7.0)
-    jbuilder (2.6.1)
-      activesupport (>= 3.0.0, < 5.1)
+    i18n (0.8.1)
+    ipaddress (0.8.3)
+    jbuilder (2.6.3)
+      activesupport (>= 3.0.0, < 5.2)
       multi_json (~> 1.2)
     jquery-rails (4.2.2)
       rails-dom-testing (>= 1, < 3)
@@ -204,7 +245,7 @@ GEM
       turbolinks
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
-    json (2.0.2)
+    json (2.0.3)
     kgio (2.11.0)
     launchy (2.4.3)
       addressable (~> 2.3)
@@ -218,10 +259,8 @@ GEM
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
     method_source (0.8.2)
-    mime-types (3.1)
-      mime-types-data (~> 3.2015)
-    mime-types-data (3.2016.0521)
-    mini_magick (4.6.0)
+    mime-types (2.99.3)
+    mini_magick (4.6.1)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
     multi_json (1.12.1)
@@ -229,9 +268,9 @@ GEM
     nenv (0.3.0)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
-    net-ssh (4.0.1)
+    net-ssh (4.1.0)
     nio4r (1.2.1)
-    nokogiri (1.6.8.1)
+    nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
     nokogumbo (1.4.10)
       nokogiri
@@ -250,7 +289,7 @@ GEM
       method_source (~> 0.8.1)
       slop (~> 3.4)
     public_suffix (2.0.5)
-    puma (3.6.2)
+    puma (3.7.1)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (2.0.1)
@@ -295,7 +334,7 @@ GEM
     rb-fchange (0.0.6)
       ffi
     rb-fsevent (0.9.8)
-    rb-inotify (0.9.7)
+    rb-inotify (0.9.8)
       ffi (>= 0.5.0)
     request_store (1.3.2)
     responders (2.3.0)
@@ -324,10 +363,11 @@ GEM
       rspec-mocks (~> 3.5.0)
       rspec-support (~> 3.5.0)
     rspec-support (3.5.0)
+    ruby-sox (0.0.3)
     ruby_dep (1.5.0)
-    ruby_parser (3.8.3)
+    ruby_parser (3.8.4)
       sexp_processor (~> 4.1)
-    rubyzip (1.2.0)
+    rubyzip (1.2.1)
     sanitize (4.4.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.4.4)
@@ -341,21 +381,22 @@ GEM
       tilt (>= 1.1, < 3)
     select2-rails (4.0.3)
       thor (~> 0.14)
-    selenium-webdriver (3.0.5)
+    selenium-webdriver (3.2.2)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
-    sexp_processor (4.7.0)
+    sexp_processor (4.8.0)
     shellany (0.0.1)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
-    simplecov (0.12.0)
+    simplecov (0.13.0)
       docile (~> 1.1.0)
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
     slop (3.6.0)
-    spring (2.0.0)
+    soxi-wrapper (0.0.1)
+    spring (2.0.1)
       activesupport (>= 4.2)
     spring-commands-rspec (1.0.4)
       spring (>= 0.9.1)
@@ -366,30 +407,32 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sshkit (1.11.5)
+    sshkit (1.12.0)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
+    streamio-ffmpeg (3.0.2)
+      multi_json (~> 1.8)
     thor (0.19.4)
-    thread_safe (0.3.5)
-    tilt (2.0.5)
+    thread_safe (0.3.6)
+    tilt (2.0.6)
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (3.0.4)
+    uglifier (3.1.3)
       execjs (>= 0.3.0, < 3)
     unicorn (5.2.0)
       kgio (~> 2.6)
       raindrops (~> 0.7)
-    warden (1.2.6)
+    warden (1.2.7)
       rack (>= 1.0)
     web-console (3.3.0)
       activemodel (>= 4.2)
       debug_inspector
       railties (>= 4.2)
-    websocket (1.2.3)
-    websocket-driver (0.6.4)
+    websocket (1.2.4)
+    websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
     xpath (2.0.0)
@@ -414,17 +457,24 @@ DEPENDENCIES
   capistrano-rails (~> 1.1.0)
   capistrano-rails-console
   capistrano-rvm
+  capistrano3-delayed-job (~> 1.0)
   capybara
   carrierwave!
+  carrierwave-audio
+  carrierwave-video
+  carrierwave_backgrounder!
   ckeditor
   cocoon
   codeclimate-test-reporter
   coffee-rails (~> 4.1.0)
   database_cleaner
+  delayed_job
+  delayed_job_active_record
   devise
   factory_girl_rails
   faker
   figaro
+  fog-aws
   gon
   guard-bundler
   guard-rails

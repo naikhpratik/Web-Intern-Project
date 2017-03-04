@@ -9,3 +9,4 @@
         = link_to('edit', edit_admin_product_media_path(@product, media.specific))
   .panel-body
     = media.specific.caption
+    = image_tag(media.specific.source_url)
