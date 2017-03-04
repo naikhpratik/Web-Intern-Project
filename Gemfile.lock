@@ -467,6 +467,7 @@ DEPENDENCIES
   cocoon
   codeclimate-test-reporter
   coffee-rails (~> 4.1.0)
+  daemons
   database_cleaner
   delayed_job
   delayed_job_active_record

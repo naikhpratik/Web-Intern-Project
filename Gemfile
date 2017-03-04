@@ -92,6 +92,8 @@ gem 'capistrano-bundler'
 gem 'capistrano-rails', '~> 1.1.0'
 gem 'capistrano-rails-console'
 gem 'capistrano-rvm'
+
+gem 'daemons'
 # Delayed Jobs
 gem 'delayed_job'
 gem 'delayed_job_active_record'
