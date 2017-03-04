@@ -21,7 +21,7 @@ class Admin::MediaController < Admin::BaseController
       redirect_to admin_product_url(@product), notice: "#{@media.local_type.capitalize} content was successfully created"
     else
       # persist content if the form validation fails
-      @content ||= Content.find(flashcard_params[:parent_id].to_i) if flashcard_params[:parent_id].present?
+      @content ||= Content.find(media_params[:parent_id].to_i) if media_params[:parent_id].present?
       render action: :new
     end
   end
@@ -52,7 +52,7 @@ class Admin::MediaController < Admin::BaseController
   end
 
   def media_params
-    params.require(:media).permit(:local_type, :title, :caption, :transcript, :duration, :thumbnail_url, :parent_id, :product_id)
+    params.require(:media).permit(:local_type, :title, :source, :caption, :transcript, :duration, :thumbnail_url, :parent_id, :product_id)
   end
 
 end

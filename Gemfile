@@ -56,7 +56,7 @@ gem 'ranked-model'
 # Cocoon
 gem "cocoon"
 
-#mail
+# App Config
 gem "figaro"
 # Text Editor
 gem 'ckeditor'
@@ -64,7 +64,12 @@ gem 'ckeditor'
 gem 'non-stupid-digest-assets', '~> 1.0.9'
 # File Uploader (using https for data transmission with encryption)
 gem 'carrierwave', git: 'https://github.com/carrierwaveuploader/carrierwave.git'
+# For media processing in the background
+gem 'carrierwave_backgrounder', git: 'https://github.com/lardawge/carrierwave_backgrounder'
+gem 'carrierwave-video'
+gem 'carrierwave-audio'
 gem 'mini_magick'
+gem 'fog-aws'
 
 # Sanitize HTML
 gem 'sanitize'
@@ -81,11 +86,18 @@ gem 'rails-controller-testing'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# Capistrano
 gem 'capistrano', '~> 3.4.0'
 gem 'capistrano-bundler'
 gem 'capistrano-rails', '~> 1.1.0'
 gem 'capistrano-rails-console'
 gem 'capistrano-rvm'
+
+gem 'daemons'
+# Delayed Jobs
+gem 'delayed_job'
+gem 'delayed_job_active_record'
+gem 'capistrano3-delayed-job', '~> 1.0'
 
 gem 'airbrake'
 

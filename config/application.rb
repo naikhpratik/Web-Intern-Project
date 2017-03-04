@@ -26,8 +26,9 @@ module C3Suite
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
     config.assets.precompile += Ckeditor.assets
     config.assets.precompile += %w( ckeditor/* )
-    #nope#
     config.assets.precompile += ['jquery.countdown.js', 'jquery.countdown.css','jquery.plugin.js']
+    
+    config.active_job.queue_adapter = :delayed_job
   end
 
 

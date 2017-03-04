@@ -30,9 +30,10 @@ set :rvm_path, '~/.rvm'
 set :rvm_type, :user
 set :rvm_ruby_version, '2.3.1'
 
+# Delayed job
+set :delayed_job_workers, 2
+
 namespace :deploy do
-
-
   rvm_prefix = "#{fetch(:rvm_path)}/bin/rvm #{fetch(:rvm_ruby_version)} do"
   SSHKit.config.command_map[:unicorn] =  "#{rvm_prefix} /etc/init.d/unicorn_#{fetch(:application)}"
 

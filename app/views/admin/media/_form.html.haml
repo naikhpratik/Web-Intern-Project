@@ -1,6 +1,6 @@
 .h1
   Media
-= form_for [:admin, @product, @media] do |f|
+= form_for [:admin, @product, @media], html: { multipart: true } do |f|
   .row
     .col-md-6
       = errors_for(@media)
@@ -25,7 +25,12 @@
         %label= f.label :transcript
         = f.text_area :transcript, class: 'form-control', rows: 7
       .form-group
-        %label= f.label :thumbnail_url
+        %label= f.label :source, 'Upload Media File'
+        = f.file_field :source
+        = f.hidden_field :source_cache
+      .h5 or
+      .form-group
+        %label= f.label :thumbnail_url, 'Remote Media URL'
         = f.text_field :thumbnail_url, class: 'form-control'
       .form-group
         = f.submit class: 'btn btn-sm btn-default'
