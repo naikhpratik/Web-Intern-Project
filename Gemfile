@@ -35,6 +35,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 
+# Nokogiri
+gem 'nokogiri', '~> 1.7', '>= 1.7.0.1'
+
 # Bootstrap
 gem 'bootstrap-sass', '~> 3.3.6'
 
@@ -92,7 +95,6 @@ gem 'capistrano-bundler'
 gem 'capistrano-rails', '~> 1.1.0'
 gem 'capistrano-rails-console'
 gem 'capistrano-rvm'
-
 gem 'daemons'
 # Delayed Jobs
 gem 'delayed_job'
