@@ -2,6 +2,10 @@ class Admin::ModuleesController < Admin::BaseController
 	before_action :set_modulee, only: [:show, :edit, :update, :destroy]
 	before_action :set_product, except: [:destroy]
 
+  def index
+    @modulees = Content.where(product_id: 1, actable_type: 'Modulee')
+  end
+
   def show
   end
 

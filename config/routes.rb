@@ -16,8 +16,7 @@
   namespace :admin do
       resources :users do
         member do
-          get 'assign_products'
-          post 'create_products'
+          get 'get_user_roles'
         end
       end
 
@@ -38,11 +37,7 @@
             get 'update_flashcard_item_position'
           end
         end
-        resources :htmls, path: 'html' do
-          member do
-            get 'preview'
-          end
-        end
+        resources :htmls, path: 'html'
         resources :quizzes
         resources :media
       end

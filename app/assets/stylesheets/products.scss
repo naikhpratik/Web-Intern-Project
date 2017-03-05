@@ -7,8 +7,9 @@
   margin-right: 0;
 }
 
-.ui-sortable-handle {
+.not-sortable, .ui-sortable-handle {
   margin-left: -40px;
+  margin-right: -40px;
   list-style: none;
 }
 

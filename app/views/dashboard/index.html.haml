@@ -7,7 +7,8 @@
         .thumbnail
           = image_tag('http://lorempixel.com/512/512')
           .caption
-            %h3 = product.title
+            %h3
+              = product.title
             %p Lorem ipsum
             %p
               = link_to 'Launch', product_url(product), class: 'btn btn-primary'

@@ -6,8 +6,9 @@ class Product < ApplicationRecord
   validates :title, presence: true, uniqueness: true
   validates :visibility, presence: true
 
-  has_many :user_products, dependent: :destroy
-  has_many :users, through: :user_products
+  has_many :permissions, dependent: :destroy
+  has_many :users, through: :permissions
+  accepts_nested_attributes_for :permissions, reject_if: :all_blank, allow_destroy: true
 
   has_many :user_subscriptions, dependent: :destroy
   has_many :subscribed_users, through: :user_subscriptions, class_name: 'User', foreign_key: :user_id, source: :user
@@ -16,6 +17,7 @@ class Product < ApplicationRecord
   accepts_nested_attributes_for :contents, reject_if: :all_blank, allow_destroy: true
 
   has_many :product_assets
+<<<<<<< HEAD
 
 
 
@@ -49,6 +51,8 @@ class Product < ApplicationRecord
       self
     end
   end
+=======
+>>>>>>> master
   
   def self.open_spreadsheet(file)
     case File.extname(file.original_filename)

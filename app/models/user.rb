@@ -10,8 +10,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :user_products, dependent: :destroy
-  has_many :products, through: :user_products
+  has_many :permissions, dependent: :destroy
+  has_many :products, through: :permissions
 
   has_many :user_subscriptions, dependent: :destroy
   has_many :subscribed_products, through: :user_subscriptions, class_name: 'Product', foreign_key: :product_id, source: :product
@@ -19,14 +19,11 @@ class User < ApplicationRecord
   has_many :user_roles, dependent: :destroy
   has_many :roles, through: :user_roles
 
-  has_many :contributions, dependent: :destroy
-  has_many :contents, through: :contributions
-  has_many :user_contents, dependent: :destroy
-  has_many :contents,  through: :user_contents
-
   validates :username, presence: true, uniqueness: true
 
   scope :product_managers, -> { joins(:roles).where('roles.name = ?', PRODUCT_MANAGER) }
+  scope :admins, -> { joins(:roles).where('roles.name = ?', ADMIN) }
+  scope :non_admins, -> { joins(:roles).where('roles.name != ?', ADMIN) }
 
   def self.all_except(user)
     where.not(id: user).collect { |u| u if u.roles.pluck(:name).exclude? 'Admin' }.compact
@@ -43,16 +40,6 @@ class User < ApplicationRecord
 
   def can_contribute_to_product?(product_id)
     has_role?(CONTENT_CONTRIBUTOR) && !existing_contributors_for_product(product_id).include?(self.id)
-  end
-
-  def contributions(product_id = nil)
-    contributions = Contribution.where(user_id: self.id)
-
-    if product_id.present?
-      contributions.where(product_id: product_id)
-    end
-
-    contributions
   end
 
   def is_admin?

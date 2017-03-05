@@ -15,17 +15,6 @@
     %strong Roles:
     = @user.roles.map(&:name).join(', ')
 
-- if @user.products.present?
-  %strong Products and roles
-  .row
-    .col-md-5
-      .row
-        - @user.products.each do |product|
-          .col-md-6
-            = product.title
-          .col-md-6
-            = @user.user_products.role(product.id)
-
 %br
 .row
   .col-md-12
