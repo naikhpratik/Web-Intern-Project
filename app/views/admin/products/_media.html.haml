@@ -1,12 +1,12 @@
 .panel.panel-default
   .panel-heading
     %span.h5
-      = link_to media.title, admin_product_media_path(@product, media.specific)
+      = link_to media.title, admin_product_media_path(@product, media.actable_id)
     .label.label-default
       = media.specific.local_type.capitalize
     .pull-right
       .btn.btn-default.btn-xs
-        = link_to('edit', edit_admin_product_media_path(@product, media.specific))
+        = link_to('edit', edit_admin_product_media_path(@product, media.actable_id))
   .panel-body
     - if media.specific.source_url.present?
       - if media.specific.local_type == 'Video'

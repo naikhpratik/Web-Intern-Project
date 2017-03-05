@@ -19,6 +19,10 @@ ActiveRecord::Schema.define(version: 20170304183145) do
     t.index ["question_id"], name: "index_answers_on_question_id", using: :btree
   end
 
+  create_table "audios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "play_count"
+  end
+
   create_table "ckeditor_assets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "data_file_name",               null: false
     t.string   "data_content_type"
@@ -64,10 +68,12 @@ ActiveRecord::Schema.define(version: 20170304183145) do
   end
 
   create_table "flashcard_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text    "front",        limit: 65535
-    t.text    "back",         limit: 65535
-    t.integer "flashcard_id"
-    t.integer "row_order"
+    t.text     "front",        limit: 65535
+    t.text     "back",         limit: 65535
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "flashcard_id"
+    t.integer  "row_order"
     t.index ["flashcard_id"], name: "index_flashcard_items_on_flashcard_id", using: :btree
   end
 
@@ -75,8 +81,8 @@ ActiveRecord::Schema.define(version: 20170304183145) do
   end
 
   create_table "htmls", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string  "description"
     t.boolean "has_plain_text"
+    t.text    "description",    limit: 65535
     t.text    "html_source",    limit: 65535
   end
 
@@ -141,6 +147,18 @@ ActiveRecord::Schema.define(version: 20170304183145) do
     t.index ["quiz_id"], name: "index_questions_on_quiz_id", using: :btree
   end
 
+  create_table "quiz_questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "question",      limit: 65535
+    t.text     "hint",          limit: 65535
+    t.integer  "content_id"
+    t.string   "question_type"
+    t.text     "correct",       limit: 65535
+    t.text     "distractors",   limit: 65535
+    t.text     "explination",   limit: 65535
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
   create_table "quizzes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string  "q_type"
     t.integer "time"
@@ -169,6 +187,16 @@ ActiveRecord::Schema.define(version: 20170304183145) do
     t.index ["user_id"], name: "fk_rails_318345354e", using: :btree
   end
 
+  create_table "user_subscriptions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "product_id"
+    t.date     "sub_start"
+    t.date     "sub_end"
+    t.string   "token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -187,6 +215,11 @@ ActiveRecord::Schema.define(version: 20170304183145) do
     t.index ["ancestry"], name: "index_users_on_ancestry", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  end
+
+  create_table "videos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string  "url"
+    t.integer "play_count"
   end
 
   add_foreign_key "answers", "questions"
