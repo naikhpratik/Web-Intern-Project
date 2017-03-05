@@ -10,27 +10,45 @@
       .form-group
         %label= f.label :type
         %br
-        = f.select :local_type, options_for_select(["", 'Audio', 'Video'], selected: @media.local_type), {}, { class: 'form-control' }
+        = f.select :local_type, options_for_select([''] + Media::MEDIA_TYPES, selected: @media.local_type), {}, { class: 'form-control' }
       .form-group
         %label= f.label :title
         = f.text_field :title, class: 'form-control'
       .form-group
         %label= f.label :caption
         = f.text_field :caption, class: 'form-control'
-      .form-group
+      .form-group.conditional-field{ class: ('hidden' if @media.local_type == 'Image') }
         %label= f.label :duration
         %small (in seconds)
         = f.number_field :duration, class: 'form-control'
-      .form-group
+      .form-group.conditional-field{ class: ('hidden' if @media.local_type == 'Image') }
         %label= f.label :transcript
         = f.text_area :transcript, class: 'form-control', rows: 7
+      .form-group
+        %label= f.label :thumbnail_url, 'Remote Media URL'
+        = f.text_field :remote_source_url, class: 'form-control'
+      .h5 or
       .form-group
         %label= f.label :source, 'Upload Media File'
         = f.file_field :source
         = f.hidden_field :source_cache
-      .h5 or
-      .form-group
-        %label= f.label :thumbnail_url, 'Remote Media URL'
-        = f.text_field :thumbnail_url, class: 'form-control'
+
+      .row
+        .col-md-9
+          /.Make a partial instead. Being used in more than 2 files.
+          - if @media.source_url.present?
+            - if @media.local_type == 'Video'
+              = video_tag @media.source_url, controls: true, size: '300x200'
+            - elsif @media.local_type == 'Audio'
+              = audio_tag @media.source_url, controls: true
+            - else
+              = image_tag(@media.source_url, class: 'img-thumbnail')
+
+        .col-md-3
+          = f.check_box :remove_source
+          Remove
+        %br
+        %br
+
       .form-group
         = f.submit class: 'btn btn-sm btn-default'
