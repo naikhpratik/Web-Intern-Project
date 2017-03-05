@@ -1,8 +1,8 @@
 .panel.panel-default
   .panel-heading
-    = link_to quiz.title, admin_product_quiz_path(@product, quiz)
+    = link_to quiz.title, admin_product_quiz_path(@product, quiz.actable_id)
     .pull-right
       .btn.btn-default.btn-xs
-        = link_to('edit', edit_admin_product_quiz_path(@product, quiz.specific))
+        = link_to('edit', edit_admin_product_quiz_path(@product, quiz.actable_id))
   .panel-body
     quiz details go here

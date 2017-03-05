@@ -1,8 +1,8 @@
 .panel.panel-default
   .panel-heading
-    = link_to html.title, admin_product_html_path(@product, html.specific)
+    = link_to html.title, admin_product_html_path(@product, html.actable_id)
     .pull-right
       .btn.btn-default.btn-xs
-        = link_to('edit', edit_admin_product_html_path(@product, html.specific))
+        = link_to('edit', edit_admin_product_html_path(@product, html.actable_id))
   .panel-body
-    = raw(html.specific.html_source)
+    = #raw(html.html_source)
