@@ -8,8 +8,8 @@ GIT
       mime-types (>= 1.16)
 
 GIT
-  remote: https://github.com/lardawge/carrierwave_backgrounder
-  revision: 460394b0e2c0cf0c192be9c1a60bcf9dfb1f9e4d
+  remote: https://github.com/umarali/carrierwave_backgrounder.git
+  revision: 7595f0ca724c06cb5bdddb66fb7b1c14c4c8fd2f
   specs:
     carrierwave_backgrounder (0.4.2)
       carrierwave (>= 0.5, < 2.0)

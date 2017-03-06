@@ -68,7 +68,7 @@ gem 'non-stupid-digest-assets', '~> 1.0.9'
 # File Uploader (using https for data transmission with encryption)
 gem 'carrierwave', git: 'https://github.com/carrierwaveuploader/carrierwave.git'
 # For media processing in the background
-gem 'carrierwave_backgrounder', git: 'https://github.com/lardawge/carrierwave_backgrounder'
+gem 'carrierwave_backgrounder', git: 'https://github.com/umarali/carrierwave_backgrounder.git'
 gem 'carrierwave-video'
 gem 'carrierwave-audio'
 gem 'mini_magick'

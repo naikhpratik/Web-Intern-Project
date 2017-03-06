@@ -6,13 +6,7 @@
 
 .row
   .col-md-6
-    - if @media.specific.source_url.present?
-      - if @media.specific.local_type == 'Video'
-        = video_tag @media.specific.source_url, controls: true, size: '300x200'
-      - elsif @media.specific.local_type == 'Audio'
-        = audio_tag @media.specific.source_url, controls: true
-      - else
-        = image_tag(@media.specific.source_url, class: 'img-thumbnail')
+    = render partial: 'media_type', locals: { media: @media }
 
 %br
 
