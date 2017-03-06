@@ -37,3 +37,6 @@ config/secrets.yml
 
 # ruby-gemset and ruby-version
 .ruby-*
+
+# Ignore application configuration
+/config/application.yml
