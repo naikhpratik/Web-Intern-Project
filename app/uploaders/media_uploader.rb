@@ -6,7 +6,7 @@ class MediaUploader < CarrierWave::Uploader::Base
   include CarrierWave::Audio
 
   # S3 for storage
-  storage :fog
+  storage :file
 
   # Create different versions of uploaded files:
   # Image
