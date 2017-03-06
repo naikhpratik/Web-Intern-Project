@@ -34,7 +34,7 @@
         = f.hidden_field :source_cache
 
       .row
-        .col-md-9
+        .col-md-12
           /.Make a partial instead. Being used in more than 2 files.
           - if @media.source_url.present?
             - if @media.local_type == 'Video'
@@ -44,9 +44,9 @@
             - else
               = image_tag(@media.source_url, class: 'img-thumbnail')
 
-        .col-md-3
-          = f.check_box :remove_source
-          Remove
+        / .col-md-3
+        /   = f.check_box :remove_source
+        /   Remove
         %br
         %br
 
