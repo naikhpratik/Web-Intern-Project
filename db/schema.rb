@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170304183145) do
+ActiveRecord::Schema.define(version: 20170306155318) do
 
   create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text    "text",        limit: 65535
@@ -83,10 +83,12 @@ ActiveRecord::Schema.define(version: 20170304183145) do
   create_table "media", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string  "local_type"
     t.string  "caption"
-    t.text    "transcript",    limit: 65535
+    t.text    "transcript",        limit: 65535
     t.integer "duration"
     t.string  "thumbnail_url"
     t.string  "source"
+    t.string  "source_tmp"
+    t.boolean "source_processing",               default: false, null: false
   end
 
   create_table "modulees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

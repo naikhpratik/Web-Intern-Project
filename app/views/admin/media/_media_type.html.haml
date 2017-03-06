@@ -1,0 +1,7 @@
+- if media.present?
+  - if media.local_type == 'Video'
+    = video_tag default_source_tmp_path(media), controls: true, size: '300x200'
+  - elsif media.local_type == 'Audio'
+    = audio_tag default_source_tmp_path(media), controls: true
+  - else
+    = image_tag default_source_tmp_path(media), class: 'img-thumbnail'

@@ -2,7 +2,7 @@ class Media < ApplicationRecord
   acts_as :content
   
   mount_uploader :source, MediaUploader
-  process_in_background :source
+  store_in_background :source
 
   MEDIA_TYPES = ['Image', 'Audio', 'Video']
 
