@@ -1,6 +1,6 @@
 class MediaUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
-  include CarrierWave::Backgrounder::Delay
+  # include CarrierWave::Backgrounder::Delay
 
   include CarrierWave::Video
   include CarrierWave::Audio
@@ -10,9 +10,7 @@ class MediaUploader < CarrierWave::Uploader::Base
 
   # Create different versions of uploaded files:
   # Image
-  version :image, if: :content_type_image
-
-  version :image do
+  version :image, if: :content_type_image do
     version :large do
       process resize_to_fit: [500, 500]
     end

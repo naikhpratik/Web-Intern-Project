@@ -34,14 +34,15 @@
         = f.hidden_field :source_cache
 
       .row
-        .col-md-12
+        .col-md-10
           = render partial: 'media_type', locals: { media: @media }
 
-        / .col-md-3
-        /   = f.check_box :remove_source
-        /   Remove
-        %br
-        %br
+        .col-md-2
+          - if @media.source_url.present?
+            = f.check_box :remove_source
+            Remove
+            %br
+            %br
 
       .form-group
         = f.submit class: 'btn btn-sm btn-default'
