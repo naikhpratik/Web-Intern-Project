@@ -52,7 +52,7 @@ class Admin::MediaController < Admin::BaseController
   end
 
   def media_params
-    params.require(:media).permit(:local_type, :title, :source, :caption, :transcript, :duration, :thumbnail_url, :parent_id, :product_id)
+    params.require(:media).permit(:local_type, :title, :source, :remove_source, :remote_source_url, :caption, :transcript, :duration, :thumbnail_url, :parent_id, :product_id)
   end
 
 end

@@ -8,5 +8,4 @@
       .btn.btn-default.btn-xs
         = link_to('edit', edit_admin_product_media_path(@product, media.actable_id))
   .panel-body
-    = media.specific.caption
-    = image_tag(media.actable_id.source_url)
+    = render partial: "/admin/media/media_type", locals: { media: media.specific }

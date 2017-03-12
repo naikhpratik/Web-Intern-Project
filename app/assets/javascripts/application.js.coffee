@@ -20,6 +20,7 @@
 # //= require admin
 # //= require products
 # //= require flashcards
+# //= require media
 # //= require quizzes
 # //= require cocoon
 # //= require bugherd
