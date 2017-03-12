@@ -10,13 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170306155318) do
+ActiveRecord::Schema.define(version: 20170311222901) do
 
-  create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text    "text",        limit: 65535
-    t.integer "question_id"
-    t.boolean "correct"
-    t.index ["question_id"], name: "index_answers_on_question_id", using: :btree
+  create_table "audios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "play_count"
   end
 
   create_table "ckeditor_assets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -64,10 +61,12 @@ ActiveRecord::Schema.define(version: 20170306155318) do
   end
 
   create_table "flashcard_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text    "front",        limit: 65535
-    t.text    "back",         limit: 65535
-    t.integer "flashcard_id"
-    t.integer "row_order"
+    t.text     "front",        limit: 65535
+    t.text     "back",         limit: 65535
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "flashcard_id"
+    t.integer  "row_order"
     t.index ["flashcard_id"], name: "index_flashcard_items_on_flashcard_id", using: :btree
   end
 
@@ -75,8 +74,8 @@ ActiveRecord::Schema.define(version: 20170306155318) do
   end
 
   create_table "htmls", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string  "description"
     t.boolean "has_plain_text"
+    t.text    "description",    limit: 65535
     t.text    "html_source",    limit: 65535
   end
 
@@ -140,6 +139,17 @@ ActiveRecord::Schema.define(version: 20170306155318) do
     t.text    "hint",        limit: 65535
     t.text    "explanation", limit: 65535
     t.integer "quiz_id"
+    t.text    "question",    limit: 65535
+    t.text    "correct",     limit: 65535
+    t.text    "distractor1", limit: 65535
+    t.text    "distractor2", limit: 65535
+    t.text    "distractor3", limit: 65535
+    t.text    "distractor4", limit: 65535
+    t.text    "distractor5", limit: 65535
+    t.text    "distractor6", limit: 65535
+    t.text    "distractor7", limit: 65535
+    t.text    "distractor8", limit: 65535
+    t.text    "distractor9", limit: 65535
     t.index ["quiz_id"], name: "index_questions_on_quiz_id", using: :btree
   end
 
@@ -201,7 +211,11 @@ ActiveRecord::Schema.define(version: 20170306155318) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "answers", "questions"
+  create_table "videos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string  "url"
+    t.integer "play_count"
+  end
+
   add_foreign_key "contents", "products"
   add_foreign_key "flashcard_items", "flashcards"
   add_foreign_key "permissions", "products"
