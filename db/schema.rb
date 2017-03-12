@@ -10,14 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170304183145) do
-
-  create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text    "text",        limit: 65535
-    t.integer "question_id"
-    t.boolean "correct"
-    t.index ["question_id"], name: "index_answers_on_question_id", using: :btree
-  end
+ActiveRecord::Schema.define(version: 20170311222901) do
 
   create_table "audios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "play_count"
@@ -89,10 +82,12 @@ ActiveRecord::Schema.define(version: 20170304183145) do
   create_table "media", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string  "local_type"
     t.string  "caption"
-    t.text    "transcript",    limit: 65535
+    t.text    "transcript",        limit: 65535
     t.integer "duration"
     t.string  "thumbnail_url"
     t.string  "source"
+    t.string  "source_tmp"
+    t.boolean "source_processing",               default: false, null: false
   end
 
   create_table "modulees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -144,19 +139,18 @@ ActiveRecord::Schema.define(version: 20170304183145) do
     t.text    "hint",        limit: 65535
     t.text    "explanation", limit: 65535
     t.integer "quiz_id"
+    t.text    "question",    limit: 65535
+    t.text    "correct",     limit: 65535
+    t.text    "distractor1", limit: 65535
+    t.text    "distractor2", limit: 65535
+    t.text    "distractor3", limit: 65535
+    t.text    "distractor4", limit: 65535
+    t.text    "distractor5", limit: 65535
+    t.text    "distractor6", limit: 65535
+    t.text    "distractor7", limit: 65535
+    t.text    "distractor8", limit: 65535
+    t.text    "distractor9", limit: 65535
     t.index ["quiz_id"], name: "index_questions_on_quiz_id", using: :btree
-  end
-
-  create_table "quiz_questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "question",      limit: 65535
-    t.text     "hint",          limit: 65535
-    t.integer  "content_id"
-    t.string   "question_type"
-    t.text     "correct",       limit: 65535
-    t.text     "distractors",   limit: 65535
-    t.text     "explination",   limit: 65535
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
   end
 
   create_table "quizzes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -222,7 +216,6 @@ ActiveRecord::Schema.define(version: 20170304183145) do
     t.integer "play_count"
   end
 
-  add_foreign_key "answers", "questions"
   add_foreign_key "contents", "products"
   add_foreign_key "flashcard_items", "flashcards"
   add_foreign_key "permissions", "products"

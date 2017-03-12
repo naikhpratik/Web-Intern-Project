@@ -24,8 +24,7 @@ class Admin::QuizzesController < Admin::BaseController
   end
 
   def update
-    reset_params = reset_answer_params(quiz_params)
-    if @quiz.update(reset_params)
+    if @quiz.update(quiz_params)
       redirect_to admin_product_url(@product), notice: 'Quiz was successfully updated.'
     else
       render action: :edit
@@ -33,6 +32,20 @@ class Admin::QuizzesController < Admin::BaseController
   end
 
   def destroy
+  end
+
+  def download
+    @quiz = Quiz.find(params[:quiz_id])
+    respond_to do |format|
+      format.csv { send_data @quiz.questions.to_csv, filename: "quiz-#{@quiz.title}-#{Date.today}.csv" }
+    end
+  end
+
+  def upload
+    quiz = Quiz.find(params[:quiz])
+    file = params[:file]
+    quiz.import(file)
+    redirect_to(edit_admin_product_quiz_path(quiz.product, quiz.actable_id))
   end
 
   private
@@ -50,19 +63,7 @@ class Admin::QuizzesController < Admin::BaseController
   end
 
   def quiz_params
-    params.require(:quiz).permit(:title, :q_type, :time, :parent_id, :product_id, questions_attributes: [:id, :hint, :explanation, :_destroy, answers_attributes: [:id, :text, :correct, :_destroy]])
-  end
-
-  def reset_answer_params rparams
-    rparams[:questions_attributes].each do |q_no, q|
-      q[:answers_attributes].each do |a_no, a|
-        if a[:correct].nil?
-          a[:correct] = false
-        end
-      end
-    end
-
-    rparams
+    params.require(:quiz).permit(:title, :q_type, :time, :parent_id, :product_id, questions_attributes: [:id, :question, :hint, :explanation, :correct, :distractor1, :distractor2, :distractor3, :distractor4, :distractor5, :distractor6, :distractor7, :distractor8, :distractor9, :_destroy])
   end
 
 end

@@ -2,7 +2,9 @@
   .col-md-8
     .panel.panel-default
       .panel-heading
-        .h5.panel-title.pull-left &nbsp; 
+        .panel-title
+          .col-md-10
+            = f.text_area :question, class: 'form-control'
         .pull-right
           = link_to "<span class='glyphicon glyphicon-chevron-up'></span>".html_safe, "#", class: 'btn btn-warning btn-sm clickable'
           = link_to_remove_association "<span class='glyphicon glyphicon-remove'></span>".html_safe, f, class: 'btn btn-warning btn-sm'
@@ -18,6 +20,42 @@
             = f.label :hint
             = f.text_field :hint, class: 'form-control'
         .row.answers
-          = f.fields_for :answers do |answer|
-            = render 'answer_fields', f: answer
-          = link_to_add_association 'New Answer', f, :answers, class: 'btn btn-default btn-sm btn-answer-add'
+          .col-md-12.form-group.field
+            = f.label :correct
+            = f.text_field :correct, class: 'form-control'
+        .row.answers
+          .col-md-12.form-group.field
+            = f.label :distractor
+            = f.text_field :distractor1, class: 'form-control'
+        .row.answers
+          .col-md-12.form-group.field
+            = f.label :distractor
+            = f.text_field :distractor2, class: 'form-control'
+        .row.answers
+          .col-md-12.form-group.field
+            = f.label :distractor
+            = f.text_field :distractor3, class: 'form-control'
+        .row.answers
+          .col-md-12.form-group.field
+            = f.label :distractor
+            = f.text_field :distractor4, class: 'form-control'
+        .row.answers
+          .col-md-12.form-group.field
+            = f.label :distractor
+            = f.text_field :distractor5, class: 'form-control'
+        .row.answers
+          .col-md-12.form-group.field
+            = f.label :distractor
+            = f.text_field :distractor6, class: 'form-control'
+        .row.answers
+          .col-md-12.form-group.field
+            = f.label :distractor
+            = f.text_field :distractor7, class: 'form-control'
+        .row.answers
+          .col-md-12.form-group.field
+            = f.label :distractor
+            = f.text_field :distractor8, class: 'form-control'
+        .row.answers
+          .col-md-12.form-group.field
+            = f.label :distractor
+            = f.text_field :distractor9, class: 'form-control'
