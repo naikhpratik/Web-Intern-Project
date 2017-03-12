@@ -38,7 +38,10 @@
           end
         end
         resources :htmls, path: 'html'
-        resources :quizzes
+        resources :quizzes do
+          get 'download'
+          post 'upload'
+        end
         resources :media
       end
 
